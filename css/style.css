@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 
 /* font-family: 'Lato', sans-serif; */
@@ -10,15 +10,15 @@
 
 /* Variables para los colores */
 :root {
-  --degradado: linear-gradient(to right, #44A647, #FFD438);
-  --body: #FEFAE0;
-  --ppal: #606C38;
-  --ppal_shadow: #A4AC86;
-  --ppal1: #582F0E;
-  --ppal1_shadow: #A68A64;
+  --degradado: linear-gradient(to right, #44a647, #ffd438);
+  --body: #fefae0;
+  --ppal: #606c38;
+  --ppal_shadow: #a4ac86;
+  --ppal1: #582f0e;
+  --ppal1_shadow: #a68a64;
   --contraste: #800020;
-  --contraste1: #B57276;
-  --contraste2: #D8A6A9;
+  --contraste1: #b57276;
+  --contraste2: #d8a6a9;
 }
 
 * {
@@ -29,13 +29,13 @@
 }
 
 body {
- background-color: var(--body); 
+  background-color: var(--body);
 }
 
 header {
   padding: 18px;
   z-index: 1000;
-  background-color: var(--ppal_shadow); 
+  background-color: var(--ppal_shadow);
   border-bottom: 2px solid black;
 }
 
@@ -46,23 +46,23 @@ header {
   margin: 0 auto;
   width: 100%;
   max-width: 1440px;
-}
-
-.logo img {
-  height: 40px;
-  margin-left: -50px; 
+  /* background-color: black; */
 }
 
 nav {
   flex-grow: 1;
 }
 
+nav img {
+  width: 50px;
+}
+
 nav ul {
   list-style: none;
   display: flex;
-  justify-content: space-around; 
+  justify-content: space-around;
   align-items: center;
-  width: 100%; 
+  width: 100%;
 }
 
 nav ul li a {
@@ -108,24 +108,24 @@ nav ul li:hover a {
 }
 
 .contact-container {
- display: grid;
- justify-content: center;
- margin: 0 auto;
- grid-template-columns: 600px 600px;
- grid-template-rows: 600px 200px;
- width: 100%;
- max-width: 1000px; 
+  display: grid;
+  justify-content: center;
+  margin: 0 auto;
+  grid-template-columns: 600px 600px;
+  grid-template-rows: 600px 200px;
+  width: 100%;
+  max-width: 1000px;
 }
 
 .contact-info {
- padding-top: 40px;
- padding-right: 20px;
+  padding-top: 40px;
+  padding-right: 20px;
 }
 
 .contact-info h2 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: bolder;
- font-size: 48px;
+  font-size: 48px;
 }
 
 .contact-info p {
@@ -134,26 +134,29 @@ nav ul li:hover a {
 }
 
 .contact-form {
- grid-template-columns: 1fr;
- grid-column-gap: 20px;
- padding: 30px;
+  grid-template-columns: 1fr;
+  grid-column-gap: 20px;
+  padding: 30px;
 }
 
 .form-group {
- margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .lbl-contact {
- font-size: 18px;
- margin-bottom: 8px;
- font-weight: 550;
+  font-size: 18px;
+  margin-bottom: 8px;
+  font-weight: 550;
 }
 
 input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 1000px transparent inset; /* Hace que el fondo sea transparente */
 }
 
-#nombre, #telefono, #correo, textarea {
+#nombre,
+#telefono,
+#correo,
+textarea {
   padding: 8px;
   font-size: 16px;
   width: 100%;
@@ -185,7 +188,7 @@ textarea {
   font-size: 14px;
   font-weight: bolder;
   height: auto;
-  padding: 8px; 
+  padding: 8px;
 }
 
 .buttons button:hover {
@@ -195,7 +198,8 @@ textarea {
 
 /* form login */
 
-.popup-login, .popup-signup {
+.popup-login,
+.popup-signup {
   position: absolute;
   top: -150%;
   left: 50%;
@@ -206,18 +210,17 @@ textarea {
   background: var(--ppal_shadow);
   box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
-  transition: top 0ms ease-in-out 200ms,
-              opacity 200ms ease-in-out 0ms,
-              transform 200ms ease-in-out 0ms;
+  transition: top 0ms ease-in-out 200ms, opacity 200ms ease-in-out 0ms,
+    transform 200ms ease-in-out 0ms;
 }
 
-.popup-login.active, .popup-signup.active {
+.popup-login.active,
+.popup-signup.active {
   top: 50%;
   opacity: 1;
   transform: translate(-50%, -50%) scale(1);
-  transition: top 0ms ease-in-out 0ms,
-              opacity 200ms ease-in-out 0ms,
-              transform 200ms ease-in-out 0ms;
+  transition: top 0ms ease-in-out 0ms, opacity 200ms ease-in-out 0ms,
+    transform 200ms ease-in-out 0ms;
 }
 
 .popup-login .close-bttn {
@@ -231,19 +234,19 @@ textarea {
   cursor: pointer;
 }
 
-.popup-login .form-login h2{
+.popup-login .form-login h2 {
   margin: 10px 0px 20px;
   font-size: 24px;
   font-weight: bolder;
 }
 
-.popup-login .form-login .form-element label{
+.popup-login .form-login .form-element label {
   font-size: 16px;
   color: #000000;
 }
 
 .popup-login .form-login .form-element input[type="text"],
-.popup-login .form-login .form-element input[type="password"]{
+.popup-login .form-login .form-element input[type="password"] {
   margin-top: 8px;
   margin-bottom: 30px;
   display: block;
@@ -295,14 +298,13 @@ textarea {
   cursor: pointer;
 }
 
-
-.popup-signup .form-signup h2{
+.popup-signup .form-signup h2 {
   margin: 10px 0px 20px;
   font-size: 24px;
   font-weight: bolder;
 }
 
-.popup-signup .form-signup .form-element label{
+.popup-signup .form-signup .form-element label {
   font-size: 16px;
   color: #000000;
 }
