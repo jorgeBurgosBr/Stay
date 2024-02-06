@@ -107,7 +107,7 @@ if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya
       <div class="close-bttn">
         <i class="fa-solid fa-xmark fa-lg" style="color: #800020"></i>
       </div>
-      <form class="form-signup" id="form-signup" action="" method="post">
+      <form class="form-signup" id="form-signup" action="" method="">
         <h2>Regístrate</h2>
         <div class="form-element">
           <label for="nombre_completo">Nombre completo:</label>
