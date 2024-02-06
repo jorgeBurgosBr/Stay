@@ -270,22 +270,35 @@ function comprobarCorreoLogin() {
 
 // Validación sign-in
 function comprobarNombreSignUp() {
-   const valor = document.getElementById('nombre_completo').value;
-   const contieneNumeros = /^[0-9]/.test(valor);
-   const bordeInput = document.getElementById('nombre_completo');
+   // const valor = document.getElementById('nombre_completo').value;
+   const nombre = document.getElementById('nombre-signup').value;
+   const apellidos = document.getElementById('apellidos-signup').value;
+   const expresionregex = /^[a-zA-ZÀ-ÿ\s']+$/u;
+   const bordeInputNombre = document.getElementById('nombre-signup');
+   const bordeInputApellidos = document.getElementById('apellidos-signup');
    const mensajeErrorNombre = document.getElementById('mensaje-error-nombre-signup');
-
-   if (contieneNumeros) {
+   const mensajeErrorApellidos = document.getElementById('mensaje-error-apellidos-signup');
+   
+   // Comprobamos nombre
+   if(!expresionregex.test(nombre)){
       mensajeErrorNombre.textContent = '⛔ No se pueden introducir números!';
       mensajeErrorNombre.style.display = 'block';
       mensajeErrorNombre.style.marginTop = '-25px';
       mensajeErrorNombre.style.color = 'red';
-      bordeInput.style.border = '2px solid red';
-
-      document.getElementById('nombre_completo').value = '';
-   } else {
+      bordeInputNombre.style.border = '2px solid red';
+   }else{
       document.getElementById('mensaje-error-nombre-signup').textContent = '';
-      bordeInput.style.border = '2px solid black';
+      bordeInputNombre.style.border = '2px solid black';
+   }
+   if(!expresionregex.test(apellidos)){
+      mensajeErrorApellidos.textContent = '⛔ No se pueden introducir números!';
+      mensajeErrorApellidos.style.display = 'block';
+      mensajeErrorApellidos.style.marginTop = '-25px';
+      mensajeErrorApellidos.style.color = 'red';
+      bordeInputApellidos.style.border = '2px solid red';
+   } else{
+      document.getElementById('mensaje-error-apellidos-signup').textContent = '';
+      bordeInputApellidos.style.border = '2px solid black';
    }
 }
 
