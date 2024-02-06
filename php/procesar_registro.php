@@ -40,7 +40,7 @@ if ($bd->conectar()) {
          //Insertamos los datos en la BBDD
          $sql2 = mysqli_query($conn, "INSERT INTO paciente (nombre_paciente, apellidos_paciente, correo_paciente, telefono_paciente) 
                                     VALUES ('$nombre', '$apellido', '$correo', '')");
-         $sql3 = mysqli_query($conn, "INSERT INTO usuario (nombre_usuario, contrasena_usuario, tipo_usuario, id_original)
+         $sql3 = mysqli_query($conn, "INSERT INTO usuario (correo_usuario, contrasena_usuario, tipo_usuario, id_original)
                                     VALUES ('$nombre + id_original', '$password', 'paciente', '')"); //el nombre de usuario es el nombre seguirdo del id_original
          if ($sql2 and $sql3) { //si los datos han sido insertados
             echo json_encode("exito registro");
