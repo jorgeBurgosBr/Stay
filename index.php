@@ -35,6 +35,22 @@ if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya
       </nav>
     </div>
   </header>
+  <section>
+      <div class="container-titulo">
+         <div class="titulo">
+           <img src="img/paz.jpg" alt="Paz Mental">
+           <div class="contenido-titulo">
+             <h1>STAY - VIVE CON ESPERANZA</h1>
+             <p>Descubre una nueva forma de encontrar esperanza y apoyo. No estás solo en este viaje.</p>
+             <button class="bttn-titulo">Únete gratis</button>
+           </div>
+         </div>
+       </div>
+   </section>
+   <section>
+      <div class="container-psicologos">   
+      </div>
+   </section>
   <div class="contact-container">
     <div class="contact-info">
       <h2>Contáctanos si necesitas más ayuda.</h2>
@@ -52,17 +68,17 @@ if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya
       <form action="php/procesar_contacto.php" id="form-contacto" method="post" onsubmit="return validacionContacto()">
         <div class="form-group">
           <label for="nombre" class="lbl-contact">Nombre completo:</label>
-          <input name="nombre" type="text" id="nombre" required />
+          <input name="nombre" type="text" id="nombre" placeholder="Introduce tu nombre" required />
           <span id="mensaje-error-nombre"></span>
         </div>
         <div class="form-group">
           <label for="telefono" class="lbl-contact">Teléfono:</label>
-          <input name="telefono" type="text" id="telefono" maxlength="9" required />
+          <input name="telefono" type="text" id="telefono" maxlength="9" placeholder="Introduce tu teléfono" required />
           <span id="mensaje-error-telefono"></span>
         </div>
         <div class="form-group">
           <label for="correo" class="lbl-contact">Correo electrónico:</label>
-          <input name="correo" type="text" id="correo" />
+          <input name="correo" type="text" id="correo" placeholder="Introduce tu correo" required/>
           <span id="mensaje-error-correo"></span>
         </div>
         <div class="form-group">
@@ -111,7 +127,7 @@ if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya
         <h2>Regístrate</h2>
         <div class="form-element">
           <label for="nombre_completo">Nombre completo:</label>
-          <input type="text" name="nombre" id="nombre_completo" />
+          <input type="text" name="nombre" id="nombre_completo" placeholder="Introduce tu nombre"/>
           <span id="mensaje-error-nombre-signup"></span>
         </div>
         <!-- <div class="form-element">
@@ -121,40 +137,13 @@ if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya
             </div> -->
         <div class="form-element">
           <label for="email-signup">Correo:</label>
-          <input type="text" name="correo" id="email-signup" />
+          <input type="text" name="correo" id="email-signup" placeholder="Introduce tu correo" />
           <span id="mensaje-error-correo-signup"></span>
         </div>
         <div class="form-element">
           <label for="password">Contraseña:</label>
-          <input type="password" name="password" id="password_signup" required />
+          <input type="password" name="password" id="password_signup" required placeholder="Introduce tu contraseña"/>
         </div>
-        <!-- <div class="form-element">
-               <label for="phone">Teléfono:</label>
-               <input type="text" id="phone">
-               <span id="mensaje-error-telefono-signup"></span>
-            </div> -->
-        <!-- <div class="form-element">
-               <label for="comunidad">Comunidad:</label>
-               <select id="comunidad" name="comunidad">
-                  <option value="" disabled selected>Selecciona una comunidad autónoma</option>
-                  <option value="andalucia">Andalucía</option>
-                  <option value="aragon">Aragón</option>
-                  <option value="asturias">Asturias</option>
-                  <option value="canarias">Canarias</option>
-                  <option value="cantabria">Cantabria</option>
-                  <option value="castilla-la-mancha">Castilla-La Mancha</option>
-                  <option value="castilla-leon">Castilla y León</option>
-                  <option value="cataluna">Cataluña</option>
-                  <option value="extremadura">Extremadura</option>
-                  <option value="galicia">Galicia</option>
-                  <option value="madrid">Madrid</option>
-                  <option value="murcia">Murcia</option>
-                  <option value="navarra">Navarra</option>
-                  <option value="pais-vasco">País Vasco</option>
-                  <option value="rioja">La Rioja</option>
-                  <option value="valencia">Comunidad Valenciana</option>
-               </select>
-            </div> -->
         <div class="form-element">
           <button type="submit" id="signup-submit">ENVIAR</button>
         </div>
