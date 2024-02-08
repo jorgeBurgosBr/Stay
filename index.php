@@ -90,7 +90,7 @@ if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya
         </div>
       </form>
     </div>
-    <!-- FORMULARIO DE LOGIN -->
+    <!-- FORMULARIO DE LOG-IN -->
     <div class="popup-login">
       <div class="close-bttn">
         <i class="fa-solid fa-xmark fa-lg" style="color: #800020"></i>
@@ -118,7 +118,7 @@ if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya
         </div>
       </form>
     </div>
-    <!-- FORMULARIO DE SIGNUP -->
+    <!-- FORMULARIO DE REGISTRO -->
     <div class="popup-signup">
       <div class="close-bttn">
         <i class="fa-solid fa-xmark fa-lg" style="color: #800020"></i>
@@ -132,7 +132,7 @@ if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya
         </div>
         <div class="form-element">
           <label for="apellidos_registro">Apellidos</label>
-          <input type="text" id="apellidos-signup" placeholder="Introduce tus apellidos">
+          <input type="text" id="apellidos-signup" name="apellidos" placeholder="Introduce tus apellidos">
           <span id="mensaje-error-apellidos-signup"></span>
         </div>
         <div class="form-element">

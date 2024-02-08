@@ -10,26 +10,11 @@ if ($bd->conectar()) {
 
    if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $errores = array();
-      $nombre_completo = mysqli_real_escape_string($conn, $_POST['nombre']);
+      $nombre = mysqli_real_escape_string($conn, $_POST['nombre']);
+      $apellidos = mysqli_real_escape_string($conn, $_POST['apellidos']);
       $correo = mysqli_real_escape_string($conn, $_POST['correo']);
       $password = mysqli_real_escape_string($conn, $_POST['password']);
 
-      // Hacemos un split del nombre completo por el espacio en blanco
-      $partesNombre = explode(" ", $nombre_completo);
-
-      // Verificamos si hay al menos dos partes (nombre y apellido)
-      if (count($partesNombre) >= 2) {
-         // El primer elemento será el nombre
-         $nombre = $partesNombre[0];
-
-         // El resto de los elementos serán el apellido
-         // Usamos la función implode para unir los elementos del array excepto el primero (el nombre)
-         $apellido = implode(" ", array_slice($partesNombre, 1));
-      } else {
-         // Si no hay al menos dos partes, asumimos que solo hay un nombre
-         $nombre = $nombre_completo;
-         $apellido = "";
-      }
       // Comprobar si el usuario ya existe en la base de datos
       $sql = mysqli_query($conn, "SELECT * FROM paciente WHERE correo_paciente = '$correo'");
       if (mysqli_num_rows($sql) > 0) {
@@ -39,16 +24,18 @@ if ($bd->conectar()) {
       } else {
          //Insertamos los datos en la BBDD
          $sql2 = mysqli_query($conn, "INSERT INTO paciente (nombre_paciente, apellidos_paciente, correo_paciente, telefono_paciente) 
-                                    VALUES ('$nombre', '$apellido', '$correo', '')");
-         $sql3 = mysqli_query($conn, "INSERT INTO usuario (correo_usuario, contrasena_usuario, tipo_usuario, id_original)
-                                    VALUES ('$nombre + id_original', '$password', 'paciente', '')"); //el nombre de usuario es el nombre seguirdo del id_original
-         if ($sql2 and $sql3) { //si los datos han sido insertados
+                                    VALUES ('$nombre', '$apellidos', '$correo', '')");
+         $sql3 = mysqli_query($conn, "SELECT id_paciente FROM paciente WHERE correo_paciente = '$correo'");
+
+         // Recojo el id del paciente
+         $row = mysqli_fetch_assoc($sql3);
+         $id_original = $row['id_paciente'];
+
+         $sql4 = mysqli_query($conn, "INSERT INTO usuario (correo_usuario, contrasena_usuario, tipo_usuario, id_original)
+                                    VALUES ('$correo', '$password', 'paciente', $id_original)");
+         if ($sql4) { //si los datos han sido insertados
             echo json_encode("exito registro");
-            $sql4 = mysqli_query($conn, "SELECT * FROM paciente WHERE correo_paciente = '$correo'");
-            if (mysqli_num_rows($sql4) > 0) {
-               $row = mysqli_fetch_assoc($sql3);
-               $_SESSION['id_paciente'] = $row['id_paciente']; //guardamos el id del paciente en una variable de sesión para usarlo en otros documentos
-            }
+            $_SESSION['id_paciente'] = $id_original;
          }
       }
    }
