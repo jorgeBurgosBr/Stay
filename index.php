@@ -38,7 +38,7 @@ if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya
   <section>
     <div class="container-titulo">
       <div class="titulo">
-        <img src="img/paz.jpg" alt="Paz Mental">
+        <img src="img/paz.jpg" alt="Paz Mental" class="img-ppal">
         <div class="contenido-titulo">
           <h1>STAY - VIVE CON ESPERANZA</h1>
           <p>Descubre una nueva forma de encontrar esperanza y apoyo. No estás solo en este viaje.</p>
@@ -47,10 +47,45 @@ if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya
       </div>
     </div>
   </section>
+
   <section>
-    <div class="container-psicologos">
+  <div class="container-psicologos">
+  <div class="psico-card">
+    <div class="green-part">
+      <div class="photo">
+        <img src="img/alba-psicologa.png" alt="Alba García">
+      </div>
     </div>
+    <div class="info">
+      <h2>Alba García</h2>
+      <p>Máster en Terapia Cognitivo-Conductual con niños y adolescentes</p>
+    </div>
+  </div>
+  <div class="psico-card">
+    <div class="green-part">
+      <div class="photo">
+        <img src="img/sigmund-psicologo.png" alt="Sigmund Freud">
+      </div>
+    </div>
+    <div class="info">
+      <h2>Sigmund Freud</h2>
+      <p>Máster en Intervención Educativa y Psicológica</p>
+    </div>
+  </div>
+  <div class="psico-card">
+    <div class="green-part">
+      <div class="photo">
+        <img src="img/patricia-psicologo.png" alt="Patricia Fuentes">
+      </div>
+    </div>
+    <div class="info">
+      <h2>Patricia Fuentes</h2>
+      <p>Máster Oficial en Psicología Social</p>
+    </div>
+  </div>
+</div>
   </section>
+
   <div class="contact-container">
     <div class="contact-info">
       <h2>Contáctanos si necesitas más ayuda.</h2>
@@ -127,17 +162,17 @@ if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya
         <h2>Regístrate</h2>
         <div class="form-element">
           <label for="nombre">Nombre:</label>
-          <input type="text" name="nombre" id="nombre-signup" placeholder="Introduce tu nombre" />
+          <input type="text" name="nombre" id="nombre-signup" placeholder="Introduce tu nombre" required/>
           <span id="mensaje-error-nombre-signup"></span>
         </div>
         <div class="form-element">
           <label for="apellidos_registro">Apellidos</label>
-          <input type="text" id="apellidos-signup" name="apellidos" placeholder="Introduce tus apellidos">
+          <input type="text" id="apellidos-signup" name="apellidos" placeholder="Introduce tus apellidos" required>
           <span id="mensaje-error-apellidos-signup"></span>
         </div>
         <div class="form-element">
           <label for="email-signup">Correo:</label>
-          <input type="text" name="correo" id="email-signup" placeholder="Introduce tu correo" />
+          <input type="text" name="correo" id="email-signup" placeholder="Introduce tu correo" required/>
           <span id="mensaje-error-correo-signup"></span>
         </div>
         <div class="form-element">
