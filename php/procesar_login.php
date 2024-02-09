@@ -11,14 +11,14 @@ if ($bd->conectar()) {
       $correo = mysqli_real_escape_string($conn, $_POST['correo']);
       $password = mysqli_real_escape_string($conn, $_POST['password']);
       // Comprobar si el usuario existe en la base de datos
-      $sql = mysqli_query($conn, "SELECT * FROM paciente p INNER JOIN usuario u ON p.id_paciente = u.id_paciente WHERE p.correo_paciente = '$correo' AND u.contraseña_usuario = '$password'");
+      $sql = mysqli_query($conn, "SELECT * FROM paciente p INNER JOIN usuario u ON p.id_paciente = u.id_usuario WHERE p.correo_paciente = '$correo' AND u.contrasena_usuario = '$password'");
       if (mysqli_num_rows($sql) > 0) {
-         echo json_encode('exito login');
+         echo json_encode("exito login");
       } else {
-         $sql2 = mysqli_query($conn, "SELECT * FROM paciente p INNER JOIN usuario u ON p.id_paciente = u.id_paciente WHERE p.correo_paciente = '$correo'");
+         $sql2 = mysqli_query($conn, "SELECT * FROM paciente p INNER JOIN usuario u ON p.id_paciente = u.id_usuario WHERE p.correo_paciente = '$correo'");
          if (mysqli_num_rows($sql2) > 0) {
             //El correo existe
-            $sql3 = mysqli_query($conn, "SELECT * FROM paciente p INNER JOIN usuario u ON p.id_paciente = u.id_paciente WHERE u.contraseña_usuario = '$password'");
+            $sql3 = mysqli_query($conn, "SELECT * FROM paciente p INNER JOIN usuario u ON p.id_paciente = u.id_usuario WHERE u.contrasena_usuario = '$password'");
             if (mysqli_num_rows($sql3) > 0) {
                //la contraseña es correca y por lo tanto ya tendría que haber iniciado sesión
             } else {

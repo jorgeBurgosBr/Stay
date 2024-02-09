@@ -49,13 +49,13 @@ function enviarFormularioPorAjax(formulario){
     if (formulario.id === 'form-contacto') {
         url = 'php/procesar_contacto.php';
     } else if (formulario.id === 'form-login') {
-        url = 'p p';
+        url = 'php/procesar_login.php';
     } else if (formulario.id === 'form-signup') {
         url = 'php/procesar_registro.php';
     }
 
     // Inicia una nueva solicitud AJAX
-    const xhr = new XMLHttpRequest();
+   const xhr = new XMLHttpRequest();
     xhr.open('POST', url, true);
 
     // Define el comportamiento cuando la solicitud AJAX se complete
@@ -65,9 +65,11 @@ function enviarFormularioPorAjax(formulario){
             // Convertir la respuesta del servidor a JSON
             // console.log(xhr.responseText);
             var data = JSON.parse(xhr.responseText);
+            console.log(data);
             if (data == "exito registro") {
                alert("Registrado con éxito")
             } else if (data == "exito login") {
+               alert("todo bien");
               location.href = "../sesiones.php";
             } else {
                // Mostrar errores en el formulario
@@ -99,9 +101,9 @@ function mostrarErrores(errores) {
       var mensajeErrorCorreo = document.getElementById("mensaje-error-correo");
       mensajeErrorCorreo.textContent = errores.correo;
    }
-    if (errores.contraseña) {
+    if (errores.password) {
       var mensajeErrorCorreo = document.getElementById("mensaje-error-correo");
-      mensajeErrorCorreo.textContent = errores.correo;
+      mensajeErrorCorreo.textContent = errores.password;
    } 
 }
 

@@ -36,21 +36,21 @@ if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya
     </div>
   </header>
   <section>
-      <div class="container-titulo">
-         <div class="titulo">
-           <img src="img/paz.jpg" alt="Paz Mental">
-           <div class="contenido-titulo">
-             <h1>STAY - VIVE CON ESPERANZA</h1>
-             <p>Descubre una nueva forma de encontrar esperanza y apoyo. No estás solo en este viaje.</p>
-             <button class="bttn-titulo">Únete gratis</button>
-           </div>
-         </div>
-       </div>
-   </section>
-   <section>
-      <div class="container-psicologos">   
+    <div class="container-titulo">
+      <div class="titulo">
+        <img src="img/paz.jpg" alt="Paz Mental">
+        <div class="contenido-titulo">
+          <h1>STAY - VIVE CON ESPERANZA</h1>
+          <p>Descubre una nueva forma de encontrar esperanza y apoyo. No estás solo en este viaje.</p>
+          <button class="bttn-titulo">Únete gratis</button>
+        </div>
       </div>
-   </section>
+    </div>
+  </section>
+  <section>
+    <div class="container-psicologos">
+    </div>
+  </section>
   <div class="contact-container">
     <div class="contact-info">
       <h2>Contáctanos si necesitas más ayuda.</h2>
@@ -78,7 +78,7 @@ if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya
         </div>
         <div class="form-group">
           <label for="correo" class="lbl-contact">Correo electrónico:</label>
-          <input name="correo" type="text" id="correo" placeholder="Introduce tu correo" required/>
+          <input name="correo" type="text" id="correo" placeholder="Introduce tu correo" required />
           <span id="mensaje-error-correo"></span>
         </div>
         <div class="form-group">
@@ -104,7 +104,7 @@ if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya
         </div>
         <div class="form-element">
           <label for="password">Contraseña:</label>
-          <input type="password" name="password_login" id="password_login" placeholder="Introduce tu contraseña" required />
+          <input type="password" name="password" id="password_login" placeholder="Introduce tu contraseña" required />
         </div>
         <div class="form-element">
           <input type="checkbox" id="recuerdame" />
@@ -127,7 +127,7 @@ if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya
         <h2>Regístrate</h2>
         <div class="form-element">
           <label for="nombre_completo">Nombre completo:</label>
-          <input type="text" name="nombre" id="nombre_completo" placeholder="Introduce tu nombre"/>
+          <input type="text" name="nombre" id="nombre_completo" placeholder="Introduce tu nombre" />
           <span id="mensaje-error-nombre-signup"></span>
         </div>
         <!-- <div class="form-element">
@@ -142,7 +142,7 @@ if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya
         </div>
         <div class="form-element">
           <label for="password">Contraseña:</label>
-          <input type="password" name="password" id="password_signup" required placeholder="Introduce tu contraseña"/>
+          <input type="password" name="password" id="password_signup" required placeholder="Introduce tu contraseña" />
         </div>
         <div class="form-element">
           <button type="submit" id="signup-submit">ENVIAR</button>
