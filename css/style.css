@@ -111,35 +111,41 @@ nav ul li:hover a {
   color: var(--contraste);
 }
 
+.img-ppal {
+  border-radius: 4%;
+  filter: blur(0.2px);
+}
+
+/* ------- CONTACTO ------- */
 .contact-container {
-  display: grid;
+  display: flex;
   justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
   margin: 0 auto;
-  grid-template-columns: 600px 600px;
-  grid-template-rows: 600px 200px;
   width: 100%;
-  max-width: 1000px;
+  max-width: 1200px;
 }
 
 .contact-info {
-  padding-top: 40px;
-  padding-right: 20px;
+  flex: 1;
+  padding: 40px 20px;
 }
 
 .contact-info h2 {
   font-family: "Montserrat", sans-serif;
   font-weight: bolder;
   font-size: 48px;
+  margin-bottom: 20px;
 }
 
 .contact-info p {
   font-size: 24px;
-  margin-top: 50px;
+  margin-top: 20px;
 }
 
 .contact-form {
-  grid-template-columns: 1fr;
-  grid-column-gap: 20px;
+  flex: 1;
   padding: 30px;
 }
 
@@ -392,10 +398,14 @@ textarea {
 #accedeSignup:hover{
   text-decoration:underline;
 }
+/* ------- PPAL ------- */
+
 .container-titulo {
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
   height: 90vh;
 }
 
@@ -436,8 +446,145 @@ textarea {
   font-size: 16px;
   border: 1px solid transparent;
   border-radius: 4px;
+  transition: box-shadow 0.25s ease; /* Añadir transición al efecto hover */
 }
 
 .bttn-titulo:hover {
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5); 
+}
+
+/* ------- PSICOLOGOS ------- */
+.container-psicologos {
+  /* background-color: #000000; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.psico-tittle {
+  text-align: center;
+  margin-bottom: 160px;
+}
+
+.psico-tittle h1{
+  font-family: var(--tituloHero);
+  font-size: 56px;
+}
+
+.psico-card {
+  cursor: pointer;
+  width: 300px;
+  height: 350px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.green-part {
+  width: 100%;
+  height: 80px;
+  background-color: var(--ppal_shadow);
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo {
+  position: absolute;
+  top: 30px;
+  width: 100px;
+  height: 100px;
+  /* overflow: hidden; */
+  border-radius: 50%;
+  margin: 0 2rem;
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: 7rem;
+}
+
+.info h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.info hr {
+  width: 75%;
+  margin-top: -8px;
+}
+
+.info p {
+  margin-top: 20px;
+  font-size: 1rem;
+}
+
+.card-back {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: -100%;
+  position: absolute;
+  background-color: var(--ppal_shadow);
+  backdrop-filter: blur(15px);
+  color: #f0f0f0;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: 1s;
+}
+
+.psico-card:hover .card-back {
+  right: 0;
+}
+
+.card-tittle {
+  text-transform: uppercase;
+  font-size: 30px;
+  font-weight: 800;
+}
+
+.card-info {
+  line-height: 25px;
+  margin: 40px 0;
+}
+
+.card-btn {
+  display: block;
+  margin: auto;
+  cursor: pointer;
+  background-color: var(--ppal);
+  color: #ffff;
+  padding: 5px 10px;
+  font-size: 14px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  transition: box-shadow 0.25s ease; /* Añadir transición al efecto hover */
+}
+
+.card-btn:hover {
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5); 
 }
