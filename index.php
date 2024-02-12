@@ -93,7 +93,7 @@ if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya
       </form>
     </div>
     <!-- FORMULARIO DE LOG-IN -->
-    <div class="popup-login">
+    <div class="popup-login active">
       <div class="close-bttn">
         <i class="fa-solid fa-xmark fa-lg" style="color: #800020"></i>
       </div>
@@ -107,6 +107,9 @@ if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya
         <div class="form-element">
           <label for="password">Contraseña:</label>
           <input type="password" name="password_login" id="password_login" placeholder="Introduce tu contraseña" required />
+          <span class="material-symbols-outlined" id="visibleLogin">
+            visibility_off
+          </span>
         </div>
         <div class="form-element">
           <input type="checkbox" id="recuerdame" />
@@ -124,7 +127,7 @@ if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya
       </form>
     </div>
     <!-- FORMULARIO DE REGISTRO -->
-    <div class="popup-signup active">
+    <div class="popup-signup">
       <div class="close-bttn">
         <i class="fa-solid fa-xmark fa-lg" style="color: #800020"></i>
       </div>

@@ -283,3 +283,14 @@ document.querySelector("#visibleSignup").addEventListener("click", function(){
 
    }
 });
+document.querySelector("#visibleLogin").addEventListener("click", function(){
+   
+   if(this.textContent == "visibility"){
+      this.textContent = "visibility_off";
+      document.querySelector("#password_login").type = "password";
+   }else{
+      this.textContent = "visibility";
+      document.querySelector("#password_login").type = "text";
+
+   }
+});

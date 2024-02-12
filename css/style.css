@@ -261,7 +261,15 @@ textarea {
   border: 1px solid black;
   border-radius: 5px;
 }
-
+#password_login{
+  position: relative;
+}
+#visibleLogin{
+  position: absolute;
+  bottom: 160px;
+  right: 40px;
+  cursor: pointer;
+}
 .popup-login .form-login .form-element input[type="checkbox"] {
   margin-right: 5px;
 }
@@ -336,7 +344,7 @@ textarea {
 #contrasena-signup{
   position: relative;
 }
-.material-symbols-outlined{
+#visibleSignup{
   position: absolute;
   cursor: pointer; 
   bottom: 122px;
