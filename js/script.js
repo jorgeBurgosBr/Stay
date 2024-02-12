@@ -1,33 +1,30 @@
-//formulario contacto, no te devuelve errores
-//formulario signup, el único error que te puede devolver es que el correo ya exista
-//formulario login, que el correo no exista en la bbdd o que si exista pero no coincida la contraseña
-
 // Objeto que contiene los formularios asociados a identificadores únicos
 const forms = {
    "form-login": document.getElementById("form-login"),
    "form-signup": document.getElementById("form-signup"),
 };
 
-// Adjunta un controlador de eventos de envío de formulario a cada formulario
-for (let formId in forms) {
-   forms[formId].addEventListener("submit", function (event) {
-      event.preventDefault(); // Evita que el formulario se envíe automáticamente
+forms["form-login"].addEventListener("submit", function (event) {
+   // Previene que se envíe directamente
+   event.preventDefault();
+   // Valida el formulario
+   if (validacionLogin()) {
+      enviarFormularioPorAjax(forms["form-login"]);
+   } else {
+      return;
+   }
+});
 
-      // Determina qué función de validación utilizar según el formulario
-      if (formId === "form-login") {
-         if (!validacionLogin()) {
-            return;
-         }
-      } else if (formId === "form-signup") {
-         if (!validacionSignup()) {
-            return;
-         }
-      }
-
-      // Si la validación pasa, envía el formulario mediante AJAX
-      enviarFormularioPorAjax(document.getElementById(formId));
-   });
-}
+forms["form-signup"].addEventListener("submit", function(event){
+   alert("Entra en el evento");
+   event.preventDefault();
+   if(validacionSignup()){
+      alert("va a enviar el form")
+      enviarFormularioPorAjax(forms["form-signup"]);
+   }else{
+      return;
+   }
+});
 
 function enviarFormularioPorAjax(formulario) {
    // Recolecta los datos del formulario
@@ -94,285 +91,195 @@ function mostrarErrores(errores) {
       mensajeErrorCorreo.textContent = errores.correo;
    }
 }
+function validarNombre(nombre) {
+   return /\d/.test(nombre.value) ? false : true;
+}
+function validarTelefono(telefono) {
+   return /^\d{9}$/.test(telefono.value);
+}
+function validarCorreo(correo) {
+   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo.value);
+}
+function validarContrasena(contrasena){
+   // Password must contain at least one uppercase letter, one lowercase letter, one digit, and be at least 8 characters long
+   return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/.test(contrasena.value);
+}
+function validacionContacto(event) {
+   // Evito que se envíe
+   event.preventDefault();
 
-function validacionContacto() {
-   let error = false;
+   // recojo la validación de cada campo del formulario
+   let nombreValid = validarNombre(document.getElementById("nombre"));
+   let telefonoValid = validarTelefono(document.getElementById("telefono"));
+   let correoValid = validarCorreo(document.getElementById("correo"));
 
-   comprobarNombre();
-   comprobarTelefono();
-   comprobarCorreo();
+   // Recojo los span donde irán los errores
+   const errorNombreContacto = document.getElementById("error-nombre-contacto");
+   const errorTelContacto = document.getElementById("error-telefono-contacto");
+   const errorCorreoContacto = document.getElementById("error-correo-contacto");
 
-   const mensajeErrorNombre = document.getElementById("mensaje-error-nombre");
-   const mensajeErrorTel = document.getElementById("mensaje-error-telefono");
-   const mensajeErrorCorreo = document.getElementById("mensaje-error-correo");
-
-   if (mensajeErrorNombre.textContent) {
-      error = true;
-   }
-   if (mensajeErrorTel.textContent) {
-      error = true;
-   }
-   if (mensajeErrorCorreo.textContent) {
-      error = true;
-   }
-   // Si tiene algún error retorna false y si no lo tiene retornará true y enviará un alert
-   if (error) {
-      return false;
+   // En función de si se ha validado añado errores
+   if (!nombreValid) {
+      errorNombreContacto.textContent = "⛔ No se pueden introducir números";
+      errorNombreContacto.style.display = "block";
+      errorNombreContacto.style.color = "red";
+      document.getElementById("nombre").style.border = "2px solid red";
    } else {
-      // alert('Enviado correctamente!!')
-      return true;
+      errorNombreContacto.textContent = "";
+      document.getElementById("nombre").style.border = "1px solid black";
+   }
+
+   if (!telefonoValid) {
+      errorTelContacto.textContent = "⛔ Introduce 9 números";
+      errorTelContacto.style.display = "block";
+      errorTelContacto.style.color = "red";
+      document.getElementById("telefono").style.border = "2px solid red";
+   } else {
+      errorTelContacto.textContent = "";
+      document.getElementById("telefono").style.border = "1px solid black";
+   }
+
+   if (!correoValid) {
+      errorCorreoContacto.textContent = "⛔ Introduce un correo electrónico válido";
+      errorCorreoContacto.style.display = "block";
+      errorCorreoContacto.style.color = "red";
+      document.getElementById("correo").style.border = "2px solid red";
+   } else {
+      errorCorreoContacto.textContent = "";
+      document.getElementById("correo").style.border = "1px solid black";
+   }
+
+   // Only submit the form if all input fields are valid
+   if (nombreValid && telefonoValid && correoValid) {
+      document.getElementById("form-contacto").submit();
    }
 }
 function validacionLogin() {
-   let error = false;
 
-   comprobarCorreoLogin();
+   // Recojo campos validados
+   let correoValid = validarCorreo(document.getElementById("email"));
 
-   const mensajeErrorCorreo = document.getElementById(
-      "mensaje-error-correo-login"
-   );
+   // Recojo span de error
+   const errorCorreoLogin = document.getElementById("error-correo-login");
 
-   if (mensajeErrorCorreo.textContent) {
-      error = true;
-   }
-
-   // Si tiene algún error retorna false y si no lo tiene retornará true y enviará un alert
-   if (error) {
+   if (!correoValid) {
+      errorCorreoLogin.textContent = "⛔ Introduce un correo electrónico válido";
+      errorCorreoLogin.style.marginTop = "-18px";
+      errorCorreoLogin.style.marginBottom = "5px";
+      errorCorreoLogin.style.display = "block";
+      errorCorreoLogin.style.color = "red";
+      document.getElementById("email").style.border = "2px solid red";
       return false;
    } else {
-      // alert('Sesión iniciada correctamente!!')
+      errorCorreoLogin.textContent = "";
+      document.getElementById("email").style.border = "1px solid black";
       return true;
    }
 }
 function validacionSignup() {
-   let error = false;
+   // Recojo los campos validados
+   let nombreValid = validarNombre(document.getElementById("nombre-signup"));
+   let apellidosValid = validarNombre(document.getElementById("apellidos-signup"));
+   let correoValid = validarCorreo(document.getElementById("correo-signup"));
+   let contrasenaValid = validarContrasena(document.getElementById("contrasena-signup"));
 
-   comprobarNombreSignUp();
-   comprobarCorreoSignUp();
-   // comprobarUsuario()
+   // Recojo los span de error
+   const errorNombreSignup = document.getElementById("error-nombre-signup");
+   const errorApellidosSignup = document.getElementById("error-apellidos-signup");
+   const errorCorreoSignup = document.getElementById("error-correo-signup");
 
-   const mensajeErrorNombre = document.getElementById(
-      "mensaje-error-nombre-signup"
-   );
-   // const mensajeErrorUser = document.getElementById('mensjae-error-user')
-   // const mensajeErrorTel = document.getElementById('mensaje-error-telefono-signin')
-   const mensajeErrorCorreo = document.getElementById(
-      "mensaje-error-correo-signup"
-   );
+   // Recojo el <ul></ul> de error de la contraseña
+   const errorContrasenaSignup = document.getElementById("error-contrasena-signup");
 
-   if (mensajeErrorNombre.textContent) {
-      error = true;
+   if(!nombreValid){
+      errorNombreSignup.textContent = "⛔ No se pueden introducir números";
+      errorNombreSignup.style.display = "block";
+      errorNombreSignup.style.marginTop = "-25px";
+      errorNombreSignup.style.color = "red";
+      document.getElementById("nombre-signup").style.border = "2px solid red";
+   } else{
+      errorNombreSignup.textContent = "";
+      document.getElementById("nombre-signup").style.border = "1px solid black";
    }
 
-   // if (mensajeErrorTel.textContent) {
-   //    error = true
-   // }
-
-   if (mensajeErrorCorreo.textContent) {
-      error = true;
+   if(!apellidosValid){
+      errorApellidosSignup.textContent = "⛔ No se pueden introducir números";
+      errorApellidosSignup.style.display = "block";
+      errorApellidosSignup.style.marginTop = "-25px";
+      errorApellidosSignup.style.color = "red";
+      document.getElementById("apellidos-signup").style.border = "2px solid red";
+   } else{
+      errorApellidosSignup.textContent = "";
+      document.getElementById("apellidos-signup").style.border = "1px solid black";
    }
 
-   // if (mensajeErrorUser.textContent) {
-   //    error = true
-   // }
-
-   // Si tiene algún error retorna false y si no lo tiene retornará true y enviará un alert
-   if (error) {
-      return false;
-   } else {
-      // alert('Registrado correctamente!!')
-      return true;
+   if(!correoValid){
+      errorCorreoSignup.textContent = "⛔ Introduce un correo válido";
+      errorCorreoSignup.style.display = "block";
+      errorCorreoSignup.style.color = "red";
+      errorCorreoSignup.style.marginTop = "-25px";
+      document.getElementById("correo-signup").style.border = "2px solid red";
+   } else{
+      errorCorreoSignup.textContent = "";
+      document.getElementById("correo-signup").style.border = "1px solid black";
    }
+
+   if(!contrasenaValid){
+      // Añadimos <li></li> con los mensajes de error
+      errorContrasenaSignup.innerHTML = `
+         <li id="tituloError">⛔ Debe contener al menos:</li>
+         <li>- una letra mayúscula</li>
+         <li>- una letra minúscula</li>
+         <li>- un dígito</li>
+         <li>- ocho caracteres de longitud</li>
+      `;
+
+      // Cambiamos el estilo del input "contrasena-signup"
+      document.getElementById("contrasena-signup").style.border = "2px solid red";
+   } else{
+      errorContrasenaSignup.innerHTML = "";
+      document.getElementById("contrasena-signup").style.border = "1px solid black";
+   }
+   
 }
-
-function comprobarNombre() {
-   const valor = document.getElementById("nombre").value;
-   const contieneNumeros = /^[0-9]/.test(valor);
-   const bordeInput = document.getElementById("nombre");
-   const mensajeErrorNombre = document.getElementById("mensaje-error-nombre");
-
-   if (contieneNumeros) {
-      mensajeErrorNombre.textContent = "⛔ No se pueden introducir números!";
-      mensajeErrorNombre.style.display = "block";
-      mensajeErrorNombre.style.color = "red";
-      bordeInput.style.border = "2px solid red";
-      document.getElementById("nombre").value = "";
-   } else {
-      document.getElementById("mensaje-error-nombre").textContent = "";
-      bordeInput.style.border = "2px solid black";
-      bordeInput.style.backgroundColor = "transparent";
-   }
-}
-
-function comprobarTelefono() {
-   const valor = document.getElementById("telefono").value;
-   const contieneNumeros = /^\d{9}$/.test(valor);
-   const bordeInput = document.getElementById("telefono");
-   const mensajeErrorTelefono = document.getElementById(
-      "mensaje-error-telefono"
-   );
-
-   if (!contieneNumeros) {
-      mensajeErrorTelefono.textContent = "⛔ Introduce 9 números!";
-      mensajeErrorTelefono.style.display = "block";
-      mensajeErrorTelefono.style.color = "red";
-      bordeInput.style.border = "2px solid red";
-      document.getElementById("telefono").value = "";
-   } else {
-      document.getElementById("mensaje-error-telefono").textContent = "";
-      bordeInput.style.border = "2px solid black";
-      bordeInput.style.backgroundColor = "transparent";
-   }
-}
-
-function comprobarCorreo() {
-   const valor = document.getElementById("correo").value;
-   const bordeInput = document.getElementById("correo");
-   const mensajeErrorCorreo = document.getElementById("mensaje-error-correo");
-   // Expresión regular para validar el correo electrónico
-   const expresionCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-   if (!expresionCorreo.test(valor)) {
-      mensajeErrorCorreo.textContent =
-         "⛔ Introduce un correo electrónico válido!";
-      mensajeErrorCorreo.style.display = "block";
-      mensajeErrorCorreo.style.color = "red";
-      bordeInput.style.border = "2px solid red";
-      document.getElementById("correo").value = "";
-   } else {
-      document.getElementById("mensaje-error-correo").textContent = "";
-      bordeInput.style.border = "2px solid black";
-   }
-}
-
-// Validación log-in
-function comprobarCorreoLogin() {
-   const valor = document.getElementById("email").value;
-   const bordeInput = document.getElementById("email");
-   const mensajeErrorCorreo = document.getElementById(
-      "mensaje-error-correo-login"
-   );
-
-   // Expresión regular para validar el correo electrónico
-   const expresionCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-   if (!expresionCorreo.test(valor)) {
-      mensajeErrorCorreo.textContent =
-         "⛔ Introduce un correo electrónico válido!";
-      mensajeErrorCorreo.style.marginTop = "-18px";
-      mensajeErrorCorreo.style.marginBottom = "5px";
-      mensajeErrorCorreo.style.display = "block";
-      mensajeErrorCorreo.style.color = "red";
-      bordeInput.style.border = "2px solid red";
-      document.getElementById("email").value = "";
-   } else {
-      document.getElementById("mensaje-error-correo-login").textContent = "";
-      bordeInput.style.border = "2px solid black";
-   }
-}
-
-// Validación sign-in
-function comprobarNombreSignUp() {
-   // const valor = document.getElementById('nombre_completo').value;
-   const nombre = document.getElementById("nombre-signup").value;
-   const apellidos = document.getElementById("apellidos-signup").value;
-   const expresionregex = /^[a-zA-ZÀ-ÿ\s']+$/u;
-   const bordeInputNombre = document.getElementById("nombre-signup");
-   const bordeInputApellidos = document.getElementById("apellidos-signup");
-   const mensajeErrorNombre = document.getElementById(
-      "mensaje-error-nombre-signup"
-   );
-   const mensajeErrorApellidos = document.getElementById(
-      "mensaje-error-apellidos-signup"
-   );
-
-   // Comprobamos nombre
-   if (!expresionregex.test(nombre)) {
-      mensajeErrorNombre.textContent = "⛔ No se pueden introducir números!";
-      mensajeErrorNombre.style.display = "block";
-      mensajeErrorNombre.style.marginTop = "-25px";
-      mensajeErrorNombre.style.color = "red";
-      bordeInputNombre.style.border = "2px solid red";
-   } else {
-      document.getElementById("mensaje-error-nombre-signup").textContent = "";
-      bordeInputNombre.style.border = "2px solid black";
-   }
-   if (!expresionregex.test(apellidos)) {
-      mensajeErrorApellidos.textContent = "⛔ No se pueden introducir números!";
-      mensajeErrorApellidos.style.display = "block";
-      mensajeErrorApellidos.style.marginTop = "-25px";
-      mensajeErrorApellidos.style.color = "red";
-      bordeInputApellidos.style.border = "2px solid red";
-   } else {
-      document.getElementById("mensaje-error-apellidos-signup").textContent = "";
-      bordeInputApellidos.style.border = "2px solid black";
-   }
-}
-
-// function comprobarTelefonoSignUp() {
-
-//    const valor = document.getElementById('phone').value
-//    const contieneNumeros = /^\d{9}$/.test(valor)
-//    const bordeInput = document.getElementById('phone')
-//    const mensajeErrorTelefono = document.getElementById('mensaje-error-telefono-signup')
-
-//    if (!contieneNumeros) {
-
-//       mensajeErrorTelefono.textContent = '⛔ Introduce 9 números!'
-//       mensajeErrorTelefono.style.display = 'block'
-//       mensajeErrorTelefono.style.marginTop = '-25px'
-//       mensajeErrorTelefono.style.color = 'red'
-//       bordeInput.style.border = '2px solid red'
-//       document.getElementById('phone').value = ''
-//    }
-
-//    else {
-//       document.getElementById('mensaje-error-telefono-signup').textContent = ''
-//       bordeInput.style.border = '2px solid black'
-//       bordeInput.style.backgroundColor = 'transparent'
-//    }
-// }
-
-function comprobarCorreoSignUp() {
-   const valor = document.getElementById("email-signup").value;
-   const bordeInput = document.getElementById("email-signup");
-   const mensajeErrorCorreo = document.getElementById(
-      "mensaje-error-correo-signup"
-   );
-
-   // Expresión regular para validar el correo electrónico
-   const expresionCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-   if (!expresionCorreo.test(valor)) {
-      mensajeErrorCorreo.textContent = "⛔ Introduce un correo válido!";
-      mensajeErrorCorreo.style.display = "block";
-      mensajeErrorCorreo.style.color = "red";
-      mensajeErrorCorreo.style.marginTop = "-25px";
-      bordeInput.style.border = "2px solid red";
-      document.getElementById("email-signup").value = "";
-   } else {
-      document.getElementById("mensaje-error-correo-signup").textContent = "";
-      bordeInput.style.border = "2px solid black";
-   }
-}
-
 // formulario login
 document.querySelector("#log-bttn").addEventListener("click", function () {
    document.querySelector(".popup-login").classList.add("active");
+   document.querySelector(".popup-signup").classList.remove("active");
 });
 
-document
-   .querySelector(".popup-login .close-bttn")
-   .addEventListener("click", function () {
-      document.querySelector(".popup-login").classList.remove("active");
-   });
+document.querySelector(".popup-login .close-bttn").addEventListener("click", function () {
+   document.querySelector(".popup-login").classList.remove("active");
+});
+
+document.querySelector("#registrate").addEventListener("click", function(event){
+   event.preventDefault();
+   document.querySelector(".popup-signup").classList.add("active");
+   document.querySelector(".popup-login").classList.remove("active");
+});
 
 // formulario signup
 document.querySelector("#signup-bttn").addEventListener("click", function () {
    document.querySelector(".popup-signup").classList.add("active");
+   document.querySelector(".popup-login").classList.remove("active");
 });
 
-document
-   .querySelector(".popup-signup .close-bttn")
-   .addEventListener("click", function () {
-      document.querySelector(".popup-signup").classList.remove("active");
-   });
+document.querySelector(".popup-signup .close-bttn").addEventListener("click", function () {
+   document.querySelector(".popup-signup").classList.remove("active");
+});
+document.querySelector("#accedeSignup").addEventListener("click", function(event){
+   event.preventDefault();
+   document.querySelector(".popup-login").classList.add("active");
+   document.querySelector(".popup-signup").classList.remove("active");
+});
+document.querySelector("#visibleSignup").addEventListener("click", function(){
+   
+   if(this.textContent == "visibility"){
+      this.textContent = "visibility_off";
+      document.querySelector("#contrasena-signup").type = "password";
+   }else{
+      this.textContent = "visibility";
+      document.querySelector("#contrasena-signup").type = "text";
+
+   }
+});
