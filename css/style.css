@@ -567,9 +567,10 @@ textarea {
   font-weight: 800;
 }
 
-.card-info {
+.card-info{
   line-height: 25px;
   margin: 40px 0;
+  /* hyphens: auto; */
 }
 
 .card-btn {
@@ -587,4 +588,69 @@ textarea {
 
 .card-btn:hover {
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5); 
+}
+
+
+/* Carrusel de testimonios */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f2f2f2;
+  width: 1000px;
+}
+
+.card {
+  position: relative;
+  background-color: #a4ac86;
+  border-radius: 20px;
+  height: 333px;
+  width: 296px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card .card-content {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  padding: 30px;
+  position: relative;
+  z-index: 100;
+}
+
+.card .user-name-rating {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  margin-top: 10px;
+}
+
+.user-name-rating .name{
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.card .stars-icons {
+  display: flex;
+  align-items: center;
+  margin-top: 18px;
+}
+
+.card .stars-icons i {
+  font-size: 18px;
+  margin: 0 2px;
+  color: var(--contraste);
+}
+
+.section-swiper {
+  position: relative;
+  width: 450px;
+  display: flex;
+  align-items: center;
+}
+
+.swiper {
+  width: 600px;
+  height: 300px;
 }
