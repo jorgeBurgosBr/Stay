@@ -127,17 +127,17 @@ if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya
         <h2>Regístrate</h2>
         <div class="form-element">
           <label for="nombre">Nombre:</label>
-          <input type="text" name="nombre" id="nombre-signup" placeholder="Introduce tu nombre" />
+          <input type="text" name="nombre" id="nombre-signup" placeholder="Introduce tu nombre" required />
           <span id="mensaje-error-nombre-signup"></span>
         </div>
         <div class="form-element">
           <label for="apellidos_registro">Apellidos</label>
-          <input type="text" id="apellidos-signup" name="apellidos" placeholder="Introduce tus apellidos">
+          <input type="text" id="apellidos-signup" name="apellidos" placeholder="Introduce tus apellidos" required>
           <span id="mensaje-error-apellidos-signup"></span>
         </div>
         <div class="form-element">
           <label for="email-signup">Correo:</label>
-          <input type="text" name="correo" id="email-signup" placeholder="Introduce tu correo" />
+          <input type="text" name="correo" id="email-signup" placeholder="Introduce tu correo" required />
           <span id="mensaje-error-correo-signup"></span>
         </div>
         <div class="form-element">
