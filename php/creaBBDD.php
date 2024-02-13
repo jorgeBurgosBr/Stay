@@ -63,7 +63,7 @@ function crearTablas()
                 );
                 CREATE TABLE USUARIO (
                     id_usuario INT AUTO_INCREMENT,
-                    nombre_usuario VARCHAR(255) NOT NULL,
+                    correo_usuario VARCHAR(255) NOT NULL,
                     contrasena_usuario VARCHAR(255) NOT NULL,
                     tipo_usuario ENUM('paciente', 'psicologo') NOT NULL,
                     id_original INT NOT NULL,
@@ -206,22 +206,22 @@ function insertarDatos()
                 ('Dr. Emily', 'White', 'whiteemily@gmail.com', '610 204 304', 'linkedin.com/in/emilywhite', 'cv/emilywhite.pdf');
 
                 -- Para pacientes
-                INSERT INTO USUARIO (nombre_usuario, contrasena_usuario, tipo_usuario, id_original)
+                INSERT INTO USUARIO (correo_usuario, contrasena_usuario, tipo_usuario, id_original)
                 VALUES 
-                ('johndoe1980', 'Jd2021$45', 'paciente', 1),
-                ('janedoe1985', 'Jane#879', 'paciente', 2),
-                ('jimbeam1990', 'Jb!3098', 'paciente', 3),
-                ('jackdaniels1995', 'JackD@1234', 'paciente', 4),
-                ('josiewales2000', 'Josie*5321', 'paciente', 5);
+                ('doejohn@gmail.com', 'Jd2021$45', 'paciente', 1),
+                ('doejane@gmail.com', 'Jane#879', 'paciente', 2),
+                ('beamjim@gmail.com', 'Jb!3098', 'paciente', 3),
+                ('danielsjack@gmail.com', 'JackD@1234', 'paciente', 4),
+                ('walesjosie@gmail.com', 'Josie*5321', 'paciente', 5);
 
                 -- Para psicólogos
-                INSERT INTO USUARIO (nombre_usuario, contrasena_usuario, tipo_usuario, id_original)
+                INSERT INTO USUARIO (correo_usuario, contrasena_usuario, tipo_usuario, id_original)
                 VALUES 
-                ('annasmith1975', 'AnnaS1975$', 'psicologo', 1),
-                ('briantaylor1970', 'BTaylor@2021', 'psicologo', 2),
-                ('caroljones1980', 'CJones!980', 'psicologo', 3),
-                ('davidbrown1985', 'DBrown#1985', 'psicologo', 4),
-                ('emilywhite1990', 'EmilyW1990!', 'psicologo', 5);
+                ('smithanna@gmail.com', 'AnnaS1975$', 'psicologo', 1),
+                ('taylorbrian@gmail.com', 'BTaylor@2021', 'psicologo', 2),
+                ('jonescarol@gmail.com', 'CJones!980', 'psicologo', 3),
+                ('browndavid@gmail.com', 'DBrown#1985', 'psicologo', 4),
+                ('whiteemily@gmail.com', 'EmilyW1990!', 'psicologo', 5);
 
                 INSERT INTO PERFIL_PACIENTE (id_paciente, fecha_nac_paciente, sexo_paciente, pareja_sino_paciente, hijos_sino_paciente, trabajo_paciente, estudios_paciente, hobbies_paciente, expectativasypreocupaciones_paciente, foto_paciente)
                 VALUES 
