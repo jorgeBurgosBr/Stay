@@ -206,7 +206,7 @@ textarea {
   color: rgba(2, 0, 36);
 }
 
-/* form login */
+/* LOGIN */
 
 .popup-login,
 .popup-signup {
@@ -272,8 +272,8 @@ textarea {
 }
 #visibleLogin{
   position: absolute;
-  bottom: 160px;
-  right: 40px;
+  bottom: 5px;
+  right: 5px;
   cursor: pointer;
 }
 .popup-login .form-login .form-element input[type="checkbox"] {
@@ -311,7 +311,7 @@ textarea {
   text-decoration:underline;
 }
 
-/* Form sign - up */
+/* REGISTRO */
 
 .popup-signup .close-bttn {
   position: absolute;
@@ -347,14 +347,14 @@ textarea {
   border: 1px solid black;
   border-radius: 5px;
 }
-#contrasena-signup{
+.wrapper-pwd{
   position: relative;
 }
 #visibleSignup{
   position: absolute;
   cursor: pointer; 
-  bottom: 122px;
-  right: 40px;
+  bottom: 5px;
+  right: 5px;
 }
 
 #error-contrasena-signup{

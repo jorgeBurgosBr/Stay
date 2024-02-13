@@ -239,10 +239,12 @@ if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya
         </div>
         <div class="form-element">
           <label for="password">Contraseña:</label>
-          <input type="password" name="password_login" id="password_login" placeholder="Introduce tu contraseña" required />
-          <span class="material-symbols-outlined" id="visibleLogin">
-            visibility_off
-          </span>
+          <div class="wrapper-pwd">
+            <input type="password" name="password_login" id="password_login" placeholder="Introduce tu contraseña" required />
+            <span class="material-symbols-outlined" id="visibleLogin">
+              visibility
+            </span>
+          </div>
         </div>
         <div class="form-element">
           <input type="checkbox" id="recuerdame" />
@@ -260,7 +262,7 @@ if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya
       </form>
     </div>
     <!-- FORMULARIO DE REGISTRO -->
-    <div class="popup-signup">
+    <div class="popup-signup active">
       <div class="close-bttn">
         <i class="fa-solid fa-xmark fa-lg" style="color: #800020"></i>
       </div>
@@ -283,10 +285,12 @@ if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya
         </div>
         <div class="form-element">
           <label for="password">Contraseña:</label>
-          <input type="password" name="password" id="contrasena-signup" placeholder="Introduce tu contraseña" required />
-          <span class="material-symbols-outlined" id="visibleSignup">
-            visibility_off
-          </span>
+            <div class="wrapper-pwd">
+              <input type="password" name="password" id="contrasena-signup" placeholder="Introduce tu contraseña" required />
+              <span class="material-symbols-outlined" id="visibleSignup">
+              visibility
+              </span>
+            </div>
           <ul id="error-contrasena-signup"></ul>
         </div>
         <div class="form-element">
