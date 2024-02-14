@@ -17,82 +17,86 @@ forms["form-login"].addEventListener("submit", function (event) {
 });
 
 forms["form-signup"].addEventListener("submit", function(event){
+   alert("pilla el evento");
    event.preventDefault();
    if(validacionSignup()){
-      enviarFormularioPorAjax(forms["form-signup"]);
+      alert("se va a enviar");
+      procesarFormRegistro(forms["form-signup"]);
    }else{
+      alert("se detecta como false");
       return;
    }
 });
 
-function enviarFormularioPorAjax(formulario) {
-   // Recolecta los datos del formulario
+// function enviarFormularioPorAjax(formulario) {
+//    // Recolecta los datos del formulario
+//    const formData = new FormData(formulario);
+//     // Determina la URL a la que enviar los datos según el formulario
+//     let url = '';
+//     if (formulario.id === 'form-contacto') {
+//         url = 'php/procesar_contacto.php';
+//     } else if (formulario.id === 'form-login') {
+//         url = 'php/procesar_login.php';
+//     } else if (formulario.id === 'form-signup') {
+//         url = 'php/procesar_registro.php';
+//     }
+
+//     // Inicia una nueva solicitud AJAX
+//    const xhr = new XMLHttpRequest();
+//     xhr.open('POST', url, true);
+
+//     // Define el comportamiento cuando la solicitud AJAX se complete
+//    xhr.onload = function () {
+//       if (xhr.readyState === XMLHttpRequest.DONE) {
+//          if (xhr.status === 200) {
+//             // Convertir la respuesta del servidor a JSON
+//             // console.log(xhr.responseText);
+//             var data = JSON.parse(xhr.responseText);
+//             console.log(data);
+//             if (data == "exito registro") {
+//                alert("Registrado con éxito");
+//             } else if (data == "exito login") {
+//                // alert("sesión iniciada");
+//                location.href = "sesiones.php";
+//             } else {
+//                // Mostrar errores en el formulario
+//                mostrarErrores(data);
+//             }
+//          } else {
+//             console.error("Error al procesar la solicitud: " + xhr.status);
+//          }
+//       }
+//    };
+
+//    // Envía la solicitud con los datos del formulario mediante AJAX
+//    xhr.send(formData);
+// }
+
+// script.js
+// document.getElementById('submitButton').addEventListener('click', function() {
+//    const formData = new FormData(document.getElementById('userForm'));
+ 
+//    fetch('process.php', {
+//      method: 'POST',
+//      body: formData,
+//    })
+//    .then(response => response.text())
+//    .then(data => console.log(data))
+//    .catch(error => console.error('Error:', error));
+// });
+
+function procesarFormRegistro(formulario){
    const formData = new FormData(formulario);
-    // Determina la URL a la que enviar los datos según el formulario
-    let url = '';
-    if (formulario.id === 'form-contacto') {
-        url = 'php/procesar_contacto.php';
-    } else if (formulario.id === 'form-login') {
-        url = 'php/procesar_login.php';
-    } else if (formulario.id === 'form-signup') {
-        url = 'php/procesar_registro.php';
-    }
-
-    // Inicia una nueva solicitud AJAX
-   const xhr = new XMLHttpRequest();
-    xhr.open('POST', url, true);
-
-    // Define el comportamiento cuando la solicitud AJAX se complete
-   xhr.onload = function () {
-      if (xhr.readyState === XMLHttpRequest.DONE) {
-         if (xhr.status === 200) {
-            // Convertir la respuesta del servidor a JSON
-            // console.log(xhr.responseText);
-            var data = JSON.parse(xhr.responseText);
-            console.log(data);
-            if (data == "exito registro") {
-               alert("Registrado con éxito");
-            } else if (data == "exito login") {
-               // alert("sesión iniciada");
-               location.href = "sesiones.php";
-            } else {
-               // Mostrar errores en el formulario
-               mostrarErrores(data);
-            }
-         } else {
-            console.error("Error al procesar la solicitud: " + xhr.status);
-         }
-      }
-   };
-
-   // Envía la solicitud con los datos del formulario mediante AJAX
-   xhr.send(formData);
+   fetch('./php/procesar_registro.php', {
+      method: 'POST',
+      body: formData,
+   })
+   .then(response => {
+      console.log(response);
+      return response.json()})
+   .catch(error => console.error('Fetch error: ', error));
 }
-function insertarDatos(nombre) {
-   var formData = new FormData();
-   formData.append("funcion", "nombre_funcion");
-   formData.append("parametro_fetch", parametro);
-   fetch("nombre_archivo.php", {
-      method: "GET",
-      body: formData
-   })
-   .then(function(response) {
-      if (!response.ok) {
-         throw new Error("Error");
-   }
-   return response.json();
-   })
-   .then(function(data) {
-      if (data.status === "success") {
-       // Código ok
-   } else {
-      // Código error
-   }
-   })
-   .catch(function(error) {
-      // Código del error
-   });
-}
+
 
 
 function mostrarErrores(errores) {
@@ -203,6 +207,7 @@ function validacionLogin() {
    }
 }
 function validacionSignup() {
+   let flag = true;
    // Recojo los campos validados
    let nombreValid = validarNombre(document.getElementById("nombre-signup"));
    let apellidosValid = validarNombre(document.getElementById("apellidos-signup"));
@@ -223,6 +228,7 @@ function validacionSignup() {
       errorNombreSignup.style.marginTop = "-25px";
       errorNombreSignup.style.color = "red";
       document.getElementById("nombre-signup").style.border = "2px solid red";
+      flag = false;
    } else{
       errorNombreSignup.textContent = "";
       document.getElementById("nombre-signup").style.border = "1px solid black";
@@ -234,6 +240,7 @@ function validacionSignup() {
       errorApellidosSignup.style.marginTop = "-25px";
       errorApellidosSignup.style.color = "red";
       document.getElementById("apellidos-signup").style.border = "2px solid red";
+      flag = false;
    } else{
       errorApellidosSignup.textContent = "";
       document.getElementById("apellidos-signup").style.border = "1px solid black";
@@ -245,6 +252,7 @@ function validacionSignup() {
       errorCorreoSignup.style.color = "red";
       errorCorreoSignup.style.marginTop = "-25px";
       document.getElementById("correo-signup").style.border = "2px solid red";
+      flag = false;
    } else{
       errorCorreoSignup.textContent = "";
       document.getElementById("correo-signup").style.border = "1px solid black";
@@ -262,10 +270,12 @@ function validacionSignup() {
 
       // Cambiamos el estilo del input "contrasena-signup"
       document.getElementById("contrasena-signup").style.border = "2px solid red";
+      flag = false;
    } else{
       errorContrasenaSignup.innerHTML = "";
       document.getElementById("contrasena-signup").style.border = "1px solid black";
    }
+   return flag;
    
 }
 // formulario login

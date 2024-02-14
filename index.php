@@ -109,7 +109,7 @@ if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya
 </div>
   </section>
 
-  <!-- Tarjetas de reseñas -->
+  <!-- RESEÑAS -->
   <div class="psico-tittle">
       <h1>Testimonios de usuarios</h1>
   </div>
@@ -301,7 +301,7 @@ if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya
       </form>
     </div>
     <!-- FORMULARIO DE REGISTRO -->
-    <div class="popup-signup active">
+    <div class="popup-signup">
       <div class="close-bttn">
         <i class="fa-solid fa-xmark fa-lg" style="color: #800020"></i>
       </div>
