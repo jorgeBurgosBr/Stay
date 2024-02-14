@@ -9,16 +9,16 @@ if ($bd->conectar()) {
    if ($_SERVER["REQUEST_METHOD"] == 'POST') {
       $errores = array();
       $correo = mysqli_real_escape_string($conn, $_POST['correo']);
-      $password = mysqli_real_escape_string($conn, $_POST['password']);
+      $password = mysqli_real_escape_string($conn, $_POST['password_login']);
       // Comprobar si el usuario existe en la base de datos
-      $sql = mysqli_query($conn, "SELECT * FROM paciente p INNER JOIN usuario u ON p.id_paciente = u.id_usuario WHERE p.correo_paciente = '$correo' AND u.contrasena_usuario = '$password'");
+      $sql = mysqli_query($conn, "SELECT * FROM usuario WHERE correo_usuario = '$correo' AND  contrasena_usuario = '$password'");
       if (mysqli_num_rows($sql) > 0) {
          echo json_encode("exito login");
       } else {
-         $sql2 = mysqli_query($conn, "SELECT * FROM paciente p INNER JOIN usuario u ON p.id_paciente = u.id_usuario WHERE p.correo_paciente = '$correo'");
-         if (mysqli_num_rows($sql2) > 0) {
-            //El correo existe
-            $sql3 = mysqli_query($conn, "SELECT * FROM paciente p INNER JOIN usuario u ON p.id_paciente = u.id_usuario WHERE u.contrasena_usuario = '$password'");
+         //comprobramos si la contraseña existe
+         $sql2 = mysqli_query($conn, "SELECT correo_usuario FROM usuario WHERE correo_usuario = '$correo'");
+         if (mysqli_num_rows($sql2) > 0) { //si existe, comprobamos la constraseña
+            $sql3 = mysqli_query($conn, "SELECT contrasena_usuario WHERE contrasena_usuario = '$password'");
             if (mysqli_num_rows($sql3) > 0) {
                //la contraseña es correca y por lo tanto ya tendría que haber iniciado sesión
             } else {
@@ -30,6 +30,7 @@ if ($bd->conectar()) {
             //guardarmos en el array de errores que el correo no existe
             $errores['correo'] = 'El correo no existe';
             echo json_encode($errores);
+            // echo "error";
          }
       }
    }
