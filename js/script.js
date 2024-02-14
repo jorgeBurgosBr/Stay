@@ -27,32 +27,33 @@ forms["form-signup"].addEventListener("submit", function(event){
 function enviarFormularioPorAjax(formulario) {
    // Recolecta los datos del formulario
    const formData = new FormData(formulario);
+    // Determina la URL a la que enviar los datos según el formulario
+    let url = '';
+    if (formulario.id === 'form-contacto') {
+        url = 'php/procesar_contacto.php';
+    } else if (formulario.id === 'form-login') {
+        url = 'php/procesar_login.php';
+    } else if (formulario.id === 'form-signup') {
+        url = 'php/procesar_registro.php';
+    }
 
-   // Determina la URL a la que enviar los datos según el formulario
-   let url = "";
-   if (formulario.id === "form-contacto") {
-      url = "php/procesar_contacto.php";
-   } else if (formulario.id === "form-login") {
-      url = "p p";
-   } else if (formulario.id === "form-signup") {
-      url = "php/procesar_registro.php";
-   }
-
-   // Inicia una nueva solicitud AJAX
+    // Inicia una nueva solicitud AJAX
    const xhr = new XMLHttpRequest();
-   xhr.open("POST", url, true);
+    xhr.open('POST', url, true);
 
-   // Define el comportamiento cuando la solicitud AJAX se complete
+    // Define el comportamiento cuando la solicitud AJAX se complete
    xhr.onload = function () {
       if (xhr.readyState === XMLHttpRequest.DONE) {
          if (xhr.status === 200) {
             // Convertir la respuesta del servidor a JSON
             // console.log(xhr.responseText);
             var data = JSON.parse(xhr.responseText);
+            console.log(data);
             if (data == "exito registro") {
                alert("Registrado con éxito");
             } else if (data == "exito login") {
-               location.href = "../sesiones.php";
+               // alert("sesión iniciada");
+               location.href = "sesiones.php";
             } else {
                // Mostrar errores en el formulario
                mostrarErrores(data);
@@ -66,6 +67,32 @@ function enviarFormularioPorAjax(formulario) {
    // Envía la solicitud con los datos del formulario mediante AJAX
    xhr.send(formData);
 }
+function insertarDatos(nombre) {
+   var formData = new FormData();
+   formData.append("funcion", "nombre_funcion");
+   formData.append("parametro_fetch", parametro);
+   fetch("nombre_archivo.php", {
+      method: "GET",
+      body: formData
+   })
+   .then(function(response) {
+      if (!response.ok) {
+         throw new Error("Error");
+   }
+   return response.json();
+   })
+   .then(function(data) {
+      if (data.status === "success") {
+       // Código ok
+   } else {
+      // Código error
+   }
+   })
+   .catch(function(error) {
+      // Código del error
+   });
+}
+
 
 function mostrarErrores(errores) {
    // Limpiar mensajes de error previos
