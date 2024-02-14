@@ -116,97 +116,7 @@ nav ul li:hover a {
   filter: blur(0.2px);
 }
 
-/* ------- CONTACTO ------- */
-.contact-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  margin: 0 auto;
-  width: 100%;
-  max-width: 1200px;
-}
-
-.contact-info {
-  flex: 1;
-  padding: 40px 20px;
-}
-
-.contact-info h2 {
-  font-family: "Montserrat", sans-serif;
-  font-weight: bolder;
-  font-size: 48px;
-  margin-bottom: 20px;
-}
-
-.contact-info p {
-  font-size: 24px;
-  margin-top: 20px;
-}
-
-.contact-form {
-  flex: 1;
-  padding: 30px;
-}
-
-.form-group {
-  margin-bottom: 20px;
-}
-
-.lbl-contact {
-  font-size: 18px;
-  margin-bottom: 8px;
-  font-weight: 550;
-}
-
-input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0 1000px transparent inset; /* Hace que el fondo sea transparente */
-}
-
-#nombre,
-#telefono,
-#correo,
-textarea {
-  padding: 8px;
-  font-size: 16px;
-  width: 100%;
-  resize: none;
-  outline: 0;
-  margin-bottom: 16px;
-  border-radius: 8px;
-  background-color: transparent;
-  border: 2px solid;
-}
-
-textarea {
-  margin-bottom: -10px;
-}
-
-.buttons {
-  width: 100%;
-  text-align: right;
-}
-
-.buttons button {
-  cursor: pointer;
-  color: #f5f5f5;
-  letter-spacing: 3px;
-  background: var(--ppal);
-  border: 2px solid transparent;
-  border-radius: 5px;
-  width: 100px;
-  font-size: 14px;
-  font-weight: bolder;
-  height: auto;
-  padding: 8px;
-}
-
-.buttons button:hover {
-  background: var(--ppal_shadow);
-  color: rgba(2, 0, 36);
-}
-
-/* LOGIN */
+/* --------------------------- LOGIN ---------------------------*/
 
 .popup-login,
 .popup-signup {
@@ -311,7 +221,7 @@ textarea {
   text-decoration:underline;
 }
 
-/* REGISTRO */
+/* --------------------------- REGISTRO ---------------------------*/
 
 .popup-signup .close-bttn {
   position: absolute;
@@ -398,7 +308,7 @@ textarea {
 #accedeSignup:hover{
   text-decoration:underline;
 }
-/* ------- PPAL ------- */
+/* --------------------------- TÍTULO PPAL ---------------------------*/
 
 .container-titulo {
   display: flex;
@@ -453,7 +363,7 @@ textarea {
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5); 
 }
 
-/* ------- PSICOLOGOS ------- */
+/* --------------------------- PSICÓLOGOS HOME ---------------------------*/
 .container-psicologos {
   /* background-color: #000000; */
   display: flex;
@@ -592,16 +502,16 @@ textarea {
 }
 
 
-/* Carrusel de testimonios */
+/* --------------------------- CARRUSEL TESTIMONIOS ---------------------------*/
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 70vh;
+  height: 100vh;
 }
 
 .card__container {
-  padding-block: 5rem;
+  padding-block: 15rem;
 }
 
 .card__content {
@@ -611,7 +521,8 @@ textarea {
 }
 
 .card__article {
-  width: 650px;
+  width: 100%;
+  max-width: 800px;
   border-radius: 1.25rem;
   overflow: hidden;
 }
@@ -620,22 +531,20 @@ textarea {
   background-color: var(--ppal_shadow);
   padding: 1.5rem 2rem;
   border-radius: 1rem;
-  /* text-align: center; */
+  height: 290px;
   position: relative;
   z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .card__description {
   font-weight: 600;
+  margin-top: 2rem;
   margin-bottom: 1.75rem;
-  display: flex;
-  border: 1px solid red;
-  max-width: 100%;
-}
-
-.card__description p{
-  text-wrap: wrap;
-  line-height: 12;
+  flex-wrap: wrap;
+  flex: 1;
 }
 
 .swiper-button-prev::after,
@@ -663,15 +572,194 @@ textarea {
   right: 0;
 }
 
-.swiper-pagination-bullet {
-  background: var(--contraste1);
-  /* opacity: 1; */
+.fa-star {
+  color: var(--contraste);
 }
 
+.fa-quote-right {
+  font-size: 2em;
+}
+
+
+.testimonios-tittle {
+  text-align: center;
+  margin-top: 280px;
+  margin-bottom: -80px;
+}
+
+.testimonios-tittle h1{
+  font-family: var(--tituloHero);
+  font-size: 56px;
+}
+
+.swiper-pagination-bullet {
+  background-color: hsl(212, 32%, 40%);
+  opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--contraste);
+}
+
+/* --------------------------- CONTACTO ---------------------------*/
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 100vh;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+  gap: 60px;
+}
+
+.contact-info {
+  flex: 1;
+  /* padding: 10px 20px; */
+}
+
+.contact-info h2 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: bolder;
+  font-size: 48px;
+  margin-top: -30px;
+  margin-bottom: 60px;
+}
+
+.contact-info p {
+  font-size: 24px;
+  margin-top: 30px;
+}
+
+#contact-text {
+  margin-top: 60px;
+}
+
+.contact-form {
+  flex: 1;
+  padding: 30px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.lbl-contact {
+  font-size: 18px;
+  margin-bottom: 8px;
+  font-weight: 550;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px transparent inset; /* Hace que el fondo sea transparente */
+}
+
+#nombre,
+#telefono,
+#correo,
+textarea {
+  padding: 8px;
+  font-size: 16px;
+  width: 100%;
+  resize: none;
+  outline: 0;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  background-color: transparent;
+  border: 2px solid;
+}
+
+textarea {
+  margin-bottom: -10px;
+}
+
+.buttons {
+  width: 100%;
+  text-align: right;
+}
+
+.buttons button {
+  cursor: pointer;
+  color: #f5f5f5;
+  letter-spacing: 3px;
+  background: var(--ppal);
+  border: 2px solid transparent;
+  border-radius: 5px;
+  width: 100px;
+  font-size: 14px;
+  font-weight: bolder;
+  height: auto;
+  padding: 8px;
+}
+
+.buttons button:hover {
+  background: var(--ppal_shadow);
+  color: rgba(2, 0, 36);
+}
+
+/* --------------------------- FOOTER ---------------------------*/
+footer {
+  background-color: var(--ppal_shadow);
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  max-width: 1200px;
+}
+
+.footer-column {
+  text-align: left;
+  flex-basis: 20%;
+}
+
+.footer-column h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.footer-column p,
+.footer-column ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-column ul li {
+  margin-bottom: 0.2rem;
+}
+
+.social-media {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.social-media a {
+  display: block;
+  width: 32px;
+  height: 32px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-right: 1rem;
+}
+
+.social-media a:last-child {
+  margin-right: 0;
+}
 /* Pantallas pequeñas */
-@media screen and (max-width: 320px) {
+@media screen and (min-width: 320px) {
   .card__data {
     padding: 1rem;
+    height: 250px;
   }
 }
 
@@ -679,6 +767,7 @@ textarea {
 @media screen and (min-width: 768px) {
   .card__data {
     margin-inline: 3rem;
+    height: 290px;
   }
 
   .swiper-button-prev,

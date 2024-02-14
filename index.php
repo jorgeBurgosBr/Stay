@@ -110,7 +110,7 @@ if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya
   </section>
 
   <!-- Tarjetas de reseñas -->
-  <div class="psico-tittle">
+  <div class="testimonios-tittle">
       <h1>Testimonios de usuarios</h1>
   </div>
  <section class="container">
@@ -119,12 +119,12 @@ if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya
       <div class="swiper-wrapper">
         <article class="card__article swiper-slide">
           <div class="card__data">
-          <div class="quote-icon">
           <i class="fas fa-quote-right"></i>
-          </div>
-            <p class="card__description">
-              AAAAAAAAAAAAAAAAAAAAAAAAAAAA <br> AAAAAA <br> AAAAAAAAAAAAAA <br> AAAAAAAAAAAA
-            </p>
+            <div class="card__description"> 
+            Después de más de 2 años con ellos, 
+            puedo decir que me han salvado la vida. 
+            Sigmund el mejor Psicólogo!
+            </div>
             <span class="name">Mikasa Trovsky</span>
           <div class="stars-icons">
             <i class="fas fa-star"></i>
@@ -138,11 +138,10 @@ if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya
 
         <article class="card__article swiper-slide">
           <div class="card__data">
-          <div class="quote-icon">
           <i class="fas fa-quote-right"></i>
-          </div>
             <p class="card__description">
-            EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+            Me han ofrecido todo tipo de ayudas y 
+            han sido muy flexibles con el horario.
             </p>
             <span class="name">Juan Pérez</span>
           <div class="stars-icons">
@@ -157,12 +156,12 @@ if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya
 
         <article class="card__article swiper-slide">
           <div class="card__data">
-          <div class="quote-icon">
           <i class="fas fa-quote-right"></i>
-          </div>
-            <p class="card__description">
-            DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
-            </p>
+            <div class="card__description">
+            La mejor aplicación para afectados o 
+            familiares de ellos, un 10!
+            La recomendaré seguro.
+            </div>
             <span class="name">Pedro Piqueras</span>
           <div class="stars-icons">
             <i class="fas fa-star"></i>
@@ -176,31 +175,32 @@ if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya
 
         <article class="card__article swiper-slide">
           <div class="card__data">
-          <div class="quote-icon">
           <i class="fas fa-quote-right"></i>
+            <div class="card__description">
+            Le pongo 4 estrellas, porque el método
+            de pago me cobró 2 veces,
+            pero me lo resolvieron rápido!
           </div>
-            <p class="card__description">
-            CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCc
-          </p>
             <span class="name">Andrea Sánchez</span>
           <div class="stars-icons">
             <i class="fas fa-star"></i>
             <i class="fas fa-star"></i>
             <i class="fas fa-star"></i>
             <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
           </div>
           </div>
         </article>
 
         <article class="card__article swiper-slide">
           <div class="card__data">
-          <div class="quote-icon">
           <i class="fas fa-quote-right"></i>
-          </div>
-            <p class="card__description">
-            BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
-            </p>
+            <div class="card__description">
+            Venía recomendado por un amigo,
+            y no tengo la menor duda de
+            que merece la pena ser usuario
+            de esta web.
+            </div>
             <span class="name">Raúl García</span>
           <div class="stars-icons">
             <i class="fas fa-star"></i>
@@ -221,13 +221,15 @@ if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya
     <div class="swiper-button-next">
       <i class="ri-arrow-right-s-line"></i>
     </div>
+ </div>
+ </div>
 
  </section> 
 
   <div class="contact-container">
     <div class="contact-info">
       <h2>Contáctanos si necesitas más ayuda.</h2>
-      <p>
+      <p id="contact-text">
         Para nosotros, tu bienestar es lo más importante. Si necesitas más
         ayuda o alguien con quien hablar, por favor, completa el formulario.
         Estamos aquí para escucharte y apoyarte.
@@ -301,7 +303,7 @@ if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya
       </form>
     </div>
     <!-- FORMULARIO DE REGISTRO -->
-    <div class="popup-signup active">
+    <div class="popup-signup">
       <div class="close-bttn">
         <i class="fa-solid fa-xmark fa-lg" style="color: #800020"></i>
       </div>
@@ -341,6 +343,54 @@ if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya
       </form>
     </div>
   </div>
+
+  <footer>
+  <div class="footer-container">
+    <div class="footer-column">
+      <h3>Stay</h3>
+      <p>Vive con esperanza</p>
+      <p><i class="ri-facebook-fill"></i><i class="ri-twitter-fill"></i><i class="ri-instagram-fill"></i><i class="ri-linkedin-box-fill"></i></p>
+    </div>
+
+    <div class="footer-column">
+      <h3>Quiénes somos</h3>
+      <ul>
+        <li><a href="#">Quiénes somos</a></li>
+        <li><a href="#">Privacidad</a></li>
+        <li><a href="#">Aviso legal</a></li>
+        <li><a href="#">Testimonios</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h3>Otros</h3>
+      <ul>
+        <li><a href="#">Acerca de</a></li>
+        <li><a href="#">Contacto</a></li>
+        <li><a href="#">Trabaja con nosotros</a></li>
+        <li><a href="#">Talleres</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h3>Soporte</h3>
+      <ul>
+        <li><a href="#">Chat soporte</a></li>
+        <li><a href="#">Centro de ayuda</a></li>
+        <li><a href="#">Reporta error</a></li>
+        <li><a href="#">Cookies</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h3>Contáctanos</h3>
+      <ul>
+        <li><i class="ri-mail-line"></i> contacto@stay.com</li>
+        <li><i class="ri-phone-line"></i> 662 223 154</li>
+        <li><i class="ri-map-pin-line"></i> Calle Gran Vía, 77</li>
+      </ul>
+    </div>
+</footer>
   <script src="js/swiper-bundle.min.js"></script>
   <script src="js/script.js"></script>
 </body>
