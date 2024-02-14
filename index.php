@@ -15,10 +15,8 @@ if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya
   <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" type="image/jpg" href="img/logo.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.1.0/remixicon.css">
+  <link rel="stylesheet" href="css/swiper-bundle.min.css">
   <title>Stay</title>
 </head>
 
@@ -112,78 +110,119 @@ if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya
   </section>
 
   <!-- Tarjetas de reseñas -->
- <section class="section-swiper">
- <div class="swiper container">
-  <div class="swipper-wrapper content">
-    <div class="swiper-slide card">
-      <div class="card-content">
-        <div class="quote-icon">
-          <i class="fas fa-quote-right"></i>
-        </div>
-          <div class="rating-text">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id suscipit, quis beatae tempora provident ratione, ad laudantium modi libero pariatur ipsam at voluptates officiis impedit nam non dolorem cumque. Quis?</p>
-          </div>
-          <div class="user-name-rating">
-            <span class="name">Mikasa Trovsky</span>
-          </div>
-          <div class="stars-icons">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          </div>
-      </div>
-    </div>
-
-    <div class="swiper-slide card">
-      <div class="card-content">
-        <div class="quote-icon">
-          <i class="fas fa-quote-right"></i>
-        </div>
-          <div class="rating-text">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id suscipit, quis beatae tempora provident ratione, ad laudantium modi libero pariatur ipsam at voluptates officiis impedit nam non dolorem cumque. Quis?</p>
-          </div>
-          <div class="user-name-rating">
-            <span class="name">Mikasa Trovsky</span>
-          </div>
-          <div class="stars-icons">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-          </div>
-      </div>
-    </div>
-
-    <div class="swiper-slide card">
-      <div class="card-content">
-        <div class="quote-icon">
-          <i class="fas fa-quote-right"></i>
-        </div>
-          <div class="rating-text">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id suscipit, quis beatae tempora provident ratione, ad laudantium modi libero pariatur ipsam at voluptates officiis impedit nam non dolorem cumque. Quis?</p>
-          </div>
-          <div class="user-name-rating">
-            <span class="name">Mikasa Trovsky</span>
-          </div>
-          <div class="stars-icons">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          </div>
-      </div>
-    </div>
+  <div class="psico-tittle">
+      <h1>Testimonios de usuarios</h1>
   </div>
- </div>
- <div class="swiper-button-next"></div>
- <div class="swiper-button-prev"></div>
- <div class="swiper-pagination"></div>
- </section> 
+ <section class="container">
+ <div class="card__container swiper">
+    <div class="card__content">
+      <div class="swiper-wrapper">
+        <article class="card__article swiper-slide">
+          <div class="card__data">
+          <div class="quote-icon">
+          <i class="fas fa-quote-right"></i>
+          </div>
+            <p class="card__description">
+              AAAAAAAAAAAAAAAAAAAAAAAAAAAA <br> AAAAAA <br> AAAAAAAAAAAAAA <br> AAAAAAAAAAAA
+            </p>
+            <span class="name">Mikasa Trovsky</span>
+          <div class="stars-icons">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          </div>
+        </article>
 
+        <article class="card__article swiper-slide">
+          <div class="card__data">
+          <div class="quote-icon">
+          <i class="fas fa-quote-right"></i>
+          </div>
+            <p class="card__description">
+            EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+            </p>
+            <span class="name">Juan Pérez</span>
+          <div class="stars-icons">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          </div>
+        </article>
+
+        <article class="card__article swiper-slide">
+          <div class="card__data">
+          <div class="quote-icon">
+          <i class="fas fa-quote-right"></i>
+          </div>
+            <p class="card__description">
+            DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+            </p>
+            <span class="name">Pedro Piqueras</span>
+          <div class="stars-icons">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          </div>
+        </article>
+
+        <article class="card__article swiper-slide">
+          <div class="card__data">
+          <div class="quote-icon">
+          <i class="fas fa-quote-right"></i>
+          </div>
+            <p class="card__description">
+            CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCc
+          </p>
+            <span class="name">Andrea Sánchez</span>
+          <div class="stars-icons">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          </div>
+        </article>
+
+        <article class="card__article swiper-slide">
+          <div class="card__data">
+          <div class="quote-icon">
+          <i class="fas fa-quote-right"></i>
+          </div>
+            <p class="card__description">
+            BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+            </p>
+            <span class="name">Raúl García</span>
+          <div class="stars-icons">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- Botones del slide -->
+    <div class="swiper-button-prev">
+      <i class="ri-arrow-left-s-line"></i>
+    </div>
+    <div class="swiper-button-next">
+      <i class="ri-arrow-right-s-line"></i>
+    </div>
+
+ </section> 
 
   <div class="contact-container">
     <div class="contact-info">
@@ -302,7 +341,7 @@ if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya
       </form>
     </div>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="js/swiper-bundle.min.js"></script>
   <script src="js/script.js"></script>
 </body>
 
