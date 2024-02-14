@@ -7,7 +7,7 @@ if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8" />
@@ -15,6 +15,10 @@ if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya
   <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" type="image/jpg" href="img/logo.png" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
   <title>Stay</title>
 </head>
 
@@ -51,61 +55,135 @@ if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya
   <section>
     <div class="psico-tittle">
       <h1>Psicólogos en nuestro equipo</h1>
-    </div>
-    <div class="container-psicologos">
-      <div class="psico-card">
-        <div class="green-part">
-          <div class="photo">
-            <img src="img/alba-psicologa.png" alt="Alba García">
-          </div>
-        </div>
-        <div class="card-back">
-          <h1 class="card-tittle">Alba</h1>
-          <p class="card-info">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia, assumenda non unde eaque laudantium maxime beatae perferendis amet inventore.</p>
-          <button class="card-btn">Sesión gratis</button>
-        </div>
-        <div class="info">
-          <h2>Alba García</h2>
-          <hr>
-          <p>Máster en Terapia Cognitivo-Conductual</p>
-        </div>
-      </div>
-      <div class="psico-card">
-        <div class="green-part">
-          <div class="photo">
-            <img src="img/sigmund-psicologo.png" alt="Sigmund Freud">
-          </div>
-        </div>
-        <div class="card-back">
-          <h1 class="card-tittle">Sigmund</h1>
-          <p class="card-info">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia, assumenda non unde eaque laudantium maxime beatae perferendis amet inventore.</p>
-          <button class="card-btn">Sesión gratis</button>
-        </div>
-        <div class="info">
-          <h2>Sigmund Freud</h2>
-          <hr>
-          <p>Máster en Intervención Educativa y Psicológica</p>
-        </div>
-      </div>
-      <div class="psico-card">
-        <div class="green-part">
-          <div class="photo">
-            <img src="img/patricia-psicologo.png" alt="Patricia Fuentes">
-          </div>
-        </div>
-        <div class="card-back">
-          <h1 class="card-tittle">Patricia</h1>
-          <p class="card-info">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia, assumenda non unde eaque laudantium maxime beatae perferendis amet inventore.</p>
-          <button class="card-btn">Sesión gratis</button>
-        </div>
-        <div class="info">
-          <h2>Patricia Fuentes</h2>
-          <hr>
-          <p>Máster Oficial en Psicología Social</p>
-        </div>
+  </div>
+  <div class="container-psicologos">
+  <div class="psico-card">
+    <div class="green-part">
+      <div class="photo">
+        <img src="img/alba-psicologa.png" alt="Alba García">
       </div>
     </div>
+    <div class="card-back">
+        <h1 class="card-tittle">Alba</h1>
+        <p class="card-info">5 años de experiencia.<br>Especialidad en niños y adolescentes.<br>Sesiones conjuntas con familiares.</p>
+        <button class="card-btn">Sesión gratis</button>
+    </div>
+    <div class="info">
+      <h2>Alba García</h2>
+      <hr>
+      <p>Máster en Terapia Cognitivo-Conductual</p>
+    </div>
+  </div>
+  <div class="psico-card">
+    <div class="green-part">
+      <div class="photo">
+        <img src="img/sigmund-psicologo.png" alt="Sigmund Freud">
+      </div>
+    </div>
+    <div class="card-back">
+        <h1 class="card-tittle">Sigmund</h1>
+        <p class="card-info">12 años de experiencia.<br>Especialidad en entorno familiar.<br>Reconocido escritor de artículos para múltiples periódicos.</p>
+        <button class="card-btn">Sesión gratis</button>
+    </div>
+    <div class="info">
+      <h2>Sigmund Freud</h2>
+      <hr>
+      <p>Máster en Intervención Educativa y Psicológica</p>
+    </div>
+  </div>
+  <div class="psico-card">
+    <div class="green-part">
+      <div class="photo">
+        <img src="img/patricia-psicologo.png" alt="Patricia Fuentes">
+      </div>
+    </div>
+    <div class="card-back">
+        <h1 class="card-tittle">Patricia</h1>
+        <p class="card-info">10 años de experiencia.<br>Especialidad en acoso y cyberbullying.<br>Imparte charlas en colegios e institutos a demanda.</p>
+        <button class="card-btn">Sesión gratis</button>
+    </div>
+    <div class="info">
+      <h2>Patricia Fuentes</h2>
+      <hr>
+      <p>Máster Oficial en Psicología Social</p>
+    </div>
+  </div>
+</div>
   </section>
+
+  <!-- Tarjetas de reseñas -->
+ <section class="section-swiper">
+ <div class="swiper container">
+  <div class="swipper-wrapper content">
+    <div class="swiper-slide card">
+      <div class="card-content">
+        <div class="quote-icon">
+          <i class="fas fa-quote-right"></i>
+        </div>
+          <div class="rating-text">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id suscipit, quis beatae tempora provident ratione, ad laudantium modi libero pariatur ipsam at voluptates officiis impedit nam non dolorem cumque. Quis?</p>
+          </div>
+          <div class="user-name-rating">
+            <span class="name">Mikasa Trovsky</span>
+          </div>
+          <div class="stars-icons">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+      </div>
+    </div>
+
+    <div class="swiper-slide card">
+      <div class="card-content">
+        <div class="quote-icon">
+          <i class="fas fa-quote-right"></i>
+        </div>
+          <div class="rating-text">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id suscipit, quis beatae tempora provident ratione, ad laudantium modi libero pariatur ipsam at voluptates officiis impedit nam non dolorem cumque. Quis?</p>
+          </div>
+          <div class="user-name-rating">
+            <span class="name">Mikasa Trovsky</span>
+          </div>
+          <div class="stars-icons">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+          </div>
+      </div>
+    </div>
+
+    <div class="swiper-slide card">
+      <div class="card-content">
+        <div class="quote-icon">
+          <i class="fas fa-quote-right"></i>
+        </div>
+          <div class="rating-text">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id suscipit, quis beatae tempora provident ratione, ad laudantium modi libero pariatur ipsam at voluptates officiis impedit nam non dolorem cumque. Quis?</p>
+          </div>
+          <div class="user-name-rating">
+            <span class="name">Mikasa Trovsky</span>
+          </div>
+          <div class="stars-icons">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+      </div>
+    </div>
+  </div>
+ </div>
+ <div class="swiper-button-next"></div>
+ <div class="swiper-button-prev"></div>
+ <div class="swiper-pagination"></div>
+ </section> 
+
 
   <div class="contact-container">
     <div class="contact-info">
@@ -148,7 +226,7 @@ if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya
       </form>
     </div>
     <!-- FORMULARIO DE LOG-IN -->
-    <div class="popup-login active">
+    <div class="popup-login">
       <div class="close-bttn">
         <i class="fa-solid fa-xmark fa-lg" style="color: #800020"></i>
       </div>
@@ -161,10 +239,12 @@ if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya
         </div>
         <div class="form-element">
           <label for="password">Contraseña:</label>
-          <input type="password" name="password_login" id="password_login" placeholder="Introduce tu contraseña" required />
-          <span class="material-symbols-outlined" id="visibleLogin">
-            visibility_off
-          </span>
+          <div class="wrapper-pwd">
+            <input type="password" name="password_login" id="password_login" placeholder="Introduce tu contraseña" required />
+            <span class="material-symbols-outlined" id="visibleLogin">
+              visibility
+            </span>
+          </div>
         </div>
         <div class="form-element">
           <input type="checkbox" id="recuerdame" />
@@ -182,7 +262,7 @@ if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya
       </form>
     </div>
     <!-- FORMULARIO DE REGISTRO -->
-    <div class="popup-signup">
+    <div class="popup-signup active">
       <div class="close-bttn">
         <i class="fa-solid fa-xmark fa-lg" style="color: #800020"></i>
       </div>
@@ -205,10 +285,12 @@ if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya
         </div>
         <div class="form-element">
           <label for="password">Contraseña:</label>
-          <input type="password" name="password" id="contrasena-signup" placeholder="Introduce tu contraseña" required />
-          <span class="material-symbols-outlined" id="visibleSignup">
-            visibility_off
-          </span>
+            <div class="wrapper-pwd">
+              <input type="password" name="password" id="contrasena-signup" placeholder="Introduce tu contraseña" required />
+              <span class="material-symbols-outlined" id="visibleSignup">
+              visibility
+              </span>
+            </div>
           <ul id="error-contrasena-signup"></ul>
         </div>
         <div class="form-element">
@@ -220,6 +302,7 @@ if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya
       </form>
     </div>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="js/script.js"></script>
 </body>
 

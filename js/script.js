@@ -16,10 +16,8 @@ forms["form-login"].addEventListener("submit", function (event) {
 });
 
 forms["form-signup"].addEventListener("submit", function(event){
-   alert("Entra en el evento");
    event.preventDefault();
    if(validacionSignup()){
-      alert("va a enviar el form")
       enviarFormularioPorAjax(forms["form-signup"]);
    }else{
       return;
@@ -275,23 +273,47 @@ document.querySelector("#accedeSignup").addEventListener("click", function(event
 });
 document.querySelector("#visibleSignup").addEventListener("click", function(){
    
-   if(this.textContent == "visibility"){
-      this.textContent = "visibility_off";
+   if(this.textContent == "visibility_off"){
+      this.textContent = "visibility";
       document.querySelector("#contrasena-signup").type = "password";
    }else{
-      this.textContent = "visibility";
+      this.textContent = "visibility_off";
       document.querySelector("#contrasena-signup").type = "text";
 
    }
 });
 document.querySelector("#visibleLogin").addEventListener("click", function(){
    
-   if(this.textContent == "visibility"){
-      this.textContent = "visibility_off";
+   if(this.textContent == "visibility_off"){
+      this.textContent = "visibility";
       document.querySelector("#password_login").type = "password";
    }else{
-      this.textContent = "visibility";
+      this.textContent = "visibility_off";
       document.querySelector("#password_login").type = "text";
 
    }
 });
+
+
+// swiper
+const swiper = new Swiper('.swiper', {
+   // Optional parameters
+   direction: 'vertical',
+   loop: true,
+ 
+   // If we need pagination
+   pagination: {
+     el: '.swiper-pagination',
+   },
+ 
+   // Navigation arrows
+   navigation: {
+     nextEl: '.swiper-button-next',
+     prevEl: '.swiper-button-prev',
+   },
+ 
+   // And if we need scrollbar
+   scrollbar: {
+     el: '.swiper-scrollbar',
+   },
+ });
