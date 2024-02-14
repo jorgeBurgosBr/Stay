@@ -69,32 +69,6 @@ function enviarFormularioPorAjax(formulario) {
    // Envía la solicitud con los datos del formulario mediante AJAX
    xhr.send(formData);
 }
-function insertarDatos(nombre) {
-   var formData = new FormData();
-   formData.append("funcion", "nombre_funcion");
-   formData.append("parametro_fetch", parametro);
-   fetch("nombre_archivo.php", {
-      method: "GET",
-      body: formData
-   })
-   .then(function(response) {
-      if (!response.ok) {
-         throw new Error("Error");
-   }
-   return response.json();
-   })
-   .then(function(data) {
-      if (data.status === "success") {
-       // Código ok
-   } else {
-      // Código error
-   }
-   })
-   .catch(function(error) {
-      // Código del error
-   });
-}
-
 
 function mostrarErrores(errores) {
    // Limpiar mensajes de error previos
