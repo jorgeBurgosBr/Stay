@@ -10,115 +10,115 @@ forms["form-login"].addEventListener("submit", function (event) {
    event.preventDefault();
    // Valida el formulario
    if (validacionLogin()) {
-      enviarFormularioPorAjax(forms["form-login"]);
+      procesarFormLogin(forms["form-login"]);
    } else {
       return;
    }
 });
 
-forms["form-signup"].addEventListener("submit", function(event){
-   alert("pilla el evento");
+forms["form-signup"].addEventListener("submit", function (event) {
    event.preventDefault();
-   if(validacionSignup()){
-      alert("se va a enviar");
+   if (validacionSignup()) {
       procesarFormRegistro(forms["form-signup"]);
-   }else{
-      alert("se detecta como false");
+   } else {
       return;
    }
 });
 
-// function enviarFormularioPorAjax(formulario) {
-//    // Recolecta los datos del formulario
-//    const formData = new FormData(formulario);
-//     // Determina la URL a la que enviar los datos según el formulario
-//     let url = '';
-//     if (formulario.id === 'form-contacto') {
-//         url = 'php/procesar_contacto.php';
-//     } else if (formulario.id === 'form-login') {
-//         url = 'php/procesar_login.php';
-//     } else if (formulario.id === 'form-signup') {
-//         url = 'php/procesar_registro.php';
-//     }
-
-//     // Inicia una nueva solicitud AJAX
-//    const xhr = new XMLHttpRequest();
-//     xhr.open('POST', url, true);
-
-//     // Define el comportamiento cuando la solicitud AJAX se complete
-//    xhr.onload = function () {
-//       if (xhr.readyState === XMLHttpRequest.DONE) {
-//          if (xhr.status === 200) {
-//             // Convertir la respuesta del servidor a JSON
-//             // console.log(xhr.responseText);
-//             var data = JSON.parse(xhr.responseText);
-//             console.log(data);
-//             if (data == "exito registro") {
-//                alert("Registrado con éxito");
-//             } else if (data == "exito login") {
-//                // alert("sesión iniciada");
-//                location.href = "sesiones.php";
-//             } else {
-//                // Mostrar errores en el formulario
-//                mostrarErrores(data);
-//             }
-//          } else {
-//             console.error("Error al procesar la solicitud: " + xhr.status);
-//          }
-//       }
-//    };
-
-//    // Envía la solicitud con los datos del formulario mediante AJAX
-//    xhr.send(formData);
-// }
-
-// script.js
-// document.getElementById('submitButton').addEventListener('click', function() {
-//    const formData = new FormData(document.getElementById('userForm'));
- 
-//    fetch('process.php', {
-//      method: 'POST',
-//      body: formData,
-//    })
-//    .then(response => response.text())
-//    .then(data => console.log(data))
-//    .catch(error => console.error('Error:', error));
-// });
-
-function procesarFormRegistro(formulario){
+function procesarFormRegistro(formulario) {
    const formData = new FormData(formulario);
    fetch('./php/procesar_registro.php', {
       method: 'POST',
       body: formData,
    })
-   .then(response => {
-      console.log(response);
-      return response.json()})
-   .catch(error => console.error('Fetch error: ', error));
+      .then(response => response.json())
+      .then(data => {
+         // Añadimos o quitamos error en función de data.success
+         mostrarErrorRegistro(data.success);
+         // Si se produjo el registro redirigimos al login
+         if (data.success) {
+            document.querySelector(".popup-login").classList.add("active");
+            document.querySelector(".popup-signup").classList.remove("active");
+            // mostramos pop-up de éxito
+            document.querySelector(".popup-message").style.display = "block";
+            document.querySelector("#popup-text").textContent = "¡Registro exitoso!";
+         }
+      })
+      .catch(error => console.error('Fetch error: ', error));
+}
+function mostrarErrorRegistro(flag) {
+   const errorCorreoSignup = document.querySelector("#error-correo-signup");
+   if (!flag) {
+      errorCorreoSignup.textContent = "⛔" + mensajeError;
+      errorCorreoSignup.style.display = "block";
+      errorCorreoSignup.style.color = "red";
+      errorCorreoSignup.style.marginTop = "-25px";
+      document.getElementById("correo-signup").style.border = "2px solid red";
+   } else {
+      errorCorreoSignup.textContent = "";
+      document.getElementById("correo-signup").style.border = "1px solid black";
+   }
+
+
 }
 
-
-
-function mostrarErrores(errores) {
-   // Limpiar mensajes de error previos
-   var mensajesError = document.querySelectorAll(".mensaje-error");
-   mensajesError.forEach(function (elemento) {
-      elemento.textContent = "";
-   });
-   // Mostrar mensajes de error en los campos correspondientes
-   if (errores.telefono) {
-      var mensajeErrorTelefono = document.getElementById(
-         "mensaje-error-telefono"
-      );
-      mensajeErrorTelefono.textContent = errores.telefono;
-   }
-   if (errores.correo) {
-      var mensajeErrorCorreo = document.getElementById("mensaje-error-correo");
-      mensajeErrorCorreo.textContent = errores.correo;
-   }
-   if (errores.contraseña) {
-      var mensajeErrorCorreo = document.getElementById("mensaje-error-correo");
-      mensajeErrorCorreo.textContent = errores.correo;
+function procesarFormLogin(formulario) {
+   const formData = new FormData(formulario);
+   fetch('./php/procesar_login.php', {
+      method: 'POST',
+      body: formData,
+   })
+      .then(response => {
+         return response.json()
+      })
+      .then(data => {
+         console.log(data);
+         if (!data.success) {
+            mostrarErrorLogin(true, data.error);
+         } else {
+            alert("Login exitoso, te redirigimos a la página sesiones.php");
+            mostrarErrorLogin(false, data.error); 
+            /**AQUÍ DA ERROR PORQUE data.error = null
+             * Posible solución -> Hacer que el borrar errores se maneje cada vez
+             * que se pulse el botón de enviar en todos los formularios. Optimiza
+             * tanto la validación como el procesamiento mediante fetch y muestra 
+             * de errores.
+             */
+            // TODO: Redirigir a página en específico
+            // TODO: BORRAR TODOS LOS CONSOLE.LOG Y ALERT()
+         }
+      }).catch(error => console.error('Fetch error: ', error));
+}
+function mostrarErrorLogin(flag, error) {
+   const errorCorreoLogin = document.querySelector("#error-correo-login");
+   const errorContrasenaLogin = document.querySelector("#error-contrasena-login");
+   if (flag) {
+      if (error == "correo") {
+         errorCorreoLogin.textContent = "⛔ El correo introducido no existe.";
+         errorCorreoLogin.style.marginTop = "-18px";
+         errorCorreoLogin.style.marginBottom = "5px";
+         errorCorreoLogin.style.display = "block";
+         errorCorreoLogin.style.color = "red";
+         document.getElementById("email").style.border = "2px solid red";
+      } else if (error == "contrasena") {
+         errorContrasenaLogin.textContent = "⛔ La contraseña es incorrecta.";
+         errorContrasenaLogin.style.marginTop = "-18px";
+         errorContrasenaLogin.style.marginBottom = "5px";
+         errorContrasenaLogin.style.display = "block";
+         errorContrasenaLogin.style.color = "red";
+         document.getElementById("password-login").style.border = "2px solid red";
+      }
+   } else {
+      errorCorreoLogin.textContent = "";
+      errorCorreoLogin.style.marginTop = "initial";
+      errorCorreoLogin.style.marginBottom = "initial";
+      errorCorreoLogin.style.display = "initial";
+      document.getElementById("email").style.border = "1px solid black";
+      errorContrasenaLogin.textContent = "";
+      errorContrasenaLogin.style.marginTop = "initial";
+      errorContrasenaLogin.style.marginBottom = "initial";
+      errorContrasenaLogin.style.display = "initial";
+      document.getElementById("password-login").style.border = "1px solid black";
    }
 }
 function validarNombre(nombre) {
@@ -130,7 +130,7 @@ function validarTelefono(telefono) {
 function validarCorreo(correo) {
    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo.value);
 }
-function validarContrasena(contrasena){
+function validarContrasena(contrasena) {
    // Password must contain at least one uppercase letter, one lowercase letter, one digit, and be at least 8 characters long
    return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/.test(contrasena.value);
 }
@@ -222,43 +222,43 @@ function validacionSignup() {
    // Recojo el <ul></ul> de error de la contraseña
    const errorContrasenaSignup = document.getElementById("error-contrasena-signup");
 
-   if(!nombreValid){
+   if (!nombreValid) {
       errorNombreSignup.textContent = "⛔ No se pueden introducir números";
       errorNombreSignup.style.display = "block";
       errorNombreSignup.style.marginTop = "-25px";
       errorNombreSignup.style.color = "red";
       document.getElementById("nombre-signup").style.border = "2px solid red";
       flag = false;
-   } else{
+   } else {
       errorNombreSignup.textContent = "";
       document.getElementById("nombre-signup").style.border = "1px solid black";
    }
 
-   if(!apellidosValid){
+   if (!apellidosValid) {
       errorApellidosSignup.textContent = "⛔ No se pueden introducir números";
       errorApellidosSignup.style.display = "block";
       errorApellidosSignup.style.marginTop = "-25px";
       errorApellidosSignup.style.color = "red";
       document.getElementById("apellidos-signup").style.border = "2px solid red";
       flag = false;
-   } else{
+   } else {
       errorApellidosSignup.textContent = "";
       document.getElementById("apellidos-signup").style.border = "1px solid black";
    }
 
-   if(!correoValid){
+   if (!correoValid) {
       errorCorreoSignup.textContent = "⛔ Introduce un correo válido";
       errorCorreoSignup.style.display = "block";
       errorCorreoSignup.style.color = "red";
       errorCorreoSignup.style.marginTop = "-25px";
       document.getElementById("correo-signup").style.border = "2px solid red";
       flag = false;
-   } else{
+   } else {
       errorCorreoSignup.textContent = "";
       document.getElementById("correo-signup").style.border = "1px solid black";
    }
 
-   if(!contrasenaValid){
+   if (!contrasenaValid) {
       // Añadimos <li></li> con los mensajes de error
       errorContrasenaSignup.innerHTML = `
          <li id="tituloError">⛔ Debe contener al menos:</li>
@@ -271,12 +271,12 @@ function validacionSignup() {
       // Cambiamos el estilo del input "contrasena-signup"
       document.getElementById("contrasena-signup").style.border = "2px solid red";
       flag = false;
-   } else{
+   } else {
       errorContrasenaSignup.innerHTML = "";
       document.getElementById("contrasena-signup").style.border = "1px solid black";
    }
    return flag;
-   
+
 }
 // formulario login
 document.querySelector("#log-bttn").addEventListener("click", function () {
@@ -288,7 +288,7 @@ document.querySelector(".popup-login .close-bttn").addEventListener("click", fun
    document.querySelector(".popup-login").classList.remove("active");
 });
 
-document.querySelector("#registrate").addEventListener("click", function(event){
+document.querySelector("#registrate").addEventListener("click", function (event) {
    event.preventDefault();
    document.querySelector(".popup-signup").classList.add("active");
    document.querySelector(".popup-login").classList.remove("active");
@@ -303,50 +303,66 @@ document.querySelector("#signup-bttn").addEventListener("click", function () {
 document.querySelector(".popup-signup .close-bttn").addEventListener("click", function () {
    document.querySelector(".popup-signup").classList.remove("active");
 });
-document.querySelector("#accedeSignup").addEventListener("click", function(event){
+document.querySelector("#accedeSignup").addEventListener("click", function (event) {
    event.preventDefault();
    document.querySelector(".popup-login").classList.add("active");
    document.querySelector(".popup-signup").classList.remove("active");
 });
-document.querySelector("#visibleSignup").addEventListener("click", function(){
-   
-   if(this.textContent == "visibility_off"){
+document.querySelector("#visibleSignup").addEventListener("click", function () {
+
+   if (this.textContent == "visibility_off") {
       this.textContent = "visibility";
       document.querySelector("#contrasena-signup").type = "password";
-   }else{
+   } else {
       this.textContent = "visibility_off";
       document.querySelector("#contrasena-signup").type = "text";
 
    }
 });
-document.querySelector("#visibleLogin").addEventListener("click", function(){
-   
-   if(this.textContent == "visibility_off"){
+document.querySelector("#visibleLogin").addEventListener("click", function () {
+
+   if (this.textContent == "visibility_off") {
       this.textContent = "visibility";
       document.querySelector("#password_login").type = "password";
-   }else{
+   } else {
       this.textContent = "visibility_off";
       document.querySelector("#password_login").type = "text";
 
    }
 });
 
+// POP-UP MESSAGE
+document.addEventListener('DOMContentLoaded', function () {
+   var popupMessage = document.querySelector('.popup-message');
+   var closeButton = document.querySelector('.popup-message .close-popup-message');
+
+   closeButton.addEventListener('click', function () {
+      popupMessage.style.display = 'none';
+   });
+
+   // Optionally, you can add a delay for the popup to appear
+   // setTimeout(function() {
+   //   popupMessage.style.display = 'block';
+   // }, 2000); // 2000 milliseconds delay (2 seconds)
+});
+
+
 
 // swiper
 let swiperCards = new Swiper('.card__content', {
    loop: true,
    spaceBetween: 32,
-   grabCursor:true,
- 
+   grabCursor: true,
+
    pagination: {
       el: '.swiper-pagination',
       clickable: true,
       dynamicBullets: true,
    },
- 
+
    navigation: {
-     nextEl: '.swiper-button-next',
-     prevEl: '.swiper-button-prev',
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
    },
 
    breakpoints: {
@@ -357,4 +373,4 @@ let swiperCards = new Swiper('.card__content', {
          slidesPerView: 3,
       },
    },
- });
+});

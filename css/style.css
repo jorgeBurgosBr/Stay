@@ -398,6 +398,37 @@ textarea {
 #accedeSignup:hover{
   text-decoration:underline;
 }
+
+/* POP-UP MESSAGE */
+.popup-message {
+  width: fit-content;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #d0ffd8;
+  border: 1px solid #77ff87;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: none;
+}
+
+.popup-content {
+  position: relative;
+  margin: 8px;
+}
+
+.close-popup-message {
+  position: absolute;
+  top: -15px;
+  right: -10px;
+  cursor: pointer;
+}
+
+.close-popup-message:hover {
+  color: red;
+}
+
 /* ------- PPAL ------- */
 
 .container-titulo {
