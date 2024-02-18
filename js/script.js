@@ -347,4 +347,5 @@ let swiperCards = new Swiper('.card__content', {
          slidesPerView: 3,
       },
    },
- });
+});
+ 
