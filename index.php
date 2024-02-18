@@ -3,7 +3,7 @@ require_once 'php/creaBBDD.php'; //Incluir el fichero que se encarga de crear la
 
 session_start();
 if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya 
-  header("location: sesiones.php");
+  // header("location: sesiones.php");
 }
 ?>
 <!DOCTYPE html>
@@ -53,176 +53,176 @@ if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya
   <section>
     <div class="psico-tittle">
       <h1>Psicólogos en nuestro equipo</h1>
-  </div>
-  <div class="container-psicologos">
-  <div class="psico-card">
-    <div class="green-part">
-      <div class="photo">
-        <img src="img/alba-psicologa.png" alt="Alba García">
+    </div>
+    <div class="container-psicologos">
+      <div class="psico-card">
+        <div class="green-part">
+          <div class="photo">
+            <img src="img/alba-psicologa.png" alt="Alba García">
+          </div>
+        </div>
+        <div class="card-back">
+          <h1 class="card-tittle">Alba</h1>
+          <p class="card-info">5 años de experiencia.<br>Especialidad en niños y adolescentes.<br>Sesiones conjuntas con familiares.</p>
+          <button class="card-btn">Sesión gratis</button>
+        </div>
+        <div class="info">
+          <h2>Alba García</h2>
+          <hr>
+          <p>Máster en Terapia Cognitivo-Conductual</p>
+        </div>
+      </div>
+      <div class="psico-card">
+        <div class="green-part">
+          <div class="photo">
+            <img src="img/sigmund-psicologo.png" alt="Sigmund Freud">
+          </div>
+        </div>
+        <div class="card-back">
+          <h1 class="card-tittle">Sigmund</h1>
+          <p class="card-info">12 años de experiencia.<br>Especialidad en entorno familiar.<br>Reconocido escritor de artículos para múltiples periódicos.</p>
+          <button class="card-btn">Sesión gratis</button>
+        </div>
+        <div class="info">
+          <h2>Sigmund Freud</h2>
+          <hr>
+          <p>Máster en Intervención Educativa y Psicológica</p>
+        </div>
+      </div>
+      <div class="psico-card">
+        <div class="green-part">
+          <div class="photo">
+            <img src="img/patricia-psicologo.png" alt="Patricia Fuentes">
+          </div>
+        </div>
+        <div class="card-back">
+          <h1 class="card-tittle">Patricia</h1>
+          <p class="card-info">10 años de experiencia.<br>Especialidad en acoso y cyberbullying.<br>Imparte charlas en colegios e institutos a demanda.</p>
+          <button class="card-btn">Sesión gratis</button>
+        </div>
+        <div class="info">
+          <h2>Patricia Fuentes</h2>
+          <hr>
+          <p>Máster Oficial en Psicología Social</p>
+        </div>
       </div>
     </div>
-    <div class="card-back">
-        <h1 class="card-tittle">Alba</h1>
-        <p class="card-info">5 años de experiencia.<br>Especialidad en niños y adolescentes.<br>Sesiones conjuntas con familiares.</p>
-        <button class="card-btn">Sesión gratis</button>
-    </div>
-    <div class="info">
-      <h2>Alba García</h2>
-      <hr>
-      <p>Máster en Terapia Cognitivo-Conductual</p>
-    </div>
-  </div>
-  <div class="psico-card">
-    <div class="green-part">
-      <div class="photo">
-        <img src="img/sigmund-psicologo.png" alt="Sigmund Freud">
-      </div>
-    </div>
-    <div class="card-back">
-        <h1 class="card-tittle">Sigmund</h1>
-        <p class="card-info">12 años de experiencia.<br>Especialidad en entorno familiar.<br>Reconocido escritor de artículos para múltiples periódicos.</p>
-        <button class="card-btn">Sesión gratis</button>
-    </div>
-    <div class="info">
-      <h2>Sigmund Freud</h2>
-      <hr>
-      <p>Máster en Intervención Educativa y Psicológica</p>
-    </div>
-  </div>
-  <div class="psico-card">
-    <div class="green-part">
-      <div class="photo">
-        <img src="img/patricia-psicologo.png" alt="Patricia Fuentes">
-      </div>
-    </div>
-    <div class="card-back">
-        <h1 class="card-tittle">Patricia</h1>
-        <p class="card-info">10 años de experiencia.<br>Especialidad en acoso y cyberbullying.<br>Imparte charlas en colegios e institutos a demanda.</p>
-        <button class="card-btn">Sesión gratis</button>
-    </div>
-    <div class="info">
-      <h2>Patricia Fuentes</h2>
-      <hr>
-      <p>Máster Oficial en Psicología Social</p>
-    </div>
-  </div>
-</div>
   </section>
 
-  <!-- Tarjetas de reseñas -->
+  <!-- RESEÑAS -->
   <div class="psico-tittle">
-      <h1>Testimonios de usuarios</h1>
+    <h1>Testimonios de usuarios</h1>
   </div>
- <section class="container">
- <div class="card__container swiper">
-    <div class="card__content">
-      <div class="swiper-wrapper">
-        <article class="card__article swiper-slide">
-          <div class="card__data">
-          <div class="quote-icon">
-          <i class="fas fa-quote-right"></i>
-          </div>
-            <p class="card__description">
-              AAAAAAAAAAAAAAAAAAAAAAAAAAAA <br> AAAAAA <br> AAAAAAAAAAAAAA <br> AAAAAAAAAAAA
-            </p>
-            <span class="name">Mikasa Trovsky</span>
-          <div class="stars-icons">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          </div>
-          </div>
-        </article>
+  <section class="container">
+    <div class="card__container swiper">
+      <div class="card__content">
+        <div class="swiper-wrapper">
+          <article class="card__article swiper-slide">
+            <div class="card__data">
+              <div class="quote-icon">
+                <i class="fas fa-quote-right"></i>
+              </div>
+              <p class="card__description">
+                AAAAAAAAAAAAAAAAAAAAAAAAAAAA <br> AAAAAA <br> AAAAAAAAAAAAAA <br> AAAAAAAAAAAA
+              </p>
+              <span class="name">Mikasa Trovsky</span>
+              <div class="stars-icons">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </article>
 
-        <article class="card__article swiper-slide">
-          <div class="card__data">
-          <div class="quote-icon">
-          <i class="fas fa-quote-right"></i>
-          </div>
-            <p class="card__description">
-            EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
-            </p>
-            <span class="name">Juan Pérez</span>
-          <div class="stars-icons">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          </div>
-          </div>
-        </article>
+          <article class="card__article swiper-slide">
+            <div class="card__data">
+              <div class="quote-icon">
+                <i class="fas fa-quote-right"></i>
+              </div>
+              <p class="card__description">
+                EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+              </p>
+              <span class="name">Juan Pérez</span>
+              <div class="stars-icons">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </article>
 
-        <article class="card__article swiper-slide">
-          <div class="card__data">
-          <div class="quote-icon">
-          <i class="fas fa-quote-right"></i>
-          </div>
-            <p class="card__description">
-            DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
-            </p>
-            <span class="name">Pedro Piqueras</span>
-          <div class="stars-icons">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          </div>
-          </div>
-        </article>
+          <article class="card__article swiper-slide">
+            <div class="card__data">
+              <div class="quote-icon">
+                <i class="fas fa-quote-right"></i>
+              </div>
+              <p class="card__description">
+                DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+              </p>
+              <span class="name">Pedro Piqueras</span>
+              <div class="stars-icons">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </article>
 
-        <article class="card__article swiper-slide">
-          <div class="card__data">
-          <div class="quote-icon">
-          <i class="fas fa-quote-right"></i>
-          </div>
-            <p class="card__description">
-            CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCc
-          </p>
-            <span class="name">Andrea Sánchez</span>
-          <div class="stars-icons">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          </div>
-          </div>
-        </article>
+          <article class="card__article swiper-slide">
+            <div class="card__data">
+              <div class="quote-icon">
+                <i class="fas fa-quote-right"></i>
+              </div>
+              <p class="card__description">
+                CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCc
+              </p>
+              <span class="name">Andrea Sánchez</span>
+              <div class="stars-icons">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </article>
 
-        <article class="card__article swiper-slide">
-          <div class="card__data">
-          <div class="quote-icon">
-          <i class="fas fa-quote-right"></i>
-          </div>
-            <p class="card__description">
-            BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
-            </p>
-            <span class="name">Raúl García</span>
-          <div class="stars-icons">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          </div>
-          </div>
-        </article>
+          <article class="card__article swiper-slide">
+            <div class="card__data">
+              <div class="quote-icon">
+                <i class="fas fa-quote-right"></i>
+              </div>
+              <p class="card__description">
+                BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+              </p>
+              <span class="name">Raúl García</span>
+              <div class="stars-icons">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </article>
+        </div>
       </div>
-    </div>
 
-    <!-- Botones del slide -->
-    <div class="swiper-button-prev">
-      <i class="ri-arrow-left-s-line"></i>
-    </div>
-    <div class="swiper-button-next">
-      <i class="ri-arrow-right-s-line"></i>
-    </div>
+      <!-- Botones del slide -->
+      <div class="swiper-button-prev">
+        <i class="ri-arrow-left-s-line"></i>
+      </div>
+      <div class="swiper-button-next">
+        <i class="ri-arrow-right-s-line"></i>
+      </div>
 
- </section> 
+  </section>
 
   <div class="contact-container">
     <div class="contact-info">
@@ -284,6 +284,7 @@ if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya
               visibility
             </span>
           </div>
+          <span id="error-contrasena-login"></span>
         </div>
         <div class="form-element">
           <input type="checkbox" id="recuerdame" />
@@ -301,7 +302,7 @@ if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya
       </form>
     </div>
     <!-- FORMULARIO DE REGISTRO -->
-    <div class="popup-signup active">
+    <div class="popup-signup">
       <div class="close-bttn">
         <i class="fa-solid fa-xmark fa-lg" style="color: #800020"></i>
       </div>
@@ -324,12 +325,12 @@ if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya
         </div>
         <div class="form-element">
           <label for="password">Contraseña:</label>
-            <div class="wrapper-pwd">
-              <input type="password" name="password" id="contrasena-signup" placeholder="Introduce tu contraseña" required />
-              <span class="material-symbols-outlined" id="visibleSignup">
+          <div class="wrapper-pwd">
+            <input type="password" name="password" id="contrasena-signup" placeholder="Introduce tu contraseña" required />
+            <span class="material-symbols-outlined" id="visibleSignup">
               visibility
-              </span>
-            </div>
+            </span>
+          </div>
           <ul id="error-contrasena-signup"></ul>
         </div>
         <div class="form-element">
@@ -341,6 +342,12 @@ if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya
       </form>
     </div>
   </div>
+  <div class="popup-message">
+  <div class="popup-content">
+    <span class="close-popup-message">&times;</span>
+    <p id="popup-text">This is a pop-up message!</p>
+  </div>
+</div>
   <script src="js/swiper-bundle.min.js"></script>
   <script src="js/script.js"></script>
 </body>
