@@ -99,7 +99,7 @@
                </div>
 
                <div class="button-container">
-                  <button type="button" class="bttn-titulo" onclick="actualizarInformacion()">Actualizar</button>
+                  <button type="button" class="bttn-titulo">Actualizar</button>
                </div>
                <input type="hidden" name="id_paciente" value="1">
             </form>

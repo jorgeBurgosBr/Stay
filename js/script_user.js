@@ -1,6 +1,7 @@
 // Espera a que el DOM se cargue completamente
 document.addEventListener('DOMContentLoaded', function() {
-   obtenerPerfilPaciente();
+    obtenerPerfilPaciente();
+    actualizarInformacion();
 });
 
 // Función para obtener el perfil del paciente
