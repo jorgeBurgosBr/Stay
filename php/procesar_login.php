@@ -20,7 +20,7 @@ if ($bd->conectar()) {
          if (mysqli_num_rows($sql2) > 0) { //si existe, comprobamos la constraseña
             $sql3 = mysqli_query($conn, "SELECT contrasena_usuario WHERE contrasena_usuario = '$password'");
             if (mysqli_num_rows($sql3) > 0) {
-               //la contraseña es correca y por lo tanto ya tendría que haber iniciado sesión
+               //la contraseña es correcta y por lo tanto ya tendría que haber iniciado sesión
             } else {
                //guardamos en el array de erroes que la contraseña es incorrecta
                $errores['password'] = 'La contraseña es incorrecta';
