@@ -1,7 +1,7 @@
 // Espera a que el DOM se cargue completamente
 document.addEventListener('DOMContentLoaded', function() {
     obtenerPerfilPaciente();
-    actualizarInformacion();
+    mostrarInformacion();
 });
 
 // Función para obtener el perfil del paciente
@@ -33,7 +33,6 @@ function obtenerPerfilPaciente() {
 
        // Verifica si la respuesta del servidor fue exitosa y si los elementos HTML existen
        if (data.success && nombreSpan && correoSpan) {
-           console.log('Actualizando spans:', nombreSpan, correoSpan);
            // Actualiza el contenido de los elementos con los datos del paciente
            nombreSpan.textContent = data.nombre;
            correoSpan.textContent = data.correo;
@@ -47,11 +46,10 @@ function obtenerPerfilPaciente() {
 }
 
 
-function actualizarInformacion() {
+function mostrarInformacion() {
    // Obtener el formulario y crear un objeto FormData
    const formulario = document.getElementById('user-form-info');
-   const formData = new FormData(formulario);
-
+    const formData = new FormData(formulario);
    // Realizar la solicitud fetch
    fetch('./php/procesar_info_usuario.php', {
        method: 'POST',
@@ -68,12 +66,30 @@ function actualizarInformacion() {
        console.log(data);
 
        // Actualizar los campos del formulario con la información del servidor
-       document.getElementById('hobbies').value = data.hobbies;
-       document.getElementById('job').value = data.job;
-       document.getElementById('studies').value = data.studies;
-      document.getElementById('expectations').value = data.expectations;
-      document.getElementById('gender').value = data.gender;
-
+        document.getElementById('hobbies').value = data.hobbies;
+        document.getElementById('job').value = data.job;
+        document.getElementById('studies').value = data.studies;
+       document.getElementById('expectations').value = data.expectations;
+       document.getElementById('birthdate').value = data.birthdate;
+       document.getElementById('children').value = data.children;
+       
+        const genderSelect = document.getElementById('gender');
+        const partnerYesRadio = document.getElementById('partner-yes');
+        const partnerNoRadio = document.getElementById('partner-no');
+    
+           // Establecer la opción seleccionada basada en el valor del servidor
+           for (let i = 0; i < genderSelect.options.length; i++) {
+            if (genderSelect.options[i].value === data.gender) {
+                genderSelect.options[i].selected = true;
+                break;
+            }
+       }
+       if (data.partner === '1' || data.partner === 1 || data.partner === true || data.partner === 'true') {
+        partnerYesRadio.checked = true;
+    } else if (data.partner === '0' || data.partner === 0 || data.partner === false || data.partner === 'false') {
+        partnerNoRadio.checked = true;
+    }
+       
        // Si la actualización fue exitosa, muestra un alert
        if (data.success) {
            alert('Actualización exitosa');
@@ -89,5 +105,66 @@ function actualizarInformacion() {
 
    return false;
 }
+
+function actualizarInformacion() {
+    // Obtener el formulario y crear un objeto FormData
+    const formulario = document.getElementById('user-form-info');
+     const formData = new FormData(formulario);
+     formData.append('funcion', 'updateForm');
+    // Realizar la solicitud fetch
+    fetch('./php/procesar_info_usuario.php', {
+        method: 'POST',
+        body: formData,
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        // Procesar la respuesta JSON
+        console.log(data);
+ 
+        // Actualizar los campos del formulario con la información del servidor
+         document.getElementById('hobbies').value = data.hobbies;
+         document.getElementById('job').value = data.job;
+         document.getElementById('studies').value = data.studies;
+        document.getElementById('expectations').value = data.expectations;
+        document.getElementById('birthdate').value = data.birthdate;
+        document.getElementById('children').value = data.children;
+        
+         const genderSelect = document.getElementById('gender');
+         const partnerYesRadio = document.getElementById('partner-yes');
+         const partnerNoRadio = document.getElementById('partner-no');
+     
+            // Establecer la opción seleccionada basada en el valor del servidor
+            for (let i = 0; i < genderSelect.options.length; i++) {
+             if (genderSelect.options[i].value === data.gender) {
+                 genderSelect.options[i].selected = true;
+                 break;
+             }
+        }
+        if (data.partner === '1' || data.partner === 1 || data.partner === true || data.partner === 'true') {
+         partnerYesRadio.checked = true;
+     } else if (data.partner === '0' || data.partner === 0 || data.partner === false || data.partner === 'false') {
+         partnerNoRadio.checked = true;
+     }
+        
+        // Si la actualización fue exitosa, muestra un alert
+        if (data.success) {
+            alert('Actualización exitosa');
+        } else {
+            alert('Error en la actualización');
+        }
+    })
+    .catch(error => {
+        // Capturar errores y pausar la ejecución
+        console.error('Fetch error: ', error);
+        alert('Error en la solicitud');
+    });
+ 
+    return false;
+ }
 
 
