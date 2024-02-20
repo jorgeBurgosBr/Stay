@@ -92,7 +92,8 @@ function mostrarInformacion() {
        
        // Si la actualización fue exitosa, muestra un alert
        if (data.success) {
-           alert('Actualización exitosa');
+        //    alert('Actualización exitosa');
+        //    window.location.reload();
        } else {
            alert('Error en la actualización');
        }
@@ -153,7 +154,11 @@ function actualizarInformacion() {
         
         // Si la actualización fue exitosa, muestra un alert
         if (data.success) {
-            alert('Actualización exitosa');
+            // alert('Actualización exitosa');
+            setTimeout(() => {
+                window.location.reload();
+            }, 0);
+
         } else {
             alert('Error en la actualización');
         }

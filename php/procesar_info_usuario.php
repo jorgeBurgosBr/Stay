@@ -39,42 +39,55 @@ if ($bd->conectar()) {
                 // Verificar si la función de actualización está presente en el formulario
                 $funcion = isset($_POST['funcion']) ? $_POST['funcion'] : '';
 
-                if ($funcion === 'updateForm') {
-                    // Verificar si los datos necesarios para la actualización están presentes
-                    if (isset($_POST['new_gender'])) {
-                        // Escapar y obtener los nuevos datos para la actualización
-                        $newGender = mysqli_real_escape_string($conn, $_POST['new_gender']);
-                        $newBirthdate = mysqli_real_escape_string($conn, $_POST['new_birthdate']);
-                        $newHobbies = mysqli_real_escape_string($conn, $_POST['new_hobbies']);
-                        $newChildren = mysqli_real_escape_string($conn, $_POST['new_children']);
-                        $newJob = mysqli_real_escape_string($conn, $_POST['new_job']);
-                        $newPartner = mysqli_real_escape_string($conn, $_POST['new_partner']);
-                        $newStudies = mysqli_real_escape_string($conn, $_POST['new_studies']);
-                        $newExpectations = mysqli_real_escape_string($conn, $_POST['new_expectations']);
+// ...
 
-                        // Ejemplo de actualización de datos
-                        $sqlUpdate = "UPDATE perfil_paciente SET
-                                      sexo_paciente = '$newGender',
-                                      fecha_nac_paciente = '$newBirthdate',
-                                      hobbies_paciente = '$newHobbies',
-                                      hijos_paciente = '$newChildren',
-                                      trabajo_paciente = '$newJob',
-                                      pareja_sino_paciente = '$newPartner',
-                                      estudios_paciente = '$newStudies',
-                                      expectativasypreocupaciones_paciente = '$newExpectations'
-                                      WHERE id_paciente = '$idPaciente'";
+if ($funcion === 'updateForm') {
+    // Verificar si al menos un campo necesario para la actualización está presente
+    if (
+        isset($_POST['gender']) || 
+        isset($_POST['birthdate']) || 
+        isset($_POST['hobbies']) || 
+        isset($_POST['children']) || 
+        isset($_POST['job']) || 
+        isset($_POST['partner']) || 
+        isset($_POST['studies']) || 
+        isset($_POST['expectations'])
+    ) {
+        // Escapar y obtener los nuevos datos para la actualización
+        $newGender = mysqli_real_escape_string($conn, $_POST['gender']);
+        $newBirthdate = mysqli_real_escape_string($conn, $_POST['birthdate']);
+        $newHobbies = mysqli_real_escape_string($conn, $_POST['hobbies']);
+        $newChildren = mysqli_real_escape_string($conn, $_POST['children']);
+        $newJob = mysqli_real_escape_string($conn, $_POST['job']);
+        $newPartner = mysqli_real_escape_string($conn, $_POST['partner']);
+        $newStudies = mysqli_real_escape_string($conn, $_POST['studies']);
+        $newExpectations = mysqli_real_escape_string($conn, $_POST['expectations']);
 
-                        $resultUpdate = mysqli_query($conn, $sqlUpdate);
+        // Actualización de la tabla
+        $sqlUpdate = "UPDATE perfil_paciente SET
+                      sexo_paciente = '$newGender',
+                      fecha_nac_paciente = '$newBirthdate',
+                      hobbies_paciente = '$newHobbies',
+                      hijos_paciente = '$newChildren',
+                      trabajo_paciente = '$newJob',
+                      pareja_sino_paciente = '$newPartner',
+                      estudios_paciente = '$newStudies',
+                      expectativasypreocupaciones_paciente = '$newExpectations'
+                      WHERE id_paciente = '$idPaciente'";
 
-                        if ($resultUpdate) {
-                            $respuesta['success'] = true;
-                            $respuesta['message'] = 'Datos actualizados con éxito';
-                        } else {
-                            $respuesta['error'] = 'Error en la actualización SQL: ' . mysqli_error($conn);
-                        }
-                    } else {
-                        $respuesta['error'] = 'Datos insuficientes para la actualización';
-                    }
+        $resultUpdate = mysqli_query($conn, $sqlUpdate);
+
+        if ($resultUpdate) {
+            $respuesta['success'] = true;
+            $respuesta['message'] = 'Datos actualizados con éxito';
+        } else {
+            $respuesta['error'] = 'Error en la actualización SQL: ' . mysqli_error($conn);
+        }
+    } else {
+        $respuesta['error'] = 'Datos insuficientes para la actualización';
+    }
+}
+
                 }
             } else {
                 // Paciente no encontrado
@@ -89,5 +102,4 @@ if ($bd->conectar()) {
         header('Content-Type: application/json');
         echo json_encode($respuesta);
     }
-}
 ?>
