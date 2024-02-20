@@ -321,6 +321,7 @@
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  margin-bottom: 80px;
 }
 
 .psico-tittle {
@@ -455,7 +456,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }
 
 .card__container {
