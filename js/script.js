@@ -8,6 +8,7 @@ const forms = {
 forms["form-login"].addEventListener("submit", function (event) {
    // Previene que se envíe directamente
    event.preventDefault();
+   clearErroresLogin();
    // Valida el formulario
    if (validacionLogin()) {
       procesarFormLogin(forms["form-login"]);
@@ -18,13 +19,51 @@ forms["form-login"].addEventListener("submit", function (event) {
 
 forms["form-signup"].addEventListener("submit", function (event) {
    event.preventDefault();
+   clearErroresSignup();
    if (validacionSignup()) {
       procesarFormRegistro(forms["form-signup"]);
    } else {
       return;
    }
 });
+function clearErroresLogin() {
+   // Recojo span de error
+   const errorCorreoLogin = document.querySelector("#error-correo-login");
+   const errorContrasenaLogin = document.querySelector("#error-contrasena-login");
+   errorCorreoLogin.textContent = "";
+   errorCorreoLogin.style.marginTop = "initial";
+   errorCorreoLogin.style.marginBottom = "initial";
+   errorCorreoLogin.style.display = "initial";
+   document.getElementById("email").style.border = "1px solid black";
+   errorContrasenaLogin.textContent = "";
+   errorContrasenaLogin.style.marginTop = "initial";
+   errorContrasenaLogin.style.marginBottom = "initial";
+   errorContrasenaLogin.style.display = "initial";
+   document.getElementById("password_login").style.border = "1px solid black";
+}
+function clearErroresSignup() {
+   // Recojo los span de error
+   const errorNombreSignup = document.getElementById("error-nombre-signup");
+   const errorApellidosSignup = document.getElementById("error-apellidos-signup");
+   const errorCorreoSignup = document.getElementById("error-correo-signup");
 
+   // Recojo el <ul></ul> de error de la contraseña
+   const errorContrasenaSignup = document.getElementById("error-contrasena-signup");
+
+   // Limpiamos erroes nombre y apellidos
+   errorNombreSignup.textContent = "";
+   document.getElementById("nombre-signup").style.border = "1px solid black";
+   errorApellidosSignup.textContent = "";
+   document.getElementById("apellidos-signup").style.border = "1px solid black";
+
+   // Limpiamos errores correo
+   errorCorreoSignup.textContent = "";
+   document.getElementById("correo-signup").style.border = "1px solid black";
+   
+   // Limpiamos errores contraseña
+   errorContrasenaSignup.innerHTML = "";
+   document.getElementById("contrasena-signup").style.border = "1px solid black";
+}
 function procesarFormRegistro(formulario) {
    const formData = new FormData(formulario);
    fetch('./php/procesar_registro.php', {
@@ -49,7 +88,7 @@ function procesarFormRegistro(formulario) {
 function mostrarErrorRegistro(flag) {
    const errorCorreoSignup = document.querySelector("#error-correo-signup");
    if (!flag) {
-      errorCorreoSignup.textContent = "⛔" + mensajeError;
+      errorCorreoSignup.textContent = "⛔ El correo introducido ya existe";
       errorCorreoSignup.style.display = "block";
       errorCorreoSignup.style.color = "red";
       errorCorreoSignup.style.marginTop = "-25px";
@@ -72,20 +111,10 @@ function procesarFormLogin(formulario) {
          return response.json()
       })
       .then(data => {
-         console.log(data);
          if (!data.success) {
             mostrarErrorLogin(true, data.error);
          } else {
-            alert("Login exitoso, te redirigimos a la página sesiones.php");
-            mostrarErrorLogin(false, data.error); 
-            /**AQUÍ DA ERROR PORQUE data.error = null
-             * Posible solución -> Hacer que el borrar errores se maneje cada vez
-             * que se pulse el botón de enviar en todos los formularios. Optimiza
-             * tanto la validación como el procesamiento mediante fetch y muestra 
-             * de errores.
-             */
-            // TODO: Redirigir a página en específico
-            // TODO: BORRAR TODOS LOS CONSOLE.LOG Y ALERT()
+            window.location.href = "sesiones.php";
          }
       }).catch(error => console.error('Fetch error: ', error));
 }
@@ -108,17 +137,6 @@ function mostrarErrorLogin(flag, error) {
          errorContrasenaLogin.style.color = "red";
          document.getElementById("password-login").style.border = "2px solid red";
       }
-   } else {
-      errorCorreoLogin.textContent = "";
-      errorCorreoLogin.style.marginTop = "initial";
-      errorCorreoLogin.style.marginBottom = "initial";
-      errorCorreoLogin.style.display = "initial";
-      document.getElementById("email").style.border = "1px solid black";
-      errorContrasenaLogin.textContent = "";
-      errorContrasenaLogin.style.marginTop = "initial";
-      errorContrasenaLogin.style.marginBottom = "initial";
-      errorContrasenaLogin.style.display = "initial";
-      document.getElementById("password-login").style.border = "1px solid black";
    }
 }
 function validarNombre(nombre) {
@@ -200,11 +218,8 @@ function validacionLogin() {
       errorCorreoLogin.style.color = "red";
       document.getElementById("email").style.border = "2px solid red";
       return false;
-   } else {
-      errorCorreoLogin.textContent = "";
-      document.getElementById("email").style.border = "1px solid black";
-      return true;
-   }
+   } 
+   return true;
 }
 function validacionSignup() {
    let flag = true;
@@ -229,11 +244,7 @@ function validacionSignup() {
       errorNombreSignup.style.color = "red";
       document.getElementById("nombre-signup").style.border = "2px solid red";
       flag = false;
-   } else {
-      errorNombreSignup.textContent = "";
-      document.getElementById("nombre-signup").style.border = "1px solid black";
    }
-
    if (!apellidosValid) {
       errorApellidosSignup.textContent = "⛔ No se pueden introducir números";
       errorApellidosSignup.style.display = "block";
@@ -241,9 +252,6 @@ function validacionSignup() {
       errorApellidosSignup.style.color = "red";
       document.getElementById("apellidos-signup").style.border = "2px solid red";
       flag = false;
-   } else {
-      errorApellidosSignup.textContent = "";
-      document.getElementById("apellidos-signup").style.border = "1px solid black";
    }
 
    if (!correoValid) {
@@ -253,9 +261,6 @@ function validacionSignup() {
       errorCorreoSignup.style.marginTop = "-25px";
       document.getElementById("correo-signup").style.border = "2px solid red";
       flag = false;
-   } else {
-      errorCorreoSignup.textContent = "";
-      document.getElementById("correo-signup").style.border = "1px solid black";
    }
 
    if (!contrasenaValid) {
@@ -271,9 +276,6 @@ function validacionSignup() {
       // Cambiamos el estilo del input "contrasena-signup"
       document.getElementById("contrasena-signup").style.border = "2px solid red";
       flag = false;
-   } else {
-      errorContrasenaSignup.innerHTML = "";
-      document.getElementById("contrasena-signup").style.border = "1px solid black";
    }
    return flag;
 
