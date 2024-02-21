@@ -55,8 +55,8 @@
                      <label id="lbl-gender" for="gender">Sexo:</label>
                      <select id="gender" name="gender">
                         <option value=""></option>
-                        <option value="male">Masculino</option>
-                        <option value="female">Femenino</option>
+                        <option value="masculino">Masculino</option>
+                        <option value="femenino">Femenino</option>
                      </select>
                   </div>
 
@@ -99,7 +99,7 @@
                </div>
 
                <div class="button-container">
-                  <button type="button" class="bttn-titulo">Actualizar</button>
+                  <button type="button" class="bttn-titulo" onclick="actualizarInformacion()">Actualizar</button>
                </div>
                <input type="hidden" name="id_paciente" value="1">
             </form>

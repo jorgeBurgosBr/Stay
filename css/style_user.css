@@ -16,6 +16,8 @@
  }
  
  .form-container {
+  border: 1px solid #000000;
+  border-radius: 4px;
    padding: 30px;
    width: 100%;
  }
@@ -36,13 +38,14 @@
   text-align: center;
   border: 1px solid #000000;
   border-radius: 4px;
+  padding: 10px;
 }
 
 #user-name,
 #user-role,
 #user-mail {
-  display: block; /* Hace que los spans sean bloques para centrar verticalmente */
-  margin-bottom: 10px; /* Añade espacio entre los elementos */
+  display: block;
+  margin-bottom: 10px; 
 }
  
  .first-column-form {
@@ -131,4 +134,47 @@
 .button-container {
   display: flex;
   justify-content: flex-end;
+}
+
+/* --------------------------- PERFIL DE USUARIO --------------------------- */
+
+/* Media queries para tabletas */
+@media (max-width: 768px) {
+  .profile-container {
+    grid-template-columns: 100%;
+    margin-top: 100px;
+  }
+
+  .form-container {
+    margin-top: -30px;
+  }
+
+  .profile-photo-container {
+    border: none;
+  }
+
+  .first-column-form,
+  .partner-container,
+  .second-column-form {
+    margin-bottom: 20px;
+  }
+}
+
+/* Media queries para dispositivos móviles */
+@media (max-width: 480px) {
+  .profile-container {
+    grid-template-columns: 100%;
+    margin-top: 40px;
+  }
+
+  .profile-photo-container {
+    border: none;
+  }
+
+  .first-column-form,
+  .partner-container,
+  .second-column-form {
+    margin-top: 6px;
+    margin-bottom: 10px;
+  }
 }

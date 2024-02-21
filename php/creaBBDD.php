@@ -75,7 +75,7 @@ function crearTablas()
                     fecha_nac_paciente DATE,
                     sexo_paciente ENUM('masculino', 'femenino', 'otro') NOT NULL,
                     pareja_sino_paciente BOOLEAN,
-                    hijos_sino_paciente BOOLEAN,
+                    hijos_paciente INT,
                     trabajo_paciente VARCHAR(255),
                     estudios_paciente VARCHAR(255),
                     hobbies_paciente TEXT,
@@ -89,7 +89,7 @@ function crearTablas()
                     fecha_nac_psicologo DATE,
                     sexo_psicologo ENUM('masculino', 'femenino', 'otro') NOT NULL,
                     pareja_sino_psicologo BOOLEAN,
-                    hijos_sino_psicologo BOOLEAN,
+                    hijos_psicologo INT,
                     especialidad_psicologo VARCHAR(255),
                     experiencia_psicologo INT,
                     estudios_psicologo VARCHAR(255),
@@ -223,21 +223,21 @@ function insertarDatos()
                 ('browndavid@gmail.com', 'DBrown#1985', 'psicologo', 4),
                 ('whiteemily@gmail.com', 'EmilyW1990!', 'psicologo', 5);
 
-                INSERT INTO PERFIL_PACIENTE (id_paciente, fecha_nac_paciente, sexo_paciente, pareja_sino_paciente, hijos_sino_paciente, trabajo_paciente, estudios_paciente, hobbies_paciente, expectativasypreocupaciones_paciente, foto_paciente)
+                INSERT INTO PERFIL_PACIENTE (id_paciente, fecha_nac_paciente, sexo_paciente, pareja_sino_paciente, hijos_paciente, trabajo_paciente, estudios_paciente, hobbies_paciente, expectativasypreocupaciones_paciente, foto_paciente)
                 VALUES 
-                (1, '1980-04-23', 'masculino', TRUE, FALSE, 'Ingeniero', 'Grado en Ingeniería', 'Leer, Escalar', 'Espero mejorar mi gestión del estrés', 'foto_john.jpg'),
-                (2, '1985-05-16', 'femenino', FALSE, TRUE, 'Doctora', 'Doctorado en Medicina', 'Yoga, Pintar', 'Quiero aprender a equilibrar trabajo y vida personal', 'foto_jane.jpg'),
-                (3, '1990-07-08', 'masculino', TRUE, TRUE, 'Abogado', 'Licenciatura en Derecho', 'Correr, Viajar', 'Necesito ayuda para lidiar con la ansiedad', 'foto_jim.jpg'),
-                (4, '1995-08-19', 'masculino', FALSE, FALSE, 'Artista', 'Diplomado en Bellas Artes', 'Música, Poesía', 'Busco formas de potenciar mi creatividad', 'foto_jack.jpg'),
-                (5, '2000-12-12', 'femenino', TRUE, FALSE, 'Emprendedora', 'MBA', 'Cocinar, Blogging', 'Deseo mejorar mis habilidades de comunicación', 'foto_josie.jpg');
+                (1, '1980-04-23', 'masculino', TRUE, 1, 'Ingeniero', 'Grado en Ingeniería', 'Leer, Escalar', 'Espero mejorar mi gestión del estrés', 'foto_john.jpg'),
+                (2, '1985-05-16', 'femenino', FALSE, 0, 'Doctora', 'Doctorado en Medicina', 'Yoga, Pintar', 'Quiero aprender a equilibrar trabajo y vida personal', 'foto_jane.jpg'),
+                (3, '1990-07-08', 'masculino', TRUE, 3, 'Abogado', 'Licenciatura en Derecho', 'Correr, Viajar', 'Necesito ayuda para lidiar con la ansiedad', 'foto_jim.jpg'),
+                (4, '1995-08-19', 'masculino', FALSE, 2, 'Artista', 'Diplomado en Bellas Artes', 'Música, Poesía', 'Busco formas de potenciar mi creatividad', 'foto_jack.jpg'),
+                (5, '2000-12-12', 'femenino', TRUE, 0, 'Emprendedora', 'MBA', 'Cocinar, Blogging', 'Deseo mejorar mis habilidades de comunicación', 'foto_josie.jpg');
 
-                INSERT INTO PERFIL_PSICOLOGO (id_psicologo, fecha_nac_psicologo, sexo_psicologo, pareja_sino_psicologo, hijos_sino_psicologo, especialidad_psicologo, experiencia_psicologo, estudios_psicologo, hobbies_psicologo, foto_psicologo)
+                INSERT INTO PERFIL_PSICOLOGO (id_psicologo, fecha_nac_psicologo, sexo_psicologo, pareja_sino_psicologo, hijos_psicologo, especialidad_psicologo, experiencia_psicologo, estudios_psicologo, hobbies_psicologo, foto_psicologo)
                 VALUES 
-                (1, '1975-03-15', 'femenino', TRUE, TRUE, 'Terapia Cognitiva', 15, 'Doctorado en Psicología', 'Jardinería, Meditación', 'foto_anna.jpg'),
-                (2, '1970-06-22', 'masculino', FALSE, FALSE, 'Psicología Clínica', 20, 'Doctorado en Psicología Clínica', 'Ajedrez, Fotografía', 'foto_brian.jpg'),
-                (3, '1980-11-30', 'femenino', TRUE, FALSE, 'Psicología Infantil', 10, 'Master en Psicología Infantil', 'Escritura, Ciclismo', 'foto_carol.jpg'),
-                (4, '1985-02-28', 'masculino', TRUE, TRUE, 'Terapia de Parejas', 8, 'Master en Terapia Familiar', 'Cocina, Buceo', 'foto_david.jpg'),
-                (5, '1990-09-14', 'femenino', FALSE, TRUE, 'Mindfulness y Estrés', 5, 'Master en Mindfulness', 'Pilates, Lectura', 'foto_emily.jpg');
+                (1, '1975-03-15', 'femenino', TRUE, 1, 'Terapia Cognitiva', 15, 'Doctorado en Psicología', 'Jardinería, Meditación', 'foto_anna.jpg'),
+                (2, '1970-06-22', 'masculino', FALSE, 1, 'Psicología Clínica', 20, 'Doctorado en Psicología Clínica', 'Ajedrez, Fotografía', 'foto_brian.jpg'),
+                (3, '1980-11-30', 'femenino', TRUE, 3, 'Psicología Infantil', 10, 'Master en Psicología Infantil', 'Escritura, Ciclismo', 'foto_carol.jpg'),
+                (4, '1985-02-28', 'masculino', TRUE, 2, 'Terapia de Parejas', 8, 'Master en Terapia Familiar', 'Cocina, Buceo', 'foto_david.jpg'),
+                (5, '1990-09-14', 'femenino', FALSE, 1, 'Mindfulness y Estrés', 5, 'Master en Mindfulness', 'Pilates, Lectura', 'foto_emily.jpg');
 
                 INSERT INTO CITA (id_paciente, id_psicologo, fecha_cita, hora_cita)
                 VALUES 
