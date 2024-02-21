@@ -24,8 +24,6 @@ if ($bd->conectar()) {
          if (mysqli_num_rows($sql2) > 0) {
             // El correo y la contraseña son correctos
             $respuesta["success"] = true;
-            $_SESSION['id_usuario'] = $row['id_usuario']; //Guardamos en sesiones el id de quien inicia sesión
-            $_SESSION['id_original'] = $row['id_original']; //Guardamos en sesiones el id de quien inicia sesión
          } else {
             // La contraseña es incorrecta
             $respuesta["error"] = "contrasena";
