@@ -81,6 +81,11 @@ nav ul li:hover a {
    color: var(--contraste);
  }
 
+ #current_page{
+  text-decoration: underline;
+  color: var(--contraste);
+}
+
  /* --------------------------- FOOTER ---------------------------*/
 footer {
    background-color: var(--ppal_shadow);

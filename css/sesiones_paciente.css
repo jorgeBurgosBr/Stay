@@ -1,0 +1,40 @@
+
+/* NAVBAR */
+
+.container_cal {
+    display: grid;
+    height: 80vh;
+    width: 80%;
+    margin: 5% auto;
+    grid-template-columns:repeat(7, 1fr);
+    grid-template-rows: 1fr repeat(6, 3fr);
+}
+.celda{
+    border: 1px solid red;
+    display: flex;
+    background-color: white;
+    flex-direction: column;
+    
+}
+.dias_semana{
+    padding: 5px 0;
+    text-align: center;
+    font-size: 1.3em;
+    font-weight: 900;
+}
+.num_dia{
+    border: 1px solid green;
+    font-weight: 500;
+}
+.pasado_futuro{
+    background-color: whitesmoke;
+}
+.etiqueta_cita{
+    
+    border: 1px solid grey;
+    width: fit-content;
+    padding: 0 2px;
+    border-radius: 8px;
+    background-color: var(--ppal_shadow);
+}
+
