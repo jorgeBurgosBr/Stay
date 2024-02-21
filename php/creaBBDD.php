@@ -157,7 +157,7 @@ function crearTablas()
                     FOREIGN KEY (id_psicologo) REFERENCES PSICOLOGO(id_psicologo)
                 );
                 CREATE TABLE MENSAJES (
-                    msg_id INT,
+                    msg_id INT AUTO_INCREMENT,
                     msg_entrada_id INT,
                     msg_salida_id INT,
                     msg VARCHAR(1000),
