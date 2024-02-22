@@ -1,5 +1,5 @@
 
-/* NAVBAR */
+/* CALENDARIO */
 
 .container_cal {
     display: grid;
@@ -36,5 +36,6 @@
     padding: 0 2px;
     border-radius: 8px;
     background-color: var(--ppal_shadow);
+    font-size: 0.9em;
 }
 

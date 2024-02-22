@@ -38,11 +38,10 @@
       <div class="celda dias_semana">D</div>
       <div class="celda pasado_futuro">
          <span class="num_dia">29</span>
-         <div class="etiqueta_cita">7PM: Sesión con Freud</div>
       </div>
       <div class="celda pasado_futuro"><span class="num_dia">30</span></div>
       <div class="celda pasado_futuro"><span class="num_dia">31</span></div>
-      <div class="celda pasado_futuro"><span class="num_dia">32</span></div>
+      <div class="celda pasado_futuro"><span class="num_dia"></span></div>
       <div class="celda"><span class="num_dia">1</span></div>
       <div class="celda"><span class="num_dia">2</span></div>
       <div class="celda"><span class="num_dia">3</span></div>
