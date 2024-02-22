@@ -18,6 +18,8 @@ if ($bd->conectar()) {
       $correo = mysqli_real_escape_string($conn, $_POST['correo']);
       $password = mysqli_real_escape_string($conn, $_POST['password']);
 
+      $contrasena_hash = password_hash($password, PASSWORD_DEFAULT);
+
       // Comprobar si el usuario ya existe en la base de datos
       $sql = mysqli_query($conn, "SELECT * FROM paciente WHERE correo_paciente = '$correo'");
       if (mysqli_num_rows($sql) > 0) {
@@ -34,7 +36,7 @@ if ($bd->conectar()) {
          $id_original = $row['id_paciente'];
 
          $sql4 = mysqli_query($conn, "INSERT INTO usuario (correo_usuario, contrasena_usuario, tipo_usuario, id_original)
-                                    VALUES ('$correo', '$password', 'paciente', '$id_original')");
+                                    VALUES ('$correo', '$contrasena_hash', 'paciente', '$id_original')");
          if ($sql4) { //si los datos han sido insertados
             $respuesta['success'] = true;
             $_SESSION['id_paciente'] = $id_original;
