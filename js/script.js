@@ -59,7 +59,7 @@ function clearErroresSignup() {
    // Limpiamos errores correo
    errorCorreoSignup.textContent = "";
    document.getElementById("correo-signup").style.border = "1px solid black";
-   
+
    // Limpiamos errores contraseña
    errorContrasenaSignup.innerHTML = "";
    document.getElementById("contrasena-signup").style.border = "1px solid black";
@@ -97,8 +97,6 @@ function mostrarErrorRegistro(flag) {
       errorCorreoSignup.textContent = "";
       document.getElementById("correo-signup").style.border = "1px solid black";
    }
-
-
 }
 
 function procesarFormLogin(formulario) {
@@ -218,7 +216,7 @@ function validacionLogin() {
       errorCorreoLogin.style.color = "red";
       document.getElementById("email").style.border = "2px solid red";
       return false;
-   } 
+   }
    return true;
 }
 function validacionSignup() {

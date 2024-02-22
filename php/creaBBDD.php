@@ -208,20 +208,21 @@ function insertarDatos()
                 -- Para pacientes
                 INSERT INTO USUARIO (correo_usuario, contrasena_usuario, tipo_usuario, id_original)
                 VALUES 
-                ('doejohn@gmail.com', 'Jd2021$45', 'paciente', 1),
-                ('doejane@gmail.com', 'Jane#879', 'paciente', 2),
-                ('beamjim@gmail.com', 'Jb!3098', 'paciente', 3),
-                ('danielsjack@gmail.com', 'JackD@1234', 'paciente', 4),
-                ('walesjosie@gmail.com', 'Josie*5321', 'paciente', 5);
-
+                ('doejohn@gmail.com', '\$2b\$12\$ilCBEO1rUjnUi1I6ek.KgODCGXlL2Op/I7U2jGkK7Yi8hT0cWh3/S', 'paciente', 1),
+                ('doejane@gmail.com', '\$2b\$12\$VWLLmrG4tWpojOSBGP5Kme.EOWlTAvhLcCjjUXbN6DhyXCRIy3OTu', 'paciente', 2),
+                ('beamjim@gmail.com', '\$2b\$12\$8D5uPzWTXsybbibN26hKfus2VqHL6ExinyTpvy0llyvRPRBBDN73C', 'paciente', 3),
+                ('danielsjack@gmail.com', '\$2b\$12\$O22laW4xt1mXF1htmmEtl.gx/KJ/Hmkt50bzRiKCBI8e31UyairPS', 'paciente', 4),
+                ('walesjosie@gmail.com', '\$2b\$12\$o6TnryuZ.mlz31AWyzikdeTff2VkGLj0/8oaEvb9OpONDLStJneLW', 'paciente', 5);
+                
                 -- Para psicólogos
                 INSERT INTO USUARIO (correo_usuario, contrasena_usuario, tipo_usuario, id_original)
                 VALUES 
-                ('smithanna@gmail.com', 'AnnaS1975$', 'psicologo', 1),
-                ('taylorbrian@gmail.com', 'BTaylor@2021', 'psicologo', 2),
-                ('jonescarol@gmail.com', 'CJones!980', 'psicologo', 3),
-                ('browndavid@gmail.com', 'DBrown#1985', 'psicologo', 4),
-                ('whiteemily@gmail.com', 'EmilyW1990!', 'psicologo', 5);
+                ('smithanna@gmail.com', '\$2b\$12\$cBHbn6dwFJ73ETneznybLO7F4B0VBphgAqWNH8CpgR1mdAWvpS2fi', 'psicologo', 1),
+                ('taylorbrian@gmail.com', '\$2b\$12\$5TS8yMJjlWRhtQZEP0pCb.UYm6FQ9DsL6xjaCeW2NAhl35Izw/3IG', 'psicologo', 2),
+                ('jonescarol@gmail.com', '\$2b\$12\$/kO3ksjb/gBoX/HhqekoY.3m2L3ckfsxfUYGCHFm1BoRvQdVh3Acu', 'psicologo', 3),
+                ('browndavid@gmail.com', '\$2b\$12\$BcQnAld2YCVe2eMHflprKOZrz4gh9HPVrNtCrHrlekTMyoPHr.P06', 'psicologo', 4),
+                ('whiteemily@gmail.com', '\$2b\$12\$A2UdSaCWGFYIrHo7J.HQfOt0UteETwKzONeYVLcze1ZI3WN5aVRPW', 'psicologo', 5);
+                
 
                 INSERT INTO PERFIL_PACIENTE (id_paciente, fecha_nac_paciente, sexo_paciente, pareja_sino_paciente, hijos_paciente, trabajo_paciente, estudios_paciente, hobbies_paciente, expectativasypreocupaciones_paciente, foto_paciente)
                 VALUES 
