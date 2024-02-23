@@ -23,6 +23,9 @@ if ($bd->conectar()) {
          if (password_verify($password, $fila['contrasena_usuario'])) {
             // La contraseña es correcta
             $respuesta["success"] = true;
+
+            // Alamacenamos id_paciente en sesión
+            // $_SESSION['id_paciente'] = $fila['id_paciente'];
          } else {
             // La contraseña es incorrecta
             $respuesta["error"] = "contrasena";
