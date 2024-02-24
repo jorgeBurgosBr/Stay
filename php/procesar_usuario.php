@@ -8,13 +8,13 @@ if ($bd->conectar()) {
    $bd->seleccionarContexto('stay');
    // echo "se ha conectado perfectamente";
 
-   if ($_SERVER["REQUEST_METHOD"] == "POST") {
+   if ($_SERVER["REQUEST_METHOD"] == "GET") {
       $respuesta = [
          'success' => false,
          'error' => null
       ];
 
-      $id_paciente = 1;
+      $id_paciente = $_SESSION['id_paciente'];
 
       // Realizar la consulta para obtener el nombre y el correo del paciente
       $sql = mysqli_query($conn, "SELECT nombre_paciente, correo_paciente FROM paciente WHERE id_paciente = '$id_paciente'");

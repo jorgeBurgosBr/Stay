@@ -7,12 +7,8 @@ document.addEventListener('DOMContentLoaded', function() {
 // Función para obtener el perfil del paciente
 function obtenerPerfilPaciente() {
    // Realiza una solicitud fetch al archivo PHP que procesa la información del usuario
-   fetch('./php/procesar_usuario.php', {
-       method: 'POST',
-       headers: {
-           'Content-Type': 'application/json',
-       },
-       body: JSON.stringify({ id_paciente: 1 }),
+   fetch('./php/procesar_usuario.php',{
+    method: "GET"
    })
    .then(response => {
        // Verifica si la respuesta de la red fue exitosa
@@ -48,8 +44,7 @@ function obtenerPerfilPaciente() {
 
 function mostrarInformacion() {
    // Obtener el formulario y crear un objeto FormData
-   const formulario = document.getElementById('user-form-info');
-    const formData = new FormData(formulario);
+    const formData = new FormData(document.getElementById('user-form-info'));
    // Realizar la solicitud fetch
    fetch('./php/procesar_info_usuario.php', {
        method: 'POST',

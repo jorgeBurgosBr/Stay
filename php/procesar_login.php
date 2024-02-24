@@ -17,7 +17,7 @@ if ($bd->conectar()) {
       $password = mysqli_real_escape_string($conn, $_POST['password_login']);
 
       // Comprobamos si el correo es correcto
-      $sql = mysqli_query($conn, "SELECT contrasena_usuario FROM usuario WHERE correo_usuario = '$correo'");
+      $sql = mysqli_query($conn, "SELECT contrasena_usuario, id_original FROM usuario WHERE correo_usuario = '$correo'");
       if ($fila = mysqli_fetch_assoc($sql)) {
          // La función password_verify compara la contraseña ingresada con el hash almacenado
          if (password_verify($password, $fila['contrasena_usuario'])) {
@@ -25,7 +25,8 @@ if ($bd->conectar()) {
             $respuesta["success"] = true;
 
             // Alamacenamos id_paciente en sesión
-            // $_SESSION['id_paciente'] = $fila['id_paciente'];
+            $_SESSION['id_paciente'] = $fila['id_original'];
+            
          } else {
             // La contraseña es incorrecta
             $respuesta["error"] = "contrasena";
