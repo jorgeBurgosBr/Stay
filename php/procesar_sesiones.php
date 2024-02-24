@@ -10,6 +10,7 @@ if ($bd->conectar()) {
     if ($_SERVER["REQUEST_METHOD"] == 'POST') {
         $mes_actual = $_POST['mes'];
         $anio_actual = $_POST['anio'];
+        $id_paciente = $_SESSION['id_paciente'];
 
         $respuesta = [
             "success" => false,
@@ -22,7 +23,7 @@ if ($bd->conectar()) {
                 JOIN psicologo ON CITA.id_psicologo = psicologo.id_psicologo
                 WHERE MONTH(CITA.fecha_cita) = '$mes_actual' 
                 AND YEAR(CITA.fecha_cita) = '$anio_actual'
-                AND CITA.id_paciente = 1;
+                AND CITA.id_paciente = '$id_paciente';
                 ";
 
         $result = mysqli_query($conn, $sql);
