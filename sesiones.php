@@ -27,12 +27,32 @@
          </nav>
       </div>
    </header>
-   <button id="mesAnterior">&lt; Mes Anterior</button>
-   <!-- CALENDARIO -->
-   <div class="container_cal">
-      
+   <div class="container_sesiones">
+      <!-- LISTA SESIONES -->
+      <div class="container_list_sesiones">
+         <ul id="list_sesiones">
+            <li>Ejemplo de sesion</li>
+            <li>Ejemplo de sesion</li>
+            <li>Ejemplo de sesion</li>
+            <li>Ejemplo de sesion</li>
+         </ul>
+         <span class="material-symbols-outlined" id="icono_chat">
+            chat
+         </span>
+      </div>
+      <!-- CALENDARIO -->
+      <div class="container_cal">
+         <span class="material-symbols-outlined" id="mesAnterior">
+            chevron_left
+         </span>
+         <div id="calendario">
+
+         </div>
+         <span class="material-symbols-outlined" id="mesSiguiente">
+            chevron_right
+         </span>
+      </div>
    </div>
-   <button id="mesSiguiente">Mes Siguiente &gt;</button>
 
    <!-- FOOTER -->
    <footer>
