@@ -1,11 +1,55 @@
 
-/* CALENDARIO */
+.container_sesiones{
+    display: flex;
 
-.container_cal {
+}
+.container_cal, .container_list_sesiones{
+    width: 50%;
+    border: 1px solid orange;
+
+}
+/* LISTA SESIONES */
+#list_sesiones{
+    border: 1px solid orange;
+    width: fit-content;
+}
+#icono_chat{
+    display: block;
+    width: fit-content;
+    cursor: pointer;
+}
+.fecha_lista, .info_lista{
+    cursor: pointer;
+}
+/* CALENDARIO */
+.container_cal{
+    position: relative;
+}
+#mesAnterior{
+    position: absolute;
+    display: block;
+    cursor: pointer;
+    width: fit-content;
+    left: 0;
+    top: 50%;
+    border: 1px solid orange;
+    
+}
+#mesSiguiente{
+    position: absolute;
+    display: block;
+    cursor: pointer;
+    width: fit-content;
+    right: 0;
+    top: 50%;
+    border: 1px solid orange;
+
+}
+#calendario {
     display: grid;
-    height: 80vh;
-    width: 80%;
-    margin: 5% auto;
+    height: 50vh;
+    width: 90%;
+    margin: 2% auto;
     grid-template-columns:repeat(7, 1fr);
     grid-template-rows: 1fr repeat(6, 3fr);
 }
@@ -30,12 +74,14 @@
     background-color: whitesmoke;
 }
 .etiqueta_cita{
-    
     border: 1px solid grey;
+    text-align: center;
     width: fit-content;
-    padding: 0 2px;
+    margin: auto 0px;
     border-radius: 8px;
     background-color: var(--ppal_shadow);
     font-size: 0.9em;
+    cursor: pointer;
 }
+
 

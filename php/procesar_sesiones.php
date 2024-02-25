@@ -8,6 +8,8 @@ if ($bd->conectar()) {
     $bd->seleccionarContexto('stay');
 
     if ($_SERVER["REQUEST_METHOD"] == 'POST') {
+
+
         // Asume que los datos vienen como 'fechaInicio' y 'fechaFin'
         $fechaInicio = $_POST['fechaInicio'];
         $fechaFin = $_POST['fechaFin'];
@@ -20,15 +22,15 @@ if ($bd->conectar()) {
         ];
 
         $sql = "SELECT CITA.*, psicologo.nombre_psicologo
-                FROM CITA
-                JOIN psicologo ON CITA.id_psicologo = psicologo.id_psicologo
-                WHERE CITA.fecha_cita BETWEEN ? AND ?
-                AND CITA.id_paciente = '$id_paciente';";
+                    FROM CITA
+                    JOIN psicologo ON CITA.id_psicologo = psicologo.id_psicologo
+                    WHERE CITA.fecha_cita BETWEEN ? AND ?
+                    AND CITA.id_paciente = ?;";
 
         // Preparar la sentencia
         if ($stmt = $conn->prepare($sql)) {
             // Vincular parámetros
-            $stmt->bind_param("ss", $fechaInicio, $fechaFin);
+            $stmt->bind_param("ssi", $fechaInicio, $fechaFin, $id_paciente);
 
             // Ejecutar
             if ($stmt->execute()) {
