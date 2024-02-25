@@ -1,0 +1,14 @@
+PACIENTE:
+    Calendario:
+        ☐ - Hacer que salgan también las videollamadas en el próximo mes y el anterior que es visible en el calendario
+        ☐ - Al clicar en la etiqueta de la videollamada entre a la página de videollamadas
+        ☐ - Colocar lista a la izda con próxmias citas y que al clicar en ellas también se redirija a la videollamada
+        ☐ - Poner logo chat y al clicar redirigir a chat
+        ☐ - Indicar mes y año arriba del calendario
+        ☐ - Poner la decoración del background que está en figma
+        ☐ - Hacer las versiones para tablet y movil (responsive)
+	Videollamada:
+    Registro sesiones:
+	    Ver sesión pregrabada:
+    Artículos:
+	    Entrada artículo:

@@ -19,8 +19,8 @@
          <nav>
             <ul>
                <img src="img/logo.png" alt="Logo" />
-               <li><a href="#">Mi perfil</a></li>
-               <li><a href="#">Sesiones</a></li>
+               <li><a href="#" id="current_page">Mi perfil</a></li>
+               <li><a href="sesiones.php">Sesiones</a></li>
                <li><a href="#">Mi psicólogo</a></li>
                <li><a href="#">Artículos</a></li>
                <li><a href="#">Foro</a></li>

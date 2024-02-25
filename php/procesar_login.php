@@ -17,21 +17,22 @@ if ($bd->conectar()) {
       $password = mysqli_real_escape_string($conn, $_POST['password_login']);
 
       // Comprobamos si el correo es correcto
-      $sql = mysqli_query($conn, "SELECT * FROM usuario WHERE correo_usuario = '$correo'");
-      if (mysqli_num_rows($sql) > 0) {
-         // Comprobamos si la contraseña es correcta
-         $sql2 = mysqli_query($conn, "SELECT * FROM usuario WHERE correo_usuario = '$correo' AND contrasena_usuario = '$password'");
-         if (mysqli_num_rows($sql2) > 0) {
-            // El correo y la contraseña son correctos
+      $sql = mysqli_query($conn, "SELECT contrasena_usuario, id_original FROM usuario WHERE correo_usuario = '$correo'");
+      if ($fila = mysqli_fetch_assoc($sql)) {
+         // La función password_verify compara la contraseña ingresada con el hash almacenado
+         if (password_verify($password, $fila['contrasena_usuario'])) {
+            // La contraseña es correcta
             $respuesta["success"] = true;
-            $_SESSION['id_usuario'] = $row['id_usuario']; //Guardamos en sesiones el id de quien inicia sesión
-            $_SESSION['id_original'] = $row['id_original']; //Guardamos en sesiones el id de quien inicia sesión
+
+            // Alamacenamos id_paciente en sesión
+            $_SESSION['id_paciente'] = $fila['id_original'];
+            
          } else {
             // La contraseña es incorrecta
             $respuesta["error"] = "contrasena";
          }
       } else {
-         // Añadimos error correo
+         // El correo no existe
          $respuesta["error"] = "correo";
       }
 
@@ -40,3 +41,4 @@ if ($bd->conectar()) {
       echo json_encode($respuesta);
    }
 }
+?>

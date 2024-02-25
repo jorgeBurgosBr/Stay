@@ -1,10 +1,5 @@
 <?php
 require_once 'php/creaBBDD.php'; //Incluir el fichero que se encarga de crear la BBDD y las tablas si no existen
-
-session_start();
-if (isset($_SESSION['id_paciente'])) { //if usuario se ha logeado ya 
-  // header("location: sesiones.php");
-}
 ?>
 <!DOCTYPE html>
 <html lang="es">
