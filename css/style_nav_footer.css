@@ -104,6 +104,37 @@ nav ul li:hover a {
   background-color: #000000;
 }
 
+#log-bttn {
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+#signup-bttn {
+  background: #000000;
+  color: #f0f0f0;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  padding: 10px;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+#log-bttn:hover {
+  color: var(--contraste);
+  border-color: var(--contraste);
+}
+
+#signup-bttn:hover {
+  background-color: var(--contraste);
+}
+
+
 /* Footer styles */
 footer {
   background-color: var(--ppal_shadow);
@@ -214,7 +245,7 @@ footer {
   }
 
   #log-bttn, #signup-bttn {
-    width: 50%;
+    width: 110px;
     font-size: 14px;
   }
 
