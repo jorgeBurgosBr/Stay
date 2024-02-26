@@ -1,30 +1,52 @@
-let fechaActual = new Date();
-let mesMostrado = fechaActual.getMonth();
-let añoMostrado = fechaActual.getFullYear();
-dibujarCalendario(mesMostrado, añoMostrado);
-cargarCitas(mesMostrado, añoMostrado);
-
-document.getElementById('mesAnterior').addEventListener('click', function () {
-  if (mesMostrado === 0) {
-    mesMostrado = 11;
-    añoMostrado -= 1;
-  } else {
-    mesMostrado -= 1;
-  }
+document.addEventListener('DOMContentLoaded', function () {
+  // Configuración inicial para mostrar el calendario del mes actual y cargar las citas
+  let fechaActual = new Date();
+  let mesMostrado = fechaActual.getMonth();
+  let añoMostrado = fechaActual.getFullYear();
   dibujarCalendario(mesMostrado, añoMostrado);
   cargarCitas(mesMostrado, añoMostrado);
+  cargarLista(mesMostrado, añoMostrado);
+
+  document.getElementById('mesAnterior').addEventListener('click', function () {
+    if (mesMostrado === 0) {
+      mesMostrado = 11;
+      añoMostrado -= 1;
+    } else {
+      mesMostrado -= 1;
+    }
+    dibujarCalendario(mesMostrado, añoMostrado);
+    cargarCitas(mesMostrado, añoMostrado);
+  });
+
+  document.getElementById('mesSiguiente').addEventListener('click', function () {
+    if (mesMostrado === 11) {
+      mesMostrado = 0;
+      añoMostrado += 1;
+    } else {
+      mesMostrado += 1;
+    }
+    dibujarCalendario(mesMostrado, añoMostrado);
+    cargarCitas(mesMostrado, añoMostrado);
+  });
+
+  document.querySelector('#calendario').addEventListener('click', function (event) {
+    // Verifica si el elemento clickeado (event.target) coincide con lo que buscas
+    if (event.target.classList.contains('etiqueta_cita')) {
+      window.location.href = 'videollamada_paciente.php';
+    }
+  });
+  document.querySelector('#list_sesiones').addEventListener('click', function (event) {
+    // Verifica si el elemento clickeado (event.target) coincide con lo que buscas
+    if (event.target.classList.contains('fecha_lista') || event.target.classList.contains('info_lista')) {
+      window.location.href = 'videollamada_paciente.php';
+    }
+  });
+  document.querySelector('#icono_chat').addEventListener('click', function(){
+    window.location.href = 'chat_paciente.php'
+  })
 });
 
-document.getElementById('mesSiguiente').addEventListener('click', function () {
-  if (mesMostrado === 11) {
-    mesMostrado = 0;
-    añoMostrado += 1;
-  } else {
-    mesMostrado += 1;
-  }
-  dibujarCalendario(mesMostrado, añoMostrado);
-  cargarCitas(mesMostrado, añoMostrado);
-});
+
 
 function cargarCitas(mes, año) {
   // Encuentra el primer y último día del mes
@@ -64,25 +86,24 @@ function cargarCitas(mes, año) {
 
 
 
-function pintarCitas(array) {
-  array.forEach(element => {
-    let dia = element.dia;
-    // Convertimos dia a número y lo reconvertimos a string de nuevo para eliminar ceros a la izda
-    dia = parseInt(dia, 10);
-    dia = dia.toString();
-    let hora = element.hora;
-    let doctor = element.nombre_psicologo;
-    var spans = document.querySelectorAll('.celda:not(.pasado_futuro) > .num_dia');
-    for (let span of spans) {
-      if (span.textContent.trim() === dia) {
-        spanConDiaEspecifico = span;
-        break; // Detiene el bucle una vez encontrado el elemento
-      }
+function pintarCitas(citas) {
+  citas.forEach(cita => {
+    // Extrae la fecha, hora y nombre del psicólogo de cada cita
+    const { fecha, hora, nombre_psicologo } = cita;
+
+    // Encuentra la celda del calendario que corresponde a la fecha de la cita
+    const celda = document.querySelector(`.celda[data-fecha="${fecha}"]`);
+
+    if (celda) {
+      // Formatea el detalle de la cita
+      const detalleCita = `<div class='etiqueta_cita'>${hora} - ${nombre_psicologo}</div>`;
+
+      // Inserta el detalle de la cita en la celda correspondiente
+      celda.insertAdjacentHTML('beforeend', detalleCita);
     }
-    let sesion = `<div class='etiqueta_cita'>${hora}-Sesión con ${doctor}</div>`;
-    spanConDiaEspecifico.insertAdjacentHTML('afterend', sesion);
   });
 }
+
 
 
 function formatearFechaISO(fecha) {
@@ -98,7 +119,7 @@ function dibujarCalendario(mes, año) {
   primerDia = primerDia === 0 ? 6 : primerDia - 1; // Ajusta para que la semana comience en lunes
   const ultimoDiaMesAnterior = new Date(año, mes, 0).getDate();
 
-  const contenedorCalendario = document.querySelector('.container_cal');
+  const contenedorCalendario = document.querySelector('#calendario');
   contenedorCalendario.innerHTML = ''; // Limpia el calendario
 
   // Agrega los días de la semana al principio
@@ -131,3 +152,49 @@ function dibujarCalendario(mes, año) {
   }
 }
 
+function cargarLista(mes, año) {
+  // Fecha de inicio: primer día del mes actual
+  let fechaInicio = new Date(año, mes, 1);
+  let fechaInicioFormateada = formatearFechaISO(fechaInicio);
+
+  // Fecha de fin: último día del mes siguiente
+  // Si mes == 11 (diciembre), el mes siguiente sería enero del próximo año
+  let añoFin = mes === 11 ? año + 1 : año;
+  let mesFin = mes === 11 ? 0 : mes + 1;
+  let fechaFin = new Date(añoFin, mesFin + 1, 0);
+  let fechaFinFormateada = formatearFechaISO(fechaFin);
+
+  // Continúa con la petición como antes, usando fechaInicioFormateada y fechaFinFormateada
+  const datos = new FormData();
+  datos.append('fechaInicio', fechaInicioFormateada);
+  datos.append('fechaFin', fechaFinFormateada);
+
+  fetch("./php/procesar_sesiones.php", {
+    method: "POST",
+    body: datos,
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.success && data.citas.length > 0) {
+      pintarLista(data.citas);
+    } else {
+      console.log('No hay sesiones programadas o hubo un error en la petición');
+    }
+  })
+  .catch(error => {
+    console.error('Error al cargar las sesiones:', error);
+  });
+}
+
+function pintarLista(citas){
+  const lista = document.getElementById('list_sesiones');
+  lista.innerHTML = ''; // Limpia la lista actual para evitar duplicados
+
+  citas.forEach(sesion => {
+    const { fecha, hora, nombre_psicologo } = sesion; // Asume que cada sesión tiene esta información
+    const elementoLista = document.createElement('li');
+    elementoLista.innerHTML = `<span class='fecha_lista'>${fecha}</span><span class='info_lista'>${hora} - Sesión con ${nombre_psicologo}</span>`;
+    lista.appendChild(elementoLista);
+  });
+}
+ 
