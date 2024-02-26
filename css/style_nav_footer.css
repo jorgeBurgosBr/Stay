@@ -211,11 +211,11 @@ footer {
   nav ul li {
     margin: 10px 0;
     width: 90%;
-    border-radius: 4px;
   }
 
   #log-bttn, #signup-bttn {
-    width: 60%;
+    width: 50%;
+    font-size: 14px;
   }
 
   #separacion {
@@ -226,5 +226,9 @@ footer {
 @media only screen and (max-width: 480px) {
   .footer-column {
     flex-basis: 100%;
+  }
+
+  #log-bttn, #signup-bttn {
+    width: 100%;
   }
 }
