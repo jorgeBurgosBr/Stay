@@ -44,8 +44,10 @@ require_once 'php/creaBBDD.php'; //Incluir el fichero que se encarga de crear la
   <!-- HERO -->
   <section>
     <div class="container-titulo">
-      <div class="titulo">
-        <img src="img/paz.jpg" alt="Paz Mental" class="img-ppal">
+      <div class="titulo-con-imagen">
+        <div class="img-ppal">
+        <img src="img/paz.jpg" alt="Paz Mental">
+        </div>
         <div class="contenido-titulo">
           <h1>STAY - VIVE CON ESPERANZA</h1>
           <p>Descubre una nueva forma de encontrar esperanza y apoyo. No estás solo en este viaje.</p>
@@ -364,7 +366,6 @@ require_once 'php/creaBBDD.php'; //Incluir el fichero que se encarga de crear la
       <p>Vive con esperanza</p>
       <p><i class="ri-facebook-fill"></i><i class="ri-twitter-fill"></i><i class="ri-instagram-fill"></i><i class="ri-linkedin-box-fill"></i></p>
     </div>
-
     <div class="footer-column">
       <h3>Quiénes somos</h3>
       <ul>
