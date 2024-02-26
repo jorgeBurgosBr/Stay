@@ -17,9 +17,14 @@ require_once 'php/creaBBDD.php'; //Incluir el fichero que se encarga de crear la
 </head>
 
 <body>
-  <header>
+<header>
     <div class="container-nav">
       <div class="logo"></div>
+      <div class="menu-toggle" id="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
       <nav>
         <ul>
           <img src="img/logo.png" alt="Logo" />
