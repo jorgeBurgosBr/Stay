@@ -84,17 +84,24 @@ nav ul li:hover a {
 }
 
 .menu-toggle {
-  cursor: pointer;
   display: none;
+  font-size: 24px;
 }
 
-.menu-toggle span {
-  display: block;
-  width: 30px;
-  height: 3px;
-  background-color: #000;
-  margin: 6px 0;
-  transition: 0.4s;
+.menu-toggle i {
+  cursor: pointer;
+}
+
+#logo-nav {
+  width: 8%;
+}
+
+#separacion {
+  display: none;
+  width: 90%;
+  height: 1px;
+  border: none;
+  background-color: #000000;
 }
 
 /* Footer styles */
@@ -116,7 +123,6 @@ footer {
 
 .footer-column {
   text-align: left;
-  /* flex-basis: 100%; Full width by default */
   margin-bottom: 1.5rem;
 }
 
@@ -164,22 +170,36 @@ footer {
     flex-basis: 48%; 
   }
 
-  .menu-toggle {
-    display: block;
+  #logo-menu {
+    display: none;
   }
 
-  .logo {
-    display: block;
+  .menu-toggle {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
+
+  .menu-toggle p {
+    text-align: left;
+  }
+
+  .container-psicologos {
+    justify-content: center;
+  }
+
 
   nav ul {
     display: none;
     flex-direction: column;
+    justify-content: flex-end;
     text-align: center;
+    cursor: pointer;
     position: absolute;
     top: 70px;
-    left: 0;
-    width: 100%;
+    left: 60%;
+    width: 40%;
     background-color: var(--ppal_shadow);
     z-index: 999;
   }
@@ -190,6 +210,16 @@ footer {
 
   nav ul li {
     margin: 10px 0;
+    width: 90%;
+    border-radius: 4px;
+  }
+
+  #log-bttn, #signup-bttn {
+    width: 60%;
+  }
+
+  #separacion {
+    display: block;
   }
 }
 

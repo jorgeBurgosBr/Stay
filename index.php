@@ -21,17 +21,20 @@ require_once 'php/creaBBDD.php'; //Incluir el fichero que se encarga de crear la
     <div class="container-nav">
       <div class="logo"></div>
       <div class="menu-toggle" id="mobile-menu">
-        <span></span>
-        <span></span>
-        <span></span>
+      <img src="img/logo.png" alt="Logo" id="logo-nav"/>
+      <i class="ri-menu-line"></i>
       </div>
       <nav>
         <ul>
-          <img src="img/logo.png" alt="Logo" />
+          <img src="img/logo.png" alt="Logo" id="logo-menu"/>
           <li><a href="#">Nosotros</a></li>
+          <hr id="separacion">
           <li><a href="#">Psicólogos</a></li>
+          <hr id="separacion">
           <li><a href="#">Testimonios</a></li>
+          <hr id="separacion">
           <li><a href="#">Contáctanos</a></li>
+          <hr id="separacion">
           <li><button id="log-bttn">Iniciar sesión</button></li>
           <li><button id="signup-bttn">Regístrate</button></li>
         </ul>
