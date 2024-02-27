@@ -38,7 +38,40 @@
          </nav>
       </div>
    </header>
-   <script src="js/script_user_paciente.js"></script>
+   <section>
+   <div class="container-mi-psico">
+      <div class="info-psico">
+      <div class="psico-img"></div>
+      <div class="datos-personales">
+         <span class="nombre-psico"></span>
+         <span class="fecha-nacimiento"></span>
+      </div>
+      <div class="datos-personales">
+         <span class="correo-psico"></span>
+         <span class="telefono-psico"></span>
+      </div>
+      </div>
+      <div class="sobre-mi">
+         <h2>Sobre mi</h2>
+         <span class="descripcion"></span>
+      </div>
+      <div class="experiencia-especialidad">
+         <h2>Experiencia y especialidad</h2>
+         <span class="experiencia">años de experiencia.</span>
+         <span class="especialidad"></span>
+      </div>
+
+      <div class="estudios">
+         <h2>Estudios superiores</h2>
+         <span class="estudios-psico"></span>
+      </div>
+      <div class="hobbies">
+         <h2>Hobbies</h2>
+         <span class="hobbies-psico"></span>
+      </div>
+   </div>
+   </section>
+   <script src="js/script_user_psico.js"></script>
 </body>
 
 </html>
