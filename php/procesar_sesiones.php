@@ -21,11 +21,12 @@ if ($bd->conectar()) {
             "citas" => []
         ];
 
-        $sql = "SELECT CITA.*, psicologo.nombre_psicologo
+        $sql = "SELECT CITA.*, psicologo.nombre_psicologo, psicologo.apellidos_psicologo
                     FROM CITA
                     JOIN psicologo ON CITA.id_psicologo = psicologo.id_psicologo
                     WHERE CITA.fecha_cita BETWEEN ? AND ?
-                    AND CITA.id_paciente = ?;";
+                    AND CITA.id_paciente = ?
+                    ORDER BY CITA.fecha_cita;";
 
         // Preparar la sentencia
         if ($stmt = $conn->prepare($sql)) {
@@ -40,6 +41,7 @@ if ($bd->conectar()) {
                     while ($row = $result->fetch_assoc()) {
                         $cita = [
                             "nombre_psicologo" => $row['nombre_psicologo'],
+                            "apellidos_psicologo" => $row['apellidos_psicologo'],
                             "fecha" => date('Y-m-d', strtotime($row['fecha_cita'])),
                             "hora" => date('H:i', strtotime($row['hora_cita']))
                         ];

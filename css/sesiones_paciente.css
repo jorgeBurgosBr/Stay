@@ -1,87 +1,236 @@
-
-.container_sesiones{
-    display: flex;
-
+.container_sesiones {
+  display: flex;
+  height: 75vh;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1em;
 }
-.container_cal, .container_list_sesiones{
-    width: 50%;
-    border: 1px solid orange;
 
+.container_cal {
+  flex: 3; /* Esto permite que el contenedor crezca o se encoja según el espacio disponible */
+  display: flex;
+  justify-content: center;
 }
+
+.container_list_sesiones {
+  flex: 2; /* Esto permite que el contenedor crezca o se encoja según el espacio disponible */
+  display: flex;
+}
+
+h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2em;
+}
+
+.container_titulo_cal {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
 /* LISTA SESIONES */
-#list_sesiones{
-    border: 1px solid orange;
-    width: fit-content;
+#listaSesiones {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3%;
 }
-#icono_chat{
-    display: block;
-    width: fit-content;
-    cursor: pointer;
+#titulo_lista {
+  margin-top: 7%;
+  width: 55%;
 }
-.fecha_lista, .info_lista{
-    cursor: pointer;
+#list_sesiones {
+  width: 80%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  list-style-type: none;
+}
+#list_sesiones li {
+  width: 70%;
+}
+
+#icono_chat {
+  display: block;
+  width: fit-content;
+  cursor: pointer;
+  /* Establece el efecto de sombra inicial */
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  /* Define la transición para la propiedad box-shadow */
+  transition: box-shadow 0.3s ease;
+}
+#icono_chat:hover {
+  /* Desplazamiento horizontal | Desplazamiento vertical | Desenfoque | Tamaño de propagación | Color de la sombra */
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.5);
+  color: var(--ppal);
+}
+
+.fecha_lista,
+.info_lista {
+  cursor: pointer;
+  display: block;
+}
+.fecha_lista {
+  background-color: var(--ppal1_variante);
+  border: 1px solid #6e6e6e;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+.info_lista {
+  background-color: white;
+  border: 1px dotted #8d8d8d;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  /* Define la transición para el cambio de color de fondo */
+  transition: background-color 0.3s ease;
+}
+.info_lista:hover {
+  background-color: var(--ppal_shadow);
 }
 /* CALENDARIO */
-.container_cal{
-    position: relative;
-}
-#mesAnterior{
-    position: absolute;
-    display: block;
-    cursor: pointer;
-    width: fit-content;
-    left: 0;
-    top: 50%;
-    border: 1px solid orange;
-    
-}
-#mesSiguiente{
-    position: absolute;
-    display: block;
-    cursor: pointer;
-    width: fit-content;
-    right: 0;
-    top: 50%;
-    border: 1px solid orange;
 
+#titulo_cal {
+  align-self: baseline;
+  margin-left: 10%;
+  margin-top: 5%;
 }
+
+#mesAnterior {
+  position: absolute;
+  display: block;
+  cursor: pointer;
+  width: fit-content;
+  left: 5%;
+  top: 50%;
+  user-select: none;
+  /* Establece el efecto de sombra inicial */
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  /* Define la transición para la propiedad box-shadow */
+  transition: box-shadow 0.3s ease;
+}
+
+#mesSiguiente {
+  position: absolute;
+  display: block;
+  cursor: pointer;
+  width: fit-content;
+  right: 5%;
+  top: 50%;
+  user-select: none;
+  /* Establece el efecto de sombra inicial */
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  /* Define la transición para la propiedad box-shadow */
+  transition: box-shadow 0.3s ease;
+}
+#mesAnterior:hover,
+#mesSiguiente:hover {
+  /* Desplazamiento horizontal | Desplazamiento vertical | Desenfoque | Tamaño de propagación | Color de la sombra */
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.5);
+  color: red;
+}
+
 #calendario {
-    display: grid;
-    height: 50vh;
-    width: 90%;
-    margin: 2% auto;
-    grid-template-columns:repeat(7, 1fr);
-    grid-template-rows: 1fr repeat(6, 3fr);
+  display: grid;
+  height: 60vh;
+  width: 80%;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: 1fr repeat(6, 3fr);
 }
-.celda{
-    border: 1px solid red;
-    display: flex;
-    background-color: white;
+
+.celda {
+  display: flex;
+  background-color: white;
+  border: 1px dotted #8d8d8d;
+  flex-direction: column;
+}
+
+.dias_semana {
+  padding: 5px 0;
+  text-align: center;
+  font-size: 1.3em;
+  font-weight: 900;
+  background-color: var(--ppal1_variante);
+  border: 1px solid #6e6e6e;
+}
+
+.num_dia {
+  font-weight: 500;
+  width: fit-content;
+  margin-left: 5px;
+}
+.dia_actual {
+  color: var(--contraste);
+  text-decoration: underline;
+  font-weight: 900;
+}
+.pasado,
+.futuro {
+  background-color: #ebebeb;
+}
+.pasado {
+  filter: grayscale();
+}
+
+.etiqueta_cita {
+  /* text-align: center; */
+  padding: 2px;
+  width: fit-content;
+  margin: auto 0px;
+  border-radius: 8px;
+  background-color: var(--ppal_shadow);
+  font-size: 0.9em;
+  cursor: pointer;
+  align-self: center;
+  /* Define la transición para el cambio de color de fondo */
+  transition: background-color 0.3s ease;
+}
+
+.etiqueta_cita:hover {
+  background-color: #5fac4f;
+}
+
+/* RESPONSIVE */
+/* Media query para mobile (al menos 375px) */
+@media screen and (max-width: 376px) {
+  .container_cal{
+    display: none;
+  }
+}
+
+/* Media query para tablet (al menos 768px) */
+@media screen and (max-width: 768px) {
+
+  .container_sesiones{
     flex-direction: column;
-    
-}
-.dias_semana{
-    padding: 5px 0;
-    text-align: center;
-    font-size: 1.3em;
-    font-weight: 900;
-}
-.num_dia{
-    border: 1px solid green;
-    font-weight: 500;
-}
-.pasado_futuro{
-    background-color: whitesmoke;
-}
-.etiqueta_cita{
-    border: 1px solid grey;
-    text-align: center;
-    width: fit-content;
-    margin: auto 0px;
-    border-radius: 8px;
-    background-color: var(--ppal_shadow);
-    font-size: 0.9em;
-    cursor: pointer;
+  }
+  .container_list_sesiones{
+    order: 2;
+  }
+  #listaSesiones{
+    min-height: 60vh;
+  }
+  .container_titulo_cal{
+    padding-bottom: 2%;
+  }
+  #titulo_lista{
+    margin-left: 10%;
+    align-self: baseline;
+  }
 }
 
+/* Media query para laptop (al menos 1024px) */
+@media screen and (min-width: 1024px) {
 
+}
+
+/* Media query para laptop L (al menos 1440px) */
+@media screen and (min-width: 1440px) {
+
+}
