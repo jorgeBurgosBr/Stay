@@ -39,8 +39,10 @@ function obtenerPerfilPaciente() {
 
         // Verifica si la respuesta del servidor fue exitosa y si los elementos HTML existen
         if (data.success && nombreSpan && correoSpan && profileContainer) {
+
+            const nombreCompleto = data.nombre + ' ' + data.apellidos;
             // Actualiza el contenido de los elementos con los datos del paciente
-            nombreSpan.textContent = data.nombre;
+            nombreSpan.textContent = nombreCompleto;
             correoSpan.textContent = data.correo;
             rolSpan.textContent = "Paciente";
 
