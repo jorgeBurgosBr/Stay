@@ -197,9 +197,21 @@ footer {
 
 /* Media queries */
 @media only screen and (max-width: 768px) {
+
+  .container-nav li a{
+    font-size: 16px;
+  }
   .footer-column {
     flex-basis: 48%; 
   }
+
+  #log-bttn, #signup-bttn {
+    font-size: 16px;
+  }
+
+}
+
+@media only screen and (max-width: 480px) {
 
   #logo-menu {
     display: none;
@@ -215,11 +227,6 @@ footer {
   .menu-toggle p {
     text-align: left;
   }
-
-  .container-psicologos {
-    justify-content: center;
-  }
-
 
   nav ul {
     display: none;
@@ -252,14 +259,15 @@ footer {
   #separacion {
     display: block;
   }
-}
 
-@media only screen and (max-width: 480px) {
   .footer-column {
     flex-basis: 100%;
+    align-items: center ;
+    justify-content: center;
   }
 
   #log-bttn, #signup-bttn {
     width: 100%;
   }
+
 }
