@@ -1,3 +1,91 @@
+/* Estilos base */
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: var(--texto);
+}
+
+:root {
+   --degradado: linear-gradient(to right, #44a647, #ffd438);
+   --body: #fefae0;
+   --ppal: #606c38;
+   --ppal_shadow: #a4ac86;
+   --ppal1: #582f0e;
+   --ppal1_shadow: #a68a64;
+   --contraste: #800020;
+   --contraste1: #b57276;
+   --contraste2: #d8a6a9;
+   --tituloHero: 'Lato', sans-serif;
+   --tituloM: 'Montserrat', sans-serif;
+   --texto: 'Open Sans', sans-serif;
+}
+
+.container-mi-psico {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   margin: 0 auto;
+   align-items: center; 
+   padding: 20px;
+   max-width: 800px;
+ }
+ 
+ .info-psico {
+   width: 100%;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+   margin: 10px 0;
+   padding: 20px;
+   border: 1px solid #ccc;
+   gap: 20%;
+ }
+
+ .psico-img img {
+   max-width: 100%; 
+   max-height: 100%; 
+   height: auto; 
+   display: block;
+   margin: auto;
+   border-radius: 10px; 
+ }
+
+ .datos-personales {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   gap: 10px;
+ }
+
+ .sobre-mi {
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+   margin: 10px 0;
+   padding: 20px;
+   border: 1px solid #ccc;
+ }
+ .experiencia-especialidad {
+   width: 100%;
+   margin: 10px 0;
+   padding: 20px;
+   border: 1px solid #ccc; 
+ }
+ .estudios {
+   width: 100%;
+   margin: 10px 0;
+   padding: 20px;
+   border: 1px solid #ccc; 
+ }
+ 
+ .hobbies {
+   width: 100%;
+   margin: 10px 0; /* Ajusta el espacio vertical entre cada sección */
+   padding: 20px; /* Agrega un espacio de relleno dentro de cada sección */
+   border: 1px solid #ccc; /* Agrega un borde para separar visualmente las secciones */
+ }
+
 /* Media queries para tabletas */
 @media (min-width: 426px) and (max-width: 768px) {
 

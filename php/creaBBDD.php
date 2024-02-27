@@ -86,6 +86,7 @@ function crearTablas()
                 );
                 CREATE TABLE PERFIL_PSICOLOGO (
                     id_psicologo INT,
+                    sobre_mi VARCHAR(255),
                     fecha_nac_psicologo DATE,
                     sexo_psicologo ENUM('masculino', 'femenino', 'otro') NOT NULL,
                     pareja_sino_psicologo BOOLEAN,
@@ -199,10 +200,10 @@ function insertarDatos()
 
                 INSERT INTO PSICOLOGO (nombre_psicologo, apellidos_psicologo, correo_psicologo, tel_psicologo, linkedin_psicologo, cv_psicologo)
                 VALUES 
-                ('Dr. Anna', 'Smith', 'smithanna@gmail.com', '610 200 300', 'linkedin.com/in/annasmith', 'cv/annasmith.pdf'),
-                ('Dr. Brian', 'Taylor', 'taylorbrian@gmail.com', '610 201 301', 'linkedin.com/in/briantaylor', 'cv/briantaylor.pdf'),
-                ('Dr. Carol', 'Jones', 'jonescarol@gmail.com', '610 202 302', 'linkedin.com/in/caroljones', 'cv/caroljones.pdf'),
-                ('Dr. David', 'Brown', 'browndavid@gmail.com', '610 203 303', 'linkedin.com/in/davidbrown', 'cv/davidbrown.pdf'),
+                ('Alba', 'García', 'alba.garcia@stay.com', '610 200 300', 'linkedin.com/in/albagarcia', 'cv/albagarcia.pdf'),
+                ('Sigmund', 'Freud', 'sigmund.f@stay.com', '610 201 301', 'linkedin.com/in/sigmundf', 'cv/sigmundf.pdf'),
+                ('Patricia', 'Fuentes', 'fuentes.p@stay.com', '610 202 302', 'linkedin.com/in/caroljones', 'cv/caroljones.pdf'),
+                ('Javier', 'Pérez', 'j.perez@stay.com', '610 203 303', 'linkedin.com/in/javip', 'cv/javip.pdf'),
                 ('Dr. Emily', 'White', 'whiteemily@gmail.com', '610 204 304', 'linkedin.com/in/emilywhite', 'cv/emilywhite.pdf');
 
                 -- Para pacientes
@@ -232,13 +233,14 @@ function insertarDatos()
                 (4, '1995-08-19', 'masculino', FALSE, 2, 'Artista', 'Diplomado en Bellas Artes', 'Música, Poesía', 'Busco formas de potenciar mi creatividad', 'foto_jack.jpg'),
                 (5, '2000-12-12', 'femenino', TRUE, 0, 'Emprendedora', 'MBA', 'Cocinar, Blogging', 'Deseo mejorar mis habilidades de comunicación', 'foto_josie.jpg');
 
-                INSERT INTO PERFIL_PSICOLOGO (id_psicologo, fecha_nac_psicologo, sexo_psicologo, pareja_sino_psicologo, hijos_psicologo, especialidad_psicologo, experiencia_psicologo, estudios_psicologo, hobbies_psicologo, foto_psicologo)
+                INSERT INTO PERFIL_PSICOLOGO (id_psicologo, fecha_nac_psicologo, sexo_psicologo, pareja_sino_psicologo, hijos_psicologo, especialidad_psicologo, experiencia_psicologo, estudios_psicologo, hobbies_psicologo, foto_psicologo, sobre_mi)
                 VALUES 
-                (1, '1975-03-15', 'femenino', TRUE, 1, 'Terapia Cognitiva', 15, 'Doctorado en Psicología', 'Jardinería, Meditación', 'foto_anna.jpg'),
-                (2, '1970-06-22', 'masculino', FALSE, 1, 'Psicología Clínica', 20, 'Doctorado en Psicología Clínica', 'Ajedrez, Fotografía', 'foto_brian.jpg'),
-                (3, '1980-11-30', 'femenino', TRUE, 3, 'Psicología Infantil', 10, 'Master en Psicología Infantil', 'Escritura, Ciclismo', 'foto_carol.jpg'),
-                (4, '1985-02-28', 'masculino', TRUE, 2, 'Terapia de Parejas', 8, 'Master en Terapia Familiar', 'Cocina, Buceo', 'foto_david.jpg'),
-                (5, '1990-09-14', 'femenino', FALSE, 1, 'Mindfulness y Estrés', 5, 'Master en Mindfulness', 'Pilates, Lectura', 'foto_emily.jpg');
+                (1, '1996-03-15', 'femenino', TRUE, 1, 'Niños y adolescentes', 5, 'Máster en Terapia Cognitivo-Conductual con niños y adolescentes', 'Jardinería, Meditación', './img/alba-psicologa.png', 'Mi objetivo es crear un entorno seguro y acogedor para los niños, utilizando métodos terapéuticos que promuevan el desarrollo emocional y cognitivo.'),
+                (2, '1970-06-22', 'masculino', FALSE, 1, 'Entorno familiar', 12, 'Máster en Intervención Educativa y Psicológica', 'Ajedrez, Fotografía', './img/sigmund-psicologo.png', 'Con más de 12 años de experiencia, estoy dedicado a proporcionar un enfoque holístico para el tratamiento de problemas psicológicos.'),
+                (3, '1980-11-30', 'femenino', TRUE, 3, 'Acoso y ciberbullying.', 12, 'Máster Oficial en Psicología Social', 'Escritura, Ciclismo', './img/patricia-psicologo.png', 'Soy una psicóloga comprometida con ayudar a mis pacientes a encontrar soluciones a sus desafíos emocionales y mejorar su bienestar mental.'),
+                (4, '1985-02-28', 'masculino', TRUE, 2, 'Adicciones', 9, 'Máster en Psicofarmacología y Drogas de Abuso', 'Cocina, Buceo', './img/javier-psicologo.png', 'Especializado en el tratamiento de adicciones, cuento con un Máster en Psicofarmacología y Drogas de Abuso. Mi enfoque terapéutico se centra en ayudar a los individuos a superar los desafíos relacionados con las adicciones, proporcionando apoyo y orientación.'),
+
+                (5, '1990-09-14', 'femenino', FALSE, 1, 'Mindfulness y Estrés', 5, 'Master en Mindfulness', 'Pilates, Lectura', 'foto_emily.jpg', 'Como profesional de la salud mental, me apasiona enseñar técnicas de mindfulness para reducir el estrés y mejorar la calidad de vida.');
 
                 INSERT INTO CITA (id_paciente, id_psicologo, fecha_cita, hora_cita)
                 VALUES 
