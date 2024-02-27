@@ -147,7 +147,7 @@ footer {
 
 .footer-container {
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   justify-content: space-between;
   width: 80%;
   max-width: 1200px;
@@ -210,6 +210,11 @@ footer {
     font-size: 16px;
   }
 
+
+.footer-container > *:not(:nth-child(1)):not(:nth-child(4)):not(:nth-child(5)) {
+  display: none;
+}
+
 }
 
 @media only screen and (max-width: 480px) {
@@ -261,14 +266,15 @@ footer {
     display: block;
   }
 
-  .footer-column {
-    flex-basis: 100%;
-    align-items: center ;
-    justify-content: center;
-  }
-
   #log-bttn, #signup-bttn {
     width: 100%;
   }
 
+  .footer-container {
+    flex-wrap: nowrap;
+  }
+
+  .footer-container > *:not(:first-child):not(:last-child) {
+    display: none;
+}
 }
