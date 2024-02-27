@@ -66,6 +66,7 @@
       </div>
    </div>
    <script src="./js/sesiones_paciente.js"></script>
+   <script src="./js/script_hamburguer.js"></script>
 </body>
 
 </html>

@@ -236,7 +236,7 @@ footer {
     text-align: center;
     cursor: pointer;
     position: absolute;
-    top: 70px;
+    top: 65px;
     left: 60%;
     width: 40%;
     background-color: var(--ppal_shadow);
