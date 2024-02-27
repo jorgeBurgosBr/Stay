@@ -112,7 +112,11 @@ function procesarFormLogin(formulario) {
          if (!data.success) {
             mostrarErrorLogin(true, data.error);
          } else {
-            window.location.href = "sesiones.php";
+            if (data.tipo == "paciente") {
+               window.location.href = "sesiones.php";
+            } else if (data.tipo == "psicologo") {
+               window.location.href = "paciente_psico.html";
+            }
          }
       }).catch(error => console.error('Fetch error: ', error));
 }

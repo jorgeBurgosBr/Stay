@@ -112,7 +112,7 @@ body {
 .contenido-encabezado .imagen-paciente {
   position: relative;
   top: -120px;
-  left: 10px;
+  left: 15px;
 }
 .contenido-encabezado .nombre {
   color: #000;

@@ -163,6 +163,13 @@ function crearTablas()
                     msg VARCHAR(1000),
                     PRIMARY KEY (msg_id)
                 );
+                CREATE TABLE NOTAS_PACIENTE (
+                    id_paciente INT,
+                    bio VARCHAR(1000),
+                    notas VARCHAR(255),
+                    PRIMARY KEY (id_paciente),
+                    FOREIGN KEY (id_paciente) REFERENCES PACIENTE(id_paciente)
+                );
                 ";
             // Ejecutar las consultas de creación de BBDD y tablas
             if (mysqli_multi_query($conexion, $sql)) {
@@ -227,7 +234,7 @@ function insertarDatos()
                 INSERT INTO PERFIL_PACIENTE (id_paciente, fecha_nac_paciente, sexo_paciente, pareja_sino_paciente, hijos_paciente, trabajo_paciente, estudios_paciente, hobbies_paciente, expectativasypreocupaciones_paciente, foto_paciente)
                 VALUES 
                 (1, '1980-04-23', 'masculino', TRUE, 1, 'Ingeniero', 'Grado en Ingeniería', 'Leer, Escalar', 'Espero mejorar mi gestión del estrés', 'foto_john.jpg'),
-                (2, '1985-05-16', 'femenino', FALSE, 0, 'Doctora', 'Doctorado en Medicina', 'Yoga, Pintar', 'Quiero aprender a equilibrar trabajo y vida personal', 'foto_jane.jpg'),
+                (2, '1985-05-16', 'femenino', FALSE, 0, 'Doctora', 'Doctorado en Medicina', 'Yoga, Pintar', 'Quiero aprender a equilibrar trabajo y vida personal', '../img/mikasa.png'),
                 (3, '1990-07-08', 'masculino', TRUE, 3, 'Abogado', 'Licenciatura en Derecho', 'Correr, Viajar', 'Necesito ayuda para lidiar con la ansiedad', 'foto_jim.jpg'),
                 (4, '1995-08-19', 'masculino', FALSE, 2, 'Artista', 'Diplomado en Bellas Artes', 'Música, Poesía', 'Busco formas de potenciar mi creatividad', 'foto_jack.jpg'),
                 (5, '2000-12-12', 'femenino', TRUE, 0, 'Emprendedora', 'MBA', 'Cocinar, Blogging', 'Deseo mejorar mis habilidades de comunicación', 'foto_josie.jpg');
@@ -303,7 +310,8 @@ function insertarDatos()
                 (4, 'Pensamiento Positivo para el Día a Día', 'Técnicas para incorporar el pensamiento positivo en tu vida diaria', 'https://workshop.com/taller4'),
                 (5, 'Herramientas de Psicología para el Desarrollo Personal', 'Explora herramientas psicológicas para tu desarrollo personal', 'https://workshop.com/taller5');
                                 
-                
+                INSERT INTO NOTAS_PACIENTE (id_paciente, bio, notas) VALUES
+                (2, 'Ha sufrido', 'a');
                 ";
             // Ejecutar las consultas de inserción de datos
             if (mysqli_multi_query($conexion, $sql_insert)) {
