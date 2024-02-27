@@ -160,12 +160,12 @@ function crearTablas()
                     msg_id INT AUTO_INCREMENT,
                     msg_entrada_id INT,
                     msg_salida_id INT,
-                    msg VARCHAR(1000),
+                    msg TEXT,
                     PRIMARY KEY (msg_id)
                 );
                 CREATE TABLE NOTAS_PACIENTE (
                     id_paciente INT,
-                    bio VARCHAR(1000),
+                    bio TEXT,
                     notas VARCHAR(255),
                     PRIMARY KEY (id_paciente),
                     FOREIGN KEY (id_paciente) REFERENCES PACIENTE(id_paciente)
