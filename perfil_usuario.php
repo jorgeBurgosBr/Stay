@@ -44,9 +44,14 @@
       <div class="profile-container">
          <div class="profile-photo-container">
             <div class="profile-info">
+               <div class="profile-img">
+                  
+               </div>
+               <div class="info-user">
                <span id="user-name"></span>
                <span id="user-role"></span>
                <span id="user-mail"></span>
+               </div>
             </div>
          </div>
 
