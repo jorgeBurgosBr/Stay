@@ -1,7 +1,7 @@
 .container_sesiones {
   display: flex;
   height: 75vh;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 1em;
 }
 
@@ -16,9 +16,9 @@
   display: flex;
 }
 
-h2{
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2em;
+h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2em;
 }
 
 .container_titulo_cal {
@@ -32,17 +32,17 @@ h2{
 }
 
 /* LISTA SESIONES */
-#listaSesiones{
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 3%;
+#listaSesiones {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3%;
 }
-#titulo_lista{
-    margin-top: 7%;
-    width: 55%;
+#titulo_lista {
+  margin-top: 7%;
+  width: 55%;
 }
 #list_sesiones {
   width: 80%;
@@ -53,14 +53,23 @@ h2{
   justify-content: space-evenly;
   list-style-type: none;
 }
-#list_sesiones li{
-    width: 70%;
+#list_sesiones li {
+  width: 70%;
 }
 
 #icono_chat {
   display: block;
   width: fit-content;
   cursor: pointer;
+  /* Establece el efecto de sombra inicial */
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  /* Define la transición para la propiedad box-shadow */
+  transition: box-shadow 0.3s ease;
+}
+#icono_chat:hover {
+  /* Desplazamiento horizontal | Desplazamiento vertical | Desenfoque | Tamaño de propagación | Color de la sombra */
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.5);
+  color: var(--ppal);
 }
 
 .fecha_lista,
@@ -68,20 +77,22 @@ h2{
   cursor: pointer;
   display: block;
 }
-.fecha_lista{
+.fecha_lista {
   background-color: var(--ppal1_variante);
   border: 1px solid #6e6e6e;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
 }
-.info_lista{
-    background-color: white;
-    border: 1px  dotted #8d8d8d;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
+.info_lista {
+  background-color: white;
+  border: 1px dotted #8d8d8d;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  /* Define la transición para el cambio de color de fondo */
+  transition: background-color 0.3s ease;
 }
-.info_lista:hover{
-    background-color: var(--ppal_shadow);
+.info_lista:hover {
+  background-color: var(--ppal_shadow);
 }
 /* CALENDARIO */
 
@@ -98,6 +109,11 @@ h2{
   width: fit-content;
   left: 5%;
   top: 50%;
+  user-select: none;
+  /* Establece el efecto de sombra inicial */
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  /* Define la transición para la propiedad box-shadow */
+  transition: box-shadow 0.3s ease;
 }
 
 #mesSiguiente {
@@ -107,6 +123,17 @@ h2{
   width: fit-content;
   right: 5%;
   top: 50%;
+  user-select: none;
+  /* Establece el efecto de sombra inicial */
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  /* Define la transición para la propiedad box-shadow */
+  transition: box-shadow 0.3s ease;
+}
+#mesAnterior:hover,
+#mesSiguiente:hover {
+  /* Desplazamiento horizontal | Desplazamiento vertical | Desenfoque | Tamaño de propagación | Color de la sombra */
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.5);
+  color: red;
 }
 
 #calendario {
@@ -120,7 +147,7 @@ h2{
 .celda {
   display: flex;
   background-color: white;
-  border: 1px  dotted #8d8d8d;
+  border: 1px dotted #8d8d8d;
   flex-direction: column;
 }
 
@@ -138,15 +165,16 @@ h2{
   width: fit-content;
   margin-left: 5px;
 }
-.dia_actual{
-    color: var(--contraste);
-    text-decoration: underline;
-    font-weight: 900;
+.dia_actual {
+  color: var(--contraste);
+  text-decoration: underline;
+  font-weight: 900;
 }
-.pasado, .futuro {
-  background-color: #EBEBEB;
+.pasado,
+.futuro {
+  background-color: #ebebeb;
 }
-.pasado{
+.pasado {
   filter: grayscale();
 }
 
@@ -160,8 +188,49 @@ h2{
   font-size: 0.9em;
   cursor: pointer;
   align-self: center;
+  /* Define la transición para el cambio de color de fondo */
+  transition: background-color 0.3s ease;
 }
 
-.etiqueta_cita:hover{
-    background-color: #5fac4f;
+.etiqueta_cita:hover {
+  background-color: #5fac4f;
+}
+
+/* RESPONSIVE */
+/* Media query para mobile (al menos 375px) */
+@media screen and (max-width: 376px) {
+  .container_cal{
+    display: none;
+  }
+}
+
+/* Media query para tablet (al menos 768px) */
+@media screen and (max-width: 768px) {
+
+  .container_sesiones{
+    flex-direction: column;
+  }
+  .container_list_sesiones{
+    order: 2;
+  }
+  #listaSesiones{
+    min-height: 60vh;
+  }
+  .container_titulo_cal{
+    padding-bottom: 2%;
+  }
+  #titulo_lista{
+    margin-left: 10%;
+    align-self: baseline;
+  }
+}
+
+/* Media query para laptop (al menos 1024px) */
+@media screen and (min-width: 1024px) {
+
+}
+
+/* Media query para laptop L (al menos 1440px) */
+@media screen and (min-width: 1440px) {
+
 }

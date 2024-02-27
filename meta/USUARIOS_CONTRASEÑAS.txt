@@ -15,3 +15,26 @@
                 ('jonescarol@gmail.com', 'CJones!980', 'psicologo', 3),
                 ('browndavid@gmail.com', 'DBrown#1985', 'psicologo', 4),
                 ('whiteemily@gmail.com', 'EmilyW1990!', 'psicologo', 5);
+
+                
+/* font-family: 'Lato', sans-serif; */
+/* font-family: 'Open Sans', sans-serif; */
+/* font-family: 'Montserrat', sans-serif; */
+/* font-family: "Poppins", sans-serif; */
+
+/* Variables para los colores */
+:root {
+  --degradado: linear-gradient(to right, #44a647, #ffd438);
+  --body: #fefae0;
+  --ppal: #606c38;
+  --ppal_shadow: #a4ac86;
+  --ppal1: #582f0e;
+  --ppal1_shadow: #a68a64;
+  --ppal1_variante: #C3B299;
+  --contraste: #800020;
+  --contraste1: #b57276;
+  --contraste2: #d8a6a9;
+  --tituloHero: 'Lato', sans-serif;
+  --tituloM: 'Montserrat', sans-serif;
+  --texto: 'Open Sans', sans-serif;
+}

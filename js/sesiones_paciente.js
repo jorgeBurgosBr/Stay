@@ -213,8 +213,8 @@ function pintarLista(citas){
 }
  
 function pintarTituloCal(mes, ano){
-  const meses = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
-  document.querySelector("#titulo_cal").textContent = meses[mes] + ", " + ano;
+  const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+  document.querySelector("#titulo_cal").textContent = meses[mes] + " " + ano;
 }
 
  
