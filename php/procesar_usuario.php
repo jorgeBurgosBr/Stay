@@ -17,13 +17,17 @@ if ($bd->conectar()) {
       $id_paciente = $_SESSION['id_paciente'];
 
       // Realizar la consulta para obtener el nombre y el correo del paciente
-      $sql = mysqli_query($conn, "SELECT nombre_paciente, correo_paciente FROM paciente WHERE id_paciente = '$id_paciente'");
+      $sql = mysqli_query($conn, "SELECT p.nombre_paciente, p.correo_paciente, pp.foto_paciente 
+                            FROM paciente p
+                            INNER JOIN perfil_paciente pp ON p.id_paciente = pp.id_paciente
+                            WHERE p.id_paciente = '$id_paciente'");
       $row = mysqli_fetch_assoc($sql);
 
       if ($row) {
          $respuesta['success'] = true;
          $respuesta['nombre'] = $row['nombre_paciente'];
          $respuesta['correo'] = $row['correo_paciente'];
+         $respuesta['photo'] = $row['foto_paciente'];
       } else {
          $respuesta['error'] = 'Error al obtener la información del paciente';
       }

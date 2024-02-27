@@ -40,8 +40,6 @@ if ($bd->conectar()) {
             // Verificar si la función de actualización está presente en el formulario
             $funcion = isset($_POST['funcion']) ? $_POST['funcion'] : '';
 
-            // ...
-
             if ($funcion === 'updateForm') {
                 // Verificar si al menos un campo necesario para la actualización está presente
                 if (

@@ -1,4 +1,12 @@
+document.addEventListener('DOMContentLoaded', function () {
+  const mobileMenu = document.getElementById('mobile-menu');
+  const navMenu = document.querySelector('nav ul');
 
+  mobileMenu.addEventListener('click', function () {
+    navMenu.classList.toggle('show');
+  });
+
+});
 // Objeto que contiene los formularios asociados a identificadores únicos
 const forms = {
    "form-login": document.getElementById("form-login"),
@@ -286,6 +294,7 @@ function validacionSignup() {
 document.querySelector("#log-bttn").addEventListener("click", function () {
    document.querySelector(".popup-login").classList.add("active");
    document.querySelector(".popup-signup").classList.remove("active");
+   document.querySelector("nav ul").classList.remove('show');
 });
 
 document.querySelector(".popup-login .close-bttn").addEventListener("click", function () {
@@ -296,12 +305,14 @@ document.querySelector("#registrate").addEventListener("click", function (event)
    event.preventDefault();
    document.querySelector(".popup-signup").classList.add("active");
    document.querySelector(".popup-login").classList.remove("active");
+
 });
 
 // formulario signup
 document.querySelector("#signup-bttn").addEventListener("click", function () {
    document.querySelector(".popup-signup").classList.add("active");
    document.querySelector(".popup-login").classList.remove("active");
+   document.querySelector("nav ul").classList.remove('show');
 });
 
 document.querySelector(".popup-signup .close-bttn").addEventListener("click", function () {

@@ -16,14 +16,23 @@
    <header>
       <div class="container-nav">
          <div class="logo"></div>
+         <div class="menu-toggle" id="mobile-menu">
+      <img src="img/logo.png" alt="Logo" id="logo-nav"/>
+      <i class="ri-menu-line"></i>
+      </div>
          <nav>
             <ul>
-               <img src="img/logo.png" alt="Logo" />
+               <img src="img/logo.png" alt="Logo" id="logo-menu"/>
                <li><a href="#" id="current_page">Mi perfil</a></li>
+               <hr id="separacion">
                <li><a href="sesiones.php">Sesiones</a></li>
-               <li><a href="#">Mi psicólogo</a></li>
+               <hr id="separacion">
+               <li><a href="psicologo_usuario.php">Mi psicólogo</a></li>
+               <hr id="separacion">
                <li><a href="#">Artículos</a></li>
+               <hr id="separacion">
                <li><a href="#">Foro</a></li>
+               <hr id="separacion">
                <li><a href="#">Talleres</a></li>
             </ul>
          </nav>
@@ -35,9 +44,14 @@
       <div class="profile-container">
          <div class="profile-photo-container">
             <div class="profile-info">
+               <div class="profile-img">
+
+               </div>
+               <div class="info-user">
                <span id="user-name"></span>
                <span id="user-role"></span>
                <span id="user-mail"></span>
+               </div>
             </div>
          </div>
 

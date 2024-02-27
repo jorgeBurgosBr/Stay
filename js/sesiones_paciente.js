@@ -2,31 +2,31 @@ document.addEventListener('DOMContentLoaded', function () {
   // Configuración inicial para mostrar el calendario del mes actual y cargar las citas
   let fechaActual = new Date();
   let mesMostrado = fechaActual.getMonth();
-  let añoMostrado = fechaActual.getFullYear();
-  dibujarCalendario(mesMostrado, añoMostrado);
-  cargarCitas(mesMostrado, añoMostrado);
-  cargarLista(mesMostrado, añoMostrado);
+  let anoMostrado = fechaActual.getFullYear();
+  dibujarCalendario(mesMostrado, anoMostrado);
+  cargarCitas(mesMostrado, anoMostrado);
+  cargarLista(mesMostrado, anoMostrado);
 
   document.getElementById('mesAnterior').addEventListener('click', function () {
     if (mesMostrado === 0) {
       mesMostrado = 11;
-      añoMostrado -= 1;
+      anoMostrado -= 1;
     } else {
       mesMostrado -= 1;
     }
-    dibujarCalendario(mesMostrado, añoMostrado);
-    cargarCitas(mesMostrado, añoMostrado);
+    dibujarCalendario(mesMostrado, anoMostrado);
+    cargarCitas(mesMostrado, anoMostrado);
   });
 
   document.getElementById('mesSiguiente').addEventListener('click', function () {
     if (mesMostrado === 11) {
       mesMostrado = 0;
-      añoMostrado += 1;
+      anoMostrado += 1;
     } else {
       mesMostrado += 1;
     }
-    dibujarCalendario(mesMostrado, añoMostrado);
-    cargarCitas(mesMostrado, añoMostrado);
+    dibujarCalendario(mesMostrado, anoMostrado);
+    cargarCitas(mesMostrado, anoMostrado);
   });
 
   document.querySelector('#calendario').addEventListener('click', function (event) {
@@ -48,10 +48,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-function cargarCitas(mes, año) {
+function cargarCitas(mes, ano) {
   // Encuentra el primer y último día del mes
-  let primerDiaMes = new Date(año, mes, 1);
-  let ultimoDiaMes = new Date(año, mes + 1, 0);
+  let primerDiaMes = new Date(ano, mes, 1);
+  let ultimoDiaMes = new Date(ano, mes + 1, 0);
 
   // Ajusta al primer día visible en el calendario
   let primerDiaVisible = new Date(primerDiaMes);
@@ -96,7 +96,7 @@ function pintarCitas(citas) {
 
     if (celda) {
       // Formatea el detalle de la cita
-      const detalleCita = `<div class='etiqueta_cita'>${hora} - ${nombre_psicologo}</div>`;
+      const detalleCita = `<div class='etiqueta_cita'>${hora}-${nombre_psicologo}</div>`;
 
       // Inserta el detalle de la cita en la celda correspondiente
       celda.insertAdjacentHTML('beforeend', detalleCita);
@@ -109,15 +109,16 @@ function pintarCitas(citas) {
 function formatearFechaISO(fecha) {
   let dia = fecha.getDate().toString().padStart(2, '0'); // Asegura dos dígitos para el día
   let mes = (fecha.getMonth() + 1).toString().padStart(2, '0'); // Asegura dos dígitos para el mes, +1 porque getMonth() es base 0
-  let año = fecha.getFullYear();
-  return `${año}-${mes}-${dia}`; // Formato YYYY-MM-DD
+  let ano = fecha.getFullYear();
+  return `${ano}-${mes}-${dia}`; // Formato YYYY-MM-DD
 }
 
-function dibujarCalendario(mes, año) {
-  const diasEnMes = new Date(año, mes + 1, 0).getDate();
-  let primerDia = new Date(año, mes, 1).getDay();
+function dibujarCalendario(mes, ano) {
+  pintarTituloCal(mes, ano);
+  const diasEnMes = new Date(ano, mes + 1, 0).getDate();
+  let primerDia = new Date(ano, mes, 1).getDay();
   primerDia = primerDia === 0 ? 6 : primerDia - 1; // Ajusta para que la semana comience en lunes
-  const ultimoDiaMesAnterior = new Date(año, mes, 0).getDate();
+  const ultimoDiaMesAnterior = new Date(ano, mes, 0).getDate();
 
   const contenedorCalendario = document.querySelector('#calendario');
   contenedorCalendario.innerHTML = ''; // Limpia el calendario
@@ -130,38 +131,44 @@ function dibujarCalendario(mes, año) {
 
   // Añade los días del mes anterior para completar la primera semana
   for (let i = 0; i < primerDia; i++) {
-    let fecha = new Date(año, mes, -primerDia + i + 1); // Calcula la fecha correcta
+    let fecha = new Date(ano, mes, -primerDia + i + 1); // Calcula la fecha correcta
     let fechaFormateada = formatearFechaISO(fecha);
-    contenedorCalendario.innerHTML += `<div class="celda pasado_futuro" data-fecha="${fechaFormateada}"><span class="num_dia">${ultimoDiaMesAnterior - primerDia + i + 1}</span></div>`;
+    contenedorCalendario.innerHTML += `<div class="celda pasado" data-fecha="${fechaFormateada}"><span class="num_dia">${ultimoDiaMesAnterior - primerDia + i + 1}</span></div>`;
   }
 
   // Añade los días del mes actual
   for (let dia = 1; dia <= diasEnMes; dia++) {
-    let fecha = new Date(año, mes, dia); // Fecha actual
+    let fecha = new Date(ano, mes, dia); // Fecha actual
     let fechaFormateada = formatearFechaISO(fecha);
     contenedorCalendario.innerHTML += `<div class="celda" data-fecha="${fechaFormateada}"><span class="num_dia">${dia}</span></div>`;
   }
-
+ 
   // Completa la última semana con días del siguiente mes si es necesario
   const totalCeldas = 42; // Total de celdas en el calendario (6 semanas * 7 días)
   const celdasActuales = primerDia + diasEnMes;
   for (let dia = 1; celdasActuales + dia <= totalCeldas; dia++) {
-    let fecha = new Date(año, mes + 1, dia); // Calcula la fecha del siguiente mes
+    let fecha = new Date(ano, mes + 1, dia); // Calcula la fecha del siguiente mes
     let fechaFormateada = formatearFechaISO(fecha);
-    contenedorCalendario.innerHTML += `<div class="celda pasado_futuro" data-fecha="${fechaFormateada}"><span class="num_dia">${dia}</span></div>`;
+    contenedorCalendario.innerHTML += `<div class="celda futuro" data-fecha="${fechaFormateada}"><span class="num_dia">${dia}</span></div>`;
   }
+
+  let hoy = new Date();
+  if(mes == hoy.getMonth()){
+    document.querySelector(`.celda[data-fecha = "${formatearFechaISO(hoy)}"] > span.num_dia`).classList.add("dia_actual");  
+  }
+
 }
 
-function cargarLista(mes, año) {
+function cargarLista(mes, ano) {
   // Fecha de inicio: primer día del mes actual
-  let fechaInicio = new Date(año, mes, 1);
+  let fechaInicio = new Date(ano, mes, 1);
   let fechaInicioFormateada = formatearFechaISO(fechaInicio);
 
   // Fecha de fin: último día del mes siguiente
-  // Si mes == 11 (diciembre), el mes siguiente sería enero del próximo año
-  let añoFin = mes === 11 ? año + 1 : año;
+  // Si mes == 11 (diciembre), el mes siguiente sería enero del próximo ano
+  let anoFin = mes === 11 ? ano + 1 : ano;
   let mesFin = mes === 11 ? 0 : mes + 1;
-  let fechaFin = new Date(añoFin, mesFin + 1, 0);
+  let fechaFin = new Date(anoFin, mesFin + 1, 0);
   let fechaFinFormateada = formatearFechaISO(fechaFin);
 
   // Continúa con la petición como antes, usando fechaInicioFormateada y fechaFinFormateada
@@ -191,10 +198,23 @@ function pintarLista(citas){
   lista.innerHTML = ''; // Limpia la lista actual para evitar duplicados
 
   citas.forEach(sesion => {
-    const { fecha, hora, nombre_psicologo } = sesion; // Asume que cada sesión tiene esta información
+    const { fecha, hora, nombre_psicologo, apellidos_psicologo } = sesion; // Asume que cada sesión tiene esta información
     const elementoLista = document.createElement('li');
-    elementoLista.innerHTML = `<span class='fecha_lista'>${fecha}</span><span class='info_lista'>${hora} - Sesión con ${nombre_psicologo}</span>`;
+    elementoLista.innerHTML = `
+    <span class='fecha_lista'>
+    ${fecha}
+    </span>
+    <span class='info_lista'>
+    ${hora} - Sesión con ${nombre_psicologo} ${apellidos_psicologo}
+    </span>
+    `;
     lista.appendChild(elementoLista);
   });
 }
+ 
+function pintarTituloCal(mes, ano){
+  const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+  document.querySelector("#titulo_cal").textContent = meses[mes] + " " + ano;
+}
+
  

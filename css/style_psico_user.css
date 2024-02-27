@@ -1,0 +1,9 @@
+/* Media queries para tabletas */
+@media (min-width: 426px) and (max-width: 768px) {
+
+  }
+  
+  /* Media queries para dispositivos móviles */
+  @media (min-width: 50px) and (max-width: 426px) {
+
+  }
