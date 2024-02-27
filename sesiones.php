@@ -31,12 +31,9 @@
       <!-- LISTA SESIONES -->
       <div class="container_list_sesiones">
          <div id="listaSesiones">
-            <h2>Próximas sesiones:</h2>
+            <h2 id="titulo_lista">Próximas sesiones:</h2>
             <ul id="list_sesiones">
-               <li>Ejemplo de sesion</li>
-               <li>Ejemplo de sesion</li>
-               <li>Ejemplo de sesion</li>
-               <li>Ejemplo de sesion</li>
+
             </ul>
             <span class="material-symbols-outlined" id="icono_chat">
                chat

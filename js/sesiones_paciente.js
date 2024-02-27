@@ -142,7 +142,7 @@ function dibujarCalendario(mes, ano) {
     let fechaFormateada = formatearFechaISO(fecha);
     contenedorCalendario.innerHTML += `<div class="celda" data-fecha="${fechaFormateada}"><span class="num_dia">${dia}</span></div>`;
   }
-
+ 
   // Completa la última semana con días del siguiente mes si es necesario
   const totalCeldas = 42; // Total de celdas en el calendario (6 semanas * 7 días)
   const celdasActuales = primerDia + diasEnMes;
@@ -151,6 +151,12 @@ function dibujarCalendario(mes, ano) {
     let fechaFormateada = formatearFechaISO(fecha);
     contenedorCalendario.innerHTML += `<div class="celda futuro" data-fecha="${fechaFormateada}"><span class="num_dia">${dia}</span></div>`;
   }
+
+  let hoy = new Date();
+  if(mes == hoy.getMonth()){
+    document.querySelector(`.celda[data-fecha = "${formatearFechaISO(hoy)}"] > span.num_dia`).classList.add("dia_actual");  
+  }
+
 }
 
 function cargarLista(mes, ano) {
@@ -192,9 +198,16 @@ function pintarLista(citas){
   lista.innerHTML = ''; // Limpia la lista actual para evitar duplicados
 
   citas.forEach(sesion => {
-    const { fecha, hora, nombre_psicologo } = sesion; // Asume que cada sesión tiene esta información
+    const { fecha, hora, nombre_psicologo, apellidos_psicologo } = sesion; // Asume que cada sesión tiene esta información
     const elementoLista = document.createElement('li');
-    elementoLista.innerHTML = `<span class='fecha_lista'>${fecha}</span><span class='info_lista'>${hora} - Sesión con ${nombre_psicologo}</span>`;
+    elementoLista.innerHTML = `
+    <span class='fecha_lista'>
+    ${fecha}
+    </span>
+    <span class='info_lista'>
+    ${hora} - Sesión con ${nombre_psicologo} ${apellidos_psicologo}
+    </span>
+    `;
     lista.appendChild(elementoLista);
   });
 }
@@ -203,3 +216,5 @@ function pintarTituloCal(mes, ano){
   const meses = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
   document.querySelector("#titulo_cal").textContent = meses[mes] + ", " + ano;
 }
+
+ 
