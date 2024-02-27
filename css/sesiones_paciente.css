@@ -87,7 +87,7 @@ h2{
 
 #titulo_cal {
   align-self: baseline;
-  margin-left: 5%;
+  margin-left: 10%;
   margin-top: 5%;
 }
 
@@ -96,7 +96,7 @@ h2{
   display: block;
   cursor: pointer;
   width: fit-content;
-  left: 0;
+  left: 5%;
   top: 50%;
 }
 
@@ -105,14 +105,14 @@ h2{
   display: block;
   cursor: pointer;
   width: fit-content;
-  right: 0;
+  right: 5%;
   top: 50%;
 }
 
 #calendario {
   display: grid;
   height: 60vh;
-  width: 90%;
+  width: 80%;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: 1fr repeat(6, 3fr);
 }
