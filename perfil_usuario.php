@@ -27,7 +27,7 @@
                <hr id="separacion">
                <li><a href="sesiones.php">Sesiones</a></li>
                <hr id="separacion">
-               <li><a href="#">Mi psicólogo</a></li>
+               <li><a href="psicologo_usuario.php">Mi psicólogo</a></li>
                <hr id="separacion">
                <li><a href="#">Artículos</a></li>
                <hr id="separacion">
@@ -45,7 +45,7 @@
          <div class="profile-photo-container">
             <div class="profile-info">
                <div class="profile-img">
-                  
+
                </div>
                <div class="info-user">
                <span id="user-name"></span>
