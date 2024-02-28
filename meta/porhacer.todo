@@ -1,6 +1,8 @@
 Proyecto en general:
     ☐ - Definir como vamos a manejar los distintos flujos (paciente, paciente -sin citas-, psicólogo, -psicólogo sin citas-)
     ☐ - Realizar memoria
+    ☐ - Cambiar creaBBDD para que utilice consultas preparadas y probar a añadir nueva tabla NOTAS_PACIENTE con datos
+    
 Navbar:
     ☐ - Poner transiciones a los colores de hover
     ☐ - Comprobar que todos los links son adecuados
@@ -11,7 +13,7 @@ PACIENTE:
         ✔ - Colocar lista a la izda con próxmias citas y que al clicar en ellas también se redirija a la videollamada @done (2/25/2024, 6:18:44 PM)
         ✔ - Poner logo chat y al clicar redirigir a chat @done (2/25/2024, 6:39:03 PM)
         ✔ - Indicar mes y año arriba del calendario @done (2/26/2024, 6:23:33 PM)
-        ☐ - Terminar css
+        ✔ - Terminar css @done (2/27/2024, 1:19:30 PM)
         ☐ - Cambiar a que las próximas sesiones se muestren desde el día actual
         ☐ - Poner la decoración del background que está en figma
         ☐ - Hacer las versiones para tablet y movil (responsive)
