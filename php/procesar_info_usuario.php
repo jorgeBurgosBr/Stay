@@ -16,13 +16,15 @@ if ($bd->conectar()) {
             'error' => null,
         ];
 
-        // Obtener el ID del paciente de la solicitud
+        // Obtener el ID del paciente de la sesión
         $id_paciente = $_SESSION['id_paciente'];
 
-
-        // Realizar la consulta para obtener los datos del paciente
-        $sql = "SELECT * FROM perfil_paciente WHERE id_paciente = '$id_paciente'";
-        $result = mysqli_query($conn, $sql);
+        // Realizar la consulta para obtener los datos del paciente utilizando una sentencia preparada
+        $sql = "SELECT * FROM perfil_paciente WHERE id_paciente = ?";
+        $stmt = mysqli_prepare($conn, $sql);
+        mysqli_stmt_bind_param($stmt, "s", $id_paciente);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
 
         if (mysqli_num_rows($result) > 0) {
             $row = mysqli_fetch_assoc($result);
@@ -62,19 +64,21 @@ if ($bd->conectar()) {
                     $newStudies = mysqli_real_escape_string($conn, $_POST['studies']);
                     $newExpectations = mysqli_real_escape_string($conn, $_POST['expectations']);
 
-                    // Actualización de la tabla
+                    // Actualización de la tabla utilizando una sentencia preparada
                     $sqlUpdate = "UPDATE perfil_paciente SET
-                      sexo_paciente = '$newGender',
-                      fecha_nac_paciente = '$newBirthdate',
-                      hobbies_paciente = '$newHobbies',
-                      hijos_paciente = '$newChildren',
-                      trabajo_paciente = '$newJob',
-                      pareja_sino_paciente = '$newPartner',
-                      estudios_paciente = '$newStudies',
-                      expectativasypreocupaciones_paciente = '$newExpectations'
-                      WHERE id_paciente = '$id_paciente'";
+                        sexo_paciente = ?,
+                        fecha_nac_paciente = ?,
+                        hobbies_paciente = ?,
+                        hijos_paciente = ?,
+                        trabajo_paciente = ?,
+                        pareja_sino_paciente = ?,
+                        estudios_paciente = ?,
+                        expectativasypreocupaciones_paciente = ?
+                        WHERE id_paciente = ?";
 
-                    $resultUpdate = mysqli_query($conn, $sqlUpdate);
+                    $stmtUpdate = mysqli_prepare($conn, $sqlUpdate);
+                    mysqli_stmt_bind_param($stmtUpdate, "sssssssss", $newGender, $newBirthdate, $newHobbies, $newChildren, $newJob, $newPartner, $newStudies, $newExpectations, $id_paciente);
+                    $resultUpdate = mysqli_stmt_execute($stmtUpdate);
 
                     if ($resultUpdate) {
                         $respuesta['success'] = true;
@@ -99,3 +103,4 @@ if ($bd->conectar()) {
     header('Content-Type: application/json');
     echo json_encode($respuesta);
 }
+?>
