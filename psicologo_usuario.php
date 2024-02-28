@@ -46,7 +46,7 @@
          <span class="nombre-psico"></span>
          <span class="fecha-nacimiento"></span>
       </div>
-      <div class="datos-personales">
+      <div class="datos-personales2">
          <span class="correo-psico"></span>
          <span class="telefono-psico"></span>
       </div>

@@ -39,23 +39,44 @@
    margin: 10px 0;
    padding: 20px;
    border: 1px solid #ccc;
-   gap: 20%;
+   gap: 30px;
+ }
+
+ .psico-img {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
  }
 
  .psico-img img {
    max-width: 100%; 
    max-height: 100%; 
+   width: 70%;
    height: auto; 
    display: block;
-   margin: auto;
    border-radius: 10px; 
  }
+
 
  .datos-personales {
    display: flex;
    flex-direction: column;
    justify-content: center;
+   width: 100%;
    gap: 10px;
+ }
+
+ .datos-personales2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  gap: 10px;
+}
+
+ .nombre-psico {
+  font-size: 34px;
  }
 
  .sobre-mi {
@@ -81,9 +102,9 @@
  
  .hobbies {
    width: 100%;
-   margin: 10px 0; /* Ajusta el espacio vertical entre cada sección */
-   padding: 20px; /* Agrega un espacio de relleno dentro de cada sección */
-   border: 1px solid #ccc; /* Agrega un borde para separar visualmente las secciones */
+   margin: 10px 0;
+   padding: 20px;
+   border: 1px solid #ccc;
  }
 
 /* Media queries para tabletas */
