@@ -26,12 +26,12 @@
    flex-direction: column;
    justify-content: center;
    align-items: center;
-   height: 90vh;
 }
 
 .tittle-psico h1{
    font-family: var(--tituloHero);
    font-size: 40px;
+   margin-top: 20px;
 }
 
 .card {
@@ -163,9 +163,6 @@
       overflow: visible;
       flex-direction: column;
    }
-   .psico-card-container {
-      margin-top: 80%;
-   }
 
 }
 
@@ -180,10 +177,6 @@
 
    .card::before {
       display: none;
-   }
-
-   .psico-card-container {
-      margin-top: 100%;
    }
 
    .card {
