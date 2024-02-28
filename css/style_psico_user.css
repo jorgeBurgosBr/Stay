@@ -7,7 +7,7 @@
 }
 
 :root {
-   --degradado: linear-gradient(to right, #44a647, #ffd438);
+   --degradado: linear-gradient(to right, #a4ac86, #a68a648c);
    --body: #fefae0;
    --ppal: #606c38;
    --ppal_shadow: #a4ac86;
@@ -29,6 +29,7 @@
    align-items: center; 
    padding: 20px;
    max-width: 800px;
+   margin-top: 30px;
  }
  
  .info-psico {
@@ -38,8 +39,10 @@
    justify-content: space-around;
    margin: 10px 0;
    padding: 20px;
-   border: 1px solid #ccc;
+   border-radius: 10px;
+   color: #000;
    gap: 30px;
+   background: var(--degradado);
  }
 
  .psico-img {
@@ -63,6 +66,7 @@
    display: flex;
    flex-direction: column;
    justify-content: center;
+   align-items: center;
    width: 100%;
    gap: 10px;
  }
@@ -71,40 +75,66 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 100%;
+  align-items: center;
+   margin-top: 12px;
+   width: 100%;
   gap: 10px;
 }
 
  .nombre-psico {
   font-size: 34px;
+  font-family: var(--tituloM);
  }
 
- .sobre-mi {
+ .sobre-mi, .experiencia-especialidad, .estudios, .hobbies {
    display: flex;
    flex-direction: column;
    width: 100%;
    margin: 10px 0;
    padding: 20px;
    border: 1px solid #ccc;
+   border-radius: 10px;
+   background: var(--ppal_shadow);
  }
- .experiencia-especialidad {
-   width: 100%;
-   margin: 10px 0;
-   padding: 20px;
-   border: 1px solid #ccc; 
- }
- .estudios {
-   width: 100%;
-   margin: 10px 0;
-   padding: 20px;
-   border: 1px solid #ccc; 
+
+ .sobre-mi h3, .experiencia-especialidad h3, .estudios h3, .hobbies h3{
+  font-family: var(--tituloHero);
+  color: var(--contraste);
+  margin-bottom: 10px;
+  border-bottom: 1px solid var(--contraste);
+}
+
+.bttns {
+  display: flex;
+  width: 100%;
+  margin: 20px 0;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 30px;
+}
+
+#icono_chat {
+  display: block;
+  width: fit-content;
+  cursor: pointer;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  transition: box-shadow 0.3s ease;
+}
+
+#bttn-cambiar-psico {
+  display: block;
+  cursor: pointer;
+  background-color: var(--ppal);
+  color: #ffff;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  transition: box-shadow 0.25s ease;
  }
  
- .hobbies {
-   width: 100%;
-   margin: 10px 0;
-   padding: 20px;
-   border: 1px solid #ccc;
+ #bttn-cambiar-psico:hover {
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5); 
  }
 
 /* Media queries para tabletas */
