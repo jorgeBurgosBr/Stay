@@ -7,6 +7,14 @@ document.addEventListener('DOMContentLoaded', function () {
      navMenu.classList.toggle('show');
    });
 });
+
+document.querySelector('#icono_chat').addEventListener('click', function(){
+    window.location.href = 'chat_paciente.php'
+})
+
+document.querySelector('#bttn-cambiar-psico').addEventListener('click', function () {
+    window.location.href = 'elegir_psicologo.html'
+})
  
 // Función para obtener el perfil del psicólogo
 function obtenerPerfilPsicologo() {
