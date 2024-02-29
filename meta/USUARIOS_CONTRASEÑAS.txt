@@ -1,20 +1,19 @@
-                -- Para pacientes
-                INSERT INTO USUARIO (correo_usuario, contrasena_usuario, tipo_usuario, id_original)
-                VALUES 
-                ('doejohn@gmail.com', 'Jd2021$45', 'paciente', 1),
-                ('doejane@gmail.com', 'Jane#879', 'paciente', 2),
-                ('beamjim@gmail.com', 'Jb!3098', 'paciente', 3),
-                ('danielsjack@gmail.com', 'JackD@1234', 'paciente', 4),
-                ('walesjosie@gmail.com', 'Josie*5321', 'paciente', 5);
-
-                -- Para psicólogos
-                INSERT INTO USUARIO (correo_usuario, contrasena_usuario, tipo_usuario, id_original)
-                VALUES 
-                ('alba.garcia@stay.com', 'AnnaS1975$', 'psicologo', 1),
-                ('sigmund.f@stay.com', 'BTaylor@2021', 'psicologo', 2),
-                ('fuentes.p@stay.com', 'CJones!980', 'psicologo', 3),
-                ('j.perez@stay.com', 'DBrown#1985', 'psicologo', 4),
-                ('whiteemily@gmail.com', 'EmilyW1990!', 'psicologo', 5);
+-- Para pacientes
+INSERT INTO USUARIO (correo_usuario, contrasena_usuario, tipo_usuario, id_original)
+VALUES 
+('doejohn@gmail.com', 'Jd2021$45', 'paciente', 1),
+('doejane@gmail.com', 'Jane#879', 'paciente', 2),
+('beamjim@gmail.com', 'Jb!3098', 'paciente', 3),
+('danielsjack@gmail.com', 'JackD@1234', 'paciente', 4),
+('walesjosie@gmail.com', 'Josie*5321', 'paciente', 5);
+-- Para psicólogos
+INSERT INTO USUARIO (correo_usuario, contrasena_usuario, tipo_usuario, id_original)
+VALUES 
+('alba.garcia@stay.com', 'AnnaS1975$', 'psicologo', 1),
+('sigmund.f@stay.com', 'BTaylor@2021', 'psicologo', 2),
+('fuentes.p@stay.com', 'CJones!980', 'psicologo', 3),
+('j.perez@stay.com', 'DBrown#1985', 'psicologo', 4),
+('whiteemily@gmail.com', 'EmilyW1990!', 'psicologo', 5);
 
                 
 /* font-family: 'Lato', sans-serif; */
