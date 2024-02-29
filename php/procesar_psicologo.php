@@ -1,5 +1,5 @@
 <?php
-// session_start();
+session_start();
 require_once 'conecta.php';
 $bd = new BaseDeDatos();
 
@@ -14,8 +14,8 @@ if ($bd->conectar()) {
          'error' => null
       ];
 
-      // $id_psicologo = $_SESSION['id_psicologo'];
-      $id_psicologo = 1;
+      $id_psicologo = $_SESSION['id_paciente'];
+      // $id_psicologo = 1;
 
       // Utilizando una sentencia preparada para evitar inyección SQL
       $sql = "SELECT p.nombre_psicologo, p.apellidos_psicologo, p.correo_psicologo, pp.foto_psicologo 
