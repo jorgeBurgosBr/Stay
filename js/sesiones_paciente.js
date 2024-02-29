@@ -160,8 +160,8 @@ function dibujarCalendario(mes, ano) {
 }
 
 function cargarLista(mes, ano) {
-  // Fecha de inicio: primer día del mes actual
-  let fechaInicio = new Date(ano, mes, 1);
+  // Fecha de inicio: día actual
+  let fechaInicio = new Date();
   let fechaInicioFormateada = formatearFechaISO(fechaInicio);
 
   // Fecha de fin: último día del mes siguiente

@@ -1,9 +1,9 @@
 /* Import fonts */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
 
 /* Variables for colors */
 :root {
@@ -13,13 +13,13 @@
   --ppal_shadow: #a4ac86;
   --ppal1: #582f0e;
   --ppal1_shadow: #a68a64;
-  --ppal1_variante: #C3B299;
+  --ppal1_variante: #c3b299;
   --contraste: #800020;
   --contraste1: #b57276;
   --contraste2: #d8a6a9;
-  --tituloHero: 'Lato', sans-serif;
-  --tituloM: 'Montserrat', sans-serif;
-  --texto: 'Open Sans', sans-serif;
+  --tituloHero: "Lato", sans-serif;
+  --tituloM: "Montserrat", sans-serif;
+  --texto: "Open Sans", sans-serif;
 }
 
 /* Reset styles */
@@ -73,15 +73,40 @@ nav ul li a {
   color: #000000;
   font-weight: 500;
   font-size: 18px;
+  position: relative; /* Importante para posicionar el pseudo-elemento */
+  overflow: hidden; /* Asegura que el pseudo-elemento no sea visible fuera de los límites del enlace */
+  /* Define la transición para la propiedad color */
+  transition: color 0.3s ease-in;
+}
+
+/* Define el pseudo-elemento para simular el subrayado */
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0; /* Ancho inicial antes del hover */
+  height: 2px; /* Altura del subrayado */
+  background-color: currentColor; /* Usa el color actual del texto */
+  transition: width 0.3s ease-out, left 0.3s ease-out; /* Anima el ancho y la posición izquierda */
 }
 
 nav ul li:hover a {
   color: var(--contraste);
 }
 
+/* Anima el pseudo-elemento ::after para crear el efecto de expansión del subrayado */
+nav ul li:hover a::after {
+  width: 100%; /* Ancho completo para simular el subrayado */
+  left: 0; /* Ajusta la posición izquierda para alinear con el borde */
+}
+
 #current_page {
   text-decoration: underline;
   color: var(--contraste);
+}
+#current_page:hover{
+  text-decoration: none;
 }
 
 .menu-toggle {
@@ -134,7 +159,6 @@ nav ul li:hover a {
 #signup-bttn:hover {
   background-color: var(--contraste);
 }
-
 
 /* Footer styles */
 footer {
@@ -198,27 +222,25 @@ footer {
 
 /* Media queries */
 @media only screen and (max-width: 768px) {
-
-  .container-nav li a{
+  .container-nav li a {
     font-size: 16px;
   }
   .footer-column {
-    flex-basis: 48%; 
+    flex-basis: 48%;
   }
 
-  #log-bttn, #signup-bttn {
+  #log-bttn,
+  #signup-bttn {
     font-size: 16px;
   }
 
-
-.footer-container > *:not(:nth-child(1)):not(:nth-child(4)):not(:nth-child(5)) {
-  display: none;
-}
-
+  .footer-container
+    > *:not(:nth-child(1)):not(:nth-child(4)):not(:nth-child(5)) {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 480px) {
-
   #logo-menu {
     display: none;
   }
@@ -257,7 +279,8 @@ footer {
     width: 90%;
   }
 
-  #log-bttn, #signup-bttn {
+  #log-bttn,
+  #signup-bttn {
     width: 110px;
     font-size: 14px;
   }
@@ -266,7 +289,8 @@ footer {
     display: block;
   }
 
-  #log-bttn, #signup-bttn {
+  #log-bttn,
+  #signup-bttn {
     width: 100%;
   }
 
@@ -276,5 +300,5 @@ footer {
 
   .footer-container > *:not(:first-child):not(:last-child) {
     display: none;
-}
+  }
 }
