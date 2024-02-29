@@ -147,6 +147,8 @@ function crearBD()
                     titulo_taller VARCHAR(255) NOT NULL,
                     descripcion_taller TEXT,
                     enlace_taller VARCHAR(255),
+                    fecha_taller DATE,
+                    imagen_taller VARCHAR(255),
                     PRIMARY KEY (id_taller),
                     FOREIGN KEY (id_psicologo) REFERENCES PSICOLOGO(id_psicologo)
                 );",
@@ -199,10 +201,10 @@ function crearBD()
                 "INSERT INTO PERFIL_PACIENTE (id_paciente, fecha_nac_paciente, sexo_paciente, pareja_sino_paciente, hijos_paciente, trabajo_paciente, estudios_paciente, hobbies_paciente, expectativasypreocupaciones_paciente, foto_paciente)
                 VALUES 
                 (1, '1980-04-23', 'masculino', TRUE, 1, 'Ingeniero', 'Grado en Ingeniería', 'Leer, Escalar', 'Espero mejorar mi gestión del estrés', './img/john_paciente.png'),
-                (2, '1985-05-16', 'femenino', FALSE, 0, 'Doctora', 'Doctorado en Medicina', 'Yoga, Pintar', 'Quiero aprender a equilibrar trabajo y vida personal', 'foto_jane.jpg'),
-                (3, '1990-07-08', 'masculino', TRUE, 3, 'Abogado', 'Licenciatura en Derecho', 'Correr, Viajar', 'Necesito ayuda para lidiar con la ansiedad', 'foto_jim.jpg'),
-                (4, '1995-08-19', 'masculino', FALSE, 2, 'Artista', 'Diplomado en Bellas Artes', 'Música, Poesía', 'Busco formas de potenciar mi creatividad', 'foto_jack.jpg'),
-                (5, '2000-12-12', 'femenino', TRUE, 0, 'Emprendedora', 'MBA', 'Cocinar, Blogging', 'Deseo mejorar mis habilidades de comunicación', 'foto_josie.jpg');",
+                (2, '1985-05-16', 'femenino', FALSE, 0, 'Doctora', 'Doctorado en Medicina', 'Yoga, Pintar', 'Quiero aprender a equilibrar trabajo y vida personal', './img/jane_paciente.png'),
+                (3, '1990-07-08', 'masculino', TRUE, 3, 'Abogado', 'Licenciatura en Derecho', 'Correr, Viajar', 'Necesito ayuda para lidiar con la ansiedad', './img/jim_paciente.png'),
+                (4, '1995-08-19', 'masculino', FALSE, 2, 'Artista', 'Diplomado en Bellas Artes', 'Música, Poesía', 'Busco formas de potenciar mi creatividad', './img/jack_paciente.png'),
+                (5, '2000-12-12', 'femenino', TRUE, 0, 'Emprendedora', 'MBA', 'Cocinar, Blogging', 'Deseo mejorar mis habilidades de comunicación', './img/josie_paciente.png');",
                 "INSERT INTO PERFIL_PSICOLOGO (id_psicologo, fecha_nac_psicologo, sexo_psicologo, pareja_sino_psicologo, hijos_psicologo, especialidad_psicologo, experiencia_psicologo, estudios_psicologo, hobbies_psicologo, foto_psicologo, sobre_mi)
                 VALUES 
                 (1, '1996-03-15', 'femenino', TRUE, 1, 'Niños y adolescentes', 5, 'Máster en Terapia Cognitivo-Conductual con niños y adolescentes', 'Jardinería, Meditación', './img/alba-psicologa.png', 'Mi objetivo es crear un entorno seguro y acogedor para los niños, utilizando métodos terapéuticos que promuevan el desarrollo emocional y cognitivo.'),
@@ -258,13 +260,14 @@ function crearBD()
                 (3, 'html_articulos/articulo3.html', 'multimedia/articulo3/'),
                 (4, 'html_articulos/articulo4.html', 'multimedia/articulo4/'),
                 (5, 'html_articulos/articulo5.html', 'multimedia/articulo5/');",
-                "INSERT INTO TALLER (id_psicologo, titulo_taller, descripcion_taller, enlace_taller)
+                "INSERT INTO TALLER (id_psicologo, titulo_taller, descripcion_taller, enlace_taller, fecha_taller, imagen_taller)
                 VALUES 
-                (1, 'Taller de Mindfulness', 'Un taller práctico sobre la aplicación de la mindfulness', 'https://workshop.com/taller1'),
-                (2, 'Gestión del Estrés 101', 'Aprende técnicas para gestionar el estrés efectivamente', 'https://workshop.com/taller2'),
-                (3, 'Construyendo Relaciones Saludables', 'Un taller sobre cómo construir relaciones saludables y duraderas', 'https://workshop.com/taller3'),
-                (4, 'Pensamiento Positivo para el Día a Día', 'Técnicas para incorporar el pensamiento positivo en tu vida diaria', 'https://workshop.com/taller4'),
-                (5, 'Herramientas de Psicología para el Desarrollo Personal', 'Explora herramientas psicológicas para tu desarrollo personal', 'https://workshop.com/taller5');",
+                (1, '¡Animate a nuestro gym mental!', 'El cerebro es un músculo más para ejercitar aunque no se vea a simple vista, ya que cuanta más importancia le demos y más constantes seamos, más...', 'https://workshop.com/taller1', '2023/09/18', './img/talleres/taller1.png'),
+                (2, 'Espacio familiar en Salud mental', '¿Quién cuida de los que cuidan? El taller de Familias permite a las personas cuidadoras de un miembro con trastorno mental compartir su experiencia...', 'https://workshop.com/taller2', '2023/07/24', './img/talleres/taller2.png'),
+                (3, 'Un viaje interior', 'El taller de “Conoce tu psique” es un taller en el que se exponen diferentes patologías mentales, sus síntomas, posibles causas de origen y mantenimiento, y su tratamiento. El objetivo...', 'https://workshop.com/taller3', '2023/07/07', './img/talleres/taller3.png'),
+                (4, 'Aprender a comunicarnos', 'Las habilidades sociales conforman un conjunto de estrategias de conducta que permiten adecuar nuestro comportamiento a distintas situaciones de la vida diaria..', 'https://workshop.com/taller4', '2024/02/01', './img/talleres/taller4.png'),
+                (5, 'Ejercicios para salud física y mental', 'Algunos de los ejercicios más recomendados en relación a la Salud Mental son: La natación desestresa y te focaliza: Nadar ayuda a tratar la depresión...', 'https://workshop.com/taller5', '2024/02/06', './img/talleres/taller5.png'),
+                (5, 'Mentes sanas para cuerpos sanos', '¿Alguna vez te has parado a escuchar a tu cuerpo? Si no lo has hecho aún, ¡Este es tu momento! Cuando algo no va bien, nuestro cuerpo puede enviarnos ciertas...', 'https://workshop.com/taller6', '2024/01/26', './img/talleres/taller6.png');",
                 "INSERT INTO NOTAS_PACIENTE (id_paciente, bio, notas) VALUES 
                 (1, 'Biografía breve del paciente John Doe. Intereses personales y antecedentes relevantes.', 'Notas adicionales sobre el tratamiento y observaciones.'),
                 (2, 'Biografía breve del paciente Jane Doe. Historial médico y emocional relevante.', 'Observaciones del terapeuta sobre el progreso.'),

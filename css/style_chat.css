@@ -231,11 +231,15 @@ form .name-details .field:last-child {
   color: #ccc;
 }
 /* Chat Area CSS Code */
+.chat-area {
+  border-radius: 16px;
+}
 .chat-area header {
   display: flex;
   align-items: center;
   padding: 18px 30px;
   background-color: #a4ac86;
+  border-radius: 16px 16px 0 0;
 }
 .chat-area header .back-icon {
   font-size: 18px;
@@ -301,6 +305,7 @@ form .name-details .field:last-child {
   display: flex;
   justify-content: space-between;
   background-color: #a4ac86;
+  border-radius: 0 0 16px 16px;
 }
 .typing-area input {
   height: 45px;

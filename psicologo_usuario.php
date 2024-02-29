@@ -17,12 +17,12 @@
       <div class="container-nav">
          <div class="logo"></div>
          <div class="menu-toggle" id="mobile-menu">
-      <img src="img/logo.png" alt="Logo" id="logo-nav"/>
-      <i class="ri-menu-line"></i>
-      </div>
+            <img src="img/logo.png" alt="Logo" id="logo-nav" />
+            <i class="ri-menu-line"></i>
+         </div>
          <nav>
             <ul>
-               <img src="img/logo.png" alt="Logo" id="logo-menu"/>
+               <img src="img/logo.png" alt="Logo" id="logo-menu" />
                <li><a href="perfil_usuario.php">Mi perfil</a></li>
                <hr id="separacion">
                <li><a href="sesiones.php">Sesiones</a></li>
@@ -39,37 +39,43 @@
       </div>
    </header>
    <section>
-   <div class="container-mi-psico">
-      <div class="info-psico">
-      <div class="psico-img"></div>
-      <div class="datos-personales">
-         <span class="nombre-psico"></span>
-         <span class="fecha-nacimiento"></span>
-      </div>
-      <div class="datos-personales">
-         <span class="correo-psico"></span>
-         <span class="telefono-psico"></span>
-      </div>
-      </div>
-      <div class="sobre-mi">
-         <h2>Sobre mi</h2>
-         <span class="descripcion"></span>
-      </div>
-      <div class="experiencia-especialidad">
-         <h2>Experiencia y especialidad</h2>
-         <span class="experiencia">años de experiencia.</span>
-         <span class="especialidad"></span>
-      </div>
+      <div class="container-mi-psico">
+         <div class="info-psico">
+            <div class="psico-img"></div>
+            <div class="datos-personales">
+               <span class="nombre-psico"></span>
+               <span class="correo-psico"></span>
+            </div>
+            <div class="datos-personales2">
+               <span class="fecha-nacimiento"></span>
+               <span class="telefono-psico"></span>
+            </div>
+         </div>
+         <div class="sobre-mi">
+            <h3>Sobre mi</h3>
+            <span class="descripcion"></span>
+         </div>
+         <div class="experiencia-especialidad">
+            <h3>Experiencia y especialidad</h3>
+            <span class="experiencia">años de experiencia.</span>
+            <span class="especialidad"></span>
+         </div>
 
-      <div class="estudios">
-         <h2>Estudios superiores</h2>
-         <span class="estudios-psico"></span>
+         <div class="estudios">
+            <h3>Estudios superiores</h3>
+            <span class="estudios-psico"></span>
+         </div>
+         <div class="hobbies">
+            <h3>Hobbies</h3>
+            <span class="hobbies-psico"></span>
+         </div>
+         <div class="bttns">
+         <span class="material-symbols-outlined" id="icono_chat">
+            chat
+         </span>
+         <button type="button" id="bttn-cambiar-psico">Cambiar de psicólogo</button>
+         </div>
       </div>
-      <div class="hobbies">
-         <h2>Hobbies</h2>
-         <span class="hobbies-psico"></span>
-      </div>
-   </div>
    </section>
    <script src="js/script_user_psico.js"></script>
 </body>
