@@ -1,3 +1,142 @@
+/* Estilos base */
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: var(--texto);
+}
+
+:root {
+   --degradado: linear-gradient(to right, #a4ac86, #a68a648c);
+   --body: #fefae0;
+   --ppal: #606c38;
+   --ppal_shadow: #a4ac86;
+   --ppal1: #582f0e;
+   --ppal1_shadow: #a68a64;
+   --contraste: #800020;
+   --contraste1: #b57276;
+   --contraste2: #d8a6a9;
+   --tituloHero: 'Lato', sans-serif;
+   --tituloM: 'Montserrat', sans-serif;
+   --texto: 'Open Sans', sans-serif;
+}
+
+.container-mi-psico {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   margin: 0 auto;
+   align-items: center; 
+   padding: 20px;
+   max-width: 800px;
+   margin-top: 30px;
+ }
+ 
+ .info-psico {
+   width: 100%;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+   margin: 10px 0;
+   padding: 20px;
+   border-radius: 10px;
+   color: #000;
+   gap: 30px;
+   background: var(--degradado);
+ }
+
+ .psico-img {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+ }
+
+ .psico-img img {
+   max-width: 100%; 
+   max-height: 100%; 
+   width: 70%;
+   height: auto; 
+   display: block;
+   border-radius: 10px; 
+ }
+
+
+ .datos-personales {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   width: 100%;
+   gap: 10px;
+ }
+
+ .datos-personales2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+   margin-top: 12px;
+   width: 100%;
+  gap: 10px;
+}
+
+ .nombre-psico {
+  font-size: 34px;
+  font-family: var(--tituloM);
+ }
+
+ .sobre-mi, .experiencia-especialidad, .estudios, .hobbies {
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+   margin: 10px 0;
+   padding: 20px;
+   border: 1px solid #ccc;
+   border-radius: 10px;
+   background: var(--ppal_shadow);
+ }
+
+ .sobre-mi h3, .experiencia-especialidad h3, .estudios h3, .hobbies h3{
+  font-family: var(--tituloHero);
+  color: var(--contraste);
+  margin-bottom: 10px;
+  border-bottom: 1px solid var(--contraste);
+}
+
+.bttns {
+  display: flex;
+  width: 100%;
+  margin: 20px 0;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 30px;
+}
+
+#icono_chat {
+  display: block;
+  width: fit-content;
+  cursor: pointer;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  transition: box-shadow 0.3s ease;
+}
+
+#bttn-cambiar-psico {
+  display: block;
+  cursor: pointer;
+  background-color: var(--ppal);
+  color: #ffff;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  transition: box-shadow 0.25s ease;
+ }
+ 
+ #bttn-cambiar-psico:hover {
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5); 
+ }
+
 /* Media queries para tabletas */
 @media (min-width: 426px) and (max-width: 768px) {
 

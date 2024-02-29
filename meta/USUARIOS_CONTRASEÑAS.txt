@@ -10,10 +10,10 @@
                 -- Para psicólogos
                 INSERT INTO USUARIO (correo_usuario, contrasena_usuario, tipo_usuario, id_original)
                 VALUES 
-                ('smithanna@gmail.com', 'AnnaS1975$', 'psicologo', 1),
-                ('taylorbrian@gmail.com', 'BTaylor@2021', 'psicologo', 2),
-                ('jonescarol@gmail.com', 'CJones!980', 'psicologo', 3),
-                ('browndavid@gmail.com', 'DBrown#1985', 'psicologo', 4),
+                ('alba.garcia@stay.com', 'AnnaS1975$', 'psicologo', 1),
+                ('sigmund.f@stay.com', 'BTaylor@2021', 'psicologo', 2),
+                ('fuentes.p@stay.com', 'CJones!980', 'psicologo', 3),
+                ('j.perez@stay.com', 'DBrown#1985', 'psicologo', 4),
                 ('whiteemily@gmail.com', 'EmilyW1990!', 'psicologo', 5);
 
                 
