@@ -1,0 +1,43 @@
+.container_videollamada {
+  /* border: 3px solid blue; */
+  height: fit-content;
+  width: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2vh;
+  padding: 5vh 0;
+}
+/* background: color image position/size repeat origin clip attachment; */
+.camera_section {
+  border: 2px solid red;
+  width: 30%;
+  height: 35vh;
+  background: url(../svg/camera_section.svg) center / cover no-repeat;
+}
+.control_panel {
+  border: 2px solid red;
+  width: 25%;
+  height: 6vh;
+  background-color: #c3b299;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.switch {
+  border: 1px solid black;
+  font-size: 28px;
+  padding: 1px;
+  height: fit-content;
+  width: fit-content;
+}
+/*Media query para mobile (entre 50 y 426px)*/
+@media (min-width: 50px) and (max-width: 426px) {
+  /*TU CÓDIGO AQUÍ*/
+}
+
+/* Media query para tablet (entre 426 y 768px) */
+@media (min-width: 426px) and (max-width: 768px) {
+  /*TU CÓDIGO AQUÍ*/
+}
