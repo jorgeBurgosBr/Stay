@@ -72,7 +72,7 @@ if ($bd->conectar()) {
                         hobbies_psicologo = ?,
                         hijos_psicologo = ?,
                         especialidad_psicologo = ?,
-                        pareja_sino_paciente = ?,
+                        pareja_sino_psicologo = ?,
                         estudios_psicologo = ?,
                         sobre_mi = ?
                         WHERE id_psicologo = ?";

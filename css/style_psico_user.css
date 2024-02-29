@@ -140,9 +140,23 @@
 /* Media queries para tabletas */
 @media (min-width: 426px) and (max-width: 768px) {
 
+    .container-mi-psico {
+      margin-top: 0px;
+    }
   }
   
   /* Media queries para dispositivos móviles */
   @media (min-width: 50px) and (max-width: 426px) {
+    .container-mi-psico {
+      margin-top: 0px;
+    }
 
+    .datos-personales2 {
+      display: none;
+    }
+
+    .nombre-psico {
+      font-size: 24px;
+      font-weight: 800;
+    }
   }
