@@ -147,6 +147,8 @@ function crearBD()
                     titulo_taller VARCHAR(255) NOT NULL,
                     descripcion_taller TEXT,
                     enlace_taller VARCHAR(255),
+                    fecha_taller DATE,
+                    imagen_taller VARCHAR(255),
                     PRIMARY KEY (id_taller),
                     FOREIGN KEY (id_psicologo) REFERENCES PSICOLOGO(id_psicologo)
                 );",
@@ -258,13 +260,14 @@ function crearBD()
                 (3, 'html_articulos/articulo3.html', 'multimedia/articulo3/'),
                 (4, 'html_articulos/articulo4.html', 'multimedia/articulo4/'),
                 (5, 'html_articulos/articulo5.html', 'multimedia/articulo5/');",
-                "INSERT INTO TALLER (id_psicologo, titulo_taller, descripcion_taller, enlace_taller)
+                "INSERT INTO TALLER (id_psicologo, titulo_taller, descripcion_taller, enlace_taller, fecha_taller, imagen_taller)
                 VALUES 
-                (1, 'Taller de Mindfulness', 'Un taller práctico sobre la aplicación de la mindfulness', 'https://workshop.com/taller1'),
-                (2, 'Gestión del Estrés 101', 'Aprende técnicas para gestionar el estrés efectivamente', 'https://workshop.com/taller2'),
-                (3, 'Construyendo Relaciones Saludables', 'Un taller sobre cómo construir relaciones saludables y duraderas', 'https://workshop.com/taller3'),
-                (4, 'Pensamiento Positivo para el Día a Día', 'Técnicas para incorporar el pensamiento positivo en tu vida diaria', 'https://workshop.com/taller4'),
-                (5, 'Herramientas de Psicología para el Desarrollo Personal', 'Explora herramientas psicológicas para tu desarrollo personal', 'https://workshop.com/taller5');",
+                (1, '¡Animate a nuestro gym mental!', 'El cerebro es un músculo más para ejercitar aunque no se vea a simple vista, ya que cuanta más importancia le demos y más constantes seamos, más...', 'https://workshop.com/taller1', '2023/09/18', './img/talleres/taller1.png'),
+                (2, 'Espacio familiar en Salud mental', '¿Quién cuida de los que cuidan? El taller de Familias permite a las personas cuidadoras de un miembro con trastorno mental compartir su experiencia...', 'https://workshop.com/taller2', '2023/07/24', './img/talleres/taller2.png'),
+                (3, 'Un viaje interior', 'El taller de “Conoce tu psique” es un taller en el que se exponen diferentes patologías mentales, sus síntomas, posibles causas de origen y mantenimiento, y su tratamiento. El objetivo...', 'https://workshop.com/taller3', '2023/07/07', './img/talleres/taller3.png'),
+                (4, 'Aprender a comunicarnos', 'Las habilidades sociales conforman un conjunto de estrategias de conducta que permiten adecuar nuestro comportamiento a distintas situaciones de la vida diaria..', 'https://workshop.com/taller4', '2024/02/01', './img/talleres/taller4.png'),
+                (5, 'Ejercicios para salud física y mental', 'Algunos de los ejercicios más recomendados en relación a la Salud Mental son: La natación desestresa y te focaliza: Nadar ayuda a tratar la depresión...', 'https://workshop.com/taller5', '2024/02/06', './img/talleres/taller5.png'),
+                (5, 'Mentes sanas para cuerpos sanos', '¿Alguna vez te has parado a escuchar a tu cuerpo? Si no lo has hecho aún, ¡Este es tu momento! Cuando algo no va bien, nuestro cuerpo puede enviarnos ciertas...', 'https://workshop.com/taller6', '2024/01/26', './img/talleres/taller6.png');",
                 "INSERT INTO NOTAS_PACIENTE (id_paciente, bio, notas) VALUES 
                 (1, 'Biografía breve del paciente John Doe. Intereses personales y antecedentes relevantes.', 'Notas adicionales sobre el tratamiento y observaciones.'),
                 (2, 'Biografía breve del paciente Jane Doe. Historial médico y emocional relevante.', 'Observaciones del terapeuta sobre el progreso.'),
