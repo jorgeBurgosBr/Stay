@@ -6,7 +6,7 @@
   text-decoration: none;
   font-family: "Poppins", sans-serif;
 }
-body {
+.body {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,7 +25,7 @@ body {
 .form {
   padding: 25px 30px;
 }
-.form header {
+.form .header {
   font-size: 25px;
   font-weight: 600;
   padding-bottom: 10px;
@@ -115,7 +115,7 @@ form .name-details .field:last-child {
 .users {
   padding: 25px 30px;
 }
-.users header,
+.users .header,
 .users-list a {
   display: flex;
   align-items: center;
@@ -131,7 +131,7 @@ form .name-details .field:last-child {
   display: flex;
   align-items: center;
 }
-.users header .content img {
+.users .header .content img {
   height: 50px;
   width: 50px;
 }
@@ -145,7 +145,7 @@ form .name-details .field:last-child {
   font-size: 18px;
   font-weight: 500;
 }
-.users header .logout {
+.users .header .logout {
   color: #fff;
   font-size: 17px;
   padding: 7px 15px;
@@ -234,23 +234,23 @@ form .name-details .field:last-child {
 .chat-area {
   border-radius: 16px;
 }
-.chat-area header {
+.chat-area .header {
   display: flex;
   align-items: center;
   padding: 18px 30px;
   background-color: #a4ac86;
   border-radius: 16px 16px 0 0;
 }
-.chat-area header .back-icon {
+.chat-area .header .back-icon {
   font-size: 18px;
   color: #fff;
 }
-.chat-area header img {
+.chat-area .header img {
   height: 45px;
   width: 45px;
   margin: 0 15px;
 }
-.chat-area header span {
+.chat-area .header span {
   font-size: 17px;
   font-weight: 500;
 }

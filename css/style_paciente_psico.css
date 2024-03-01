@@ -89,10 +89,11 @@ body {
   max-width: 1300px;
   align-items: center;
   flex-wrap: wrap;
+  gap: 30px;
 }
 .tarjeta {
   display: flex;
-  position: absolute;
+  /* position: absolute; */
   width: 328px;
   height: 373px;
   padding: 0px 1px 29px 0px;
@@ -102,6 +103,8 @@ body {
   /* flex-shrink: 0; */
   border-radius: 8px;
   background: var(--ppal_shadow2);
+  background-image: url(../svg/background_tarjetas.svg);
+  background-repeat: no-repeat; /* Evita que el fondo se repita */
 }
 .encabezado {
   width: 327px;
@@ -110,9 +113,12 @@ body {
   /* background-color: black; */
 }
 .contenido-encabezado .imagen-paciente {
-  position: relative;
+  /* position: relative;
   top: -120px;
-  left: 15px;
+  left: 15px; */
+  width: 191.738px;
+  height: 155.294px;
+  border-radius: 50%;
 }
 .contenido-encabezado .nombre {
   color: #000;
@@ -138,12 +144,12 @@ body {
   align-items: center;
   justify-content: center;
   gap: 0.3em;
-  position: relative;
-  top: -355px;
+  /* position: relative;
+  top: -355px; */
 }
 .texto p {
-  position: relative;
-  top: -190px;
+  /* position: relative;
+  top: -190px; */
   width: 294px;
   height: 88px;
   color: rgba(0, 0, 0, 0.8);
@@ -153,4 +159,33 @@ body {
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+}
+.contenedor-boton {
+  display: flex;
+  width: 90%;
+  height: 53px;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 24px;
+  flex-shrink: 0;
+}
+.button-chat {
+  display: flex;
+  padding: 7px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  text-align: center;
+  border-radius: 4px;
+  background: var(--ppal);
+  font-family: Poppins;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+}
+.button-chat a {
+  text-decoration: none; /* Quita la subrayado del enlace */
+  color: inherit; /* Hereda el color del texto de su contenedor */
 }

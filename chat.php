@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once 'php/conecta.php';
+$id_psicologo = $_SESSION['id_paciente'];
 $bd = new BaseDeDatos();
 $bd->conectar();
 $conn = $bd->getConexion();
@@ -19,38 +20,40 @@ $bd->seleccionarContexto('stay');
 </head>
 
 <body>
-  <div class="wrapper">
-    <section class="chat-area">
-      <header>
-        <?php
-        if (isset($_GET['id_usuario'])) {
-          $id_paciente = mysqli_real_escape_string($conn, $_GET['id_usuario']);
-          $sql = mysqli_query($conn, "SELECT * FROM paciente WHERE id_paciente = $id_paciente");
-          if (mysqli_num_rows($sql) > 0) {
-            $row = mysqli_fetch_assoc($sql);
+  <div class="body">
+    <div class="wrapper">
+      <section class="chat-area">
+        <div class="header">
+          <?php
+          if (isset($_GET['id_usuario'])) {
+            $id_paciente = mysqli_real_escape_string($conn, $_GET['id_usuario']);
+            $sql = mysqli_query($conn, "SELECT p.*, pp.* FROM paciente p JOIN perfil_paciente pp ON p.id_paciente = pp.id_paciente WHERE p.id_paciente = $id_paciente");
+            if (mysqli_num_rows($sql) > 0) {
+              $row = mysqli_fetch_assoc($sql);
+            }
+          } else {
+            // Manejar el caso en el que 'user_id' no está presente en $_GET
+            echo "Error: 'user_id' no está presente en la URL.";
           }
-        } else {
-          // Manejar el caso en el que 'user_id' no está presente en $_GET
-          echo "Error: 'user_id' no está presente en la URL.";
-        }
-        ?>
-        <a class="back-icon" href="users.php"><i class="fas fa-arrow-left"></i></a>
-        <!-- <img src="php/images/<?php /*echo $row['img']*/ ?>" alt="" /> -->
-        <div class="details">
-          <span><?php echo $row['nombre_paciente'] . " " . $row['apellidos_paciente'] ?></span>
+          ?>
+          <a class="back-icon" href="users.php"><i class="fas fa-arrow-left"></i></a>
+          <img src="<?php echo $row['foto_paciente'] ?>" alt="" />
+          <div class="details">
+            <span><?php echo $row['nombre_paciente'] . " " . $row['apellidos_paciente'] ?></span>
+          </div>
         </div>
-      </header>
-      <div class="chat-box">
-      </div>
-      <form action="#" class="typing-area">
-        <input type="text" name="outgoing_id" value="<?php echo "2"; ?>" hidden>
-        <input type="text" name="incoming_id" value="<?php echo $id_paciente; ?>" hidden>
-        <input type="text" name="message" class="input-field" placeholder="Type a message here..." />
-        <button><i class="fa-regular fa-paper-plane"></i></button>
-      </form>
-    </section>
+        <div class="chat-box">
+        </div>
+        <form action="#" class="typing-area">
+          <input type="text" name="outgoing_id" value="<?php echo $id_psicologo; ?>" hidden>
+          <input type="text" name="incoming_id" value="<?php echo $id_paciente; ?>" hidden>
+          <input type="text" name="message" class="input-field" placeholder="Type a message here..." />
+          <button><i class="fa-regular fa-paper-plane"></i></button>
+        </form>
+      </section>
+    </div>
+    <script src="js/chat.js"></script>
   </div>
-  <script src="js/chat.js"></script>
 </body>
 
 </html>

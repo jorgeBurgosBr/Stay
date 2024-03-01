@@ -5,9 +5,11 @@ $bd = new BaseDeDatos();
 $bd->conectar();
 $conn = $bd->getConexion();
 $bd->seleccionarContexto('stay');
-$outgoing_id = 2;
-$sql = mysqli_query($conn, "SELECT p.*
+$outgoing_id = $_SESSION['id_paciente'];
+$sql = mysqli_query($conn, "SELECT p.*, pep.*
                            FROM PACIENTE p
+                           JOIN 
+                              PERFIL_PACIENTE pep ON p.id_paciente = pep.id_paciente
                            JOIN PACIENTE_PSICOLOGO pp ON p.id_paciente = pp.id_paciente
                            WHERE pp.id_psicologo = $outgoing_id;");
 $output = "";

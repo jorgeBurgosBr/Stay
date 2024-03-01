@@ -1,6 +1,6 @@
 <?php
 session_start();
-// $outgoing_id = $_SESSION['unique_id'];
+$outgoing_id = $_SESSION['id_paciente'];
 $output = "";
 require_once 'conecta.php';
 $bd = new BaseDeDatos();
@@ -8,9 +8,10 @@ $bd->conectar();
 $conn = $bd->getConexion();
 $bd->seleccionarContexto('stay');
 $searchTerm = mysqli_real_escape_string($conn, $_POST['searchTerm']);
-$outgoing_id = 2;
-$sql = mysqli_query($conn, "SELECT p.*
+$sql = mysqli_query($conn, "SELECT p.*, pep.*
                            FROM PACIENTE p
+                           JOIN 
+                              PERFIL_PACIENTE pep ON p.id_paciente = pep.id_paciente
                            JOIN PACIENTE_PSICOLOGO pp ON p.id_paciente = pp.id_paciente
                            WHERE pp.id_psicologo = $outgoing_id
                            AND (p.nombre_paciente LIKE '%{$searchTerm}%' OR p.apellidos_paciente LIKE '%{$searchTerm}%')");

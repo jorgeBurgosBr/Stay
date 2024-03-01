@@ -200,18 +200,18 @@ function crearBD()
                 ('whiteemily@gmail.com', '\$2b\$12\$A2UdSaCWGFYIrHo7J.HQfOt0UteETwKzONeYVLcze1ZI3WN5aVRPW', 'psicologo', 5);",
                 "INSERT INTO PERFIL_PACIENTE (id_paciente, fecha_nac_paciente, sexo_paciente, pareja_sino_paciente, hijos_paciente, trabajo_paciente, estudios_paciente, hobbies_paciente, expectativasypreocupaciones_paciente, foto_paciente)
                 VALUES 
-                (1, '1980-04-23', 'masculino', TRUE, 1, 'Ingeniero', 'Grado en Ingeniería', 'Leer, Escalar', 'Espero mejorar mi gestión del estrés', './img/john_paciente.png'),
-                (2, '1985-05-16', 'femenino', FALSE, 0, 'Doctora', 'Doctorado en Medicina', 'Yoga, Pintar', 'Quiero aprender a equilibrar trabajo y vida personal', './img/jane_paciente.png'),
-                (3, '1990-07-08', 'masculino', TRUE, 3, 'Abogado', 'Licenciatura en Derecho', 'Correr, Viajar', 'Necesito ayuda para lidiar con la ansiedad', './img/jim_paciente.png'),
-                (4, '1995-08-19', 'masculino', FALSE, 2, 'Artista', 'Diplomado en Bellas Artes', 'Música, Poesía', 'Busco formas de potenciar mi creatividad', './img/jack_paciente.png'),
-                (5, '2000-12-12', 'femenino', TRUE, 0, 'Emprendedora', 'MBA', 'Cocinar, Blogging', 'Deseo mejorar mis habilidades de comunicación', './img/josie_paciente.png');",
+                (1, '1980-04-23', 'masculino', TRUE, 1, 'Ingeniero', 'Grado en Ingeniería', 'Leer, Escalar', 'Espero mejorar mi gestión del estrés', './img/paciente/john_paciente.png'),
+                (2, '1985-05-16', 'femenino', FALSE, 0, 'Doctora', 'Doctorado en Medicina', 'Yoga, Pintar', 'Quiero aprender a equilibrar trabajo y vida personal', './img/paciente/jane_paciente.png'),
+                (3, '1990-07-08', 'masculino', TRUE, 3, 'Abogado', 'Licenciatura en Derecho', 'Correr, Viajar', 'Necesito ayuda para lidiar con la ansiedad', './img/paciente/jim_paciente.png'),
+                (4, '1995-08-19', 'masculino', FALSE, 2, 'Artista', 'Diplomado en Bellas Artes', 'Música, Poesía', 'Busco formas de potenciar mi creatividad', './img/paciente/jack_paciente.png'),
+                (5, '2000-12-12', 'femenino', TRUE, 0, 'Emprendedora', 'MBA', 'Cocinar, Blogging', 'Deseo mejorar mis habilidades de comunicación', './img/paciente/josie_paciente.png');",
                 "INSERT INTO PERFIL_PSICOLOGO (id_psicologo, fecha_nac_psicologo, sexo_psicologo, pareja_sino_psicologo, hijos_psicologo, especialidad_psicologo, experiencia_psicologo, estudios_psicologo, hobbies_psicologo, foto_psicologo, sobre_mi)
                 VALUES 
-                (1, '1996-03-15', 'femenino', TRUE, 1, 'Niños y adolescentes', 5, 'Máster en Terapia Cognitivo-Conductual con niños y adolescentes', 'Jardinería, Meditación', './img/alba-psicologa.png', 'Mi objetivo es crear un entorno seguro y acogedor para los niños, utilizando métodos terapéuticos que promuevan el desarrollo emocional y cognitivo.'),
-                (2, '1970-06-22', 'masculino', FALSE, 1, 'Entorno familiar', 12, 'Máster en Intervención Educativa y Psicológica', 'Ajedrez, Fotografía', './img/sigmund-psicologo.png', 'Con más de 12 años de experiencia, estoy dedicado a proporcionar un enfoque holístico para el tratamiento de problemas psicológicos.'),
-                (3, '1980-11-30', 'femenino', TRUE, 3, 'Acoso y ciberbullying.', 12, 'Máster Oficial en Psicología Social', 'Escritura, Ciclismo', './img/patricia-psicologo.png', 'Soy una psicóloga comprometida con ayudar a mis pacientes a encontrar soluciones a sus desafíos emocionales y mejorar su bienestar mental.'),
-                (4, '1985-02-28', 'masculino', TRUE, 2, 'Adicciones', 9, 'Máster en Psicofarmacología y Drogas de Abuso', 'Cocina, Buceo', './img/javier-psicologo.png', 'Especializado en el tratamiento de adicciones, cuento con un Máster en Psicofarmacología y Drogas de Abuso. Mi enfoque terapéutico se centra en ayudar a los individuos a superar los desafíos relacionados con las adicciones, proporcionando apoyo y orientación.'),
-                (5, '1990-09-14', 'femenino', FALSE, 1, 'Mindfulness y Estrés', 5, 'Master en Mindfulness', 'Pilates, Lectura', 'foto_emily.jpg', 'Como profesional de la salud mental, me apasiona enseñar técnicas de mindfulness para reducir el estrés y mejorar la calidad de vida.');",
+                (1, '1996-03-15', 'femenino', TRUE, 1, 'Niños y adolescentes', 5, 'Máster en Terapia Cognitivo-Conductual con niños y adolescentes', 'Jardinería, Meditación', './img/psicologo/alba-psicologa.png', 'Mi objetivo es crear un entorno seguro y acogedor para los niños, utilizando métodos terapéuticos que promuevan el desarrollo emocional y cognitivo.'),
+                (2, '1970-06-22', 'masculino', FALSE, 1, 'Entorno familiar', 12, 'Máster en Intervención Educativa y Psicológica', 'Ajedrez, Fotografía', './img/psicologo/sigmund-psicologo.png', 'Con más de 12 años de experiencia, estoy dedicado a proporcionar un enfoque holístico para el tratamiento de problemas psicológicos.'),
+                (3, '1980-11-30', 'femenino', TRUE, 3, 'Acoso y ciberbullying.', 12, 'Máster Oficial en Psicología Social', 'Escritura, Ciclismo', './img/psicologo/patricia-psicologo.png', 'Soy una psicóloga comprometida con ayudar a mis pacientes a encontrar soluciones a sus desafíos emocionales y mejorar su bienestar mental.'),
+                (4, '1985-02-28', 'masculino', TRUE, 2, 'Adicciones', 9, 'Máster en Psicofarmacología y Drogas de Abuso', 'Cocina, Buceo', './img/psicologo/javier-psicologo.png', 'Especializado en el tratamiento de adicciones, cuento con un Máster en Psicofarmacología y Drogas de Abuso. Mi enfoque terapéutico se centra en ayudar a los individuos a superar los desafíos relacionados con las adicciones, proporcionando apoyo y orientación.'),
+                (5, '1990-09-14', 'femenino', FALSE, 1, 'Mindfulness y Estrés', 5, 'Master en Mindfulness', 'Pilates, Lectura', './img/psicologo/foto_emily.jpg', 'Como profesional de la salud mental, me apasiona enseñar técnicas de mindfulness para reducir el estrés y mejorar la calidad de vida.');",
                 "INSERT INTO CITA (id_paciente, id_psicologo, fecha_cita, hora_cita)
                 VALUES 
                 (1, 1, '2024-01-30', '10:00:00'),
@@ -269,10 +269,10 @@ function crearBD()
                 (5, 'Ejercicios para salud física y mental', 'Algunos de los ejercicios más recomendados en relación a la Salud Mental son: La natación desestresa y te focaliza: Nadar ayuda a tratar la depresión...', 'https://workshop.com/taller5', '2024/02/06', './img/talleres/taller5.png'),
                 (5, 'Mentes sanas para cuerpos sanos', '¿Alguna vez te has parado a escuchar a tu cuerpo? Si no lo has hecho aún, ¡Este es tu momento! Cuando algo no va bien, nuestro cuerpo puede enviarnos ciertas...', 'https://workshop.com/taller6', '2024/01/26', './img/talleres/taller6.png');",
                 "INSERT INTO NOTAS_PACIENTE (id_paciente, bio, notas) VALUES 
-                (1, 'Biografía breve del paciente John Doe. Intereses personales y antecedentes relevantes.', 'Notas adicionales sobre el tratamiento y observaciones.'),
-                (2, 'Biografía breve del paciente Jane Doe. Historial médico y emocional relevante.', 'Observaciones del terapeuta sobre el progreso.'),
-                (3, 'Biografía breve del paciente Jim Beam. Información sobre el estilo de vida y el entorno laboral.', 'Detalles sobre sesiones específicas y recomendaciones.'),
-                (4, 'Biografía breve del paciente Jack Daniels. Antecedentes familiares y situación actual.', 'Comentarios sobre la evolución del paciente y ajustes en el tratamiento.'),
+                (1, 'John es un joven chef que ha superado grandes obstáculos para abrir su propio restaurante. Huérfano desde joven, encontró en la cocina un...', 'Notas adicionales sobre el tratamiento y observaciones.'),
+                (2, 'Ha sufrido la perdida de sus padres y su hermano. Aunque se ha convertido en una exitosa influencer, la sombra del duelo persiste.', 'Observaciones del terapeuta sobre el progreso.'),
+                (3, 'Exmilitar, Jim se ha reinventado como escritor de novelas de suspenso. A pesar de su éxito literario, su experiencia en...', 'Detalles sobre sesiones específicas y recomendaciones.'),
+                (4, 'Jack es un reconocido biólogo marino, dedicado a la conservación de los océanos. Su motivación proviene de la pérdida de su...', 'Comentarios sobre la evolución del paciente y ajustes en el tratamiento.'),
                 (5, 'Biografía breve del paciente Josie Wales. Objetivos personales y retos enfrentados.', 'Estrategias adoptadas durante las sesiones y feedback.');"
             ];
             // Ejecutar las consultas de inserción de datos
