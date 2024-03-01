@@ -26,7 +26,7 @@
                <hr id="separacion">
                <li><a href="#" id="current_page">Sesiones</a></li>
                <hr id="separacion">
-               <li><a href="#" >Mi psicólogo</a></li>
+               <li><a href="#" id="mipsico_nav">Mi psicólogo</a></li>
                <hr id="separacion">
                <li><a href="#">Artículos</a></li>
                <hr id="separacion">
@@ -66,6 +66,7 @@
       </div>
    </div>
    <script src="./js/sesiones_paciente.js"></script>
+   <script src="js/script_flujo.js"></script>
    <script src="./js/script_hamburguer.js"></script>
 </body>
 
