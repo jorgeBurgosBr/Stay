@@ -115,12 +115,12 @@
                <div class="button-container">
                   <button type="button" class="bttn-titulo" onclick="actualizarInformacion()">Actualizar</button>
                </div>
-               <input type="hidden" name="id_paciente" value="1">
             </form>
          </div>
       </div>
    </div>
    <script src="js/script_user.js"></script>
+   <script src="js/script_flujo.js"></script>
 </body>
 
 </html>
