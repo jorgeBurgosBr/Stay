@@ -66,9 +66,6 @@ function obtenerPerfilPaciente() {
     .catch(error => console.error('Fetch error: ', error));
 }
 
-
- 
-
 function mostrarInformacion() {
    // Obtener el formulario y crear un objeto FormData
     const formData = new FormData(document.getElementById('user-form-info'));
@@ -133,7 +130,8 @@ function actualizarInformacion() {
     // Obtener el formulario y crear un objeto FormData
     const formulario = document.getElementById('user-form-info');
      const formData = new FormData(formulario);
-     formData.append('funcion', 'updateForm');
+    formData.append('funcion', 'updateForm');
+    formData.append('partner', data.partner.toString());
     // Realizar la solicitud fetch
     fetch('./php/procesar_info_usuario.php', {
         method: 'POST',

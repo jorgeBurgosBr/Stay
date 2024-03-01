@@ -37,7 +37,13 @@ if ($bd->conectar()) {
 
          $sql4 = mysqli_query($conn, "INSERT INTO usuario (correo_usuario, contrasena_usuario, tipo_usuario, id_original)
                                     VALUES ('$correo', '$contrasena_hash', 'paciente', '$id_original')");
-         if ($sql4) { //si los datos han sido insertados
+
+         // Insertar en la tabla perfil_paciente con valores predeterminados
+         $sql5 = mysqli_query($conn, "INSERT INTO perfil_paciente (id_paciente, fecha_nac_paciente, sexo_paciente, pareja_sino_paciente, hijos_paciente, trabajo_paciente, estudios_paciente, hobbies_paciente, expectativasypreocupaciones_paciente, foto_paciente) 
+         VALUES ('$id_original', NULL, 'otro', NULL, NULL, NULL, NULL, NULL, NULL, NULL)");
+
+
+         if ($sql4 && $sql5) { //si los datos han sido insertados
             $respuesta['success'] = true;
             $_SESSION['id_paciente'] = $id_original;
          }
