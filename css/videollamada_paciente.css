@@ -1,5 +1,4 @@
 .container_videollamada {
-  border: 3px solid blue;
   height: fit-content;
   width: inherit;
   display: flex;
@@ -8,22 +7,29 @@
   gap: 2vh;
   padding: 5vh 0;
 }
-/* background: color image position/size repeat origin clip attachment; */
-/* PARA CUANDO ESTE CARGANDO: */
-/* .camera_section {
-  border: 2px solid red;
-  width: 30%;
-  min-width: 430px;
-  height: 35vh;
-  background: #F5F5F5 url(../img/loading2.gif) center / 30px no-repeat;
-} */
 .camera_section {
-  border: 2px solid red;
+  border: 1px solid black;
   width: 30%;
   min-width: 430px;
   height: 35vh;
   background: url(../svg/camera_section.svg) center / cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+.foto_perfil{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.foto_perfil img {
+  width: 100%; /* Hace que la imagen ocupe todo el ancho del contenedor */
+  height: auto; /* Mantiene la proporción de la imagen */
+  min-height: 100%; /* Asegura que la imagen cubra el alto del contenedor */
+  object-fit: cover; /* Asegura que la imagen cubra todo el espacio sin distorsionarse */
+}
+
 .control_panel {
   border: 2px solid red;
   width: 25%;
@@ -41,6 +47,10 @@
   height: fit-content;
   width: fit-content;
   transition: all 0.3s ease;
+}
+.switch:hover{
+  cursor: pointer;
+  user-select: none;
 }
 .call{
   color: green;

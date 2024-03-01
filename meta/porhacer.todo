@@ -23,8 +23,8 @@ PACIENTE:
 	Videollamada:
         ✔ - Diseñar layout página @done (2/29/2024, 10:21:30 AM)
         ✔ - Codear layout página @done (3/1/2024, 11:07:26 AM)
-        ☐ - Agregar animaciones
-        ☐ - Pensar y aplicar lógica de cómo acceder a la página
+        ✔ - Agregar animaciones @done (3/1/2024, 5:05:06 PM)
+        ✔ - Pensar y aplicar lógica de cómo acceder a la página @done (3/1/2024, 5:05:10 PM)
 
         
     Registro sesiones:
@@ -36,9 +36,9 @@ JD:
 
 --PACIENTES--
 
-☐ -Mis sesiones
-☐ -Videollamada
-☐ -Acceder videollamada?
+✔ -Mis sesiones @done (3/1/2024, 5:03:07 PM)
+✔ -Videollamada @done (3/1/2024, 5:03:10 PM)
+✔ -Acceder videollamada? @done (3/1/2024, 5:03:18 PM)
 ☐ -Articulos
 ☐ -Entrada artículos?
             

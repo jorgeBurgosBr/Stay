@@ -39,7 +39,7 @@
     </header>
     <!-- VIDEOLLAMADA -->
     <div class="container_videollamada">
-        <div class="camera_section">camera_section</div>
+        <div class="camera_section"></div>
         <div class="control_panel">
             <div class="material-symbols-outlined mic switch">mic</div>
             <div class="material-symbols-outlined camera switch">videocam</div>
@@ -47,9 +47,10 @@
             <div class="material-symbols-outlined settings switch">settings</div>
             <div class="material-symbols-outlined fullscreen switch">fullscreen</div>
         </div>
-        <div class="camera_section">camera_section</div>
+        <div class="camera_section"></div>
     </div>
     <script src="./js/videollamada_paciente.js"></script>
     <script src="./js/script_hamburguer.js"></script>
 </body>
+
 </html>
