@@ -98,7 +98,7 @@
 
                   <div class="column-container-2">
                      <label for="">Especialidad:</label>
-                     <textarea id="especialidad" name="especialidad" placeholder="introduce tu trabajo"></textarea>
+                     <textarea id="especialidad" name="especialidad" placeholder="introduce tu especialidad"></textarea>
                   </div>
 
                   <div class="column-container-2">
@@ -108,7 +108,7 @@
 
                   <div class="column-container-2">
                      <label for="expectations">Sobre mi:</label>
-                     <textarea id="sobremi" name="sobremi" placeholder="introduce tus expectativas o preocupaciones"></textarea>
+                     <textarea id="sobremi" name="sobremi" placeholder="Cuenta algo sobre ti"></textarea>
                   </div>
                </div>
 

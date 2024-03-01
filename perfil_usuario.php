@@ -27,7 +27,7 @@
                <hr id="separacion">
                <li><a href="sesiones.php">Sesiones</a></li>
                <hr id="separacion">
-               <li><a href="psicologo_usuario.php">Mi psicólogo</a></li>
+               <li><a href="#" id="mipsico_nav">Mi psicólogo</a></li>
                <hr id="separacion">
                <li><a href="#">Artículos</a></li>
                <hr id="separacion">
@@ -115,12 +115,12 @@
                <div class="button-container">
                   <button type="button" class="bttn-titulo" onclick="actualizarInformacion()">Actualizar</button>
                </div>
-               <input type="hidden" name="id_paciente" value="1">
             </form>
          </div>
       </div>
    </div>
    <script src="js/script_user.js"></script>
+   <script src="js/script_flujo.js"></script>
 </body>
 
 </html>

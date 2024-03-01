@@ -1,5 +1,5 @@
 <?php
-// session_start();
+session_start();
 require_once 'conecta.php';
 $bd = new BaseDeDatos();
 
@@ -17,8 +17,8 @@ if ($bd->conectar()) {
         ];
 
         // Obtener el ID del psicologo de la sesión
-      //   $id_psicologo = $_SESSION['id_psicologo'];
-        $id_psicologo = 1;
+        $id_psicologo = $_SESSION['id_paciente'];
+        // $id_psicologo = 1;
 
         // Realizar la consulta para obtener los datos del psicologo utilizando una sentencia preparada
         $sql = "SELECT * FROM perfil_psicologo WHERE id_psicologo = ?";
@@ -72,7 +72,7 @@ if ($bd->conectar()) {
                         hobbies_psicologo = ?,
                         hijos_psicologo = ?,
                         especialidad_psicologo = ?,
-                        pareja_sino_paciente = ?,
+                        pareja_sino_psicologo = ?,
                         estudios_psicologo = ?,
                         sobre_mi = ?
                         WHERE id_psicologo = ?";

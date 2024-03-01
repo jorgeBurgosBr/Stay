@@ -66,18 +66,23 @@ if ($bd->conectar()) {
 
                     // Actualización de la tabla utilizando una sentencia preparada
                     $sqlUpdate = "UPDATE perfil_paciente SET
-                        sexo_paciente = ?,
-                        fecha_nac_paciente = ?,
-                        hobbies_paciente = ?,
-                        hijos_paciente = ?,
-                        trabajo_paciente = ?,
-                        pareja_sino_paciente = ?,
-                        estudios_paciente = ?,
-                        expectativasypreocupaciones_paciente = ?
-                        WHERE id_paciente = ?";
+                                    sexo_paciente = ?,
+                                    fecha_nac_paciente = ?,
+                                    hobbies_paciente = ?,
+                                    hijos_paciente = ?,
+                                    trabajo_paciente = ?,
+                                    pareja_sino_paciente = ?,
+                                    estudios_paciente = ?,
+                                    expectativasypreocupaciones_paciente = ?
+                                    WHERE id_paciente = ?";
 
                     $stmtUpdate = mysqli_prepare($conn, $sqlUpdate);
-                    mysqli_stmt_bind_param($stmtUpdate, "sssssssss", $newGender, $newBirthdate, $newHobbies, $newChildren, $newJob, $newPartner, $newStudies, $newExpectations, $id_paciente);
+
+                    // Convertir el valor de $newPartner a un booleano
+                    $newPartnerBoolean = filter_var($newPartner, FILTER_VALIDATE_BOOLEAN);
+
+                    mysqli_stmt_bind_param($stmtUpdate, "sssssisss", $newGender, $newBirthdate, $newHobbies, $newChildren, $newJob, $newPartnerBoolean, $newStudies, $newExpectations, $id_paciente);
+
                     $resultUpdate = mysqli_stmt_execute($stmtUpdate);
 
                     if ($resultUpdate) {
@@ -86,6 +91,8 @@ if ($bd->conectar()) {
                     } else {
                         $respuesta['error'] = 'Error en la actualización SQL: ' . mysqli_error($conn);
                     }
+
+                    mysqli_stmt_close($stmtUpdate);
                 } else {
                     $respuesta['error'] = 'Datos insuficientes para la actualización';
                 }
@@ -103,4 +110,3 @@ if ($bd->conectar()) {
     header('Content-Type: application/json');
     echo json_encode($respuesta);
 }
-?>

@@ -1,17 +1,14 @@
-// Espera a que el DOM se cargue completamente
 document.addEventListener('DOMContentLoaded', function() {
     obtenerPerfilPaciente();
     mostrarInformacion();
-});
 
-document.addEventListener('DOMContentLoaded', function () {
     const mobileMenu = document.getElementById('mobile-menu');
     const navMenu = document.querySelector('nav ul');
-  
+
     mobileMenu.addEventListener('click', function () {
-      navMenu.classList.toggle('show');
+        navMenu.classList.toggle('show');
     });
-  });
+});
 
 // Función para obtener el perfil del paciente
 function obtenerPerfilPaciente() {
@@ -65,9 +62,6 @@ function obtenerPerfilPaciente() {
     })
     .catch(error => console.error('Fetch error: ', error));
 }
-
-
- 
 
 function mostrarInformacion() {
    // Obtener el formulario y crear un objeto FormData
@@ -133,7 +127,7 @@ function actualizarInformacion() {
     // Obtener el formulario y crear un objeto FormData
     const formulario = document.getElementById('user-form-info');
      const formData = new FormData(formulario);
-     formData.append('funcion', 'updateForm');
+    formData.append('funcion', 'updateForm');
     // Realizar la solicitud fetch
     fetch('./php/procesar_info_usuario.php', {
         method: 'POST',
@@ -192,6 +186,6 @@ function actualizarInformacion() {
     });
  
     return false;
- }
-
-
+}
+ 
+ 
