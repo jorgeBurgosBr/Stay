@@ -66,15 +66,15 @@ if ($bd->conectar()) {
 
                     // Actualización de la tabla utilizando una sentencia preparada
                     $sqlUpdate = "UPDATE perfil_paciente SET
-sexo_paciente = ?,
-fecha_nac_paciente = ?,
-hobbies_paciente = ?,
-hijos_paciente = ?,
-trabajo_paciente = ?,
-pareja_sino_paciente = ?,
-estudios_paciente = ?,
-expectativasypreocupaciones_paciente = ?
-WHERE id_paciente = ?";
+                                    sexo_paciente = ?,
+                                    fecha_nac_paciente = ?,
+                                    hobbies_paciente = ?,
+                                    hijos_paciente = ?,
+                                    trabajo_paciente = ?,
+                                    pareja_sino_paciente = ?,
+                                    estudios_paciente = ?,
+                                    expectativasypreocupaciones_paciente = ?
+                                    WHERE id_paciente = ?";
 
                     $stmtUpdate = mysqli_prepare($conn, $sqlUpdate);
 

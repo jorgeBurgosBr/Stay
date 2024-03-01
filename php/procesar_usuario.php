@@ -11,7 +11,8 @@ if ($bd->conectar()) {
    if ($_SERVER["REQUEST_METHOD"] == "GET") {
       $respuesta = [
           'success' => false,
-          'error' => null
+          'error' => null,
+          'tienePsicologoAsociado' => false
       ];
   
       $id_paciente = $_SESSION['id_paciente'];
@@ -28,10 +29,22 @@ if ($bd->conectar()) {
       $row_info_paciente = mysqli_fetch_assoc($result_info_paciente);
   
       if ($row_info_paciente) {
-          $respuesta['success'] = true;
-          $respuesta['nombre'] = $row_info_paciente['nombre_paciente'];
-          $respuesta['apellidos'] = $row_info_paciente['apellidos_paciente'];
-          $respuesta['correo'] = $row_info_paciente['correo_paciente'];
+        $respuesta['success'] = true;
+        $respuesta['nombre'] = $row_info_paciente['nombre_paciente'];
+        $respuesta['apellidos'] = $row_info_paciente['apellidos_paciente'];
+        $respuesta['correo'] = $row_info_paciente['correo_paciente'];
+
+        // Verificar si el paciente tiene un psicólogo asociado
+        $sql_verificar_psicologo = "SELECT COUNT(*) as count_psicologos FROM paciente_psicologo WHERE id_paciente = ?";
+        $stmt_verificar_psicologo = mysqli_prepare($conn, $sql_verificar_psicologo);
+        mysqli_stmt_bind_param($stmt_verificar_psicologo, "s", $id_paciente);
+        mysqli_stmt_execute($stmt_verificar_psicologo);
+        $result_verificar_psicologo = mysqli_stmt_get_result($stmt_verificar_psicologo);
+        $row_verificar_psicologo = mysqli_fetch_assoc($result_verificar_psicologo);
+
+        if ($row_verificar_psicologo && $row_verificar_psicologo['count_psicologos'] > 0) {
+            $respuesta['tienePsicologoAsociado'] = true;
+        }
   
           // Sentencia preparada para obtener la foto del paciente
           $sql_foto_paciente = "SELECT pp.foto_paciente 

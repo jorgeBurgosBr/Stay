@@ -27,7 +27,7 @@
                <hr id="separacion">
                <li><a href="sesiones.php">Sesiones</a></li>
                <hr id="separacion">
-               <li><a href="psicologo_usuario.php">Mi psicólogo</a></li>
+               <li><a href="#" id="mipsico_nav">Mi psicólogo</a></li>
                <hr id="separacion">
                <li><a href="#">Artículos</a></li>
                <hr id="separacion">
