@@ -20,9 +20,9 @@ document.addEventListener('DOMContentLoaded', function () {
          fetch('./php/procesar_eleccion_psico.php', {
             method: 'POST',
             headers: {
-               'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ psicologoId: psicologoId }),
+               'Content-Type': 'application/x-www-form-urlencoded',
+           },
+           body: 'psicologoId=' + encodeURIComponent(psicologoId),
          })
          .then(response => {
             if (!response.ok) {
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
          })
          .then(data => {
             console.log(data);
-            // Puedes realizar acciones adicionales según la respuesta del servidor
+            window.location.href = 'psicologo_usuario.php';
          })
          .catch(error => console.error('Fetch error: ', error));
       });

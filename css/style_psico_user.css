@@ -113,6 +113,10 @@
   gap: 30px;
 }
 
+.nombre-psico {
+  text-align: center;
+}
+
 #icono_chat {
   display: block;
   width: fit-content;

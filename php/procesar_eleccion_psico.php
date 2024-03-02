@@ -18,30 +18,54 @@ if ($bd->conectar()) {
         $id_paciente = $_SESSION['id_paciente'];
 
         $id_psicologo = isset($_POST['psicologoId']) ? $_POST['psicologoId'] : null;
-        echo "Valor de psicologoId: " . $id_psicologo;
         // Verifica si el paciente y el psicólogo son válidos (puedes realizar más validaciones según tus necesidades)
         if ($id_paciente && $id_psicologo) {
-            // Utiliza sentencias preparadas para la inserción en la tabla paciente_psicologo
-            $sqlInsert = "INSERT INTO paciente_psicologo (id_paciente, id_psicologo, fecha_inicio) VALUES (?, ?, CURDATE())";
+            // Consulta para verificar si ya existe una asociación
+            $sqlSelect = "SELECT id_paciente FROM paciente_psicologo WHERE id_paciente = ?";
+            $stmtSelect = mysqli_prepare($conn, $sqlSelect);
 
-            $stmt = mysqli_prepare($conn, $sqlInsert);
+            if ($stmtSelect) {
+                mysqli_stmt_bind_param($stmtSelect, "i", $id_paciente);
+                mysqli_stmt_execute($stmtSelect);
+                mysqli_stmt_store_result($stmtSelect);
 
-            if ($stmt) {
-                // Vincula los parámetros
-                mysqli_stmt_bind_param($stmt, "ii", $id_paciente, $id_psicologo);
+                if (mysqli_stmt_num_rows($stmtSelect) > 0) {
+                    // Ya existe una asociación, realiza la actualización
+                    $sqlUpdate = "UPDATE paciente_psicologo SET id_psicologo = ?, fecha_inicio = CURDATE() WHERE id_paciente = ?";
+                    $stmtUpdate = mysqli_prepare($conn, $sqlUpdate);
 
-                // Ejecuta la sentencia
-                if (mysqli_stmt_execute($stmt)) {
-                    $respuesta["success"] = true;
-                    $respuesta["error"] = null;
+                    if ($stmtUpdate) {
+                        mysqli_stmt_bind_param($stmtUpdate, "ii", $id_psicologo, $id_paciente);
+                        mysqli_stmt_execute($stmtUpdate);
+
+                        $respuesta["success"] = true;
+                        $respuesta["error"] = null;
+
+                        mysqli_stmt_close($stmtUpdate);
+                    } else {
+                        $respuesta["error"] = "Error al preparar la sentencia de actualización: " . mysqli_error($conn);
+                    }
                 } else {
-                    $respuesta["error"] = "Error al ejecutar la sentencia preparada: " . mysqli_stmt_error($stmt);
+                    // No existe una asociación, realiza la inserción
+                    $sqlInsert = "INSERT INTO paciente_psicologo (id_paciente, id_psicologo, fecha_inicio) VALUES (?, ?, CURDATE())";
+                    $stmtInsert = mysqli_prepare($conn, $sqlInsert);
+
+                    if ($stmtInsert) {
+                        mysqli_stmt_bind_param($stmtInsert, "ii", $id_paciente, $id_psicologo);
+                        mysqli_stmt_execute($stmtInsert);
+
+                        $respuesta["success"] = true;
+                        $respuesta["error"] = null;
+
+                        mysqli_stmt_close($stmtInsert);
+                    } else {
+                        $respuesta["error"] = "Error al preparar la sentencia de inserción: " . mysqli_error($conn);
+                    }
                 }
 
-                // Cierra la sentencia preparada
-                mysqli_stmt_close($stmt);
+                mysqli_stmt_close($stmtSelect);
             } else {
-                $respuesta["error"] = "Error al preparar la sentencia: " . mysqli_error($conn);
+                $respuesta["error"] = "Error al preparar la consulta de verificación: " . mysqli_error($conn);
             }
         } else {
             $respuesta["error"] = "Datos de paciente o psicólogo no válidos.";
