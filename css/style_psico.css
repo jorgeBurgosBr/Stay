@@ -248,6 +248,10 @@
   .second-column-form {
     margin-bottom: 20px;
   }
+
+  .upload-btn-label {
+    padding: 10px;
+   }
  }
  
  /* Media queries para dispositivos móviles */
@@ -291,5 +295,11 @@
     margin-top: 6px;
     margin-bottom: 10px;
   }
+
+  .upload-btn-label {
+    padding: 10px;
+    font-size: 12px;
+    margin-bottom: 15px;
+   }
  }
  
