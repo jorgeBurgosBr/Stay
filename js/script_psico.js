@@ -1,7 +1,11 @@
 // Espera a que el DOM se cargue completamente
 document.addEventListener('DOMContentLoaded', function () {
    obtenerPerfilPsicologo();
-   mostrarInformacion();
+    mostrarInformacion();
+    
+    const uploadInput = document.getElementById('upload-btn');
+    uploadInput.addEventListener('change', actualizarImg);
+
    const mobileMenu = document.getElementById('mobile-menu');
    const navMenu = document.querySelector('nav ul');
 
@@ -189,4 +193,40 @@ function actualizarInformacion() {
    return false;
 }
 
+function actualizarImg() {
+    const fileInput = document.getElementById('upload-btn');
+    const file = fileInput.files[0];
+
+    const formData = new FormData();
+    formData.append('file', file);
+
+// Dentro de tu función fetch
+fetch('./php/procesar_img_psico.php', {
+    method: 'POST',
+    body: formData
+})
+.then(response => {
+    if (!response.ok) {
+        throw new Error('Error al subir la imagen');
+    }
+    return response.text();  // Cambia a text() para obtener el contenido directo
+})
+.then(data => {
+    console.log('Respuesta del servidor:', data);  // Imprime el contenido directo
+    // Intenta analizar la respuesta como JSON
+    try {
+        const jsonData = JSON.parse(data);
+        if (jsonData.success) {
+            window.location.reload();
+            obtenerPerfilPsicologo();
+        } else {
+            console.error('Error al subir la imagen:', jsonData.error);
+        }
+    } catch (jsonError) {
+        console.error('Error al analizar la respuesta JSON:', jsonError);
+    }
+})
+.catch(error => console.error('Fetch error: ', error));
+
+}
 

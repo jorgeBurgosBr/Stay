@@ -50,7 +50,7 @@
                <div class="">
       <label for="upload-btn" class="upload-btn-label">
          <input type="file" id="upload-btn" style="display: none;">
-         Subir Imagen
+         Actualizar foto
       </label>
    </div>
                <div class="info-user">

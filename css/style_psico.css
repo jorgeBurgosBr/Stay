@@ -101,6 +101,22 @@
    margin: auto;
    border-radius: 10px; 
  }
+
+ .upload-btn-label {
+  display: inline-block;
+  cursor: pointer;
+  background-color: var(--ppal);
+  color: #ffff;
+  padding: 10px 20px;
+  font-size: 14px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  transition: box-shadow 0.25s ease;
+}
+
+.upload-btn-label:hover {
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5); 
+}
  
  .first-column-form {
    display: flex;
