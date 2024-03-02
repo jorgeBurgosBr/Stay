@@ -27,7 +27,7 @@
                <hr id="separacion">
                <li><a href="sesiones.php">Sesiones</a></li>
                <hr id="separacion">
-               <li><a href="#">Pacientes</a></li>
+               <li><a href="paciente_psico.html">Pacientes</a></li>
                <hr id="separacion">
                <li><a href="#">Artículos</a></li>
                <hr id="separacion">
@@ -47,6 +47,12 @@
                <div class="profile-img">
 
                </div>
+               <div class="">
+      <label for="upload-btn" class="upload-btn-label">
+         <input type="file" id="upload-btn" style="display: none;">
+         Actualizar foto
+      </label>
+   </div>
                <div class="info-user">
                <span id="psico-name"></span>
                <span id="psico-role"></span>

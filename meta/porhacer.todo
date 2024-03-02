@@ -4,6 +4,7 @@ Proyecto en general:
     ✔ - Cambiar creaBBDD para que utilice consultas preparadas y probar a añadir nueva tabla NOTAS_PACIENTE con datos @done (2/28/2024, 12:05:51 PM)
     ☐ - Poner la decoración del background que está en figma
     ☐ - Hacer las páginas vacías donde corresponda
+    ☐ - Añadir breadcrumbs? o al menos asegurarse de que todo tiene botón o icono de volver atrás si corresponde.
     
 Navbar:
     ✔ - Poner transiciones a los colores de hover @done (2/28/2024, 12:35:13 PM)
@@ -20,10 +21,10 @@ PACIENTE:
         ✔ - Hacer las versiones para tablet y movil (responsive) @done (2/28/2024, 12:07:57 PM)
         ☐ - Mis sesiones vacío
 	Videollamada:
-        ☐ - Diseñar layout página
-        ☐ - Codear layout página
-        ☐ - Agregar animaciones
-        ☐ - Pensar y aplicar lógica de cómo acceder a la página
+        ✔ - Diseñar layout página @done (2/29/2024, 10:21:30 AM)
+        ✔ - Codear layout página @done (3/1/2024, 11:07:26 AM)
+        ✔ - Agregar animaciones @done (3/1/2024, 5:05:06 PM)
+        ✔ - Pensar y aplicar lógica de cómo acceder a la página @done (3/1/2024, 5:05:10 PM)
 
         
     Registro sesiones:
@@ -35,9 +36,9 @@ JD:
 
 --PACIENTES--
 
-☐ -Mis sesiones
-☐ -Videollamada
-☐ -Acceder videollamada?
+✔ -Mis sesiones @done (3/1/2024, 5:03:07 PM)
+✔ -Videollamada @done (3/1/2024, 5:03:10 PM)
+✔ -Acceder videollamada? @done (3/1/2024, 5:03:18 PM)
 ☐ -Articulos
 ☐ -Entrada artículos?
             

@@ -105,8 +105,10 @@
    margin-bottom: 10px;
 }
 
-.specialization {
+.extra {
    color: #555;
+   display: flex;
+   justify-content: center;
 }
 
 .button-container {
