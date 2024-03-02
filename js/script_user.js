@@ -215,6 +215,7 @@ fetch('./php/procesar_img_perfil.php', {
     try {
         const jsonData = JSON.parse(data);
         if (jsonData.success) {
+            window.location.reload();
             obtenerPerfilPaciente();
         } else {
             console.error('Error al subir la imagen:', jsonData.error);
