@@ -64,7 +64,7 @@ require_once 'php/creaBBDD.php'; //Incluir el fichero que se encarga de crear la
       <div class="psico-card">
         <div class="green-part">
           <div class="photo">
-            <img src="img/alba-psicologa.png" alt="Alba García">
+            <img src="./img/psicologo/alba-psicologa.png" alt="Alba García">
           </div>
         </div>
         <div class="card-back">
@@ -81,7 +81,7 @@ require_once 'php/creaBBDD.php'; //Incluir el fichero que se encarga de crear la
       <div class="psico-card">
         <div class="green-part">
           <div class="photo">
-            <img src="img/sigmund-psicologo.png" alt="Sigmund Freud">
+            <img src="./img/psicologo/sigmund-psicologo.png" alt="Sigmund Freud">
           </div>
         </div>
         <div class="card-back">
@@ -98,7 +98,7 @@ require_once 'php/creaBBDD.php'; //Incluir el fichero que se encarga de crear la
       <div class="psico-card">
         <div class="green-part">
           <div class="photo">
-            <img src="img/patricia-psicologo.png" alt="Patricia Fuentes">
+            <img src="./img/psicologo/patricia-psicologo.png" alt="Patricia Fuentes">
           </div>
         </div>
         <div class="card-back">
