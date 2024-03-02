@@ -19,6 +19,6 @@ $sql = mysqli_query($conn, "SELECT p.*, pep.*
 if (mysqli_num_rows($sql) > 0) {
    include "data.php";
 } else {
-   $output .= "No user found relatd to your search term";
+   $output .= "ningún usuario encontrado con ese nombre";
 }
 echo $output;
