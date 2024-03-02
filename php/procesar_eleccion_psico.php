@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL);
 session_start();
 require_once 'conecta.php';
 $bd = new BaseDeDatos();
@@ -7,6 +8,7 @@ if ($bd->conectar()) {
     $conn = $bd->getConexion();
     $bd->seleccionarContexto('stay');
 
+    // Verifica que la solicitud sea de tipo POST
     if ($_SERVER["REQUEST_METHOD"] == 'POST') {
 
         $respuesta = [
@@ -14,11 +16,13 @@ if ($bd->conectar()) {
             "error" => "'psicologoId' no presente en la solicitud POST.",
         ];
 
-        // Obtén el ID del paciente desde la sesión (asegúrate de haber iniciado la sesión antes)
-        $id_paciente = $_SESSION['id_paciente'];
+        // Obtén el ID del paciente desde la sesión
+        $id_paciente = isset($_SESSION['id_paciente']) ? $_SESSION['id_paciente'] : null;
 
+        // Obtiene el ID del psicólogo desde la solicitud POST
         $id_psicologo = isset($_POST['psicologoId']) ? $_POST['psicologoId'] : null;
-        // Verifica si el paciente y el psicólogo son válidos (puedes realizar más validaciones según tus necesidades)
+
+        // Verifica si el paciente y el psicólogo son válidos
         if ($id_paciente && $id_psicologo) {
             // Consulta para verificar si ya existe una asociación
             $sqlSelect = "SELECT id_paciente FROM paciente_psicologo WHERE id_paciente = ?";
