@@ -47,6 +47,12 @@
                <div class="profile-img">
 
                </div>
+               <div class="">
+      <label for="upload-btn" class="upload-btn-label">
+         <input type="file" id="upload-btn" style="display: none;">
+         Subir Imagen
+      </label>
+   </div>
                <div class="info-user">
                <span id="user-name"></span>
                <span id="user-role"></span>
@@ -93,22 +99,22 @@
                <div class="second-column-form">
                   <div class="column-container-2">
                      <label for="hobbies">Hobbies:</label>
-                     <textarea id="hobbies" name="hobbies" placeholder="introduce tus hobbies"></textarea>
+                     <textarea id="hobbies" name="hobbies" placeholder="Introduce tus hobbies"></textarea>
                   </div>
 
                   <div class="column-container-2">
                      <label for="job">Trabajo:</label>
-                     <textarea id="job" name="job" placeholder="introduce tu trabajo"></textarea>
+                     <textarea id="job" name="job" placeholder="Introduce tu trabajo"></textarea>
                   </div>
 
                   <div class="column-container-2">
                      <label for="studies">Estudios:</label>
-                     <textarea id="studies" name="studies" placeholder="introduce tus estudios"></textarea>
+                     <textarea id="studies" name="studies" placeholder="Introduce tus estudios"></textarea>
                   </div>
 
                   <div class="column-container-2">
                      <label for="expectations">Expectativas o preocupaciones:</label>
-                     <textarea id="expectations" name="expectations" placeholder="introduce tus expectativas o preocupaciones"></textarea>
+                     <textarea id="expectations" name="expectations" placeholder="Introduce tus expectativas o preocupaciones"></textarea>
                   </div>
                </div>
 
