@@ -1,3 +1,32 @@
+/* Import fonts */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200");
+
+/* Variables for colors */
+:root {
+  --body: #fefae0;
+  --ppal: #606c38;
+  --degradado: linear-gradient(to right, #44a647, #ffd438);
+  --degradado_vertical: linear-gradient(
+    180deg,
+    #606c38 0%,
+    #a4ac86 50.66%,
+    #d1d3b3 100%
+  );
+  --ppal_shadow: #a4ac86;
+  --ppal1: #582f0e;
+  --ppal1_shadow: #a68a64;
+  --ppal1_variante: #c3b299;
+  --contraste: #800020;
+  --contraste1: #b57276;
+  --contraste2: #d8a6a9;
+  --tituloHero: "Lato", sans-serif;
+  --tituloM: "Montserrat", sans-serif;
+  --texto: "Open Sans", sans-serif;
+}
 /* --------------------------- PERFIL DE USUARIO --------------------------- */
 .center-container {
    display: flex;
@@ -33,24 +62,29 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  border: 1px solid #000000;
-  border-radius: 4px;
   padding: 10px;
   height: 84%;
+  background: var(--degradado_vertical);
  }
  
- #psico-name,
  #psico-role,
  #psico-mail {
   font-size: 1rem;
   display: block;
   margin-bottom: 10px; 
  }
+
+ #psico-name {
+  font-size: 2rem;
+  font-family: var(--tituloM);
+  display: block;
+  margin-bottom: 10px;
+ }
  
  .info-user {
    display: flex;
    flex-direction: column;
-   margin-top: 100px;
+   margin-top: 50px;
    justify-content: center;
    align-items: center;
  }

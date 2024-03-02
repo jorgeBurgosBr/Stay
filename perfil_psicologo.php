@@ -27,7 +27,7 @@
                <hr id="separacion">
                <li><a href="sesiones.php">Sesiones</a></li>
                <hr id="separacion">
-               <li><a href="#">Pacientes</a></li>
+               <li><a href="paciente_psico.html">Pacientes</a></li>
                <hr id="separacion">
                <li><a href="#">Artículos</a></li>
                <hr id="separacion">
