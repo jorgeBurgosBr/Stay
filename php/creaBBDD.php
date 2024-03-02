@@ -165,6 +165,24 @@ function crearBD()
                     notas TEXT,
                     PRIMARY KEY (id_paciente),
                     FOREIGN KEY (id_paciente) REFERENCES PACIENTE(id_paciente)
+                );",
+                "CREATE TABLE FORO (
+                    id_publicacion INT AUTO_INCREMENT,
+                    titulo VARCHAR(255),
+                    foto_contenido VARCHAR(255),
+                    texto_contenido TEXT,
+                    id_publicante INT,
+                    PRIMARY KEY (id_publicacion)
+                );",
+                "CREATE TABLE COMENTARIOS_FORO (
+                    id_comentario INT AUTO_INCREMENT,
+                    id_publicacion INT,
+                    comentario TEXT,
+                    fecha DATETIME,
+                    id_usuario INT,
+                    PRIMARY KEY (id_comentario),
+                    FOREIGN KEY (id_publicacion) REFERENCES FORO(id_publicacion),
+                    FOREIGN KEY (id_usuario) REFERENCES USUARIO(id_usuario)
                 );"
             ];
             $insertSql = [
@@ -268,12 +286,22 @@ function crearBD()
                 (4, 'Aprender a comunicarnos', 'Las habilidades sociales conforman un conjunto de estrategias de conducta que permiten adecuar nuestro comportamiento a distintas situaciones de la vida diaria..', 'https://workshop.com/taller4', '2024/02/01', './img/talleres/taller4.png'),
                 (5, 'Ejercicios para salud física y mental', 'Algunos de los ejercicios más recomendados en relación a la Salud Mental son: La natación desestresa y te focaliza: Nadar ayuda a tratar la depresión...', 'https://workshop.com/taller5', '2024/02/06', './img/talleres/taller5.png'),
                 (5, 'Mentes sanas para cuerpos sanos', '¿Alguna vez te has parado a escuchar a tu cuerpo? Si no lo has hecho aún, ¡Este es tu momento! Cuando algo no va bien, nuestro cuerpo puede enviarnos ciertas...', 'https://workshop.com/taller6', '2024/01/26', './img/talleres/taller6.png');",
+
                 "INSERT INTO NOTAS_PACIENTE (id_paciente, bio, notas) VALUES 
                 (1, 'John es un joven chef que ha superado grandes obstáculos para abrir su propio restaurante. Huérfano desde joven, encontró en la cocina un...', 'Notas adicionales sobre el tratamiento y observaciones.'),
                 (2, 'Ha sufrido la perdida de sus padres y su hermano. Aunque se ha convertido en una exitosa influencer, la sombra del duelo persiste.', 'Observaciones del terapeuta sobre el progreso.'),
                 (3, 'Exmilitar, Jim se ha reinventado como escritor de novelas de suspenso. A pesar de su éxito literario, su experiencia en...', 'Detalles sobre sesiones específicas y recomendaciones.'),
                 (4, 'Jack es un reconocido biólogo marino, dedicado a la conservación de los océanos. Su motivación proviene de la pérdida de su...', 'Comentarios sobre la evolución del paciente y ajustes en el tratamiento.'),
-                (5, 'Biografía breve del paciente Josie Wales. Objetivos personales y retos enfrentados.', 'Estrategias adoptadas durante las sesiones y feedback.');"
+                (5, 'Biografía breve del paciente Josie Wales. Objetivos personales y retos enfrentados.', 'Estrategias adoptadas durante las sesiones y feedback.');",
+                "INSERT INTO FORO (titulo, foto_contenido, texto_contenido, id_publicante) VALUES
+                ('Prevención Primaria de la Conducta Suicida | Hablemos de Suicidio', './img/foro/contenido_corazon.png', NULL , 7),
+                ('[Serio] Me podrían decir lineas telefónicas para prevenir suicidios', NULL, 'No es para mi. Un amigo acaba de tener un intento de suicidio, y hasta ahora me doy cuenta que es demasiada la importancia de saber si existe algún numero al que marcar para este tipo de situaciones.', 3),
+                ('¿Cómo Prevenir el Suicidio en la Sociedad?', './img/foro/contenido_uruguay.png', NULL, 8);",
+
+                "INSERT INTO COMENTARIOS_FORO (id_publicacion, comentario, fecha, id_usuario) VALUES
+                (1, 'esto es un comentario', '2024-02-03 12:46:13', 2),
+                (2, 'esto es otro comentario', '2024-02-07 19:34:11', 1),
+                (3, 'este hilo me parece muy interesante', '2024-02-10 10:34:11', 3);"
             ];
             // Ejecutar las consultas de inserción de datos
             ejecutarSentencias($conexion, $createSql);

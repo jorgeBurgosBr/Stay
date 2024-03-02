@@ -48,7 +48,7 @@ body {
   align-items: center;
   flex-direction: column;
   flex-wrap: wrap;
-  margin: 0 auto 2em auto;
+  margin: 0 auto;
   width: 90%;
 }
 /* BUSCADOR */
@@ -61,7 +61,7 @@ body {
 }
 .buscador input {
   height: 42px;
-  width: 500px;
+  width: 620px;
   border: 1px solid #ccc;
   padding: 0 13px;
   font-size: 16px;
@@ -86,65 +86,72 @@ body {
   font-size: 24px; /* Tamaño deseado para el icono */
 }
 
-/* TARJETAS */
-.talleres {
+/* TARJETA */
+.contenedor-foro {
   display: flex;
-  flex-direction: row;
-  width: 100%;
-  padding: 5px 30px;
-  /* align-items: flex-start;
-  align-content: flex-start; */
-  gap: 86px 115px;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  margin: 0 auto;
-  /* width: 90%; */
-}
-.tarjeta {
-  display: flex;
-  width: 320px;
-  height: 552px;
-  padding-bottom: 15px;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
-  flex-shrink: 0;
+  justify-content: center;
+  margin: 0 auto 2em auto;
+  gap: 1.5em;
+}
+.contenedor-foro .tarjeta {
   background: white;
-}
-.contenido {
+  border-radius: 13px;
+  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 660px;
+  height: auto;
+  padding: 1.9em 1.5em;
   display: flex;
   flex-direction: column;
+  gap: 1em;
   justify-content: center;
-  align-items: flex-end;
-  gap: 24px;
 }
-.contenido .encabezado {
+.contenedor-foro .tarjeta .persona {
   display: flex;
-  width: 272px;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 16px;
+  gap: 0.5em;
+  align-items: center;
+  padding: 0 0.9em;
+  border-bottom: var(--ppal) solid 1px;
+  color: green;
+  padding-bottom: 10px;
 }
-.contenido .encabezado .titulo {
-  color: var(--ppal1);
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 140%; /* 28px */
+.contenedor-foro .tarjeta .persona img {
+  width: 63px;
+  height: 63px;
+  border-radius: 50%;
 }
-.contenido .encabezado .informacion {
+.contenedor-foro .tarjeta .persona p {
   color: #000;
-  font-size: 16px;
+  text-align: center;
+  font-family: "Open Sans";
+  font-size: 18px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
 }
-.contenido .fecha {
-  color: var(--ppal1);
-  text-align: center;
+.contenedor-foro .tarjeta .titulo {
+  padding: 0 0.9em;
+}
+.contenedor-foro .tarjeta .titulo p {
+  color: #000;
+  font-family: "Open Sans";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.contenedor-foro .tarjeta .contenido img {
+  border-radius: 4px;
+  display: block;
+  margin: 0 auto;
+}
+.contenedor-foro .tarjeta .contenido p {
+  color: #000;
+  font-family: Roboto;
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+  padding: 0 0.9em;
 }
