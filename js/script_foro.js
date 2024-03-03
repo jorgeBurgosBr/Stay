@@ -3,16 +3,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const campoBusqueda = document.querySelector('.buscador input[type="text"]');
     campoBusqueda.addEventListener('input', () => {
         const terminoBusqueda = campoBusqueda.value.trim();
-       if (terminoBusqueda.length > 0) {
-    fetch('./php/busqueda_foro.php?termino=' + encodeURIComponent(terminoBusqueda))
-        .then(response => response.json())
-        .then(data => {
-            mostrarResultados(data);
-            console.log(data);
-        })
-        .catch(error => console.error('Error al buscar hilos:', error));
-}
- else {
+        if (terminoBusqueda.length > 0) {
+            fetch('./php/busqueda_foro.php?termino=' + encodeURIComponent(terminoBusqueda))
+                .then(response => response.json())
+                .then(data => {
+                    mostrarResultados(data);
+                    console.log(data);
+                })
+                .catch(error => console.error('Error al buscar hilos:', error));
+        }
+        else {
             limpiarResultados();
         }
     });
@@ -62,10 +62,10 @@ function dibujarTarjeta() {
                         contenedor.appendChild(tarjetaDiv);
                     }
                 }
-           }
+            }
             else {
-               contenedor.textContent = "data.error";
-           }
+                contenedor.textContent = "data.error";
+            }
         })
         .catch(error => {
             console.error('Error al obtener los datos del paciente:', error);
