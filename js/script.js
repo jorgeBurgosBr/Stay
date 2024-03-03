@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const mobileMenu = document.getElementById('mobile-menu');
-  const navMenu = document.querySelector('nav ul');
+   const mobileMenu = document.getElementById('mobile-menu');
+   const navMenu = document.querySelector('nav ul');
 
-  mobileMenu.addEventListener('click', function () {
-    navMenu.classList.toggle('show');
-  });
+   mobileMenu.addEventListener('click', function () {
+      navMenu.classList.toggle('show');
+   });
 
 });
 // Objeto que contiene los formularios asociados a identificadores únicos
@@ -120,11 +120,7 @@ function procesarFormLogin(formulario) {
          if (!data.success) {
             mostrarErrorLogin(true, data.error);
          } else {
-            if (data.tipo == "paciente") {
-               window.location.href = "sesiones.php";
-            } else if (data.tipo == "psicologo") {
-               window.location.href = "paciente_psico.html";
-            }
+            window.location.href = "sesiones.php";
          }
       }).catch(error => console.error('Fetch error: ', error));
 }

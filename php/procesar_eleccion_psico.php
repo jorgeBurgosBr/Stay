@@ -17,7 +17,7 @@ if ($bd->conectar()) {
         ];
 
         // Obtén el ID del paciente desde la sesión
-        $id_paciente = isset($_SESSION['id_paciente']) ? $_SESSION['id_paciente'] : null;
+        $id_paciente = isset($_SESSION['id_usuario']) ? $_SESSION['id_usuario'] : null;
 
         // Obtiene el ID del psicólogo desde la solicitud POST
         $id_psicologo = isset($_POST['psicologoId']) ? $_POST['psicologoId'] : null;
@@ -80,4 +80,3 @@ if ($bd->conectar()) {
         echo json_encode($respuesta);
     }
 }
-?>

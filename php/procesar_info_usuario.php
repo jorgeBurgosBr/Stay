@@ -17,7 +17,7 @@ if ($bd->conectar()) {
         ];
 
         // Obtener el ID del paciente de la sesión
-        $id_paciente = $_SESSION['id_paciente'];
+        $id_paciente = $_SESSION['id_usuario'];
 
         // Realizar la consulta para obtener los datos del paciente utilizando una sentencia preparada
         $sql = "SELECT * FROM perfil_paciente WHERE id_paciente = ?";

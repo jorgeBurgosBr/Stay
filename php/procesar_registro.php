@@ -45,7 +45,7 @@ if ($bd->conectar()) {
 
          if ($sql4 && $sql5) { //si los datos han sido insertados
             $respuesta['success'] = true;
-            $_SESSION['id_paciente'] = $id_original;
+            $_SESSION['id_usuario'] = $id_original;
          }
       }
       header('Content-Type: application/json');

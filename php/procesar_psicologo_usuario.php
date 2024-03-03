@@ -14,7 +14,7 @@ if ($bd->conectar()) {
          'error' => null
       ];
 
-      $id_paciente = $_SESSION['id_paciente'];
+      $id_paciente = $_SESSION['id_usuario'];
 
       // Utilizando una sentencia preparada para evitar inyección SQL
       $sql = "SELECT
@@ -65,4 +65,3 @@ if ($bd->conectar()) {
       echo json_encode($respuesta);
    }
 }
-?>

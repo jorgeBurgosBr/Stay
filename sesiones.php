@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,23 +19,27 @@
       <div class="container-nav">
          <div class="logo"></div>
          <div class="menu-toggle" id="mobile-menu">
-            <img src="img/logo.png" alt="Logo" id="logo-nav"/>
+            <img src="img/logo.png" alt="Logo" id="logo-nav" />
             <i class="ri-menu-line"></i>
-            </div>
+         </div>
          <nav>
             <ul>
-               <img src="img/logo.png" alt="Logo" id="logo-menu"/>
-               <li><a href="perfil_usuario.php">Mi perfil</a></li>
+               <img src="img/logo.png" alt="Logo" id="logo-menu" />
+               <li><a id="mi_perfil_nav">Mi perfil</a></li>
                <hr id="separacion">
-               <li><a href="#" id="current_page">Sesiones</a></li>
+               <li><a id="sesiones_nav" class="current_page">Sesiones</a></li>
                <hr id="separacion">
-               <li><a href="#" id="mipsico_nav">Mi psicólogo</a></li>
+               <li><a id="psicologo_paciente_nav">
+                     <?php
+                     echo ($_SESSION['tipo_usuario'] == 'paciente') ? "Mi psicólogo" : "Mis pacientes";
+                     ?>
+                  </a></li>
                <hr id="separacion">
-               <li><a href="articulos.php">Artículos</a></li>
+               <li><a id="articulos_nav">Artículos</a></li>
                <hr id="separacion">
-               <li><a href="#">Foro</a></li>
+               <li><a id="foro_nav">Foro</a></li>
                <hr id="separacion">
-               <li><a href="#">Talleres</a></li>
+               <li><a id="talleres_nav">Talleres</a></li>
             </ul>
          </nav>
       </div>
@@ -45,9 +52,15 @@
             <ul id="list_sesiones">
 
             </ul>
-            <span class="material-symbols-outlined" id="icono_chat">
-               chat
-            </span>
+            <div class="container_iconos">
+               <span class="material-symbols-outlined" id="icono_chat">
+                  chat
+               </span>
+               <?php
+               echo ($_SESSION['tipo_usuario'] == 'psicologo') ? "<span class='material-symbols-outlined' id='icono_editar'>edit_calendar</span>" : "";
+
+               ?>
+            </div>
          </div>
       </div>
       <!-- CALENDARIO -->

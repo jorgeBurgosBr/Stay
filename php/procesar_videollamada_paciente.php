@@ -8,8 +8,8 @@ if ($bd->conectar()) {
     $conn = $bd->getConexion();
     $bd->seleccionarContexto('stay');
 
-    if($_SERVER['REQUEST_METHOD'] == 'GET'){
-        $id_paciente = $_SESSION['id_paciente'];
+    if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+        $id_paciente = $_SESSION['id_usuario'];
         $respuesta = [
             'success' => false,
             'error' => null,
@@ -28,7 +28,6 @@ if ($bd->conectar()) {
                     $respuesta["success"] = true;
                     $row = $result->fetch_assoc();
                     $respuesta['ruta'] = $row['foto_paciente'];
-
                 } else {
                     $respuesta["error"] = "No tienes foto para este paciente";
                 }
@@ -42,6 +41,5 @@ if ($bd->conectar()) {
 
         header('Content-Type: application/json');
         echo json_encode($respuesta);
-
     }
 }

@@ -1,6 +1,6 @@
 <?php
 session_start();
-$outgoing_id = $_SESSION['id_paciente'];
+$outgoing_id = $_SESSION['id_usuario'];
 $output = "";
 require_once 'conecta.php';
 $bd = new BaseDeDatos();
