@@ -1,13 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
    obtenerPerfilPsicologos();
 
-   const mobileMenu = document.getElementById('mobile-menu');
-   const navMenu = document.querySelector('nav ul');
-
-   mobileMenu.addEventListener('click', function () {
-       navMenu.classList.toggle('show');
-   });
-
    // Utilizaremos delegación de eventos para manejar clics en los botones
    document.addEventListener('click', function (event) {
        if (event.target.classList.contains('button')) {

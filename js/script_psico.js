@@ -5,13 +5,6 @@ document.addEventListener('DOMContentLoaded', function () {
     
     const uploadInput = document.getElementById('upload-btn');
     uploadInput.addEventListener('change', actualizarImg);
-
-   const mobileMenu = document.getElementById('mobile-menu');
-   const navMenu = document.querySelector('nav ul');
-
-   mobileMenu.addEventListener('click', function () {
-      navMenu.classList.toggle('show');
-   });
 });
 
 // Función para obtener el perfil del psicologo
