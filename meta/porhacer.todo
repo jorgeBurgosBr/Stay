@@ -30,7 +30,16 @@ PACIENTE:
     Registro sesiones:
 	    Ver sesión pregrabada:
     Artículos:
+        ✔ - Diseñar layout @done (3/2/2024, 6:17:54 PM)
+        ✔ - Hacer responsive @done (3/2/2024, 6:17:55 PM)
+        ✔ - Generar dinamicamente las tarjetas @done (3/2/2024, 6:17:57 PM)
+        ✔ - Agregar funcionalidad search bar @done (3/2/2024, 6:17:59 PM)
+
 	    Entrada artículo:
+            ✔ - Diseñar layout @done (3/2/2024, 8:37:06 PM)
+            ✔ - Hacer responsive @done (3/2/2024, 8:37:08 PM)
+            ✔ - Dar estilo @done (3/2/2024, 8:37:09 PM)
+            ✔ - Colocar los eventos que lleven a las entradas de los artículos en articulos.php @done (3/3/2024, 10:05:22 AM)
 
 JD:
 
@@ -39,14 +48,12 @@ JD:
 ✔ -Mis sesiones @done (3/1/2024, 5:03:07 PM)
 ✔ -Videollamada @done (3/1/2024, 5:03:10 PM)
 ✔ -Acceder videollamada? @done (3/1/2024, 5:03:18 PM)
-☐ -Articulos
-☐ -Entrada artículos?
+✔ -Articulos @done (3/2/2024, 6:18:03 PM)
+✔ -Entrada artículos? @done (3/3/2024, 10:05:20 AM)
             
 --PSICÓLOGOS--
             
 ☐ - Calendario (= pero cambiando lógica) (añdir funcionalidad de agendar y cancelar sesiones)
-☐ - Registro de sesiones
-☐ - Ver sesión grabada?
 ☐ - Videollamada
 ☐ - Iniciar videollamada?
 ☐ - Artículos
