@@ -7,6 +7,11 @@ document.addEventListener('DOMContentLoaded', function () {
   cargarCitas(mesMostrado, anoMostrado);
   cargarLista(mesMostrado, anoMostrado);
 
+  if (document.getElementById('icono_editar')) {
+    document.getElementById('icono_editar').addEventListener('click', function () {
+      window.location.href = 'editar_sesiones.php';
+    });
+  }
   document.getElementById('mesAnterior').addEventListener('click', function () {
     if (mesMostrado === 0) {
       mesMostrado = 11;
@@ -41,8 +46,12 @@ document.addEventListener('DOMContentLoaded', function () {
       window.location.href = 'videollamada_paciente.php';
     }
   });
-  document.querySelector('#icono_chat').addEventListener('click', function(){
-    window.location.href = 'chat_paciente.php'
+  document.querySelector('#icono_chat').addEventListener('click', function () {
+    if (this.dataset.tipo == "paciente") {
+      window.location.href = 'chat_paciente.php'
+    } else {
+      window.location.href = 'users.php'
+    }
   })
 });
 
@@ -142,7 +151,7 @@ function dibujarCalendario(mes, ano) {
     let fechaFormateada = formatearFechaISO(fecha);
     contenedorCalendario.innerHTML += `<div class="celda" data-fecha="${fechaFormateada}"><span class="num_dia">${dia}</span></div>`;
   }
- 
+
   // Completa la última semana con días del siguiente mes si es necesario
   const totalCeldas = 42; // Total de celdas en el calendario (6 semanas * 7 días)
   const celdasActuales = primerDia + diasEnMes;
@@ -153,8 +162,8 @@ function dibujarCalendario(mes, ano) {
   }
 
   let hoy = new Date();
-  if(mes == hoy.getMonth()){
-    document.querySelector(`.celda[data-fecha = "${formatearFechaISO(hoy)}"] > span.num_dia`).classList.add("dia_actual");  
+  if (mes == hoy.getMonth()) {
+    document.querySelector(`.celda[data-fecha = "${formatearFechaISO(hoy)}"] > span.num_dia`).classList.add("dia_actual");
   }
 
 }
@@ -180,20 +189,20 @@ function cargarLista(mes, ano) {
     method: "POST",
     body: datos,
   })
-  .then(response => response.json())
-  .then(data => {
-    if (data.success && data.citas.length > 0) {
-      pintarLista(data.citas);
-    } else {
-      console.log('No hay sesiones programadas o hubo un error en la petición');
-    }
-  })
-  .catch(error => {
-    console.error('Error al cargar las sesiones:', error);
-  });
+    .then(response => response.json())
+    .then(data => {
+      if (data.success && data.citas.length > 0) {
+        pintarLista(data.citas);
+      } else {
+        console.log('No hay sesiones programadas o hubo un error en la petición');
+      }
+    })
+    .catch(error => {
+      console.error('Error al cargar las sesiones:', error);
+    });
 }
 
-function pintarLista(citas){
+function pintarLista(citas) {
   const lista = document.getElementById('list_sesiones');
   lista.innerHTML = ''; // Limpia la lista actual para evitar duplicados
 
@@ -211,10 +220,8 @@ function pintarLista(citas){
     lista.appendChild(elementoLista);
   });
 }
- 
-function pintarTituloCal(mes, ano){
+
+function pintarTituloCal(mes, ano) {
   const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
   document.querySelector("#titulo_cal").textContent = meses[mes] + " " + ano;
 }
-
- 

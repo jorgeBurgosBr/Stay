@@ -27,7 +27,8 @@ if ($bd->conectar()) {
             $respuesta["tipo"] = $fila['tipo_usuario'];
 
             // Alamacenamos el id en una sesión
-            $_SESSION['id_paciente'] = $fila['id_original'];
+            $_SESSION['id_usuario'] = $fila['id_original'];
+            $_SESSION['tipo_usuario'] = $fila['tipo_usuario'];
          } else {
             // La contraseña es incorrecta
             $respuesta["error"] = "contrasena";

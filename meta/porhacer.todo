@@ -5,6 +5,10 @@ Proyecto en general:
     ☐ - Poner la decoración del background que está en figma
     ☐ - Hacer las páginas vacías donde corresponda
     ☐ - Añadir breadcrumbs? o al menos asegurarse de que todo tiene botón o icono de volver atrás si corresponde.
+    ☐ - Comprobar que todo esté correctamente comentado
+    ☐ - Que todos los procesa.php tengan preparación de sentencias
+    ☐ - Poner alt a todas las fotos
+    ☐ - Retocar bbdd para hacer pruebas con varios pacientes
     
 Navbar:
     ✔ - Poner transiciones a los colores de hover @done (2/28/2024, 12:35:13 PM)
@@ -54,6 +58,7 @@ JD:
 --PSICÓLOGOS--
             
 ☐ - Calendario (= pero cambiando lógica) (añdir funcionalidad de agendar y cancelar sesiones)
+    - Comprobar si se puede traspolar la página php de sesiones paciente a la página php de sesiones psicologo
 ☐ - Videollamada
 ☐ - Iniciar videollamada?
 ☐ - Artículos

@@ -5,7 +5,7 @@ $bd = new BaseDeDatos();
 $bd->conectar();
 $conn = $bd->getConexion();
 $bd->seleccionarContexto('stay');
-$outgoing_id = $_SESSION['id_paciente'];
+$outgoing_id = $_SESSION['id_usuario'];
 $sql = mysqli_query($conn, "SELECT p.*, pep.*
                            FROM PACIENTE p
                            JOIN 

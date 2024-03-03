@@ -1,36 +1,79 @@
-document.addEventListener('DOMContentLoaded', function() {
-   const navButton = document.getElementById('mipsico_nav');
-   navButton.addEventListener('click', function () {
-       verificarPsicologoAsociado();
-   });
-});
+document.addEventListener('DOMContentLoaded', function () {
+    // Primero, obtenemos el <ul> del <nav>
+    const ul = document.querySelector('nav ul');
 
-function verificarPsicologoAsociado() {
-   fetch('./php/procesar_usuario.php', {
-       method: 'GET'
-   })
-   .then(response => {
-       if (!response.ok) {
-           throw new Error('Network response was not ok');
-       }
-       return response.json();
-   })
-       .then(data => {
-       console.log(data)
-       if (data.success) {
-           if (data.tienePsicologoAsociado == true) {
-               window.location.href = 'psicologo_usuario.php';
-           } else {
-               // El paciente no tiene un psicólogo asociado, redirigir a la página correspondiente
-               window.location.href = 'elegir_psicologo.html';
-           }
-       } else {
-           // Manejar el caso de error según tus necesidades
-           console.log('Error al verificar el psicólogo asociado.');
-       }
-   })
-   .catch(error => {
-       // Manejar errores según tus necesidades
-       console.error('Fetch error: ', error);
-   });
+    // Luego, agregamos un eventListener al <ul>
+    ul.addEventListener('click', function (event) {
+        // Verificamos si el elemento clicado es un <a> dentro de un <li>
+        if (event.target.tagName === 'A' && event.target.closest('li')) {
+            // Si es así, obtenemos el id del <a> clickeado
+            let a_clicado = event.target.id;
+            redirigir(a_clicado);
+
+        }
+    });
+
+});
+function redirigir(a_clicado) {
+    datos = new FormData();
+    datos.append('a_clicado', a_clicado);
+    fetch('./php/procesar_flujo.php', {
+        method: 'POST',
+        body: datos
+    })
+        .then(response => {
+            console.log(response);
+            return response.json()
+        })
+        .then(data => {
+            console.log(data);
+            if (data.success) {
+                switch (a_clicado) {
+                    case 'mi_perfil_nav':
+                        if (data.tipo_usuario == 'paciente') {
+                            window.location.href = 'http://localhost/stay/perfil_usuario.php';
+                        } else {
+                            window.location.href = 'http://localhost/stay/perfil_psicologo.php';
+                        }
+                        break;
+                    case 'sesiones_nav':
+                        window.location.href = 'http://localhost/stay/sesiones.php';
+                        break;
+                    case 'psicologo_paciente_nav':
+                        if (data.tipo_usuario == 'paciente') {
+                            let url = (data.vacio) ? 'http://localhost/stay/elegir_psicologo.php' : 'http://localhost/stay/psicologo_usuario.php';
+                            window.location.href = `${url}`;
+                        } else {
+                            let url = (data.vacio) ? 'http://localhost/stay/paciente_psico.php' : 'http://localhost/stay/paciente_psico.php';
+                            window.location.href = `${url}`;
+                        }
+                        break;
+                    case 'articulos_nav':
+                        window.location.href = 'http://localhost/stay/articulos.php';
+                        break;
+                    case 'foro_nav':
+                        if (data.tipo_usuario == 'paciente') {
+                            window.location.href = 'http://localhost/stay/foro_paciente.php';
+                        } else {
+                            window.location.href = 'http://localhost/stay/foro_psicologo.php';
+                        }
+                        break;
+                    case 'talleres_nav':
+                        if (data.tipo_usuario == 'paciente') {
+                            window.location.href = 'http://localhost/stay/talleres_paciente.php';
+                        } else {
+                            window.location.href = 'http://localhost/stay/talleres_psico.php';
+                        }
+                        break;
+
+                    default:
+                        break;
+                }
+            } else {
+                console.log(data.error);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        })
 }

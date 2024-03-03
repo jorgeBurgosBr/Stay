@@ -14,7 +14,7 @@ if ($bd->conectar()) {
          'error' => null
       ];
 
-      $id_psicologo = $_SESSION['id_paciente'];
+      $id_psicologo = $_SESSION['id_usuario'];
       // $id_psicologo = 1;
 
       // Utilizando una sentencia preparada para evitar inyección SQL
@@ -44,4 +44,3 @@ if ($bd->conectar()) {
       echo json_encode($respuesta);
    }
 }
-?>

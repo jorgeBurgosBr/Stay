@@ -1,6 +1,6 @@
-body{
-  background-image: url('../svg/background_sesiones.svg'); /* Imagen SVG */
-  background-repeat: repeat; 
+body {
+  background-image: url("../svg/background_sesiones.svg"); /* Imagen SVG */
+  background-repeat: repeat;
   /* background-size: cover;  */
   /* background-position: center;  */
 }
@@ -100,6 +100,25 @@ h2 {
 }
 .info_lista:hover {
   background-color: var(--ppal_shadow);
+}
+.container_iconos {
+  width: 20%;
+  display: flex;
+  justify-content: space-around;
+}
+#icono_editar {
+  display: block;
+  width: fit-content;
+  cursor: pointer;
+  /* Establece el efecto de sombra inicial */
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  /* Define la transición para la propiedad box-shadow */
+  transition: box-shadow 0.3s ease;
+}
+#icono_editar:hover {
+  /* Desplazamiento horizontal | Desplazamiento vertical | Desenfoque | Tamaño de propagación | Color de la sombra */
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.5);
+  color: var(--ppal);
 }
 /* CALENDARIO */
 
@@ -209,39 +228,44 @@ h2 {
 /* Media query para mobile (al menos 375px) */
 
 @media (min-width: 50px) and (max-width: 426px) {
-  .container_cal{
+  .container_cal {
     display: none;
   }
-  #list_sesiones{
+  #list_sesiones {
     width: 100%;
   }
-  #list_sesiones li{
+  #list_sesiones li {
     width: 70%;
   }
 
-  #titulo_lista{
+  #titulo_lista {
     width: 100%;
     text-align: center;
+  }
+  .container_iconos {
+    margin-bottom: 3vh;
   }
 }
 
 /* Media query para tablet (al menos 768px) */
 @media (min-width: 426px) and (max-width: 768px) {
-
-  .container_sesiones{
+  .container_sesiones {
     flex-direction: column;
   }
-  .container_list_sesiones{
+  .container_list_sesiones {
     order: 2;
   }
-  #listaSesiones{
-    min-height: 60vh;
+  #listaSesiones {
+    min-height: 30vh;
   }
-  .container_titulo_cal{
+  .container_titulo_cal {
     padding-bottom: 2%;
   }
-  #titulo_lista{
+  #titulo_lista {
     margin-left: 10%;
     align-self: baseline;
+  }
+  .container_iconos {
+    margin-bottom: 3vh;
   }
 }

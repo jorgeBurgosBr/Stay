@@ -13,7 +13,7 @@ if ($bd->conectar()) {
         // Asume que los datos vienen como 'fechaInicio' y 'fechaFin'
         $fechaInicio = $_POST['fechaInicio'];
         $fechaFin = $_POST['fechaFin'];
-        $id_paciente = $_SESSION['id_paciente'];
+        $id_paciente = $_SESSION['id_usuario'];
 
         $respuesta = [
             "success" => false,

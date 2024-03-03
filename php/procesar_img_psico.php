@@ -13,7 +13,7 @@ if ($bd->conectar()) {
             'error' => null
         ];
 
-        $id_paciente = $_SESSION['id_paciente'];
+        $id_paciente = $_SESSION['id_usuario'];
 
         if (!empty($_FILES['file']['name'])) {
             $file_name = $_FILES['file']['name'];
@@ -54,4 +54,3 @@ if ($bd->conectar()) {
         exit;
     }
 }
-?>

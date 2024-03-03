@@ -2,7 +2,7 @@
 session_start();
 require_once 'conecta.php';
 $bd = new BaseDeDatos();
-$id_psicologo = $_SESSION["id_paciente"];
+$id_psicologo = $_SESSION["id_usuario"];
 // Conectar a la base de datos
 if ($bd->conectar()) {
    $conn = $bd->getConexion();

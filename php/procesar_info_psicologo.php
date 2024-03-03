@@ -17,7 +17,7 @@ if ($bd->conectar()) {
         ];
 
         // Obtener el ID del psicologo de la sesión
-        $id_psicologo = $_SESSION['id_paciente'];
+        $id_psicologo = $_SESSION['id_usuario'];
         // $id_psicologo = 1;
 
         // Realizar la consulta para obtener los datos del psicologo utilizando una sentencia preparada
@@ -104,4 +104,3 @@ if ($bd->conectar()) {
     header('Content-Type: application/json');
     echo json_encode($respuesta);
 }
-?>
