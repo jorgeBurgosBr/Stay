@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
 function redirigir(a_clicado) {
     datos = new FormData();
     datos.append('a_clicado', a_clicado);
-    fetch('./php/procesar_flujo.php', {
+    fetch('http://localhost/stay/php/procesar_flujo.php', {
         method: 'POST',
         body: datos
     })

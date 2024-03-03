@@ -273,11 +273,11 @@ function crearBD()
                 (5, 'Desarrollo personal a través de la psicología', 'Explora la psicología del desarrollo personal con herramientas para superar obstáculos y maximizar tu potencial.', './img/articulos/articulo_5.png');",
                 "INSERT INTO ENTRADA_ARTICULO (id_articulo, contenido_articulo, multimedia_articulo)
                 VALUES 
-                (1, 'articulos_html/articulo1.html', 'multimedia/articulo1/'),
-                (2, 'articulos_html/articulo2.html', 'multimedia/articulo2/'),
-                (3, 'articulos_html/articulo3.html', 'multimedia/articulo3/'),
-                (4, 'articulos_html/articulo4.html', 'multimedia/articulo4/'),
-                (5, 'articulos_html/articulo5.html', 'multimedia/articulo5/');",
+                (1, 'articulos_html/articulo1.php', 'multimedia/articulo1/'),
+                (2, 'articulos_html/articulo2.php', 'multimedia/articulo2/'),
+                (3, 'articulos_html/articulo3.php', 'multimedia/articulo3/'),
+                (4, 'articulos_html/articulo4.php', 'multimedia/articulo4/'),
+                (5, 'articulos_html/articulo5.php', 'multimedia/articulo5/');",
                 "INSERT INTO TALLER (id_psicologo, titulo_taller, descripcion_taller, enlace_taller, fecha_taller, imagen_taller)
                 VALUES 
                 (1, '¡Animate a nuestro gym mental!', 'El cerebro es un músculo más para ejercitar aunque no se vea a simple vista, ya que cuanta más importancia le demos y más constantes seamos, más...', 'https://workshop.com/taller1', '2023/09/18', './img/talleres/taller1.png'),
