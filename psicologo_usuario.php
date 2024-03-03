@@ -29,9 +29,9 @@ session_start();
                <img src="img/logo.png" alt="Logo" id="logo-menu" />
                <li><a id="mi_perfil_nav">Mi perfil</a></li>
                <hr id="separacion">
-               <li><a id="sesiones_nav" class="current_page">Sesiones</a></li>
+               <li><a id="sesiones_nav">Sesiones</a></li>
                <hr id="separacion">
-               <li><a id="psicologo_paciente_nav">
+               <li><a id="psicologo_paciente_nav" class="current_page">
                      <?php
                      echo ($_SESSION['tipo_usuario'] == 'paciente') ? "Mi psicólogo" : "Mis pacientes";
                      ?>

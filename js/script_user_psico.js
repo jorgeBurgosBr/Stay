@@ -7,7 +7,7 @@ document.querySelector('#icono_chat').addEventListener('click', function(){
 })
 
 document.querySelector('#bttn-cambiar-psico').addEventListener('click', function () {
-    window.location.href = 'elegir_psicologo.html'
+    window.location.href = 'elegir_psicologo.php'
 })
  
 // Función para obtener el perfil del psicólogo
