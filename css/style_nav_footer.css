@@ -80,7 +80,7 @@ nav ul li a {
 
 /* Define el pseudo-elemento para simular el subrayado */
 nav ul li a::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 50%;
   bottom: 0;
@@ -104,7 +104,7 @@ nav ul li:hover a::after {
   text-decoration: underline;
   color: var(--contraste);
 }
-#current_page:hover{
+#current_page:hover {
   text-decoration: none;
 }
 

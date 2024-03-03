@@ -89,6 +89,7 @@ if ($stmt = mysqli_prepare($conn, $sql)) {
               <span><?php echo $row['nombre_psicologo'] . " " . $row['apellidos_psicologo'] ?></span>
             </div>
           </div>
+          <a href="paciente_psico.html" class="logout">Volver</a>
         </div>
         <div class="search">
           <span class="text">Seleciona un paciente para empezar a hablar</span>
