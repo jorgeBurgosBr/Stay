@@ -248,18 +248,18 @@ function crearBD()
                 (5, 'grabaciones/jones_josie_wales_1.mp4');",
                 "INSERT INTO ARTICULO (id_psicologo, titulo_articulo, descripcion_articulo, imagen_articulo)
                 VALUES 
-                (1, 'La importancia de la mindfulness', 'Un artículo sobre cómo la mindfulness puede mejorar tu vida', 'imagen_articulo1.jpg'),
-                (2, 'Gestión del estrés en el trabajo', 'Estrategias efectivas para manejar el estrés laboral', 'imagen_articulo2.jpg'),
-                (3, 'Relaciones saludables', 'Consejos para construir y mantener relaciones saludables', 'imagen_articulo3.jpg'),
-                (4, 'El poder del pensamiento positivo', 'Cómo el pensamiento positivo puede influir en tu día a día', 'imagen_articulo4.jpg'),
-                (5, 'Desarrollo personal a través de la psicología', 'Explorando las herramientas que la psicología ofrece para el desarrollo personal', 'imagen_articulo5.jpg');",
+                (1, 'La importancia del mindfulness', 'Explora cómo el mindfulness mejora tu bienestar y productividad. Aprende técnicas prácticas para una vida más serena y consciente. ¡Inicia tu viaje hacia el equilibrio!', './img/articulos/articulo_1.png'),
+                (2, 'Gestión del estrés en el trabajo', 'Descubre cómo gestionar el estrés laboral y mejora tu bienestar. Estrategias eficaces para un equilibrio entre trabajo y descanso.', './img/articulos/articulo_2.png'),
+                (3, 'Relaciones saludables', 'Aprende a fortalecer tus relaciones con comunicación, respeto y empatía. Mejora tus conexiones para vínculos más profundos.', './img/articulos/articulo_3.png'),
+                (4, 'El poder del pensamiento positivo', 'Descubre cómo el pensamiento positivo puede moldear tu realidad, abriendo puertas a nuevas oportunidades. Cultiva una mente optimista y resiliente para un crecimiento personal y éxito duraderos.', './img/articulos/articulo_4.png'),
+                (5, 'Desarrollo personal a través de la psicología', 'Explora la psicología del desarrollo personal con herramientas para superar obstáculos y maximizar tu potencial.', './img/articulos/articulo_5.png');",
                 "INSERT INTO ENTRADA_ARTICULO (id_articulo, contenido_articulo, multimedia_articulo)
                 VALUES 
-                (1, 'html_articulos/articulo1.html', 'multimedia/articulo1/'),
-                (2, 'html_articulos/articulo2.html', 'multimedia/articulo2/'),
-                (3, 'html_articulos/articulo3.html', 'multimedia/articulo3/'),
-                (4, 'html_articulos/articulo4.html', 'multimedia/articulo4/'),
-                (5, 'html_articulos/articulo5.html', 'multimedia/articulo5/');",
+                (1, 'articulos_html/articulo1.html', 'multimedia/articulo1/'),
+                (2, 'articulos_html/articulo2.html', 'multimedia/articulo2/'),
+                (3, 'articulos_html/articulo3.html', 'multimedia/articulo3/'),
+                (4, 'articulos_html/articulo4.html', 'multimedia/articulo4/'),
+                (5, 'articulos_html/articulo5.html', 'multimedia/articulo5/');",
                 "INSERT INTO TALLER (id_psicologo, titulo_taller, descripcion_taller, enlace_taller, fecha_taller, imagen_taller)
                 VALUES 
                 (1, '¡Animate a nuestro gym mental!', 'El cerebro es un músculo más para ejercitar aunque no se vea a simple vista, ya que cuanta más importancia le demos y más constantes seamos, más...', 'https://workshop.com/taller1', '2023/09/18', './img/talleres/taller1.png'),
