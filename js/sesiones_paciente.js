@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (this.dataset.tipo == "paciente") {
       window.location.href = 'chat_paciente.php'
     } else {
-      window.location.href = 'chat.php'
+      window.location.href = 'users.php'
     }
   })
 });
