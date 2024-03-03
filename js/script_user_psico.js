@@ -1,11 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
     obtenerPerfilPsicologo();
-   const mobileMenu = document.getElementById('mobile-menu');
-   const navMenu = document.querySelector('nav ul');
- 
-   mobileMenu.addEventListener('click', function () {
-     navMenu.classList.toggle('show');
-   });
 });
 
 document.querySelector('#icono_chat').addEventListener('click', function(){
@@ -13,7 +7,7 @@ document.querySelector('#icono_chat').addEventListener('click', function(){
 })
 
 document.querySelector('#bttn-cambiar-psico').addEventListener('click', function () {
-    window.location.href = 'elegir_psicologo.html'
+    window.location.href = 'elegir_psicologo.php'
 })
  
 // Función para obtener el perfil del psicólogo
