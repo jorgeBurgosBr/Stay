@@ -12,10 +12,8 @@ while ($row = mysqli_fetch_assoc($sql)) {
    } else {
       $result = "No hay mensajes disponibles";
    }
-   //trimming message if word are more than 28
+   //cortamos el mensaje en caso de que sea demasiado largo
    (strlen($result) > 28) ? $msg = substr($result, 0, 28) . "..." : $msg = $result;
-   // adding you: text before msg if login id send msg
-   //check ouser is online or offline
    $output .= '<a href="chat.php?id_usuario=' . $row['id_paciente'] . '">
                   <div class="content">
                      <img src="' . $row['foto_paciente'] . '" alt="" />

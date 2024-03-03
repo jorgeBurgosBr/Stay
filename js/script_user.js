@@ -2,6 +2,9 @@ document.addEventListener('DOMContentLoaded', function() {
     obtenerPerfilPaciente();
     mostrarInformacion();
 
+    const uploadInput = document.getElementById('upload-btn');
+    uploadInput.addEventListener('change', actualizarImg);
+
     const mobileMenu = document.getElementById('mobile-menu');
     const navMenu = document.querySelector('nav ul');
 
@@ -91,7 +94,7 @@ function mostrarInformacion() {
        
         const genderSelect = document.getElementById('gender');
         const partnerYesRadio = document.getElementById('partner-yes');
-        const partnerNoRadio = document.getElementById('partner-no');
+       const partnerNoRadio = document.getElementById('partner-no');
     
            // Establecer la opción seleccionada basada en el valor del servidor
            for (let i = 0; i < genderSelect.options.length; i++) {
@@ -188,4 +191,39 @@ function actualizarInformacion() {
     return false;
 }
  
- 
+function actualizarImg() {
+    const fileInput = document.getElementById('upload-btn');
+    const file = fileInput.files[0];
+
+    const formData = new FormData();
+    formData.append('file', file);
+
+// Dentro de tu función fetch
+fetch('./php/procesar_img_perfil.php', {
+    method: 'POST',
+    body: formData
+})
+.then(response => {
+    if (!response.ok) {
+        throw new Error('Error al subir la imagen');
+    }
+    return response.text();  // Cambia a text() para obtener el contenido directo
+})
+.then(data => {
+    console.log('Respuesta del servidor:', data);  // Imprime el contenido directo
+    // Intenta analizar la respuesta como JSON
+    try {
+        const jsonData = JSON.parse(data);
+        if (jsonData.success) {
+            window.location.reload();
+            obtenerPerfilPaciente();
+        } else {
+            console.error('Error al subir la imagen:', jsonData.error);
+        }
+    } catch (jsonError) {
+        console.error('Error al analizar la respuesta JSON:', jsonError);
+    }
+})
+.catch(error => console.error('Fetch error: ', error));
+
+}
