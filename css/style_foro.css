@@ -155,3 +155,76 @@ body {
   line-height: normal;
   padding: 0 0.9em;
 }
+@media (min-width: 426px) and (max-width: 768px) {
+  .buscador input {
+    width: 390px;
+  }
+  .contenedor-foro .tarjeta {
+    background: white;
+    border-radius: 8.97px; /* Reducido un 35% */
+    box-shadow: 2.73px 2.73px 2.73px 0px rgba(0, 0, 0, 0.25); /* Reducido un 35% */
+    width: 429px; /* Reducido un 35% */
+    height: auto;
+    padding: 1.285em 1.013em; /* Reducido un 35% */
+    display: flex;
+    flex-direction: column;
+    gap: 0.6825em; /* Reducido un 35% */
+    justify-content: center;
+  }
+
+  .contenedor-foro .tarjeta .persona {
+    display: flex;
+    gap: 0.3525em; /* Reducido un 35% */
+    align-items: center;
+    padding: 0 0.6075em; /* Reducido un 35% */
+    border-bottom: var(--ppal) solid 0.6825px; /* Reducido un 35% */
+    color: green;
+    padding-bottom: 6.825px; /* Reducido un 35% */
+  }
+
+  .contenedor-foro .tarjeta .persona img {
+    width: 42.45px; /* Reducido un 35% */
+    height: 42.45px; /* Reducido un 35% */
+    border-radius: 50%;
+  }
+
+  .contenedor-foro .tarjeta .persona p {
+    color: #000;
+    text-align: center;
+    font-family: "Open Sans";
+    font-size: 12.375px; /* Reducido un 35% */
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  .contenedor-foro .tarjeta .titulo {
+    padding: 0 0.6075em; /* Reducido un 35% */
+  }
+
+  .contenedor-foro .tarjeta .titulo p {
+    color: #000;
+    font-family: "Open Sans";
+    font-size: 15.75px; /* Reducido un 35% */
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  .contenedor-foro .tarjeta .contenido img {
+    border-radius: 2.6025px; /* Reducido un 35% */
+    display: block;
+    margin: 0 auto;
+    width: 400px;
+  }
+
+  .contenedor-foro .tarjeta .contenido p {
+    color: #000;
+    font-family: Roboto;
+    font-size: 10.725px; /* Reducido un 35% */
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    padding: 0 0.6075em; /* Reducido un 35% */
+  }
+}

@@ -148,3 +148,8 @@ body {
   font-weight: 600;
   line-height: normal;
 }
+@media (min-width: 426px) and (max-width: 768px) {
+  .buscador input {
+    width: 390px;
+  }
+}

@@ -48,6 +48,8 @@ if ($stmt = mysqli_prepare($conn, $sql)) {
   <link rel="stylesheet" href="css/style_chat.css" />
   <link rel="stylesheet" href="css/style_nav_footer.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.1.0/remixicon.css" />
 </head>
 
 <body>
@@ -89,6 +91,7 @@ if ($stmt = mysqli_prepare($conn, $sql)) {
               <span><?php echo $row['nombre_psicologo'] . " " . $row['apellidos_psicologo'] ?></span>
             </div>
           </div>
+          <a href="paciente_psico.html" class="logout">Volver</a>
         </div>
         <div class="search">
           <span class="text">Seleciona un paciente para empezar a hablar</span>
