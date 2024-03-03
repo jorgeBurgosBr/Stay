@@ -47,7 +47,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
   document.querySelector('#icono_chat').addEventListener('click', function () {
-    window.location.href = 'chat_paciente.php'
+    if (this.dataset.tipo == "paciente") {
+      window.location.href = 'chat_paciente.php'
+    } else {
+      window.location.href = 'chat.php'
+    }
   })
 });
 

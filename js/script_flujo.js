@@ -41,10 +41,10 @@ function redirigir(a_clicado) {
                         break;
                     case 'psicologo_paciente_nav':
                         if (data.tipo_usuario == 'paciente') {
-                            let url = (data.vacio) ? 'http://localhost/stay/elegir_psicologo.html' : 'http://localhost/stay/psicologo_usuario.php';
+                            let url = (data.vacio) ? 'http://localhost/stay/elegir_psicologo.php' : 'http://localhost/stay/psicologo_usuario.php';
                             window.location.href = `${url}`;
                         } else {
-                            let url = (data.vacio) ? 'http://localhost/stay/paciente_psico.html' : 'http://localhost/stay/paciente_psico.html';
+                            let url = (data.vacio) ? 'http://localhost/stay/paciente_psico.php' : 'http://localhost/stay/paciente_psico.php';
                             window.location.href = `${url}`;
                         }
                         break;
@@ -53,16 +53,16 @@ function redirigir(a_clicado) {
                         break;
                     case 'foro_nav':
                         if (data.tipo_usuario == 'paciente') {
-                            window.location.href = 'http://localhost/stay/foro_paciente.html';
+                            window.location.href = 'http://localhost/stay/foro_paciente.php';
                         } else {
-                            window.location.href = 'http://localhost/stay/foro_psicologo.html';
+                            window.location.href = 'http://localhost/stay/foro_psicologo.php';
                         }
                         break;
                     case 'talleres_nav':
                         if (data.tipo_usuario == 'paciente') {
-                            window.location.href = 'http://localhost/stay/talleres_paciente.html';
+                            window.location.href = 'http://localhost/stay/talleres_paciente.php';
                         } else {
-                            window.location.href = 'http://localhost/stay/talleres_psico.html';
+                            window.location.href = 'http://localhost/stay/talleres_psico.php';
                         }
                         break;
 

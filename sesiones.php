@@ -7,8 +7,8 @@ session_start();
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link rel="stylesheet" href="./css/style_nav_footer.css">
    <link rel="stylesheet" href="./css/sesiones_paciente.css">
+   <link rel="stylesheet" href="http://localhost/stay/css/style_nav_footer.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.1.0/remixicon.css">
    <title>Sesiones</title>
 </head>
@@ -53,7 +53,7 @@ session_start();
 
             </ul>
             <div class="container_iconos">
-               <span class="material-symbols-outlined" id="icono_chat">
+               <span class="material-symbols-outlined" id="icono_chat" data-tipo='<?php echo $_SESSION['tipo_usuario']; ?>'>
                   chat
                </span>
                <?php
@@ -78,9 +78,9 @@ session_start();
          </div>
       </div>
    </div>
-   <script src="./js/sesiones_paciente.js"></script>
-   <script src="js/script_flujo.js"></script>
-   <script src="./js/script_hamburguer.js"></script>
+   <script src="http://localhost/stay/js/sesiones_paciente.js"></script>
+   <script src="http://localhost/stay/js/script_flujo.js"></script>
+   <script src="http://localhost/stay/js/script_hamburguer.js"></script>
 </body>
 
 </html>

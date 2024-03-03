@@ -44,9 +44,8 @@ VALUES
 session_start();
 ?>
 -----------------------------------------------------------------------------------------------------------------------
-
-y
-
+    <link rel="stylesheet" href="http://localhost/stay/css/style_nav_footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.1.0/remixicon.css">
 -----------------------------------------------------------------------------------------------------------------------
 <!-- HEADER -->
    <header>
@@ -79,3 +78,5 @@ y
       </div>
    </header>
 -----------------------------------------------------------------------------------------------------------------------
+   <script src="http://localhost/stay/js/script_flujo.js"></script>
+   <script src="http://localhost/stay/js/script_hamburguer.js"></script>
