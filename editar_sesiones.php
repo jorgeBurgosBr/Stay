@@ -9,6 +9,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="http://localhost/stay/css/style_nav_footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.1.0/remixicon.css">
+    <link rel="stylesheet" href="http://localhost/stay/css/editar_sesiones.css">
     <title>Document</title>
 </head>
 
@@ -43,9 +44,47 @@ session_start();
             </nav>
         </div>
     </header>
-    EDITAR SESIONES.PHP
+    <div class="container_editar_sesiones">
+        <div class="container_anadir">
+            <h2 id="titulo_anadir">Añadir sesiones</h2>
+            <div class="form_anadir">
+                <form action="" id="formularioAnadir">
+                    <label for="select_pacientes">Selecciona un paciente:</label>
+                    <select name="pacientes" id="select_pacientes">
+                        <!-- GENERAR DINÁMICAMENTE LAS OPCIONES -->
+                    </select>
+                    <span class="" id="errorPaciente"></span>
+
+                    <label for="fecha">Selecciona una fecha:</label>
+                    <input type="date" id="fecha" name="fecha">
+                    <span class="" id="errorFecha"></span>
+
+                    <label for="hora">Selecciona una hora:</label>
+                    <input type="time" id="hora" name="hora">
+                    <span class="" id="errorHora"></span>
+                </form>
+                <span class="material-symbols-outlined" id="icono_anadir">shadow_add</span>
+            </div>
+        </div>
+        <div class="container_eliminar">
+            <h2 id="titulo_eliminar">Eliminar sesiones</h2>
+            <div class="form_eliminar">
+                <form action="" id="formularioEliminar">
+                    <label for="fecha">Selecciona una sesión:</label>
+                    <select name="sesiones" id="select_sesiones">
+                        <!-- GENERAR DINÁMICAMENTE LAS OPCIONES -->
+                    </select>
+                    <span class="" id="errorSesion"></span>
+                </form>
+                <span class="material-symbols-outlined" id="icono_eliminar">
+                    shadow_minus
+                </span>
+            </div>
+        </div>
+    </div>
     <script src="http://localhost/stay/js/script_flujo.js"></script>
     <script src="http://localhost/stay/js/script_hamburguer.js"></script>
+    <script src="http://localhost/stay/js/editar_sesiones.js"></script>
 </body>
 
 </html>

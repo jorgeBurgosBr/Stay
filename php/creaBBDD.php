@@ -232,11 +232,11 @@ function crearBD()
                 (5, '1990-09-14', 'femenino', FALSE, 1, 'Mindfulness y Estrés', 5, 'Master en Mindfulness', 'Pilates, Lectura', './img/psicologo/foto_emily.jpg', 'Como profesional de la salud mental, me apasiona enseñar técnicas de mindfulness para reducir el estrés y mejorar la calidad de vida.');",
                 "INSERT INTO CITA (id_paciente, id_psicologo, fecha_cita, hora_cita)
                 VALUES 
-                (1, 1, '2024-01-30', '10:00:00'),
-                (1, 1, '2024-02-25', '17:00:00'),
-                (1, 1, '2024-02-23', '12:00:00'),
-                (1, 1, '2024-03-02', '10:00:00'),
-                (1, 1, '2024-03-10', '09:00:00'),
+                (1, 1, '2024-02-28', '10:00:00'),
+                (1, 1, '2024-03-25', '17:00:00'),
+                (1, 1, '2024-03-23', '12:00:00'),
+                (1, 1, '2024-03-06', '10:00:00'),
+                (1, 1, '2024-04-01', '09:00:00'),
                 (2, 1, '2024-01-12', '11:30:00'),
                 (2, 1, '2024-02-29', '13:00:00'),
                 (2, 1, '2024-03-15', '14:00:00'),

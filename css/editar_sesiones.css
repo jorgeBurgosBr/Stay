@@ -1,0 +1,146 @@
+/* 
+.container_editar_sesiones
+.container_anadir
+#titulo_anadir
+.form_anadir
+#icono_anadir
+.container_eliminar
+#titulo_eliminar
+.form_eliminar
+#icono_eliminar
+.error 
+*/
+.container_editar_sesiones {
+  display: flex;
+  justify-content: space-around;
+}
+label {
+  display: block;
+  width: fit-content;
+  font-family: var(--texto);
+  font-size: 1.2em;
+  font-weight: bold;
+}
+input {
+  display: block;
+  width: fit-content;
+  font-family: var(--texto);
+  font-size: 1.2em;
+}
+.container_anadir {
+  width: 45%;
+  margin: 3vh 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2vh;
+  border-radius: 8px;
+  background-color: var(--ppal1_variante);
+}
+#titulo_anadir {
+  font-family: var(--tituloM);
+  font-size: 2em;
+  width: 80%;
+  margin-top: 5%;
+}
+.form_anadir {
+  width: 80%;
+  margin-bottom: 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+}
+#icono_anadir,
+#icono_eliminar {
+  font-size: 3em;
+  width: fit-content;
+  transition: color 0.3s ease;
+}
+#icono_anadir:hover {
+  color: green;
+  cursor: pointer;
+}
+#icono_eliminar:hover {
+  color: var(--contraste);
+  cursor: pointer;
+}
+.container_eliminar {
+  width: 45%;
+  margin: 3vh 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: fit-content;
+  gap: 2vh;
+  border-radius: 8px;
+  background-color: var(--ppal1_variante);
+}
+#titulo_eliminar {
+  font-family: var(--tituloM);
+  font-size: 2em;
+  width: 80%;
+  margin-top: 5%;
+}
+.form_eliminar {
+  width: 80%;
+  margin-bottom: 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+}
+.error {
+  display: block;
+  color: red;
+  font-weight: bolder;
+}
+#formularioAnadir {
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+}
+#formularioEliminar {
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+}
+#select_pacientes {
+  width: 50%;
+}
+#select_sesiones {
+  width: 50%;
+}
+@media (min-width: 426px) and (max-width: 768px) {
+  .container_editar_sesiones {
+    flex-direction: column;
+    align-items: center;
+  }
+  .container_anadir {
+    width: 80%;
+  }
+  .container_eliminar {
+    width: 80%;
+  }
+}
+@media (min-width: 50px) and (max-width: 426px) {
+  .container_editar_sesiones {
+    flex-direction: column;
+    align-items: center;
+  }
+  .container_anadir {
+    width: 80%;
+  }
+  .container_eliminar {
+    width: 80%;
+  }
+  #titulo_anadir,
+  #titulo_eliminar {
+    width: 100%;
+    font-size: 1.5em;
+    text-align: center;
+  }
+  .form_anadir,
+  .form_eliminar {
+    width: 100%;
+    align-items: center;
+  }
+}
