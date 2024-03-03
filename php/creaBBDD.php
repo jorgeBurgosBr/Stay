@@ -3,7 +3,7 @@
 require_once 'conecta.php';
 
 // Funcion comprobar si existe
-function existeAmbulatorio()
+function existeStay()
 {
     // Creo instancia conexión bbdd
     $bd = new BaseDeDatos();
@@ -330,6 +330,6 @@ function ejecutarSentencias($conexion, $sentencias)
     }
 }
 // Crea tablas e inserta datos solo si no existe Ambulatorio
-if (!existeAmbulatorio()) {
+if (!existeStay()) {
     crearBD();
 }
