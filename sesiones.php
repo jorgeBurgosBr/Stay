@@ -78,7 +78,7 @@ session_start();
          </div>
       </div>
    </div>
-   <script src="http://localhost/stay/js/sesiones_paciente.js"></script>
+   <script src="http://localhost/stay/js/sesiones.js"></script>
    <script src="http://localhost/stay/js/script_flujo.js"></script>
    <script src="http://localhost/stay/js/script_hamburguer.js"></script>
 </body>

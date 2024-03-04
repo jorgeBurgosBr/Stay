@@ -98,14 +98,14 @@ function cargarCitas(mes, ano) {
 function pintarCitas(citas) {
   citas.forEach(cita => {
     // Extrae la fecha, hora y nombre del psicólogo de cada cita
-    const { fecha, hora, nombre_psicologo } = cita;
+    const { fecha, hora, nombre } = cita;
 
     // Encuentra la celda del calendario que corresponde a la fecha de la cita
     const celda = document.querySelector(`.celda[data-fecha="${fecha}"]`);
 
     if (celda) {
       // Formatea el detalle de la cita
-      const detalleCita = `<div class='etiqueta_cita'>${hora}-${nombre_psicologo}</div>`;
+      const detalleCita = `<div class='etiqueta_cita'>${hora}-${nombre}</div>`;
 
       // Inserta el detalle de la cita en la celda correspondiente
       celda.insertAdjacentHTML('beforeend', detalleCita);
@@ -207,14 +207,14 @@ function pintarLista(citas) {
   lista.innerHTML = ''; // Limpia la lista actual para evitar duplicados
 
   citas.forEach(sesion => {
-    const { fecha, hora, nombre_psicologo, apellidos_psicologo } = sesion; // Asume que cada sesión tiene esta información
+    const { fecha, hora, nombre, apellidos } = sesion; // Asume que cada sesión tiene esta información
     const elementoLista = document.createElement('li');
     elementoLista.innerHTML = `
     <span class='fecha_lista'>
     ${fecha}
     </span>
     <span class='info_lista'>
-    ${hora} - Sesión con ${nombre_psicologo} ${apellidos_psicologo}
+    ${hora} - Sesión con ${nombre} ${apellidos}
     </span>
     `;
     lista.appendChild(elementoLista);
