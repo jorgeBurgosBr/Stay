@@ -15,7 +15,7 @@ if ($bd->conectar()) {
           'tienePsicologoAsociado' => false
       ];
   
-      $id_paciente = $_SESSION['id_paciente'];
+      $id_paciente = $_SESSION['id_usuario'];
   
       // Sentencia preparada para obtener nombre, apellidos y correo
       $sql_info_paciente = "SELECT p.nombre_paciente, p.apellidos_paciente, p.correo_paciente 

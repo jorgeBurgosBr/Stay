@@ -27,7 +27,7 @@ session_start();
                     <img src="img/logo.png" alt="Logo" id="logo-menu" />
                     <li><a id="mi_perfil_nav">Mi perfil</a></li>
                     <hr id="separacion">
-                    <li><a id="sesiones_nav" class="current_page">Sesiones</a></li>
+                    <li><a id="sesiones_nav">Sesiones</a></li>
                     <hr id="separacion">
                     <li><a id="psicologo_paciente_nav">
                             <?php
@@ -35,7 +35,7 @@ session_start();
                             ?>
                         </a></li>
                     <hr id="separacion">
-                    <li><a id="articulos_nav">Artículos</a></li>
+                    <li><a id="articulos_nav" class="current_page">Artículos</a></li>
                     <hr id="separacion">
                     <li><a id="foro_nav">Foro</a></li>
                     <hr id="separacion">

@@ -13,6 +13,7 @@
 .container_editar_sesiones {
   display: flex;
   justify-content: space-around;
+  height: 100vh;
 }
 label {
   display: block;
@@ -33,6 +34,7 @@ input {
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 55vh;
   gap: 2vh;
   border-radius: 8px;
   background-color: var(--ppal1_variante);
