@@ -37,13 +37,13 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelector('#calendario').addEventListener('click', function (event) {
     // Verifica si el elemento clickeado (event.target) coincide con lo que buscas
     if (event.target.classList.contains('etiqueta_cita')) {
-      window.location.href = 'videollamada_paciente.php';
+      window.location.href = 'videollamada.php';
     }
   });
   document.querySelector('#list_sesiones').addEventListener('click', function (event) {
     // Verifica si el elemento clickeado (event.target) coincide con lo que buscas
     if (event.target.classList.contains('fecha_lista') || event.target.classList.contains('info_lista')) {
-      window.location.href = 'videollamada_paciente.php';
+      window.location.href = 'videollamada.php';
     }
   });
   document.querySelector('#icono_chat').addEventListener('click', function () {

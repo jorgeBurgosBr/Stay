@@ -251,6 +251,7 @@ h2 {
 @media (min-width: 426px) and (max-width: 768px) {
   .container_sesiones {
     flex-direction: column;
+    height: 120vh;
   }
   .container_list_sesiones {
     order: 2;

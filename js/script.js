@@ -342,6 +342,36 @@ document.querySelector("#visibleLogin").addEventListener("click", function () {
    }
 });
 
+document.querySelector(".bttn-titulo").addEventListener("click", function () {
+   document.querySelector(".popup-signup").classList.add("active");
+   document.querySelector(".popup-login").classList.remove("active");
+   document.querySelector("nav ul").classList.remove('show');
+});
+
+
+// Selecciona todos los elementos con la clase ".card-btn"
+var buttons = document.querySelectorAll(".card-btn");
+
+// Agrega el evento a cada botón
+buttons.forEach(function(button) {
+  button.addEventListener("click", function () {
+    // Agrega la clase "active" a la popup de signup
+    document.querySelector(".popup-signup").classList.add("active");
+
+    // Remueve la clase "active" de la popup de login
+    document.querySelector(".popup-login").classList.remove("active");
+
+    document.querySelector("nav ul").classList.remove('show');
+
+    // Desplázate hacia la parte superior de la página
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+});
+
+
 // POP-UP MESSAGE
 document.addEventListener('DOMContentLoaded', function () {
    var popupMessage = document.querySelector('.popup-message');
@@ -351,12 +381,25 @@ document.addEventListener('DOMContentLoaded', function () {
       popupMessage.style.display = 'none';
    });
 
-   // Optionally, you can add a delay for the popup to appear
-   // setTimeout(function() {
-   //   popupMessage.style.display = 'block';
-   // }, 2000); // 2000 milliseconds delay (2 seconds)
-});
+   var scrollLinks = document.querySelectorAll(".scroll-link");
 
+   // Agrega un evento de clic a cada enlace
+   scrollLinks.forEach(function(link) {
+     link.addEventListener("click", function(e) {
+       e.preventDefault();
+
+       // Obtén el ID del objetivo desde el atributo 'data-target'
+       var targetId = this.getAttribute("data-target");
+
+       // Encuentra el elemento con el ID correspondiente
+       var targetElement = document.getElementById(targetId);
+
+       targetElement.scrollIntoView({
+         behavior: "smooth"
+       });
+     });
+   });
+});
 
 
 // swiper

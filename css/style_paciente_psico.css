@@ -172,6 +172,7 @@ body {
   justify-content: flex-end;
   gap: 24px;
   flex-shrink: 0;
+  margin-bottom: 5vh;
 }
 .button_chat {
   display: flex;

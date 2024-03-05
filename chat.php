@@ -35,9 +35,9 @@ $bd->seleccionarContexto('stay');
           <img src="img/logo.png" alt="Logo" id="logo-menu" />
           <li><a id="mi_perfil_nav">Mi perfil</a></li>
           <hr id="separacion">
-          <li><a id="sesiones_nav" class="current_page">Sesiones</a></li>
+          <li><a id="sesiones_nav">Sesiones</a></li>
           <hr id="separacion">
-          <li><a id="psicologo_paciente_nav">
+          <li><a id="psicologo_paciente_nav" class="current_page">
               <?php
               echo ($_SESSION['tipo_usuario'] == 'paciente') ? "Mi psicólogo" : "Mis pacientes";
               ?>
@@ -88,6 +88,7 @@ $bd->seleccionarContexto('stay');
     <script src="http://localhost/stay/js/script_flujo.js"></script>
     <script src="http://localhost/stay/js/script_hamburguer.js"></script>
   </div>
+  
 </body>
 
 </html>
