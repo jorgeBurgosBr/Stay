@@ -1,5 +1,4 @@
 .container_body_articles {
-  /* border: 5px solid blue; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,13 +14,28 @@
   overflow: hidden;
 }
 .container_articles {
-  /* border: 4px solid orange; */
   width: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2vh;
 }
+#icono_mis_articulos,
+#icono_editar_articulos {
+  background-color: var(--ppal_shadow);
+  width: fit-content;
+  padding: 5px;
+  border: 1px solid;
+  border-radius: 4px;
+  transition: box-shadow 0.3s ease; /* Transición suave para transform y box-shadow */
+  box-shadow: 0 0 0px rgba(0, 0, 0, 0); /* Inicialmente sin sombra visible */
+}
+#icono_mis_articulos:hover,
+#icono_editar_articulos:hover {
+  box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.3); /* Aplica una sombra para dar la impresión de elevación */
+  cursor: pointer;
+}
+
 .container_search_icon {
   /* border: 3px solid green; */
   width: 8%;
@@ -31,8 +45,7 @@
   border-right: 1px solid black;
   background-color: var(--ppal_shadow);
 }
-#search_icon {
-}
+
 .search_bar {
   /* border: 3px solid green; */
   width: 92%;

@@ -1,34 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
-    fetch('./php/procesar_articulos.php')
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                pintarArticulos(data.articulos);
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
-
+    cargarMisArticulos();
     window.addEventListener('resize', ajustarEstilosArticulos);
-
-    document.getElementById('input_search').addEventListener('input', function (e) {
-        const textoBusqueda = e.target.value;
-        fetch(`./php/procesar_articulos.php?busqueda=${encodeURIComponent(textoBusqueda)}`)
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    const container_articles = document.querySelector('.container_articles');
-                    container_articles.innerHTML = ''; // Limpia los artículos actuales
-                    pintarArticulos(data.articulos); // Pinta los artículos filtrados
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-    });
-
-
     document.querySelector('.container_articles').addEventListener('click', function (e) {
         // Comprueba si el elemento clicado o uno de sus padres es un article_wrapper
         let target = e.target;
@@ -59,15 +31,39 @@ document.addEventListener('DOMContentLoaded', function () {
             target = target.parentNode; // Si no es el article_wrapper, subimos un nivel en el DOM
         }
     });
-
-    if (document.querySelector('#icono_mis_articulos')) {
-        document.querySelector('#icono_mis_articulos').addEventListener('click', function () {
-            window.location.href = 'http://localhost/stay/mis_articulos_psicologo.php';
+    document.getElementById('input_search').addEventListener('input', function (e) {
+        const textoBusqueda = e.target.value;
+        fetch(`./php/procesar_mis_articulos.php?busqueda=${encodeURIComponent(textoBusqueda)}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    const container_articles = document.querySelector('.container_articles');
+                    container_articles.innerHTML = ''; // Limpia los artículos actuales
+                    pintarArticulos(data.articulos); // Pinta los artículos filtrados
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    });
+    document.querySelector('#icono_editar_articulos').addEventListener('click', function () {
+        window.location.href = 'http://localhost/stay/editar_articulos.php';
+    })
+});
+function cargarMisArticulos() {
+    fetch('./php/procesar_mis_articulos.php')
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                const container_articles = document.querySelector('.container_articles');
+                container_articles.innerHTML = ''; // Limpia los artículos actuales
+                pintarArticulos(data.articulos); // Pinta los artículos
+            }
         })
-    }
-
-})
-
+        .catch(error => {
+            console.error('Error:', error);
+        });
+}
 function pintarArticulos(articulos) {
     // Primero seleccionamos el container de los articulos
     const container_articles = document.querySelector('.container_articles');

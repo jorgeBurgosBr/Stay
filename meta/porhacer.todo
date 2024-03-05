@@ -1,67 +1,16 @@
 Proyecto en general:
-    ☐ - Definir como vamos a manejar los distintos flujos (paciente, paciente -sin citas-, psicólogo, -psicólogo sin citas-)
-    ☐ - Realizar memoria
-    ✔ - Cambiar creaBBDD para que utilice consultas preparadas y probar a añadir nueva tabla NOTAS_PACIENTE con datos @done (2/28/2024, 12:05:51 PM)
-    ☐ - Poner la decoración del background que está en figma
-    ☐ - Hacer las páginas vacías donde corresponda
-    ☐ - Añadir breadcrumbs? o al menos asegurarse de que todo tiene botón o icono de volver atrás si corresponde.
+    ✔ - Iniciar videollamada PSICÓLOGOS @done (3/5/2024, 9:26:18 AM)
+    ☐ - Mis artículos y crear y editar artículos psicologos
+    ☐ - Mis sesiones vacío
+    ☐ - Cambiar estructura de carpetas
+    ☐ - Comprobar que todos los links son adecuados
+    ☐ - Comprobar que todos los .current_page del navbar son adecuados
     ☐ - Comprobar que todo esté correctamente comentado
+    ☐ - Añadir el footer a todas las páginas
+    ☐ - Poner la decoración del background que está en figma
+    ☐ - Añadir breadcrumbs? o al menos asegurarse de que todo tiene bot    ón o icono de volver atrás si corresponde.
     ☐ - Que todos los procesa.php tengan preparación de sentencias
     ☐ - Poner alt a todas las fotos
     ☐ - Retocar bbdd para hacer pruebas con varios pacientes
-    
-Navbar:
-    ✔ - Poner transiciones a los colores de hover @done (2/28/2024, 12:35:13 PM)
-    ☐ - Comprobar que todos los links son adecuados
-PACIENTE:
-    Mis sesiones:
-        ✔ - Hacer que salgan también las videollamadas en el próximo mes y el anterior que es visible en el calendario @done (2/25/2024, 4:28:24 PM)
-        ✔ - Al clicar en la etiqueta de la videollamada entre a la página de videollamadas @done (2/25/2024, 5:02:39 PM)
-        ✔ - Colocar lista a la izda con próxmias citas y que al clicar en ellas también se redirija a la videollamada @done (2/25/2024, 6:18:44 PM)
-        ✔ - Poner logo chat y al clicar redirigir a chat @done (2/25/2024, 6:39:03 PM)
-        ✔ - Indicar mes y año arriba del calendario @done (2/26/2024, 6:23:33 PM)
-        ✔ - Terminar css @done (2/27/2024, 1:19:30 PM)
-        ✔ - Cambiar a que las próximas sesiones se muestren desde el día actual @done (2/28/2024, 12:35:22 PM)
-        ✔ - Hacer las versiones para tablet y movil (responsive) @done (2/28/2024, 12:07:57 PM)
-        ☐ - Mis sesiones vacío
-	Videollamada:
-        ✔ - Diseñar layout página @done (2/29/2024, 10:21:30 AM)
-        ✔ - Codear layout página @done (3/1/2024, 11:07:26 AM)
-        ✔ - Agregar animaciones @done (3/1/2024, 5:05:06 PM)
-        ✔ - Pensar y aplicar lógica de cómo acceder a la página @done (3/1/2024, 5:05:10 PM)
-
-        
-    Registro sesiones:
-	    Ver sesión pregrabada:
-    Artículos:
-        ✔ - Diseñar layout @done (3/2/2024, 6:17:54 PM)
-        ✔ - Hacer responsive @done (3/2/2024, 6:17:55 PM)
-        ✔ - Generar dinamicamente las tarjetas @done (3/2/2024, 6:17:57 PM)
-        ✔ - Agregar funcionalidad search bar @done (3/2/2024, 6:17:59 PM)
-
-	    Entrada artículo:
-            ✔ - Diseñar layout @done (3/2/2024, 8:37:06 PM)
-            ✔ - Hacer responsive @done (3/2/2024, 8:37:08 PM)
-            ✔ - Dar estilo @done (3/2/2024, 8:37:09 PM)
-            ✔ - Colocar los eventos que lleven a las entradas de los artículos en articulos.php @done (3/3/2024, 10:05:22 AM)
-
-JD:
-
---PACIENTES--
-
-✔ -Mis sesiones @done (3/1/2024, 5:03:07 PM)
-✔ -Videollamada @done (3/1/2024, 5:03:10 PM)
-✔ -Acceder videollamada? @done (3/1/2024, 5:03:18 PM)
-✔ -Articulos @done (3/2/2024, 6:18:03 PM)
-✔ -Entrada artículos? @done (3/3/2024, 10:05:20 AM)
-            
---PSICÓLOGOS--
-            
-☐ - Calendario (= pero cambiando lógica) (añdir funcionalidad de agendar y cancelar sesiones)
-    - Comprobar si se puede traspolar la página php de sesiones paciente a la página php de sesiones psicologo
-☐ - Videollamada
-☐ - Iniciar videollamada?
-☐ - Artículos
-☐ - Entrada artículo?
-☐ - Mis artículos
-☐ - Crear/editar artículo?
+    ☐ - Preparar presentación
+    ☐ - Que cuando un paciente seleccione un psicólogo se muestre en mis pacientes

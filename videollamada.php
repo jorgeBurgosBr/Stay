@@ -7,10 +7,10 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.1.0/remixicon.css">
+    <link rel="stylesheet" href="./css/videollamada_paciente.css">
     <link rel="stylesheet" href="http://localhost/stay/css/style_nav_footer.css">
-    <link rel="stylesheet" href="http://localhost/stay/css/articulos.css">
-    <title>Artículos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.1.0/remixicon.css">
+    <title>Document</title>
 </head>
 
 <body>
@@ -44,26 +44,21 @@ session_start();
             </nav>
         </div>
     </header>
-    <!-- ARTÍCULOS -->
-    <div class="container_body_articles">
-        <div class="container_search_bar">
-            <div class="container_search_icon">
-                <div class="material-symbols-outlined" id="search_icon">search</div>
-            </div>
-            <div class="search_bar">
-                <input type="text" name="" id="input_search">
-            </div>
+    <!-- VIDEOLLAMADA -->
+    <div class="container_videollamada">
+        <div class="camera_section">
         </div>
-        <?php
-        if ($_SESSION['tipo_usuario'] == 'psicologo') {
-            echo "<div id='icono_mis_articulos'>Mis artículos</div>";
-        }
-
-        ?>
-        <div class="container_articles">
+        <div class="control_panel">
+            <div class="material-symbols-outlined mic switch">mic</div>
+            <div class="material-symbols-outlined camera switch">videocam</div>
+            <div class="material-symbols-outlined call switch">call</div>
+            <div class="material-symbols-outlined settings switch">settings</div>
+            <div class="material-symbols-outlined fullscreen switch">fullscreen</div>
+        </div>
+        <div class="camera_section">
         </div>
     </div>
-    <script src="http://localhost/stay/js/articulos.js"></script>
+    <script src="./js/videollamada.js"></script>
     <script src="http://localhost/stay/js/script_flujo.js"></script>
     <script src="http://localhost/stay/js/script_hamburguer.js"></script>
 </body>
