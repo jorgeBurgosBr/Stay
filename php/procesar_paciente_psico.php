@@ -60,6 +60,7 @@ if ($bd->conectar()) {
                   $genero_modificado = 'desconocido';
                }
                $fila = [
+                  'id' => $row['id_paciente'],
                   'nombre' => $row['nombre_paciente'],
                   'apellidos' => $row['apellidos_paciente'],
                   'edad' =>  $edad,

@@ -64,6 +64,12 @@ function dibujarTarjeta() {
                         tarjetaDiv.appendChild(contenidoEncabezadoDiv);
                         tarjetaDiv.appendChild(textoDiv);
 
+                        // Agregar el evento de clic a la tarjeta
+                        tarjetaDiv.addEventListener('click', function() {
+                            // Redirigir a otra página al hacer clic en la tarjeta
+                            window.location.href = 'editar_bio.php?id=' + fila.id; // Cambia 'otra_pagina.php' por la ruta de tu página de destino
+                        });
+
                         // Agregar la tarjeta al contenedor de tarjetas
                         const contenedorTarjetas = document.querySelector('.contenedor-tarjetas');
                         contenedorTarjetas.appendChild(tarjetaDiv);
