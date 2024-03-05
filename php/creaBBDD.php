@@ -75,7 +75,7 @@ function crearBD()
                     expectativasypreocupaciones_paciente TEXT,
                     foto_paciente VARCHAR(255),
                     PRIMARY KEY (id_paciente),
-                    FOREIGN KEY (id_paciente) REFERENCES PACIENTE(id_paciente)
+                    FOREIGN KEY (id_paciente) REFERENCES PACIENTE(id_paciente) ON DELETE CASCADE
                 );",
                 "CREATE TABLE PERFIL_PSICOLOGO (
                     id_psicologo INT,
@@ -90,7 +90,7 @@ function crearBD()
                     hobbies_psicologo TEXT,
                     foto_psicologo VARCHAR(255),
                     PRIMARY KEY (id_psicologo),
-                    FOREIGN KEY (id_psicologo) REFERENCES PSICOLOGO(id_psicologo)
+                    FOREIGN KEY (id_psicologo) REFERENCES PSICOLOGO(id_psicologo) ON DELETE CASCADE
                 );",
                 "CREATE TABLE CITA (
                     id_cita INT AUTO_INCREMENT,
@@ -99,8 +99,8 @@ function crearBD()
                     fecha_cita DATE NOT NULL,
                     hora_cita TIME NOT NULL,
                     PRIMARY KEY (id_cita),
-                    FOREIGN KEY (id_paciente) REFERENCES PACIENTE(id_paciente),
-                    FOREIGN KEY (id_psicologo) REFERENCES PSICOLOGO(id_psicologo)
+                    FOREIGN KEY (id_paciente) REFERENCES PACIENTE(id_paciente) ON DELETE CASCADE,
+                    FOREIGN KEY (id_psicologo) REFERENCES PSICOLOGO(id_psicologo) ON DELETE CASCADE
                 );",
                 "CREATE TABLE PACIENTE_PSICOLOGO (
                     id_paciente INT,
@@ -116,14 +116,14 @@ function crearBD()
                     id_psicologo INT NOT NULL,
                     enlace_videollamada VARCHAR(255) NOT NULL,
                     PRIMARY KEY (id_videollamada),
-                    FOREIGN KEY (id_paciente) REFERENCES PACIENTE(id_paciente),
-                    FOREIGN KEY (id_psicologo) REFERENCES PSICOLOGO(id_psicologo)
+                    FOREIGN KEY (id_paciente) REFERENCES PACIENTE(id_paciente) ON DELETE CASCADE,
+                    FOREIGN KEY (id_psicologo) REFERENCES PSICOLOGO(id_psicologo) ON DELETE CASCADE
                 );",
                 "CREATE TABLE REGISTRO_CITA (
                     id_cita INT,
                     grabacion_cita VARCHAR(255),
                     PRIMARY KEY (id_cita),
-                    FOREIGN KEY (id_cita) REFERENCES CITA(id_cita)
+                    FOREIGN KEY (id_cita) REFERENCES CITA(id_cita) ON DELETE CASCADE
                 );",
                 "CREATE TABLE ARTICULO (
                     id_articulo INT AUTO_INCREMENT,
@@ -139,7 +139,7 @@ function crearBD()
                     contenido_articulo TEXT NOT NULL,
                     multimedia_articulo VARCHAR(255),
                     PRIMARY KEY (id_articulo),
-                    FOREIGN KEY (id_articulo) REFERENCES ARTICULO(id_articulo)
+                    FOREIGN KEY (id_articulo) REFERENCES ARTICULO(id_articulo) ON DELETE CASCADE
                 );",
                 "CREATE TABLE TALLER (
                     id_taller INT AUTO_INCREMENT,

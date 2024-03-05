@@ -1,20 +1,53 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+    cargarOpcionesEliminar();
     const iconoEliminar = document.getElementById('icono_eliminar');
     iconoEliminar.addEventListener('click', function () {
         if (validarFormEliminar()) {
             console.log('Selección válida, procediendo con la acción de eliminar...');
             eliminarSesion();
-            // Recargamos las opciones de anadir para que no aparezca la cita;
-            cargarOpcionesEliminar();
 
         } else {
             console.log('Validación fallida, por favor, selecciona una sesión.');
         }
     });
-    cargarOpcionesEliminar();
+
+    const iconoAnadir = document.getElementById('icono_anadir');
+    iconoAnadir.addEventListener('click', function () {
+        if (validarFormAnadir()) {
+            console.log('Formulario válido, procediendo con la acción de añadir...');
+            anadirArticulo();
+            console.log('debería llegar aqúi');
+
+        } else {
+            console.log('Validación fallida, revisa los errores.');
+        }
+    });
 });
 
+function validarFormAnadir() {
+    document.getElementById('errorPaciente').classList.remove('error');
+    document.getElementById('errorPaciente').textContent = '';
+
+    let flag = false;
+    const input = document.getElementById('input_archivo');
+    const archivo = input.files[0];
+    if (archivo) {
+        const nombreArchivo = archivo.name;
+        const extensionArchivo = nombreArchivo.slice(((nombreArchivo.lastIndexOf(".") - 1) >>> 0) + 2).toLowerCase();
+        // Verifica si la extensión es PHP
+        if (extensionArchivo == "php") {
+            flag = true;
+        } else {
+            document.getElementById('errorPaciente').textContent = 'Por favor, selecciona un archivo php.';
+            document.getElementById('errorPaciente').classList.add('error');
+        }
+    } else {
+        document.getElementById('errorPaciente').textContent = 'Por favor, selecciona un archivo.';
+        document.getElementById('errorPaciente').classList.add('error');
+    }
+    return flag;
+}
 
 
 function validarFormEliminar() {
@@ -33,6 +66,7 @@ function validarFormEliminar() {
 
 
 function cargarOpcionesEliminar() {
+    console.log('hola');
     const selectEliminar = document.querySelector('#select_sesiones');
     fetch(`http://localhost/stay/php/procesar_edicion_articulos.php?select=articulos`)
         .then(response => response.json())
@@ -86,4 +120,25 @@ function eliminarSesion() {
             }
         })
         .catch(error => console.error('Error:', error));
+    cargarOpcionesEliminar();
+}
+
+function anadirArticulo() {
+    let archivo = document.getElementById('input_archivo').files[0];
+    const formData = new FormData();
+    formData.append('accion', 'anadir');
+    formData.append('archivo', archivo);
+    fetch('http://localhost/stay/php/procesar_edicion_articulos.php', {
+        method: 'POST',
+        body: formData
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+
+    cargarOpcionesEliminar();
 }

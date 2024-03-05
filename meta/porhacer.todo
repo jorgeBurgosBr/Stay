@@ -1,14 +1,12 @@
 Proyecto en general:
     ✔ - Iniciar videollamada PSICÓLOGOS @done (3/5/2024, 9:26:18 AM)
-    ☐ - Mis artículos y crear y editar artículos psicologos
-    ☐ - Mis sesiones vacío
-    ☐ - Cambiar estructura de carpetas
+    ✔ - Mis artículos y crear y editar artículos psicologos @done (3/5/2024, 5:45:50 PM)
+    ✔ - Mis sesiones vacío @done (3/5/2024, 6:49:42 PM)
     ☐ - Comprobar que todos los links son adecuados
     ☐ - Comprobar que todos los .current_page del navbar son adecuados
     ☐ - Comprobar que todo esté correctamente comentado
     ☐ - Añadir el footer a todas las páginas
-    ☐ - Poner la decoración del background que está en figma
-    ☐ - Añadir breadcrumbs? o al menos asegurarse de que todo tiene bot    ón o icono de volver atrás si corresponde.
+    ☐ - Añadir breadcrumbs? o al menos asegurarse de que todo tiene botón o icono de volver atrás si corresponde.
     ☐ - Que todos los procesa.php tengan preparación de sentencias
     ☐ - Poner alt a todas las fotos
     ☐ - Retocar bbdd para hacer pruebas con varios pacientes

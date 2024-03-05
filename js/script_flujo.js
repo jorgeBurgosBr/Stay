@@ -37,7 +37,12 @@ function redirigir(a_clicado) {
                         }
                         break;
                     case 'sesiones_nav':
-                        window.location.href = 'http://localhost/stay/sesiones.php';
+                        if (data.tipo_usuario == 'paciente') {
+                            let url = (data.vacio) ? 'http://localhost/stay/sesiones_vacio.php' : 'http://localhost/stay/sesiones.php';
+                            window.location.href = `${url}`;
+                        } else {
+                            window.location.href = 'http://localhost/stay/sesiones.php';
+                        }
                         break;
                     case 'psicologo_paciente_nav':
                         if (data.tipo_usuario == 'paciente') {
