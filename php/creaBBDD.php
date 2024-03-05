@@ -75,7 +75,7 @@ function crearBD()
                     expectativasypreocupaciones_paciente TEXT,
                     foto_paciente VARCHAR(255),
                     PRIMARY KEY (id_paciente),
-                    FOREIGN KEY (id_paciente) REFERENCES PACIENTE(id_paciente)
+                    FOREIGN KEY (id_paciente) REFERENCES PACIENTE(id_paciente) ON DELETE CASCADE
                 );",
                 "CREATE TABLE PERFIL_PSICOLOGO (
                     id_psicologo INT,
@@ -90,7 +90,7 @@ function crearBD()
                     hobbies_psicologo TEXT,
                     foto_psicologo VARCHAR(255),
                     PRIMARY KEY (id_psicologo),
-                    FOREIGN KEY (id_psicologo) REFERENCES PSICOLOGO(id_psicologo)
+                    FOREIGN KEY (id_psicologo) REFERENCES PSICOLOGO(id_psicologo) ON DELETE CASCADE
                 );",
                 "CREATE TABLE CITA (
                     id_cita INT AUTO_INCREMENT,
@@ -99,8 +99,8 @@ function crearBD()
                     fecha_cita DATE NOT NULL,
                     hora_cita TIME NOT NULL,
                     PRIMARY KEY (id_cita),
-                    FOREIGN KEY (id_paciente) REFERENCES PACIENTE(id_paciente),
-                    FOREIGN KEY (id_psicologo) REFERENCES PSICOLOGO(id_psicologo)
+                    FOREIGN KEY (id_paciente) REFERENCES PACIENTE(id_paciente) ON DELETE CASCADE,
+                    FOREIGN KEY (id_psicologo) REFERENCES PSICOLOGO(id_psicologo) ON DELETE CASCADE
                 );",
                 "CREATE TABLE PACIENTE_PSICOLOGO (
                     id_paciente INT,
@@ -116,14 +116,14 @@ function crearBD()
                     id_psicologo INT NOT NULL,
                     enlace_videollamada VARCHAR(255) NOT NULL,
                     PRIMARY KEY (id_videollamada),
-                    FOREIGN KEY (id_paciente) REFERENCES PACIENTE(id_paciente),
-                    FOREIGN KEY (id_psicologo) REFERENCES PSICOLOGO(id_psicologo)
+                    FOREIGN KEY (id_paciente) REFERENCES PACIENTE(id_paciente) ON DELETE CASCADE,
+                    FOREIGN KEY (id_psicologo) REFERENCES PSICOLOGO(id_psicologo) ON DELETE CASCADE
                 );",
                 "CREATE TABLE REGISTRO_CITA (
                     id_cita INT,
                     grabacion_cita VARCHAR(255),
                     PRIMARY KEY (id_cita),
-                    FOREIGN KEY (id_cita) REFERENCES CITA(id_cita)
+                    FOREIGN KEY (id_cita) REFERENCES CITA(id_cita) ON DELETE CASCADE
                 );",
                 "CREATE TABLE ARTICULO (
                     id_articulo INT AUTO_INCREMENT,
@@ -139,7 +139,7 @@ function crearBD()
                     contenido_articulo TEXT NOT NULL,
                     multimedia_articulo VARCHAR(255),
                     PRIMARY KEY (id_articulo),
-                    FOREIGN KEY (id_articulo) REFERENCES ARTICULO(id_articulo)
+                    FOREIGN KEY (id_articulo) REFERENCES ARTICULO(id_articulo) ON DELETE CASCADE
                 );",
                 "CREATE TABLE TALLER (
                     id_taller INT AUTO_INCREMENT,
@@ -218,11 +218,11 @@ function crearBD()
                 ('whiteemily@gmail.com', '\$2b\$12\$A2UdSaCWGFYIrHo7J.HQfOt0UteETwKzONeYVLcze1ZI3WN5aVRPW', 'psicologo', 5);",
                 "INSERT INTO PERFIL_PACIENTE (id_paciente, fecha_nac_paciente, sexo_paciente, pareja_sino_paciente, hijos_paciente, trabajo_paciente, estudios_paciente, hobbies_paciente, expectativasypreocupaciones_paciente, foto_paciente)
                 VALUES 
-                (1, '1980-04-23', 'masculino', TRUE, 1, 'Ingeniero', 'Grado en Ingeniería', 'Leer, Escalar', 'Espero mejorar mi gestión del estrés', './img/paciente/john_paciente.png'),
-                (2, '1985-05-16', 'femenino', FALSE, 0, 'Doctora', 'Doctorado en Medicina', 'Yoga, Pintar', 'Quiero aprender a equilibrar trabajo y vida personal', './img/paciente/jane_paciente.png'),
-                (3, '1990-07-08', 'masculino', TRUE, 3, 'Abogado', 'Licenciatura en Derecho', 'Correr, Viajar', 'Necesito ayuda para lidiar con la ansiedad', './img/paciente/jim_paciente.png'),
-                (4, '1995-08-19', 'masculino', FALSE, 2, 'Artista', 'Diplomado en Bellas Artes', 'Música, Poesía', 'Busco formas de potenciar mi creatividad', './img/paciente/jack_paciente.png'),
-                (5, '2000-12-12', 'femenino', TRUE, 0, 'Emprendedora', 'MBA', 'Cocinar, Blogging', 'Deseo mejorar mis habilidades de comunicación', './img/paciente/josie_paciente.png');",
+                (1, '1980-04-23', 'masculino', TRUE, 1, 'Ingeniero', 'Grado en Ingeniería', 'Leer, Escalar', 'Espero mejorar mi gestión del estrés', 'http://localhost/stay/img/paciente/john_paciente.png'),
+                (2, '1985-05-16', 'femenino', FALSE, 0, 'Doctora', 'Doctorado en Medicina', 'Yoga, Pintar', 'Quiero aprender a equilibrar trabajo y vida personal', 'http://localhost/stay/img/paciente/jane_paciente.png'),
+                (3, '1990-07-08', 'masculino', TRUE, 3, 'Abogado', 'Licenciatura en Derecho', 'Correr, Viajar', 'Necesito ayuda para lidiar con la ansiedad', 'http://localhost/stay/img/paciente/jim_paciente.png'),
+                (4, '1995-08-19', 'masculino', FALSE, 2, 'Artista', 'Diplomado en Bellas Artes', 'Música, Poesía', 'Busco formas de potenciar mi creatividad', 'http://localhost/stay/img/paciente/jack_paciente.png'),
+                (5, '2000-12-12', 'femenino', TRUE, 0, 'Emprendedora', 'MBA', 'Cocinar, Blogging', 'Deseo mejorar mis habilidades de comunicación', 'http://localhost/stay/img/paciente/josie_paciente.png');",
                 "INSERT INTO PERFIL_PSICOLOGO (id_psicologo, fecha_nac_psicologo, sexo_psicologo, pareja_sino_psicologo, hijos_psicologo, especialidad_psicologo, experiencia_psicologo, estudios_psicologo, hobbies_psicologo, foto_psicologo, sobre_mi)
                 VALUES 
                 (1, '1996-03-15', 'femenino', TRUE, 1, 'Niños y adolescentes', 5, 'Máster en Terapia Cognitivo-Conductual con niños y adolescentes', 'Jardinería, Meditación', './img/psicologo/alba-psicologa.png', 'Mi objetivo es crear un entorno seguro y acogedor para los niños, utilizando métodos terapéuticos que promuevan el desarrollo emocional y cognitivo.'),
@@ -267,8 +267,8 @@ function crearBD()
                 "INSERT INTO ARTICULO (id_psicologo, titulo_articulo, descripcion_articulo, imagen_articulo)
                 VALUES 
                 (1, 'La importancia del mindfulness', 'Explora cómo el mindfulness mejora tu bienestar y productividad. Aprende técnicas prácticas para una vida más serena y consciente. ¡Inicia tu viaje hacia el equilibrio!', './img/articulos/articulo_1.png'),
-                (2, 'Gestión del estrés en el trabajo', 'Descubre cómo gestionar el estrés laboral y mejora tu bienestar. Estrategias eficaces para un equilibrio entre trabajo y descanso.', './img/articulos/articulo_2.png'),
-                (3, 'Relaciones saludables', 'Aprende a fortalecer tus relaciones con comunicación, respeto y empatía. Mejora tus conexiones para vínculos más profundos.', './img/articulos/articulo_3.png'),
+                (1, 'Gestión del estrés en el trabajo', 'Descubre cómo gestionar el estrés laboral y mejora tu bienestar. Estrategias eficaces para un equilibrio entre trabajo y descanso.', './img/articulos/articulo_2.png'),
+                (1, 'Relaciones saludables', 'Aprende a fortalecer tus relaciones con comunicación, respeto y empatía. Mejora tus conexiones para vínculos más profundos.', './img/articulos/articulo_3.png'),
                 (4, 'El poder del pensamiento positivo', 'Descubre cómo el pensamiento positivo puede moldear tu realidad, abriendo puertas a nuevas oportunidades. Cultiva una mente optimista y resiliente para un crecimiento personal y éxito duraderos.', './img/articulos/articulo_4.png'),
                 (5, 'Desarrollo personal a través de la psicología', 'Explora la psicología del desarrollo personal con herramientas para superar obstáculos y maximizar tu potencial.', './img/articulos/articulo_5.png');",
                 "INSERT INTO ENTRADA_ARTICULO (id_articulo, contenido_articulo, multimedia_articulo)

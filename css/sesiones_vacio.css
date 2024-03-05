@@ -1,0 +1,47 @@
+.container_sesiones_vacio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2vh;
+  height: 90vh;
+  /* background: url("http://localhost/stay/svg/background_sesiones.svg") no-repeat
+    center / cover; */
+}
+.imagen_vacio {
+  width: 100%;
+  height: 35vh;
+  background: url(http://localhost/stay/img/sesiones_vacio.svg) no-repeat center /
+    cover;
+}
+.div {
+  width: 30%;
+  height: fit-content;
+}
+.texto_vacio {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5vh;
+}
+
+#agendar_cita {
+  background-color: var(--ppal_shadow);
+  padding: 5px;
+  border-radius: 4px;
+  font-family: var(--texto);
+  transition: box-shadow 0.3s ease; /* Transición suave para transform y box-shadow */
+  box-shadow: 0 0 0px rgba(0, 0, 0, 0); /* Inicialmente sin sombra visible */
+}
+#agendar_cita:hover {
+  box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.3); /* Aplica una sombra para dar la impresión de elevación */
+  cursor: pointer;
+}
+#agendar_cita a {
+  text-decoration: none;
+  color: black;
+}
+#titulo_vacio {
+  font-family: var(--tituloM);
+  color: var(--contraste);
+}
