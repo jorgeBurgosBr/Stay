@@ -29,11 +29,11 @@ require_once 'php/creaBBDD.php'; //Incluir el fichero que se encarga de crear la
           <img src="img/logo.png" alt="Logo" id="logo-menu"/>
           <li><a href="#">Nosotros</a></li>
           <hr id="separacion">
-          <li><a href="#">Psicólogos</a></li>
+          <li><a href="#" class="scroll-link" data-target="psico-section">Psicólogos</a></li>
           <hr id="separacion">
-          <li><a href="#">Testimonios</a></li>
+          <li><a href="#" class="scroll-link" data-target="testimonios-section">Testimonios</a></li>
           <hr id="separacion">
-          <li><a href="#">Contáctanos</a></li>
+          <li><a href="#" class="scroll-link" data-target="contactanos-section">Contáctanos</a></li>
           <hr id="separacion">
           <li><button id="log-bttn">Iniciar sesión</button></li>
           <li><button id="signup-bttn">Regístrate</button></li>
@@ -57,7 +57,7 @@ require_once 'php/creaBBDD.php'; //Incluir el fichero que se encarga de crear la
     </div>
   </section>
   <section>
-    <div class="psico-tittle">
+    <div class="psico-tittle" id="psico-section">
       <h1>Psicólogos en nuestro equipo</h1>
     </div>
     <div class="container-psicologos">
@@ -116,7 +116,7 @@ require_once 'php/creaBBDD.php'; //Incluir el fichero que se encarga de crear la
   </section>
 
   <!-- RESEÑAS -->
-  <div class="psico-tittle">
+  <div class="psico-tittle" id="testimonios-section">
     <h1>Testimonios de usuarios</h1>
   </div>
  <section class="container">
@@ -233,7 +233,7 @@ require_once 'php/creaBBDD.php'; //Incluir el fichero que se encarga de crear la
   </section>
 
   <div class="contact-container">
-    <div class="contact-info">
+    <div class="contact-info" id="contactanos-section">
       <h2>Contáctanos si necesitas más ayuda.</h2>
       <p id="contact-text">
         Para nosotros, tu bienestar es lo más importante. Si necesitas más
