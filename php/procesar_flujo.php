@@ -37,6 +37,18 @@ if ($bd->conectar()) {
                     if ($row['count_citas'] == 0) {
                         $respuesta['vacio'] = true;
                     }
+                } else {
+                    // Verificar si el psicólogo tiene citas
+                    $sql = "SELECT COUNT(*) as count_citas FROM cita WHERE id_psicologo = ?";
+                    $stmt = mysqli_prepare($conn, $sql);
+                    mysqli_stmt_bind_param($stmt, "s", $id_usuario);
+                    mysqli_stmt_execute($stmt);
+                    $result = mysqli_stmt_get_result($stmt);
+                    $row = mysqli_fetch_assoc($result);
+
+                    if ($row['count_citas'] == 0) {
+                        $respuesta['vacio'] = true;
+                    }
                 }
                 break;
             case 'psicologo_paciente_nav':

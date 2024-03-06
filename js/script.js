@@ -120,7 +120,13 @@ function procesarFormLogin(formulario) {
          if (!data.success) {
             mostrarErrorLogin(true, data.error);
          } else {
-            window.location.href = "sesiones.php";
+            console.log(data);
+            if (data.vacio) {
+               window.location.href = `${data.url}`;
+            } else {
+
+               window.location.href = "http://localhost/stay/sesiones.php";
+            }
          }
       }).catch(error => console.error('Fetch error: ', error));
 }
@@ -353,22 +359,22 @@ document.querySelector(".bttn-titulo").addEventListener("click", function () {
 var buttons = document.querySelectorAll(".card-btn");
 
 // Agrega el evento a cada botón
-buttons.forEach(function(button) {
-  button.addEventListener("click", function () {
-    // Agrega la clase "active" a la popup de signup
-    document.querySelector(".popup-signup").classList.add("active");
+buttons.forEach(function (button) {
+   button.addEventListener("click", function () {
+      // Agrega la clase "active" a la popup de signup
+      document.querySelector(".popup-signup").classList.add("active");
 
-    // Remueve la clase "active" de la popup de login
-    document.querySelector(".popup-login").classList.remove("active");
+      // Remueve la clase "active" de la popup de login
+      document.querySelector(".popup-login").classList.remove("active");
 
-    document.querySelector("nav ul").classList.remove('show');
+      document.querySelector("nav ul").classList.remove('show');
 
-    // Desplázate hacia la parte superior de la página
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-  });
+      // Desplázate hacia la parte superior de la página
+      window.scrollTo({
+         top: 0,
+         behavior: "smooth"
+      });
+   });
 });
 
 
@@ -384,20 +390,20 @@ document.addEventListener('DOMContentLoaded', function () {
    var scrollLinks = document.querySelectorAll(".scroll-link");
 
    // Agrega un evento de clic a cada enlace
-   scrollLinks.forEach(function(link) {
-     link.addEventListener("click", function(e) {
-       e.preventDefault();
+   scrollLinks.forEach(function (link) {
+      link.addEventListener("click", function (e) {
+         e.preventDefault();
 
-       // Obtén el ID del objetivo desde el atributo 'data-target'
-       var targetId = this.getAttribute("data-target");
+         // Obtén el ID del objetivo desde el atributo 'data-target'
+         var targetId = this.getAttribute("data-target");
 
-       // Encuentra el elemento con el ID correspondiente
-       var targetElement = document.getElementById(targetId);
+         // Encuentra el elemento con el ID correspondiente
+         var targetElement = document.getElementById(targetId);
 
-       targetElement.scrollIntoView({
-         behavior: "smooth"
-       });
-     });
+         targetElement.scrollIntoView({
+            behavior: "smooth"
+         });
+      });
    });
 });
 
