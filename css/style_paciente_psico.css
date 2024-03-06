@@ -85,12 +85,14 @@ body {
 }
 .contenedor-tarjetas {
   display: flex;
-  padding: 20px 28px;
-  align-items: flex-start;
+  /* padding: 20px 28px; */
+  justify-content: center;
+  align-items: center;
   align-content: center;
   gap: 32px 46px;
   flex-wrap: wrap;
-  height: 80vh;
+  max-width: 1400px;
+  margin: 100px auto;
 }
 .tarjeta {
   display: flex;

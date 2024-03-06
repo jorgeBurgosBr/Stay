@@ -46,9 +46,13 @@ session_start();
   </header>
   <!-- CONTENIDO -->
   <div class="contenedor">
-    <div class="buscador">
-      <button><i class="fas fa-search"></i></button>
-      <input type="text" placeholder="Introduce el nombre de un taller para buscar..." />
+    <div class="container_search_bar">
+      <div class="container_search_icon">
+        <div class="material-symbols-outlined" id="search_icon">search</div>
+      </div>
+      <div class="search_bar">
+        <input type="text" name="" id="input_search">
+      </div>
     </div>
     <div class="talleres">
       <!-- TARJETA1 -->

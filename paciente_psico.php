@@ -58,9 +58,7 @@ session_start();
       </div>
     </div> -->
   <!-- CON PACIENTES -->
-  <div class="contenedor-con_pacientes">
-    <div class="contenedor-tarjetas"></div>
-  </div>
+  <div class="contenedor-tarjetas"></div>
 
   <div class="contenedor-boton">
     <button class="button_chat"><a href="users.php">Chat</a></button>

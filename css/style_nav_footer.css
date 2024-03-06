@@ -198,7 +198,10 @@ footer {
 .footer-column ul li {
   margin-bottom: 0.2rem;
 }
-
+.footer-column a {
+  text-decoration: none;
+  color: inherit;
+}
 /* Social media styles */
 .social-media {
   display: flex;
