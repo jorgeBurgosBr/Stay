@@ -49,7 +49,7 @@ function redirigir(a_clicado) {
                             let url = (data.vacio) ? 'http://localhost/stay/elegir_psicologo.php' : 'http://localhost/stay/psicologo_usuario.php';
                             window.location.href = `${url}`;
                         } else {
-                            let url = (data.vacio) ? 'http://localhost/stay/paciente_psico.php' : 'http://localhost/stay/paciente_psico.php';
+                            let url = (data.vacio) ? 'http://localhost/stay/paciente_psico_vacio.php' : 'http://localhost/stay/paciente_psico.php';
                             window.location.href = `${url}`;
                         }
                         break;

@@ -42,6 +42,7 @@
 body {
   background-color: var(--body);
 }
+
 .contenedor {
   display: flex;
   justify-content: center;
@@ -52,38 +53,37 @@ body {
   width: 90%;
 }
 /* BUSCADOR */
-.buscador {
-  margin: 40px 0;
+.container_search_bar {
+  border: 1px solid black;
+  width: 40%;
+  height: 4vh;
   display: flex;
-  /* position: relative; */
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 40px 0;
+}
+.container_search_icon {
+  /* border: 3px solid green; */
+  width: 8%;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
+  border-right: 1px solid black;
+  background-color: var(--ppal_shadow);
 }
-.buscador input {
-  height: 42px;
-  width: 500px;
-  border: 1px solid #ccc;
-  padding: 0 13px;
-  font-size: 16px;
-  border-radius: 0 13px 13px 0;
-  border-color: var(--ppal);
+
+.search_bar {
+  /* border: 3px solid green; */
+  width: 92%;
+}
+#input_search {
+  width: 100%;
+  height: 100%;
   outline: none;
-  pointer-events: auto;
-}
-.buscador button {
-  width: 42px;
-  height: 42px;
+  padding-left: 5px;
   border: none;
-  outline: none;
-  color: #000;
-  background: var(--ppal);
-  cursor: pointer;
-  font-size: 17px;
-  border-radius: 13px 0 0 13px;
-  transition: all 0.2s ease;
-}
-.buscador button i {
-  font-size: 24px; /* Tamaño deseado para el icono */
+  font-family: var(--texto);
+  font-size: 1em;
 }
 
 /* TARJETAS */
@@ -151,5 +151,27 @@ body {
 @media (min-width: 426px) and (max-width: 768px) {
   .buscador input {
     width: 390px;
+  }
+}
+
+@media (max-width: 1025px) and (min-width: 769px) {
+  .container_search_bar {
+    width: 50%;
+  }
+}
+@media (max-width: 769px) and (min-width: 426px) {
+  .container_search_bar {
+    width: 80%;
+  }
+}
+@media (max-width: 426px) and (min-width: 50px) {
+  .container_search_bar {
+    width: 80%;
+  }
+  .container_search_icon {
+    width: 10%;
+  }
+  .search_bar {
+    width: 90%;
   }
 }

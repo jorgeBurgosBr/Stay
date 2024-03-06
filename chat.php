@@ -79,7 +79,7 @@ $bd->seleccionarContexto('stay');
         <form action="#" class="typing-area">
           <input type="text" name="outgoing_id" value="<?php echo $id_psicologo; ?>" hidden>
           <input type="text" name="incoming_id" value="<?php echo $id_paciente; ?>" hidden>
-          <input type="text" name="message" class="input-field" placeholder="Type a message here..." />
+          <input type="text" name="message" class="input-field" placeholder="Escribe un mensaje aquí..." />
           <button><i class="fa-regular fa-paper-plane"></i></button>
         </form>
       </section>
@@ -88,7 +88,7 @@ $bd->seleccionarContexto('stay');
     <script src="http://localhost/stay/js/script_flujo.js"></script>
     <script src="http://localhost/stay/js/script_hamburguer.js"></script>
   </div>
-  
+
 </body>
 
 </html>

@@ -13,36 +13,37 @@ if (isset($_GET['termino'])) {
 
    // Realizar la búsqueda en la base de datos
    $sql = "SELECT
-U.tipo_usuario,
-CASE
-WHEN U.tipo_usuario = 'paciente' THEN PP.foto_paciente
-WHEN U.tipo_usuario = 'psicologo' THEN PPS.foto_psicologo
-END AS foto,
-CASE
-WHEN U.tipo_usuario = 'paciente' THEN P.nombre_paciente
-WHEN U.tipo_usuario = 'psicologo' THEN PS.nombre_psicologo
-END AS nombre,
-CASE
-WHEN U.tipo_usuario = 'paciente' THEN P.apellidos_paciente
-WHEN U.tipo_usuario = 'psicologo' THEN PS.apellidos_psicologo
-END AS apellidos,
-F.titulo,
-F.foto_contenido,
-F.texto_contenido
-FROM
-FORO F
-JOIN
-USUARIO U ON F.id_publicante = U.id_usuario
-LEFT JOIN
-PACIENTE P ON U.tipo_usuario = 'paciente' AND U.id_original = P.id_paciente
-LEFT JOIN
-PSICOLOGO PS ON U.tipo_usuario = 'psicologo' AND U.id_original = PS.id_psicologo
-LEFT JOIN
-PERFIL_PACIENTE PP ON P.id_paciente = PP.id_paciente
-LEFT JOIN
-PERFIL_PSICOLOGO PPS ON PS.id_psicologo = PPS.id_psicologo
-WHERE
-F.titulo LIKE '%$termino%'";
+                U.tipo_usuario,
+                CASE
+                    WHEN U.tipo_usuario = 'paciente' THEN PP.foto_paciente
+                    WHEN U.tipo_usuario = 'psicologo' THEN PPS.foto_psicologo
+                END AS foto,
+                CASE
+                    WHEN U.tipo_usuario = 'paciente' THEN P.nombre_paciente
+                    WHEN U.tipo_usuario = 'psicologo' THEN PS.nombre_psicologo
+                END AS nombre,
+                CASE
+                    WHEN U.tipo_usuario = 'paciente' THEN P.apellidos_paciente
+                    WHEN U.tipo_usuario = 'psicologo' THEN PS.apellidos_psicologo
+                END AS apellidos,
+                F.titulo,
+                F.foto_contenido,
+                F.texto_contenido,
+                F.id_publicacion
+            FROM
+                FORO F
+            JOIN
+                USUARIO U ON F.id_publicante = U.id_usuario
+            LEFT JOIN
+                PACIENTE P ON U.tipo_usuario = 'paciente' AND U.id_original = P.id_paciente
+            LEFT JOIN
+                PSICOLOGO PS ON U.tipo_usuario = 'psicologo' AND U.id_original = PS.id_psicologo
+            LEFT JOIN
+                PERFIL_PACIENTE PP ON P.id_paciente = PP.id_paciente
+            LEFT JOIN
+                PERFIL_PSICOLOGO PPS ON PS.id_psicologo = PPS.id_psicologo
+            WHERE
+                F.titulo LIKE '%$termino%'";
 
    $result = $conn->query($sql);
 
@@ -56,7 +57,8 @@ F.titulo LIKE '%$termino%'";
             'img' => $row['foto'],
             'titulo' => $row['titulo'],
             'foto_contenido' => $row['foto_contenido'],
-            'texto_contenido' => $row['texto_contenido']
+            'texto_contenido' => $row['texto_contenido'],
+            'id_publicacion' => $row['id_publicacion']
          ];
          $resultados[] = $fila;
       }

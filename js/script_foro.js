@@ -1,18 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
     dibujarTarjeta();
-    const campoBusqueda = document.querySelector('.buscador input[type="text"]');
+
+    const campoBusqueda = document.querySelector('.search_bar input[type="text"]');
     campoBusqueda.addEventListener('input', () => {
         const terminoBusqueda = campoBusqueda.value.trim();
         if (terminoBusqueda.length > 0) {
-            fetch('./php/busqueda_foro.php?termino=' + encodeURIComponent(terminoBusqueda))
-                .then(response => response.json())
-                .then(data => {
-                    mostrarResultados(data);
-                    console.log(data);
-                })
-                .catch(error => console.error('Error al buscar hilos:', error));
-        }
-        else {
+            buscarHilos(terminoBusqueda);
+        } else {
             limpiarResultados();
         }
     });
@@ -22,50 +16,7 @@ function dibujarTarjeta() {
     fetch('./php/procesar_foro.php')
         .then(response => response.json())
         .then(data => {
-            if (data.success) {
-                let contenedor = document.querySelector('.contenedor-foro');
-                contenedor.innerHTML = '';
-                for (let key in data) {
-                    if (key !== "success") {
-                        let fila = data[key];
-                        let tarjetaDiv = document.createElement('div');
-                        tarjetaDiv.classList.add('tarjeta');
-                        let personaDiv = document.createElement('div');
-                        personaDiv.classList.add('persona');
-                        let imgPersona = document.createElement('img');
-                        imgPersona.src = fila.img;
-                        imgPersona.alt = 'foto perfil';
-                        let pPersona = document.createElement('p');
-                        pPersona.textContent = fila.nombre + fila.apellidos;
-                        personaDiv.appendChild(imgPersona);
-                        personaDiv.appendChild(pPersona);
-                        let tituloDiv = document.createElement('div');
-                        tituloDiv.classList.add('titulo');
-                        let pTitulo = document.createElement('p');
-                        pTitulo.textContent = fila.titulo;
-                        tituloDiv.appendChild(pTitulo);
-                        let contenidoDiv = document.createElement('div');
-                        contenidoDiv.classList.add('contenido');
-                        if (fila.foto_contenido) {
-                            let imgContenido = document.createElement('img');
-                            imgContenido.src = fila.foto_contenido;
-                            imgContenido.alt = 'foto contenido';
-                            contenidoDiv.appendChild(imgContenido);
-                        } else if (fila.texto_contenido) {
-                            let pContenido = document.createElement('p');
-                            pContenido.textContent = fila.texto_contenido;
-                            contenidoDiv.appendChild(pContenido);
-                        }
-                        tarjetaDiv.appendChild(personaDiv);
-                        tarjetaDiv.appendChild(tituloDiv);
-                        tarjetaDiv.appendChild(contenidoDiv);
-                        contenedor.appendChild(tarjetaDiv);
-                    }
-                }
-            }
-            else {
-                contenedor.textContent = "data.error";
-            }
+            mostrarResultados(data);
         })
         .catch(error => {
             console.error('Error al obtener los datos del paciente:', error);
@@ -73,44 +24,14 @@ function dibujarTarjeta() {
 }
 
 function mostrarResultados(data) {
-    const contenedor = document.querySelector('.contenedor-foro'); // Definir contenedor aquí
+    const contenedor = document.querySelector('.contenedor-foro');
 
     if (data.success) {
         contenedor.innerHTML = '';
         for (let key in data) {
             if (key !== "success") {
-                let fila = data[key];
-                let tarjetaDiv = document.createElement('div');
-                tarjetaDiv.classList.add('tarjeta');
-                let personaDiv = document.createElement('div');
-                personaDiv.classList.add('persona');
-                let imgPersona = document.createElement('img');
-                imgPersona.src = fila.img;
-                imgPersona.alt = 'foto perfil';
-                let pPersona = document.createElement('p');
-                pPersona.textContent = fila.nombre + fila.apellidos;
-                personaDiv.appendChild(imgPersona);
-                personaDiv.appendChild(pPersona);
-                let tituloDiv = document.createElement('div');
-                tituloDiv.classList.add('titulo');
-                let pTitulo = document.createElement('p');
-                pTitulo.textContent = fila.titulo;
-                tituloDiv.appendChild(pTitulo);
-                let contenidoDiv = document.createElement('div');
-                contenidoDiv.classList.add('contenido');
-                if (fila.foto_contenido) {
-                    let imgContenido = document.createElement('img');
-                    imgContenido.src = fila.foto_contenido;
-                    imgContenido.alt = 'foto contenido';
-                    contenidoDiv.appendChild(imgContenido);
-                } else if (fila.texto_contenido) {
-                    let pContenido = document.createElement('p');
-                    pContenido.textContent = fila.texto_contenido;
-                    contenidoDiv.appendChild(pContenido);
-                }
-                tarjetaDiv.appendChild(personaDiv);
-                tarjetaDiv.appendChild(tituloDiv);
-                tarjetaDiv.appendChild(contenidoDiv);
+                const fila = data[key];
+                const tarjetaDiv = crearTarjeta(fila);
                 contenedor.appendChild(tarjetaDiv);
             }
         }
@@ -119,17 +40,72 @@ function mostrarResultados(data) {
     }
 }
 
+function buscarHilos(terminoBusqueda) {
+    fetch('./php/busqueda_foro.php?termino=' + encodeURIComponent(terminoBusqueda))
+        .then(response => response.json())
+        .then(data => {
+            mostrarResultados(data);
+            console.log(data);
+        })
+        .catch(error => console.error('Error al buscar hilos:', error));
+}
+
+function crearTarjeta(fila) {
+    const tarjetaDiv = document.createElement('div');
+    tarjetaDiv.classList.add('tarjeta');
+
+    const personaDiv = document.createElement('div');
+    personaDiv.classList.add('persona');
+
+    const imgPersona = document.createElement('img');
+    imgPersona.src = fila.img;
+    imgPersona.alt = 'foto perfil';
+
+    const pPersona = document.createElement('p');
+    pPersona.textContent = fila.nombre + ' ' + fila.apellidos;
+
+    personaDiv.appendChild(imgPersona);
+    personaDiv.appendChild(pPersona);
+
+    const tituloDiv = document.createElement('div');
+    tituloDiv.classList.add('titulo');
+
+    const pTitulo = document.createElement('p');
+    pTitulo.textContent = fila.titulo;
+
+    tituloDiv.appendChild(pTitulo);
+
+    const contenidoDiv = document.createElement('div');
+    contenidoDiv.classList.add('contenido');
+
+    if (fila.foto_contenido) {
+        const imgContenido = document.createElement('img');
+        imgContenido.src = fila.foto_contenido;
+        imgContenido.alt = 'foto contenido';
+        contenidoDiv.appendChild(imgContenido);
+    } else if (fila.texto_contenido) {
+        const pContenido = document.createElement('p');
+        pContenido.textContent = fila.texto_contenido;
+        contenidoDiv.appendChild(pContenido);
+    }
+
+    tarjetaDiv.appendChild(personaDiv);
+    tarjetaDiv.appendChild(tituloDiv);
+    tarjetaDiv.appendChild(contenidoDiv);
+   // Agregar el evento de clic a la tarjeta
+      tarjetaDiv.addEventListener('click', function() {
+         // Redirigir a otra página al hacer clic en la tarjeta
+         window.location.href = 'entrada_foro.php?id=' + fila.id_publicacion; // Cambia 'otra_pagina.php' por la ruta de tu página de destino
+                        });
+    return tarjetaDiv;
+}
 
 function limpiarResultados() {
     const contenedor = document.querySelector('.contenedor-foro');
-    // Verificar si el campo de búsqueda está vacío
-    const campoBusqueda = document.querySelector('.buscador input[type="text"]');
+    const campoBusqueda = document.querySelector('.search_bar input[type="text"]');
     if (campoBusqueda.value.trim() === '') {
-        // Si el campo de búsqueda está vacío, volver a cargar todos los hilos originales
         dibujarTarjeta();
     } else {
-        // Si hay un término de búsqueda, limpiar los resultados anteriores
         contenedor.innerHTML = '';
     }
 }
-
