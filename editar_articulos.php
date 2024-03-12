@@ -44,6 +44,11 @@ session_start();
             </nav>
         </div>
     </header>
+    <!-- FLECHA VOLVER ATRÁS -->
+    <span class="material-symbols-outlined" id="arrow_back">
+        arrow_back
+    </span>
+    <!-- EDICIÓN SESIONES -->
     <div class="container_editar_sesiones">
         <div class="container_anadir">
             <h2 id="titulo_anadir">Añadir artículos</h2>

@@ -17,7 +17,7 @@
   justify-content: center;
   align-items: center;
 }
-.foto_perfil{
+.foto_perfil {
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -31,7 +31,6 @@
 }
 
 .control_panel {
-  border: 2px solid red;
   width: 25%;
   height: 6vh;
   background-color: #c3b299;
@@ -41,18 +40,17 @@
   align-items: center;
 }
 .switch {
-  border: 1px solid black;
   font-size: 28px;
   padding: 1px;
   height: fit-content;
   width: fit-content;
   transition: all 0.3s ease;
 }
-.switch:hover{
+.switch:hover {
   cursor: pointer;
   user-select: none;
 }
-.call{
+.call {
   color: green;
 }
 /* Media query para tablet (entre 426 y 768px) */

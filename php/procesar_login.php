@@ -37,6 +37,34 @@ if ($bd->conectar()) {
          // El correo no existe
          $respuesta["error"] = "correo";
       }
+      if ($_SESSION['tipo_usuario'] == 'paciente') {
+         // Verificar si el paciente tiene psicólogo
+         $sql = "SELECT COUNT(*) as count_psico FROM paciente_psicologo WHERE id_paciente = ?";
+         $stmt = mysqli_prepare($conn, $sql);
+         mysqli_stmt_bind_param($stmt, "s", $_SESSION['id_usuario']);
+         mysqli_stmt_execute($stmt);
+         $result = mysqli_stmt_get_result($stmt);
+         $row = mysqli_fetch_assoc($result);
+
+         if ($row['count_psico'] == 0) {
+            $respuesta['vacio'] = true;
+            $respuesta['url'] = 'http://localhost/stay/sesiones_vacio.php';
+         }
+      } else {
+         // Verificar si el psicólogo tiene citas
+         $sql = "SELECT COUNT(*) as count_citas FROM cita WHERE id_psicologo = ?";
+         $stmt = mysqli_prepare($conn, $sql);
+         mysqli_stmt_bind_param($stmt, "s", $_SESSION['id_usuario']);
+         mysqli_stmt_execute($stmt);
+         $result = mysqli_stmt_get_result($stmt);
+         $row = mysqli_fetch_assoc($result);
+
+         if ($row['count_citas'] == 0) {
+            $respuesta['vacio'] = true;
+            $respuesta['url'] = 'http://localhost/stay/sesiones_vacio.php';
+         }
+      }
+
 
       // Enviamos respuesta
       header('Content-Type: application/json');

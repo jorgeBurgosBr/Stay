@@ -13,6 +13,14 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    // Añadimos evento a flecha atrás
+    if (document.querySelector('#arrow_back')) {
+        let flecha = document.querySelector('#arrow_back');
+        flecha.addEventListener('click', function () {
+            window.history.back();
+        });
+    }
+
 });
 function redirigir(a_clicado) {
     datos = new FormData();
