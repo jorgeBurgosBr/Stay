@@ -77,6 +77,13 @@ session_start();
             </div>
         </div>
     </div>
+    <!-- Mensaje popup -->
+    <div class="popup-message">
+        <div class="popup-content">
+            <span class="close-popup-message">&times;</span>
+            <p id="popup-text">This is a pop-up message!</p>
+        </div>
+    </div>
     <script src="http://localhost/stay/js/script_flujo.js"></script>
     <script src="http://localhost/stay/js/script_hamburguer.js"></script>
     <script src="http://localhost/stay/js/editar_articulos.js"></script>

@@ -87,9 +87,14 @@ session_start();
       </div>
     </div>
   </div>
-  <script src="http://localhost/stay/js/script_flujo.js"></script>
-  <script src="http://localhost/stay/js/script_hamburguer.js"></script>
-  <script src="http://localhost/stay/js/editar_sesiones.js"></script>
+  <!-- Mensaje popup -->
+  <div class="popup-message">
+    <div class="popup-content">
+      <span class="close-popup-message">&times;</span>
+      <p id="popup-text">This is a pop-up message!</p>
+    </div>
+  </div>
+  <!-- FOOTER -->
   <footer>
     <div class="footer-container">
       <div class="footer-column">
@@ -136,6 +141,9 @@ session_start();
         </ul>
       </div>
   </footer>
+  <script src="http://localhost/stay/js/script_flujo.js"></script>
+  <script src="http://localhost/stay/js/script_hamburguer.js"></script>
+  <script src="http://localhost/stay/js/editar_sesiones.js"></script>
 </body>
 
 </html>

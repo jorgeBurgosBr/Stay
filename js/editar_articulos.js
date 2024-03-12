@@ -1,4 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
+    var popupMessage = document.querySelector('.popup-message');
+    var closeButton = document.querySelector('.popup-message .close-popup-message');
+
+    closeButton.addEventListener('click', function () {
+        popupMessage.style.display = 'none';
+    });
 
     cargarOpcionesEliminar();
     const iconoEliminar = document.getElementById('icono_eliminar');
@@ -6,6 +12,10 @@ document.addEventListener('DOMContentLoaded', function () {
         if (validarFormEliminar()) {
             console.log('Selección válida, procediendo con la acción de eliminar...');
             eliminarSesion();
+            darFeedback('Artículo eliminado con éxito');
+            cargarOpcionesEliminar();
+
+
 
         } else {
             console.log('Validación fallida, por favor, selecciona una sesión.');
@@ -17,7 +27,9 @@ document.addEventListener('DOMContentLoaded', function () {
         if (validarFormAnadir()) {
             console.log('Formulario válido, procediendo con la acción de añadir...');
             anadirArticulo();
-            console.log('debería llegar aqúi');
+            darFeedback('Artículo añadido con éxito');
+            cargarOpcionesEliminar();
+
 
         } else {
             console.log('Validación fallida, revisa los errores.');
@@ -141,4 +153,9 @@ function anadirArticulo() {
         });
 
     cargarOpcionesEliminar();
+}
+
+function darFeedback(string) {
+    document.querySelector(".popup-message").style.display = "block";
+    document.querySelector("#popup-text").textContent = string;
 }

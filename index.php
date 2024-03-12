@@ -17,16 +17,16 @@ require_once 'php/creaBBDD.php'; //Incluir el fichero que se encarga de crear la
 </head>
 
 <body>
-<header>
+  <header>
     <div class="container-nav">
       <div class="logo"></div>
       <div class="menu-toggle" id="mobile-menu">
-      <img src="img/logo.png" alt="Logo" id="logo-nav"/>
-      <i class="ri-menu-line"></i>
+        <img src="img/logo.png" alt="Logo" id="logo-nav" />
+        <i class="ri-menu-line"></i>
       </div>
       <nav>
         <ul>
-          <img src="img/logo.png" alt="Logo" id="logo-menu"/>
+          <img src="img/logo.png" alt="Logo" id="logo-menu" />
           <li><a href="#">Nosotros</a></li>
           <hr id="separacion">
           <li><a href="#" class="scroll-link" data-target="psico-section">Psicólogos</a></li>
@@ -46,7 +46,7 @@ require_once 'php/creaBBDD.php'; //Incluir el fichero que se encarga de crear la
     <div class="container-titulo">
       <div class="titulo-con-imagen">
         <div class="img-ppal">
-        <img src="img/paz.jpg" alt="Paz Mental">
+          <img src="img/paz.jpg" alt="Paz Mental">
         </div>
         <div class="contenido-titulo">
           <h1>STAY - VIVE CON ESPERANZA</h1>
@@ -119,116 +119,116 @@ require_once 'php/creaBBDD.php'; //Incluir el fichero que se encarga de crear la
   <div class="psico-tittle" id="testimonios-section">
     <h1>Testimonios de usuarios</h1>
   </div>
- <section class="container">
- <div class="card__container swiper">
-    <div class="card__content">
-      <div class="swiper-wrapper">
-        <article class="card__article swiper-slide">
-          <div class="card__data">
-          <i class="fas fa-quote-right"></i>
-            <div class="card__description"> 
-            Después de más de 2 años con ellos, 
-            puedo decir que me han salvado la vida. 
-            Sigmund el mejor Psicólogo!
+  <section class="container">
+    <div class="card__container swiper">
+      <div class="card__content">
+        <div class="swiper-wrapper">
+          <article class="card__article swiper-slide">
+            <div class="card__data">
+              <i class="fas fa-quote-right"></i>
+              <div class="card__description">
+                Después de más de 2 años con ellos,
+                puedo decir que me han salvado la vida.
+                Sigmund el mejor Psicólogo!
+              </div>
+              <span class="name">Mikasa Trovsky</span>
+              <div class="stars-icons">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
             </div>
-            <span class="name">Mikasa Trovsky</span>
-          <div class="stars-icons">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          </div>
-          </div>
-        </article>
+          </article>
 
-        <article class="card__article swiper-slide">
-          <div class="card__data">
-          <i class="fas fa-quote-right"></i>
-            <p class="card__description">
-            Me han ofrecido todo tipo de ayudas y 
-            han sido muy flexibles con el horario.
-            </p>
-            <span class="name">Juan Pérez</span>
-          <div class="stars-icons">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          </div>
-          </div>
-        </article>
-
-        <article class="card__article swiper-slide">
-          <div class="card__data">
-          <i class="fas fa-quote-right"></i>
-            <div class="card__description">
-            La mejor aplicación para afectados o 
-            familiares de ellos, un 10!
-            La recomendaré seguro.
+          <article class="card__article swiper-slide">
+            <div class="card__data">
+              <i class="fas fa-quote-right"></i>
+              <p class="card__description">
+                Me han ofrecido todo tipo de ayudas y
+                han sido muy flexibles con el horario.
+              </p>
+              <span class="name">Juan Pérez</span>
+              <div class="stars-icons">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
             </div>
-            <span class="name">Pedro Piqueras</span>
-          <div class="stars-icons">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          </div>
-          </div>
-        </article>
+          </article>
 
-        <article class="card__article swiper-slide">
-          <div class="card__data">
-          <i class="fas fa-quote-right"></i>
-            <div class="card__description">
-            Le pongo 4 estrellas, porque el método
-            de pago me cobró 2 veces,
-            pero me lo resolvieron rápido!
-          </div>
-            <span class="name">Andrea Sánchez</span>
-          <div class="stars-icons">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-          </div>
-          </div>
-        </article>
-
-        <article class="card__article swiper-slide">
-          <div class="card__data">
-          <i class="fas fa-quote-right"></i>
-            <div class="card__description">
-            Venía recomendado por un amigo,
-            y no tengo la menor duda de
-            que merece la pena ser usuario
-            de esta web.
+          <article class="card__article swiper-slide">
+            <div class="card__data">
+              <i class="fas fa-quote-right"></i>
+              <div class="card__description">
+                La mejor aplicación para afectados o
+                familiares de ellos, un 10!
+                La recomendaré seguro.
+              </div>
+              <span class="name">Pedro Piqueras</span>
+              <div class="stars-icons">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
             </div>
-            <span class="name">Raúl García</span>
-          <div class="stars-icons">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          </div>
-          </div>
-        </article>
+          </article>
+
+          <article class="card__article swiper-slide">
+            <div class="card__data">
+              <i class="fas fa-quote-right"></i>
+              <div class="card__description">
+                Le pongo 4 estrellas, porque el método
+                de pago me cobró 2 veces,
+                pero me lo resolvieron rápido!
+              </div>
+              <span class="name">Andrea Sánchez</span>
+              <div class="stars-icons">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+              </div>
+            </div>
+          </article>
+
+          <article class="card__article swiper-slide">
+            <div class="card__data">
+              <i class="fas fa-quote-right"></i>
+              <div class="card__description">
+                Venía recomendado por un amigo,
+                y no tengo la menor duda de
+                que merece la pena ser usuario
+                de esta web.
+              </div>
+              <span class="name">Raúl García</span>
+              <div class="stars-icons">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- Botones del slide -->
+      <div class="swiper-button-prev">
+        <i class="ri-arrow-left-s-line"></i>
+      </div>
+      <div class="swiper-button-next">
+        <i class="ri-arrow-right-s-line"></i>
       </div>
     </div>
-
-    <!-- Botones del slide -->
-    <div class="swiper-button-prev">
-      <i class="ri-arrow-left-s-line"></i>
     </div>
-    <div class="swiper-button-next">
-      <i class="ri-arrow-right-s-line"></i>
-    </div>
- </div>
- </div>
 
   </section>
 
@@ -350,61 +350,62 @@ require_once 'php/creaBBDD.php'; //Incluir el fichero que se encarga de crear la
       </form>
     </div>
   </div>
+  <!-- Mensaje popup -->
   <div class="popup-message">
-  <div class="popup-content">
-    <span class="close-popup-message">&times;</span>
-    <p id="popup-text">This is a pop-up message!</p>
-  </div>
-</div>
+    <div class="popup-content">
+      <span class="close-popup-message">&times;</span>
+      <p id="popup-text">This is a pop-up message!</p>
     </div>
+  </div>
+  </div>
   </div>
 
   <footer>
-  <div class="footer-container">
-    <div class="footer-column">
-      <h3>Stay</h3>
-      <p>Vive con esperanza</p>
-      <p><i class="ri-facebook-fill"></i><i class="ri-twitter-fill"></i><i class="ri-instagram-fill"></i><i class="ri-linkedin-box-fill"></i></p>
-    </div>
-    <div class="footer-column">
-      <h3>Quiénes somos</h3>
-      <ul>
-        <li><a href="#">Quiénes somos</a></li>
-        <li><a href="#">Privacidad</a></li>
-        <li><a href="#">Aviso legal</a></li>
-        <li><a href="#">Testimonios</a></li>
-      </ul>
-    </div>
+    <div class="footer-container">
+      <div class="footer-column">
+        <h3>Stay</h3>
+        <p>Vive con esperanza</p>
+        <p><i class="ri-facebook-fill"></i><i class="ri-twitter-fill"></i><i class="ri-instagram-fill"></i><i class="ri-linkedin-box-fill"></i></p>
+      </div>
+      <div class="footer-column">
+        <h3>Quiénes somos</h3>
+        <ul>
+          <li><a href="#">Quiénes somos</a></li>
+          <li><a href="#">Privacidad</a></li>
+          <li><a href="#">Aviso legal</a></li>
+          <li><a href="#">Testimonios</a></li>
+        </ul>
+      </div>
 
-    <div class="footer-column">
-      <h3>Otros</h3>
-      <ul>
-        <li><a href="#">Acerca de</a></li>
-        <li><a href="#">Contacto</a></li>
-        <li><a href="#">Trabaja con nosotros</a></li>
-        <li><a href="#">Talleres</a></li>
-      </ul>
-    </div>
+      <div class="footer-column">
+        <h3>Otros</h3>
+        <ul>
+          <li><a href="#">Acerca de</a></li>
+          <li><a href="#">Contacto</a></li>
+          <li><a href="#">Trabaja con nosotros</a></li>
+          <li><a href="#">Talleres</a></li>
+        </ul>
+      </div>
 
-    <div class="footer-column">
-      <h3>Soporte</h3>
-      <ul>
-        <li><a href="#">Chat soporte</a></li>
-        <li><a href="#">Centro de ayuda</a></li>
-        <li><a href="#">Reporta error</a></li>
-        <li><a href="#">Cookies</a></li>
-      </ul>
-    </div>
+      <div class="footer-column">
+        <h3>Soporte</h3>
+        <ul>
+          <li><a href="#">Chat soporte</a></li>
+          <li><a href="#">Centro de ayuda</a></li>
+          <li><a href="#">Reporta error</a></li>
+          <li><a href="#">Cookies</a></li>
+        </ul>
+      </div>
 
-    <div class="footer-column">
-      <h3>Contáctanos</h3>
-      <ul>
-        <li><i class="ri-mail-line"></i> contacto@stay.com</li>
-        <li><i class="ri-phone-line"></i> 662 223 154</li>
-        <li><i class="ri-map-pin-line"></i> Calle Gran Vía, 77</li>
-      </ul>
-    </div>
-</footer>
+      <div class="footer-column">
+        <h3>Contáctanos</h3>
+        <ul>
+          <li><i class="ri-mail-line"></i> contacto@stay.com</li>
+          <li><i class="ri-phone-line"></i> 662 223 154</li>
+          <li><i class="ri-map-pin-line"></i> Calle Gran Vía, 77</li>
+        </ul>
+      </div>
+  </footer>
   <script src="js/swiper-bundle.min.js"></script>
   <script src="js/script.js"></script>
 </body>
