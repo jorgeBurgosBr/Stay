@@ -26,17 +26,15 @@ if ($bd->conectar()) {
             case 'sesiones_nav':
                 $respuesta['success'] = true;
                 if ($tipo_usuario == 'paciente') {
-                    // Verificar si el paciente tiene citas
-                    $sql = "SELECT COUNT(*) as count_citas FROM cita WHERE id_paciente = ?";
+                    // Verificar si el paciente tiene psicólogo
+
+                    $sql = "SELECT COUNT(*) as count_psico FROM paciente_psicologo WHERE id_paciente = ?";
                     $stmt = mysqli_prepare($conn, $sql);
                     mysqli_stmt_bind_param($stmt, "s", $id_usuario);
                     mysqli_stmt_execute($stmt);
                     $result = mysqli_stmt_get_result($stmt);
                     $row = mysqli_fetch_assoc($result);
-
-                    if ($row['count_citas'] == 0) {
-                        $respuesta['vacio'] = true;
-                    }
+                    $respuesta['vacio'] = $row['count_psico'] > 0 ? false : true;
                 } else {
                     // Verificar si el psicólogo tiene citas
                     $sql = "SELECT COUNT(*) as count_citas FROM cita WHERE id_psicologo = ?";

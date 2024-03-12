@@ -159,6 +159,15 @@ nav ul li:hover a::after {
 #signup-bttn:hover {
   background-color: var(--contraste);
 }
+/* Arrow back styles */
+#arrow_back {
+  margin-left: 10vh;
+  margin-top: 2vh;
+}
+#arrow_back:hover {
+  cursor: pointer;
+  color: red;
+}
 
 /* Footer styles */
 footer {
@@ -303,5 +312,9 @@ footer {
 
   .footer-container > *:not(:first-child):not(:last-child) {
     display: none;
+  }
+  #arrow_back {
+    margin-left: 2vh;
+    margin-top: 2vh;
   }
 }

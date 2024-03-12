@@ -194,7 +194,7 @@ function cargarLista(mes, ano) {
       if (data.success && data.citas.length > 0) {
         pintarLista(data.citas);
       } else {
-        console.log('No hay sesiones programadas o hubo un error en la petición');
+        document.getElementById('list_sesiones').textContent = 'No tienes ninguna sesión agendada';
       }
     })
     .catch(error => {

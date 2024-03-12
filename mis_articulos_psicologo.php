@@ -44,6 +44,10 @@ session_start();
             </nav>
         </div>
     </header>
+    <!-- FLECHA VOLVER ATRÁS -->
+    <span class="material-symbols-outlined" id="arrow_back">
+        arrow_back
+    </span>
     <!-- ARTÍCULOS -->
     <div class="container_body_articles">
         <div class="container_search_bar">
