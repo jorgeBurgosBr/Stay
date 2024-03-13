@@ -68,7 +68,7 @@ $bd->seleccionarContexto('stay');
             echo "Error: 'user_id' no está presente en la URL.";
           }
           ?>
-          <a class="back-icon" href="users.php"><i class="fas fa-arrow-left"></i></a>
+          <a class="back-icon" id="backButton"><i class="fas fa-arrow-left"></i></a>
           <img src="<?php echo $row['foto_paciente'] ?>" alt="" />
           <div class="details">
             <span><?php echo $row['nombre_paciente'] . " " . $row['apellidos_paciente'] ?></span>

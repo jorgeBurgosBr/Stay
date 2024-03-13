@@ -152,6 +152,9 @@ form .name-details .field:last-child {
   background: #606c38;
   border-radius: 5px;
 }
+.logout:hover {
+  cursor: pointer;
+}
 .users .search {
   margin: 20px 0;
   display: flex;
@@ -325,4 +328,8 @@ form .name-details .field:last-child {
   font-size: 19px;
   cursor: pointer;
   border-radius: 0 5px 5px 0;
+}
+#backButton:hover {
+  cursor: pointer;
+  color: var(--contraste);
 }
