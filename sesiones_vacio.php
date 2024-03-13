@@ -53,7 +53,7 @@ session_start();
     <div class="texto_vacio">
       <h2 id="titulo_vacio">¿Aún no tienes sesiones agendadas?</h2>
       <?php
-      echo ($_SESSION['tipo_usuario'] == 'paciente') ? '<span id="agendar_cita"><a href="elegir_psicologo.php">Agendar cita</a></span>' : '<span id="agendar_cita"><a href="editar_sesiones.php">Agendar cita</a></span>';
+      echo ($_SESSION['tipo_usuario'] == 'paciente') ? '<span id="agendar_cita"><a href="elegir_psicologo.php">Elegir psicólogo</a></span>' : '<span id="agendar_cita"><a href="editar_sesiones.php">Agendar cita</a></span>';
       ?>
 
     </div>
