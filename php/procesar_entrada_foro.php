@@ -91,7 +91,6 @@ if ($bd->conectar()) {
       $stmt_comentarios->bind_param("i", $id_publicacion_url);
 
       // Ejecutar la consulta del FORO
-      // Ejecutar la consulta del FORO
       if ($stmt_foro->execute()) {
          $result_foro = $stmt_foro->get_result();
 

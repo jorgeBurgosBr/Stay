@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
     manejarFormularioComentario();
 });
 
-
 function dibujarTarjeta() {
     // Obtener el ID de la URL
     const urlParams = new URLSearchParams(window.location.search);
@@ -28,6 +27,7 @@ function dibujarTarjeta() {
         const contenedor = document.querySelector('.contenedor-foro');
         // Aquí puedes llamar a la función que maneja la creación de la tarjeta
         if (data.success) {
+            contenedor.innerHTML = ''; // Limpiar el contenedor antes de volver a dibujar
             const fila = data.data[0];
             const tarjetaDiv = crearTarjeta(fila);
             contenedor.appendChild(tarjetaDiv);
@@ -92,6 +92,7 @@ function crearTarjeta(fila) {
 
     return tarjetaDiv;
 }
+
 function crearTarjetaComentario(comentario) {
     const tarjetaComentarioDiv = document.createElement('div');
     tarjetaComentarioDiv.classList.add('tarjeta-comentario');
@@ -126,44 +127,26 @@ function crearTarjetaComentario(comentario) {
 
     return tarjetaComentarioDiv;
 }
+
 function manejarFormularioComentario() {
     const formularioComentario = document.getElementById('formulario-comentario');
     formularioComentario.addEventListener('submit', (event) => {
         event.preventDefault();
-        const textoComentario = document.getElementById('texto-comentario').value.trim();
         
-        // Obtener el ID de la URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const id = urlParams.get('id');
-
-        // Crear el objeto JSON con el ID y el comentario
-        const datos = {
-            id: id,
-            comentario: textoComentario
-        };
-
+        // Obtener todos los datos del formulario
+        const formData = new FormData(formularioComentario);
+        
         // Configurar la solicitud fetch para enviar los datos al servidor
         fetch('http://localhost/stay/php/agregar_comentario.php', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(datos)
+            body: formData
         })
         .then(response => response.json())
         .then(data => {
             // Aquí puedes manejar la respuesta del servidor, por ejemplo, mostrar un mensaje de éxito
-            console.log('Comentario agregado con éxito:', data);
-            // Crear y agregar la nueva tarjeta de comentario
-            const nuevaTarjetaComentario = crearTarjetaComentario({
-                img: data.img,
-                nombre: data.nombre,
-                apellidos: data.apellidos,
-                comentario: textoComentario,
-                fecha: data.fecha
-            });
-            const contenedor = document.querySelector('.contenedor-foro');
-            contenedor.appendChild(nuevaTarjetaComentario);
+            console.log(data);
+            // Llamar a dibujarTarjeta para volver a dibujar todas las tarjetas incluyendo el nuevo comentario
+            dibujarTarjeta();
             // Limpiar el campo de texto después de enviar el comentario
             document.getElementById('texto-comentario').value = '';
         })
@@ -172,3 +155,4 @@ function manejarFormularioComentario() {
         });
     });
 }
+

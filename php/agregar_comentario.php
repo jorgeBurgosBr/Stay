@@ -9,17 +9,31 @@ if ($bd->conectar()) {
    $conn = $bd->getConexion();
    $bd->seleccionarContexto('stay');
 
-   // Respuesta predeterminada
-   $respuesta = [];
-
    // Verificar si se ha enviado algún dato a través del formulario
    if ($_SERVER["REQUEST_METHOD"] == "POST") {
       // Verificar si el comentario ha sido enviado y no está vacío
-      if (isset($_POST['comentario']) && !empty($_POST['comentario'])) {
+      if (isset($_POST['comentario'])) {
          // Obtener los datos del formulario
          $comentario = $_POST['comentario'];
          $id_publicacion = $_POST['id_publicacion']; // ID de la publicación relacionada al comentario
-         $id_usuario = $_SESSION['id_usuario']; // ID del usuario que está realizando el comentario
+
+         // Obtener el ID del usuario de la sesión y el tipo de usuario
+         $id_usuario = $_SESSION['id_usuario'];
+         $tipo_usuario = $_SESSION['tipo_usuario'];
+
+         // Validar el tipo de usuario y obtener el id correspondiente
+         if ($tipo_usuario == 'paciente') {
+            $sql_id = "SELECT id_usuario FROM USUARIO WHERE id_usuario = ?";
+         } elseif ($tipo_usuario == 'psicologo') {
+            $sql_id = "SELECT id_usuario FROM USUARIO WHERE id_usuario = ?";
+         }
+
+         $stmt_id = $conn->prepare($sql_id);
+         $stmt_id->bind_param("i", $id_usuario);
+         $stmt_id->execute();
+         $result_id = $stmt_id->get_result();
+         $row = $result_id->fetch_assoc();
+         $id_usuario = $row['id_usuario'];
 
          // Insertar el comentario en la base de datos
          $sql = "INSERT INTO COMENTARIOS_FORO (id_publicacion, comentario, fecha, id_usuario) VALUES (?, ?, NOW(), ?)";
@@ -36,6 +50,7 @@ if ($bd->conectar()) {
 
          // Cerrar la conexión y liberar los recursos
          $stmt->close();
+         $stmt_id->close();
       } else {
          // Si el comentario está vacío, enviar un mensaje de error
          echo json_encode(array("success" => false, "message" => "El comentario está vacío"));

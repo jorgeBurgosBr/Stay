@@ -58,8 +58,8 @@ session_start();
       <form id="formulario-comentario">
          <!-- Utiliza el valor obtenido de la URL como valor predeterminado para el campo oculto -->
          <input type="hidden" id="id_publicacion" name="id_publicacion" value="<?php echo htmlspecialchars($id_publicacion); ?>">
-         <textarea id="texto-comentario" name="comentario" placeholder="Escribe tu comentario aquí"></textarea>
-         <button type="submit">Enviar Comentario</button>
+         <textarea id="texto-comentario" name="comentario" placeholder="Escribe tu comentario aquí" required></textarea>
+         <button type="submit">Comentar</button>
       </form>
    </div>
    <footer>

@@ -182,7 +182,7 @@ body {
 }
 
 #texto-comentario::placeholder {
-  color: var(--ppal); /* Color del marcador de posición */
+  color: var(--ppal);
 }
 
 #formulario-comentario button {
