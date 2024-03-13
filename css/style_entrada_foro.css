@@ -51,40 +51,6 @@ body {
   margin: 0 auto;
   width: 90%;
 }
-/* BUSCADOR */
-.container_search_bar {
-  border: 1px solid black;
-  width: 40%;
-  height: 4vh;
-  display: flex;
-  border-radius: 8px;
-  overflow: hidden;
-  margin: 40px 0;
-}
-.container_search_icon {
-  /* border: 3px solid green; */
-  width: 8%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-right: 1px solid black;
-  background-color: var(--ppal_shadow);
-}
-
-.search_bar {
-  /* border: 3px solid green; */
-  width: 92%;
-}
-#input_search {
-  width: 100%;
-  height: 100%;
-  outline: none;
-  padding-left: 5px;
-  border: none;
-  font-family: var(--texto);
-  font-size: 1em;
-}
-
 /* TARJETA */
 .contenedor-foro {
   display: flex;
@@ -153,6 +119,86 @@ body {
   font-weight: 600;
   line-height: normal;
   padding: 0 0.9em;
+}
+/* Estilos para los comentarios */
+.contenedor-foro .tarjeta-comentario {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.1);
+  width: 100%; /* O ajusta el ancho según tu diseño */
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.contenedor-foro .tarjeta-comentario .persona {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contenedor-foro .tarjeta-comentario .persona img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.contenedor-foro .tarjeta-comentario .persona p {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.contenedor-foro .tarjeta-comentario .contenido {
+  margin-top: 5px;
+}
+
+.contenedor-foro .tarjeta-comentario .contenido p {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 5px;
+}
+/* ESCRIBIR COMENTARIOS */
+.contenedor-comentario {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2em; /* Espacio entre el formulario y las tarjetas de comentario */
+}
+
+#formulario-comentario {
+  width: 100%; /* Ancho completo del contenedor */
+  max-width: 660px; /* Mismo ancho máximo que las tarjetas */
+}
+
+#texto-comentario {
+  width: 100%;
+  height: 100px; /* Altura del área de texto */
+  border: 1px solid var(--ppal); /* Borde del área de texto */
+  border-radius: 8px; /* Borde redondeado */
+  padding: 8px; /* Espaciado interno */
+  margin-bottom: 10px; /* Espacio entre el área de texto y el botón */
+  font-family: var(--texto); /* Fuente */
+  resize: none; /* Deshabilita la redimensión */
+}
+
+#texto-comentario::placeholder {
+  color: var(--ppal); /* Color del marcador de posición */
+}
+
+#formulario-comentario button {
+  background-color: var(--ppal); /* Color de fondo del botón */
+  color: white; /* Color del texto del botón */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Borde redondeado */
+  padding: 10px 20px; /* Espaciado interno */
+  cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+  font-family: var(--texto); /* Fuente */
+}
+
+#formulario-comentario button:hover {
+  background-color: var(
+    --ppal_shadow
+  ); /* Color de fondo al pasar sobre el botón */
 }
 @media (max-width: 768px) {
   .buscador input {

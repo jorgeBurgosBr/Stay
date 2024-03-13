@@ -91,6 +91,7 @@ if ($bd->conectar()) {
       $stmt_comentarios->bind_param("i", $id_publicacion_url);
 
       // Ejecutar la consulta del FORO
+      // Ejecutar la consulta del FORO
       if ($stmt_foro->execute()) {
          $result_foro = $stmt_foro->get_result();
 
@@ -110,11 +111,17 @@ if ($bd->conectar()) {
                   'comentarios' => []
                ];
 
-               // Obtener datos de los COMENTARIOS_FORO
-               if ($stmt_comentarios->execute()) {
-                  $result_comentarios = $stmt_comentarios->get_result();
+               // Agregar fila del FORO al array de resultados
+               $respuesta['data'][] = $fila_foro;
+            }
 
-                  while ($row_comentario = $result_comentarios->fetch_assoc()) {
+            // Ejecutar la consulta de los COMENTARIOS_FORO fuera del bucle while principal
+            if ($stmt_comentarios->execute()) {
+               $result_comentarios = $stmt_comentarios->get_result();
+
+               // Obtener datos de los COMENTARIOS_FORO
+               while ($row_comentario = $result_comentarios->fetch_assoc()) {
+                  foreach ($respuesta['data'] as &$fila_foro) {
                      $fila_comentario = [
                         'nombre' => $row_comentario['nombre_usuario_comentario'],
                         'apellidos' => $row_comentario['apellidos_usuario_comentario'],
@@ -126,10 +133,8 @@ if ($bd->conectar()) {
                      // Agregar comentario al array de comentarios
                      $fila_foro['comentarios'][] = $fila_comentario;
                   }
+                  unset($fila_foro);
                }
-
-               // Agregar fila del FORO al array de resultados
-               $respuesta['data'][] = $fila_foro;
             }
          } else {
             $respuesta['success'] = false;
@@ -139,6 +144,7 @@ if ($bd->conectar()) {
          $respuesta['success'] = false;
          $respuesta['message'] = "Error al ejecutar la consulta del FORO: " . $stmt_foro->error;
       }
+
 
       // Enviar la respuesta como JSON
       header('Content-Type: application/json');
