@@ -44,6 +44,11 @@ session_start();
             </nav>
         </div>
     </header>
+    <!-- FLECHA VOLVER ATRÁS -->
+    <span class="material-symbols-outlined" id="arrow_back">
+        arrow_back
+    </span>
+    <!-- EDICIÓN SESIONES -->
     <div class="container_editar_sesiones">
         <div class="container_anadir">
             <h2 id="titulo_anadir">Añadir artículos</h2>
@@ -70,6 +75,13 @@ session_start();
                     shadow_minus
                 </span>
             </div>
+        </div>
+    </div>
+    <!-- Mensaje popup -->
+    <div class="popup-message">
+        <div class="popup-content">
+            <span class="close-popup-message">&times;</span>
+            <p id="popup-text">This is a pop-up message!</p>
         </div>
     </div>
     <script src="http://localhost/stay/js/script_flujo.js"></script>

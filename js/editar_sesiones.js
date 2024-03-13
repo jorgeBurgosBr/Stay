@@ -1,11 +1,19 @@
 document.addEventListener('DOMContentLoaded', function () {
+    var popupMessage = document.querySelector('.popup-message');
+    var closeButton = document.querySelector('.popup-message .close-popup-message');
+
+    closeButton.addEventListener('click', function () {
+        popupMessage.style.display = 'none';
+    });
     const iconoAnadir = document.getElementById('icono_anadir');
     iconoAnadir.addEventListener('click', function () {
         if (validarFormAnadir()) {
             console.log('Formulario válido, procediendo con la acción de añadir...');
             // Recargamos las opciones de eliminar para que aparezca la cita;
-            cargarOpcionesEliminar();
             anadirSesion();
+            cargarOpcionesEliminar();
+            cargarOpcionesAnadir();
+            darFeedback('Sesión añadida con éxito');
         } else {
             console.log('Validación fallida, revisa los errores.');
         }
@@ -19,6 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
             // Recargamos las opciones de anadir para que no aparezca la cita;
             cargarOpcionesAnadir();
             cargarOpcionesEliminar();
+            darFeedback('Sesión eliminada con éxito');
 
         } else {
             console.log('Validación fallida, por favor, selecciona una sesión.');
@@ -213,4 +222,9 @@ function eliminarSesion() {
             }
         })
         .catch(error => console.error('Error:', error));
+}
+
+function darFeedback(string) {
+    document.querySelector(".popup-message").style.display = "block";
+    document.querySelector("#popup-text").textContent = string;
 }
