@@ -4,15 +4,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function dibujarTarjeta() {
     // Obtener el ID de la URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const id = urlParams.get('id');
+    // const urlParams = new URLSearchParams(window.location.search);
+    // const id = urlParams.get('id');
 
     // Crear el objeto JSON con el ID
     const datos = {
-        id: id
+        id: 1
     };
     // Configurar la solicitud fetch para enviar los datos al servidor
-    fetch('./php/procesar_entrada_foro.php', {
+    fetch('http://localhost/stay/php/procesar_entrada_foro.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

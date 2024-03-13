@@ -42,8 +42,9 @@ if ($bd->conectar()) {
          $sql5 = mysqli_query($conn, "INSERT INTO perfil_paciente (id_paciente, fecha_nac_paciente, sexo_paciente, pareja_sino_paciente, hijos_paciente, trabajo_paciente, estudios_paciente, hobbies_paciente, expectativasypreocupaciones_paciente, foto_paciente) 
          VALUES ('$id_original', NULL, 'otro', NULL, NULL, NULL, NULL, NULL, NULL, './img/paciente/default.png')");
 
+         $sql6 = mysqli_query($conn, "INSERT INTO notas_paciente(id_paciente, bio, notas) VALUES ('$id_original', NULL, NULL)");
 
-         if ($sql4 && $sql5) { //si los datos han sido insertados
+         if ($sql4 && $sql5 && $sql6) { //si los datos han sido insertados
             $respuesta['success'] = true;
             $_SESSION['id_usuario'] = $id_original;
          }

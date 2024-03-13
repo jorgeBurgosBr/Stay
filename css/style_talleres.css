@@ -111,7 +111,19 @@ body {
   gap: 12px;
   flex-shrink: 0;
   background: white;
+  border-radius: 13px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave para transform y box-shadow */
+  box-shadow: 0 0 0px rgba(0, 0, 0, 0); /* Inicialmente sin sombra visible */
 }
+.tarjeta:hover {
+  transform: translate(
+    -5px,
+    -5px
+  ); /* Mueve el elemento hacia arriba y hacia la izquierda */
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* Aplica una sombra para dar la impresión de elevación */
+  cursor: pointer;
+}
+
 .contenido {
   display: flex;
   flex-direction: column;

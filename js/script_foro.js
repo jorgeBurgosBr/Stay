@@ -95,7 +95,7 @@ function crearTarjeta(fila) {
    // Agregar el evento de clic a la tarjeta
       tarjetaDiv.addEventListener('click', function() {
          // Redirigir a otra página al hacer clic en la tarjeta
-         window.location.href = 'entrada_foro.php?id=' + fila.id_publicacion; // Cambia 'otra_pagina.php' por la ruta de tu página de destino
+         window.location.href = 'entrada_foro.php'; // Cambia 'otra_pagina.php' por la ruta de tu página de destino ?id=' + fila.id_publicacion
                         });
     return tarjetaDiv;
 }
