@@ -88,14 +88,13 @@ if ($stmt = mysqli_prepare($conn, $sql)) {
       <section class="users">
         <div class="header">
           <div class="content">
-
             <img src="<?php echo $row['foto_psicologo'] ?>" alt="foto psicólogo" />
 
             <div class="details">
               <span><?php echo $row['nombre_psicologo'] . " " . $row['apellidos_psicologo'] ?></span>
             </div>
           </div>
-          <a href="paciente_psico.php" class="logout">Volver</a>
+          <a class="logout" id="back_button">Volver</a>
         </div>
         <div class="search">
           <span class="text">Seleciona un paciente para empezar a hablar</span>

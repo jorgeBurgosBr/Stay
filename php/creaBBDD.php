@@ -233,18 +233,17 @@ function crearBD()
                 "INSERT INTO CITA (id_paciente, id_psicologo, fecha_cita, hora_cita)
                 VALUES 
                 (1, 1, '2024-02-28', '10:00:00'),
-                (1, 1, '2024-03-25', '17:00:00'),
-                (1, 1, '2024-03-23', '12:00:00'),
-                (1, 1, '2024-03-06', '10:00:00'),
+                (1, 1, '2024-03-05', '17:00:00'),
                 (1, 1, '2024-04-01', '09:00:00'),
-                (2, 1, '2024-01-12', '11:30:00'),
-                (2, 1, '2024-02-29', '13:00:00'),
-                (2, 1, '2024-03-15', '14:00:00'),
+                (2, 1, '2024-03-12', '11:30:00'),
+                (2, 1, '2024-04-29', '13:00:00'),
                 (3, 2, '2024-03-15', '10:00:00'),
                 (4, 2, '2024-03-18', '14:30:00'),
                 (3, 2, '2024-02-27', '14:00:00'),
                 (4, 2, '2024-04-03', '11:30:00'),
-                (5, 3, '2024-01-20', '16:00:00');",
+                (5, 3, '2024-02-28', '10:00:00'),
+                (5, 3, '2024-03-20', '16:00:00'),
+                (5, 3, '2024-04-02', '12:00:00');",
                 "INSERT INTO PACIENTE_PSICOLOGO (id_paciente, id_psicologo, fecha_inicio)
                 VALUES 
                 (1, 1, '2023-01-01'),
@@ -270,9 +269,9 @@ function crearBD()
                 VALUES 
                 (1, 'La importancia del mindfulness', 'Explora cómo el mindfulness mejora tu bienestar y productividad. Aprende técnicas prácticas para una vida más serena y consciente. ¡Inicia tu viaje hacia el equilibrio!', './img/articulos/articulo_1.png'),
                 (1, 'Gestión del estrés en el trabajo', 'Descubre cómo gestionar el estrés laboral y mejora tu bienestar. Estrategias eficaces para un equilibrio entre trabajo y descanso.', './img/articulos/articulo_2.png'),
-                (1, 'Relaciones saludables', 'Aprende a fortalecer tus relaciones con comunicación, respeto y empatía. Mejora tus conexiones para vínculos más profundos.', './img/articulos/articulo_3.png'),
-                (4, 'El poder del pensamiento positivo', 'Descubre cómo el pensamiento positivo puede moldear tu realidad, abriendo puertas a nuevas oportunidades. Cultiva una mente optimista y resiliente para un crecimiento personal y éxito duraderos.', './img/articulos/articulo_4.png'),
-                (5, 'Desarrollo personal a través de la psicología', 'Explora la psicología del desarrollo personal con herramientas para superar obstáculos y maximizar tu potencial.', './img/articulos/articulo_5.png');",
+                (2, 'Relaciones saludables', 'Aprende a fortalecer tus relaciones con comunicación, respeto y empatía. Mejora tus conexiones para vínculos más profundos.', './img/articulos/articulo_3.png'),
+                (2, 'El poder del pensamiento positivo', 'Descubre cómo el pensamiento positivo puede moldear tu realidad, abriendo puertas a nuevas oportunidades. Cultiva una mente optimista y resiliente para un crecimiento personal y éxito duraderos.', './img/articulos/articulo_4.png'),
+                (3, 'Desarrollo personal a través de la psicología', 'Explora la psicología del desarrollo personal con herramientas para superar obstáculos y maximizar tu potencial.', './img/articulos/articulo_5.png');",
                 "INSERT INTO ENTRADA_ARTICULO (id_articulo, contenido_articulo, multimedia_articulo)
                 VALUES 
                 (1, 'articulos_html/articulo1.php', 'multimedia/articulo1/'),

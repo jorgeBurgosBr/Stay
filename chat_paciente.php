@@ -88,7 +88,7 @@ $bd->seleccionarContexto('stay');
                     }
 
                     ?>
-                    <a class="back-icon" href="psicologo_usuario.php"><i class="fas fa-arrow-left"></i></a>
+                    <a class="back-icon" id="backButton"><i class="fas fa-arrow-left"></i></a>
                     <img src="<?php echo $row['foto_psicologo'] ?>" alt="" />
                     <div class="details">
                         <span><?php echo $row['nombre_psicologo'] . " " . $row['apellidos_psicologo'] ?></span>
