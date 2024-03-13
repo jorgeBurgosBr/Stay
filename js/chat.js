@@ -36,8 +36,8 @@ sendBtn.onclick = () => {
    })
       .then(response => response.json())
       .then(data => {
-            inputField.value = "";//once message inserted into database then leave blank the input field
-            scrollToBotton();
+         inputField.value = "";//once message inserted into database then leave blank the input field
+         scrollToBotton();
       })
 }
 
@@ -74,25 +74,32 @@ setInterval(() => {
       method: 'POST',
       body: formData,
    })
-   .then(response => {
-      if (!response.ok) {
-         throw new Error('Network response was not ok');
-      }
-      return response.text(); // assuming the response is text
-   })
-   .then(data => {
-      chatBox.innerHTML = data;
-      if (!chatBox.classList.contains("active")) {
-         scrollToBotton();
-      }
-   })
-   .catch(error => {
-      console.error('There has been a problem with your fetch operation:', error);
-   });
+      .then(response => {
+         if (!response.ok) {
+            throw new Error('Network response was not ok');
+         }
+         return response.text(); // assuming the response is text
+      })
+      .then(data => {
+         chatBox.innerHTML = data;
+         if (!chatBox.classList.contains("active")) {
+            scrollToBotton();
+         }
+      })
+      .catch(error => {
+         console.error('There has been a problem with your fetch operation:', error);
+      });
 }, 500);
 
 
 
 function scrollToBotton() {
    chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+var backButton = document.getElementById('backButton');
+if (backButton) {
+   backButton.addEventListener('click', function () {
+      window.history.back();
+   });
 }
